@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="header.css" />
 		<link rel="stylesheet" href="aside.css" />
 		<link rel="stylesheet" href="footer.css" />
+		<link rel="stylesheet" href="are-you-student.css" />
 		<script src="https://kit.fontawesome.com/358fa893fd.js" crossorigin="anonymous"></script>
 	</head>
 	<body style="background-color: var(--neutral-10);">
@@ -202,7 +203,7 @@
 				</div>
 			</div>
 			<div class="radio-options restrict-width" style="margin-top: 25px">
-				<h5>Example of a question</h5>
+				<h5 class="form-question">Example of a question</h5>
 				<div class="radio-container restrict-width">
 					<label for="option4">
 						<input id="option4" type="radio" name="radio-input-name" />
@@ -236,7 +237,6 @@
 				</div>
 			</div>
 		</section>
-
 		<section style="margin: 25px;">
 			<div class="text-input-container">
 				<div>
@@ -374,14 +374,125 @@
 						</p>
 					</div>
 					<div class="form-inputs">
-						<div class="text-input-container">
+						<div class="select-input-container">
+							<h5 class="form-question">¿En qué Escuela estudias?</h5>
 							<div>
-								<input type="text" placeholder="Nombre" />
-								<span>Obligatorio</span>
+								<div class="select-input-wrapper">
+									<div class="selection-box">
+										<input
+											type="text"
+											placeholder="Buscar"
+											value="Escuela de Ingenieros informáticos"
+										/>
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="select-input-container">
+							<h5 class="form-question">¿En qué Escuela estudias?</h5>
+							<div>
+								<div class="select-input-wrapper open">
+									<div class="selection-box">
+										<input
+											type="text"
+											placeholder="Buscar"
+											value="Escuela de Ingenieros informáticos"
+										/>
+										<i class="fas fa-times"></i>
+									</div>
+								</div>
+								<div class="select-input-options">
+									<ul>
+										<li>Option 1</li>
+										<li class="active">Escuela de Ingenieros informáticos</li>
+										<li>
+											Option 3: This option is much larger than the others just to test how it looks
+										</li>
+										<li>Option 4</li>
+										<div class="select-input-divider"></div>
+										<li>Option 5</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="form-section availability">
+					<div class="form-info">
+						<h4>Disponibilidad</h4>
+						<p class="small">
+							Sin título pero una breve descripción sobre el formulario
+						</p>
+					</div>
+					<div class="form-inputs">
+						<div class="empty"></div>
+					</div>
+				</div>
+				<div class="grid">
+					<div class="time-periods-options">
+						<div class="time-period">
+							<span>Mañana</span>
+						</div>
+						<div class="time-period">
+							<span>Tarde</span>
+						</div>
+					</div>
+					<div class="time-slots-container">
+						<div class="day-title">
+							<span class="day">Lunes</span>
+							<span class="date">18 de Marzo</span>
+						</div>
+						<div class="day-title">
+							<span class="day">Martes</span>
+							<span class="date">19 de Marzo</span>
+						</div>
+						<div class="day-title">
+							<span class="day">Miércoles</span>
+							<span class="date">20 de Marzo</span>
+						</div>
+						<div class="day-title">
+							<span class="day">Jueves</span>
+							<span class="date">21 de Marzo</span>
+						</div>
+						<div class="day-title">
+							<span class="day">Viernes</span>
+							<span class="date">22 de Marzo</span>
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-1" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-2" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-3" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-4" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-5" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-6" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-7" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-8" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-9" type="checkbox" />
+						</div>
+						<div class="time-slot">
+							<input id="time-slot-10" type="checkbox" />
+						</div>
+					</div>
+				</div>
+				<div class="slide-to-the-left">Pssst, desliza, hay mas opciones</div>
+
 				<div class="form-section">
 					<div class="form-info">
 						<h4>Una última cosa...</h4>
@@ -402,6 +513,36 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</section>
+		<section>
+			<div class="are-u-student-container">
+				<div class="question">
+					<span class="opening-question-mark">¿</span>
+					<span class="closing-question-mark">?</span>
+					<span class="you-are">Eres...</span>
+					<div class="checkbox-container student-checkbox">
+						<div>
+							<div>
+								<input id="option9" type="checkbox" checked />
+							</div>
+							<div class="checkbox-info">
+								<label for="option9">estudiante</label>
+							</div>
+						</div>
+					</div>
+					<div class="checkbox-container upm-checkbox">
+						<div>
+							<div>
+								<input id="option10" type="checkbox" checked />
+							</div>
+							<div class="checkbox-info">
+								<label for="option10">de la UPM...</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="small answer">Sí, soy estudiante de la UPM</p>
 			</div>
 		</section>
 	</body>

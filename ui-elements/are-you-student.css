@@ -1,0 +1,50 @@
+.are-u-student-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--neutral-2);
+	position: relative;
+	max-width: 250px;
+	margin: 0 auto;
+}
+
+.are-u-student-container .checkbox-container .checkbox-info {
+	margin-left: var(--space-xs);
+}
+.are-u-student-container .checkbox-container .checkbox-info label {
+	color: var(--neutral-32);
+	font-style: var(--source-sans-pro);
+	font-weight: var(--font-regular);
+}
+
+.student-checkbox {
+	margin: var(--space-xxxs) var(--space-s);
+	margin-right: 0;
+}
+
+.upm-checkbox {
+	margin: var(--space-xs) calc(2 * var(--space-s));
+	margin-right: 0;
+}
+.opening-question-mark,
+.closing-question-mark {
+	position: absolute;
+	font-size: 80px;
+	font-style: var(--roboto);
+	font-weight: var(--font-bold-roboto);
+	opacity: 0.15;
+	color: var(--neutral-6);
+}
+
+.opening-question-mark {
+	left: 30px;
+	top: -21px;
+}
+
+.closing-question-mark {
+	right: 44px;
+	top: -30px;
+}
+.answer {
+	margin-top: var(--space-xs);
+}

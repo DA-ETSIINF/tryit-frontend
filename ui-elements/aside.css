@@ -14,22 +14,22 @@
 	box-shadow: var(--box-shadow-on-light-bck);
 }
 
-aside .logo {
+.menu aside .logo {
 	font-size: 18px;
 	font-family: var(--roboto);
 	font-weight: var(--font-bold-roboto);
 	color: var(--neutral-1);
 }
 
-ul {
+.menu ul {
 	list-style: none;
 }
 
-ul li {
+.menu ul li {
 	cursor: pointer;
 }
 
-ul li:hover {
+.menu ul li:hover {
 	text-decoration: underline;
 }
 

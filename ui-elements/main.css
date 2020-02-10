@@ -353,6 +353,7 @@ input {
 	flex-shrink: 0;
 	transition: all var(--transition-fast) ease-in-out;
 	box-shadow: var(--box-shadow-input-inset);
+	cursor: pointer;
 }
 
 [type="checkbox"]:checked {
@@ -362,6 +363,7 @@ input {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-color: var(--primary-6);
+	box-shadow: none;
 }
 
 .checkbox-container > div > .checkbox-info > label,
@@ -370,6 +372,7 @@ input {
 	font-weight: var(--font-bold-roboto);
 	color: var(--neutral-3);
 	font-size: 15px;
+	cursor: pointer;
 }
 
 .radio-container > label > span {
@@ -380,18 +383,12 @@ input {
 	margin-top: var(--space-xxxs);
 }
 
-.radio-options h5 {
-	color: var(--neutral-2);
-	font-size: 15px;
-	margin-bottom: var(--space-xs);
-}
 .radio-options h5 ~ div {
 	margin-left: var(--space-m);
 }
 .radio-container > label {
 	line-height: var(--space-s);
 	margin: var(--space-xs) 0;
-	cursor: pointer;
 	display: flex;
 	align-items: flex-start;
 }
@@ -411,6 +408,7 @@ input {
 }
 [type="radio"]:checked + .outer {
 	border: 2px solid var(--primary-6);
+	box-shadow: none;
 }
 
 [type="radio"]:focus + .outer .inner {
@@ -443,7 +441,6 @@ input {
 }
 
 .text-input-container {
-	display: flex;
 	margin: var(--space-s) 0;
 }
 
@@ -457,7 +454,7 @@ input {
 	border: 1px solid var(--neutral-7);
 	border-radius: var(--border-radius-m);
 	padding: var(--space-xs) var(--space-m);
-	width: calc(100% - 2 * var(--space-m) - 2 * 1);
+	width: calc(100% - 2 * var(--space-m) - 2px * 1);
 	outline: none;
 	color: var(--neutral-1);
 	background-color: transparent;
@@ -527,6 +524,13 @@ input {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	position: relative;
+}
+
+.form-question {
+	color: var(--primary-2);
+	font-size: 16px;
+	margin-bottom: var(--space-xs);
 }
 
 .form-info h4 {
@@ -558,5 +562,197 @@ input {
 
 	.form-inputs {
 		width: 400px;
+	}
+}
+
+.select-input-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: var(--space-s) auto;
+}
+
+.select-input-container > div {
+	width: 100%;
+}
+
+.select-input-wrapper {
+	border: 1px solid var(--neutral-7);
+	border-radius: var(--border-radius-m);
+	/*
+	padding: var(--space-xs) var(--space-m);
+	padding-right: calc(2 * var(--space-s) + 9.38px);
+	*/
+	color: var(--neutral-1);
+	background-color: transparent;
+	box-shadow: var(--box-shadow-input-inset), var(--box-shadow-on-light-bck-light);
+	position: relative;
+	text-align: left;
+	font-size: 13px;
+	overflow: hidden;
+	white-space: nowrap;
+	z-index: 990;
+}
+
+.select-input-wrapper .selection-box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.select-input-wrapper.open {
+	border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
+	border-bottom: 1px solid var(--neutral-8);
+}
+
+.select-input-wrapper [type="text"] {
+	border: none;
+	width: inherit;
+	box-shadow: none;
+	width: calc(100% - 2 * var(--space-m) - var(--space-s));
+	padding-right: 0;
+}
+.select-input-wrapper i {
+	position: absolute;
+	background: var(--neutral-9);
+	top: 0;
+	right: 0;
+	border-radius: 0 var(--border-radius-m) var(--border-radius-m) 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: var(--space-xs) var(--space-s);
+	font-size: 15px;
+	border-left: var(--space-xxs) solid var(--neutral-10);
+	cursor: pointer;
+}
+.select-input-wrapper.open i {
+	background: transparent;
+	font-size: 12px;
+	color: var(--neutral-6);
+	margin-top: 2px;
+	border-left: none;
+	padding: var(--space-xs) var(--space-s);
+}
+.select-input-options {
+	position: relative;
+	z-index: 991;
+}
+.select-input-options ul {
+	box-shadow: var(--box-shadow-on-light-bck-light);
+	list-style: none;
+	border: 1px solid var(--neutral-7);
+	border-top: none;
+	border-radius: 0 0 var(--border-radius-m) var(--border-radius-m);
+	font-size: 13px;
+	color: var(--neutral-3);
+}
+.select-input-options ul li {
+	padding: var(--space-xxs) calc(var(--space-m) - 5px);
+	cursor: pointer;
+	border-left: 5px solid transparent;
+	transition: var(--transition-fast) all ease;
+}
+
+.select-input-options ul li.active {
+	background: var(--primary-10);
+	border-left: 5px solid var(--primary-6);
+}
+
+.select-input-options ul li:hover {
+	background: var(--neutral-9);
+	border-left: 5px solid var(--primary-4);
+}
+
+.select-input-divider {
+	height: 1px;
+	background: var(--neutral-8);
+	width: 100%;
+	margin: var(--space-xxs) 0;
+}
+
+.grid {
+	display: flex;
+	min-width: 100%;
+}
+
+.time-slots-container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: 2fr repeat(2, 1fr);
+	justify-items: center;
+	width: 100%;
+	flex: 1;
+	overflow-x: auto;
+	padding-bottom: var(--space-s);
+}
+
+.time-slots-container .day-title {
+	display: flex;
+	flex-direction: column;
+	padding: var(--space-xs) 0;
+	min-width: 85px;
+}
+.time-slots-container .day-title span {
+	text-align: center;
+	font-family: var(--roboto);
+	font-weight: var(--font-medium-roboto);
+}
+.time-slots-container .day-title span:first-child {
+	font-size: 13px;
+	color: var(--neutral-3);
+}
+.time-slots-container .day-title span:nth-child(2) {
+	font-size: 11px;
+	color: var(--neutral-5);
+}
+
+.time-slots-container > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.time-periods-options {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding-bottom: var(--space-s);
+}
+
+.time-periods-options .time-period {
+	height: 25px;
+	text-align: right;
+	padding-right: var(--space-xs);
+}
+
+.time-periods-options .time-period > span {
+	width: 100%;
+	font-size: 13px;
+	font-family: var(--roboto);
+	font-weight: var(--font-medium-roboto);
+	color: var(--neutral-3);
+}
+.slide-to-the-left {
+	text-align: right;
+	font-size: 10px;
+	color: var(--neutral-5);
+	font-weight: var(--font-bold-roboto);
+}
+
+@media screen and (min-width: 492px) {
+	.slide-to-the-left {
+		display: none;
+}
+
+@media screen and (min-width: 900px) {
+	.grid {
+		justify-content: center;
+		min-width: 600px;
+	}
+	.time-slots-container {
+		max-width: 600px;
+	}
+	.time-periods-options {
+		margin-left: 70px;
 	}
 }
