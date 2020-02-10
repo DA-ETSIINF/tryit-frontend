@@ -1,0 +1,421 @@
+:root {
+	--primary-1: #001e3d;
+	--primary-2: #07335e;
+	--primary-3: #06447a;
+	--primary-4: #035b9e;
+	--primary-5: #0071bc;
+	--primary-6: #1c8dd4;
+	--primary-7: #34a7e5;
+	--primary-8: #7acffa;
+	--primary-9: #b8eaff;
+	--primary-10: #dff1fc;
+	--neutral-1: #1f2933;
+	--neutral-2: #323f4b;
+	--neutral-3: #3e4c59;
+	--neutral-4: #52606d;
+	--neutral-5: #616e7c;
+	--neutral-6: #7b8794;
+	--neutral-7: #9aa5b1;
+	--neutral-8: #cbd2d9;
+	--neutral-9: #e4e7eb;
+	--neutral-10: #f5f7fa;
+	--ok-1: #004440;
+	--ok-2: #016457;
+	--ok-3: #048271;
+	--ok-4: #079a82;
+	--ok-5: #17b897;
+	--ok-6: #2dcca7;
+	--ok-7: #5fe3c0;
+	--ok-8: #8eedd1;
+	--ok-9: #c6f7e9;
+	--ok-10: #f0fcf9;
+	--error-1: #610316;
+	--error-2: #8a041a;
+	--error-3: #ab091e;
+	--error-4: #cf1124;
+	--error-5: #e12d39;
+	--error-6: #ef4e4e;
+	--error-7: #f86a6a;
+	--error-8: #ff9b9b;
+	--error-9: #ffbdbd;
+	--error-10: #ffe3e3;
+	--orange-1: #841003;
+	--orange-2: #ad1d07;
+	--orange-3: #c52707;
+	--orange-4: #de3a11;
+	--orange-5: #f35627;
+	--orange-6: #f9703e;
+	--orange-7: #ff9466;
+	--orange-8: #ffb088;
+	--orange-9: #ffd0b5;
+	--orange-10: #ffe8d9;
+	--yellow-1: #8d2b0b;
+	--yellow-2: #b44d12;
+	--yellow-3: #cb6e17;
+	--yellow-4: #de911d;
+	--yellow-5: #f0b429;
+	--yellow-6: #f7c948;
+	--yellow-7: #fadb5f;
+	--yellow-8: #fce588;
+	--yellow-9: #fff3c4;
+	--yellow-10: #fffbea;
+	--bronze-1: #cd7f32;
+	--bronze-2: #e4a86d;
+	--bronze-3: #f6d2ae;
+	--bronze-4: #fcead8;
+	--silver-1: #c0c0c0;
+	--silver-2: #e3e3e3;
+	--silver-3: #f0f0f0;
+	--silver-4: #fcfcfc;
+	--gold-1: #ffdb26;
+	--gold-2: #ffe873;
+	--gold-3: #fef3c0;
+	--gold-4: #fdf7d5;
+	--platinum-1: #a0b2c6;
+	--platinum-2: #c6d2df;
+	--platinum-3: #e3ebf3;
+	--platinum-4: #f5faff;
+	--white: #ffffff;
+
+	--roboto: "Roboto", sans-serif;
+	--source-sans-pro: "Source Sans Pro", sans-serif;
+
+	--space-xxs: 5px;
+	--space-xs: 10px;
+	--space-s: 15px;
+	--space-m: 20px;
+	--space-l: 30px;
+
+	--font-regular: 400;
+	--font-medium-roboto: 500;
+	--font-bold-source-sans-pro: 600;
+	--font-bold-roboto: 700;
+
+	--box-shadow-light-bck: 0px 1px 6px var(--neutral-7);
+
+	--border-radius-m: 5px;
+
+	--transition-fast: 0.18s;
+	--transition-normal: 0.3s;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: var(--source-sans-pro);
+}
+
+.restrict-width {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 1200px) {
+	.restrict-width {
+		max-width: 1000px;
+	}
+}
+
+@media screen and (min-width: 1800px) {
+	.restrict-width {
+		max-width: 1500px;
+	}
+}
+
+h1 {
+	font-size: 34px;
+	font-family: var(--roboto);
+	font-weight: var(--font-bold-roboto);
+	color: var(--primary-1);
+}
+
+h2 {
+	font-size: 30px;
+	font-family: var(--roboto);
+	font-weight: var(--font-medium-roboto);
+	color: var(--primary-2);
+}
+
+h3 {
+	font-size: 24px;
+	font-family: var(--roboto);
+	font-weight: var(--font-medium-roboto);
+	color: var(--primary-2);
+}
+
+h4 {
+	font-size: 18px;
+	font-family: var(--roboto);
+	font-weight: var(--font-medium-roboto);
+	color: var(--neutral-3);
+}
+
+h5 {
+	font-size: 16px;
+	font-family: var(--roboto);
+	font-weight: var(--font-medium-roboto);
+	color: var(--neutral-1);
+}
+
+h6 {
+	font-size: 13px;
+	font-family: var(--roboto);
+	font-weight: var(--font-bold-roboto);
+	color: var(--neutral-1);
+	text-transform: uppercase;
+}
+
+@media screen and (min-width: 592px) {
+	h1 {
+		font-size: 48px;
+	}
+
+	h2 {
+		font-size: 44px;
+	}
+
+	h3 {
+		font-size: 36px;
+	}
+	h4 {
+		font-size: 28px;
+	}
+	h5 {
+		font-style: 20px;
+	}
+}
+
+p {
+	font-family: var(--source-sans-pro);
+	color: var(--neutral-1);
+	padding-bottom: var(--space-s);
+}
+
+p.small {
+	font-size: 0.875rem;
+	color: var(--neutral-6);
+}
+
+button.primary-btn {
+	padding: var(--space-xs) var(--space-s);
+	border: 0;
+	border-radius: var(--border-radius-m);
+	background: var(--primary-5);
+	color: var(--neutral-10);
+	font-size: 15px;
+	font-family: var(--roboto);
+	font-weight: var(--font-bold-roboto);
+	cursor: pointer;
+	box-shadow: var(--box-shadow-light-bck);
+	transition: var(--transition-fast) background ease;
+}
+
+button.primary-btn.hover {
+	background: var(--primary-4);
+}
+
+button.primary-btn.focus {
+	--border-width: 3px;
+	border: var(--border-width) solid var(--neutral-1);
+	padding: calc(var(--space-xs) - var(--border-width)) calc(var(--space-s) - var(--border-width));
+	background: var(--primary-4);
+	outline: none;
+}
+
+button.primary-btn.disabled {
+	border: 0;
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+button.secondary-btn {
+	padding: var(--space-xs) var(--space-s);
+	border: 1px solid var(--primary-5);
+	border-radius: var(--border-radius-m);
+	color: var(--primary-4);
+	background: var(--neutral-10);
+	font-size: 15px;
+	font-family: var(--roboto);
+	font-weight: var(--font-bold-roboto);
+	cursor: pointer;
+	box-shadow: var(--box-shadow-light-bck);
+	transition: var(--transition-fast) background ease;
+}
+
+button.secondary-btn.hover {
+	border: 1px solid var(--primary-4);
+	background: var(--neutral-9);
+}
+
+button.secondary-btn.focus {
+	--border-width: 2px;
+	padding: calc(var(--space-xs) - var(--border-width)) calc(var(--space-s) - var(--border-width));
+	border: var(--border-width) solid var(--primary-5);
+}
+
+button.secondary-btn.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+button.tertiary-btn {
+	letter-spacing: 1.9px;
+	text-decoration: underline;
+	border: 0;
+	color: var(--neutral-3);
+	background: var(--neutral-10);
+	font-size: 15px;
+	font-family: var(--roboto);
+	font-weight: var(--font-bold-roboto);
+	cursor: pointer;
+	transition: var(--transition-fast) background ease;
+	padding: var(--space-xs) var(--space-s);
+}
+
+button.tertiary-btn.hover {
+	color: var(--neutral-1);
+}
+
+button.tertiary-btn.focus {
+	border: 1px solid var(--neutral-2);
+	border-radius: 5px;
+	color: var(--neutral-1);
+}
+
+button.tertiary-btn.disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+input {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+	line-height: inherit;
+}
+
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.checkbox-container > div:first-child,
+.radio {
+	display: flex;
+}
+.radio-container {
+	align-items: center;
+}
+
+.checkbox-container .checkbox-info {
+	margin-left: var(--space-m);
+}
+
+.radio-container label {
+	margin-left: var(--space-xs);
+}
+
+[type="checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-print-color-adjust: exact;
+	color-adjust: exact;
+	display: inline-block;
+	vertical-align: middle;
+	background-origin: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	height: 1em;
+	width: 1em;
+	color: var(--primary-5);
+	border: 1px solid var(--neutral-4);
+	border-radius: 0.25rem;
+	flex-shrink: 0;
+}
+
+[type="checkbox"]:checked {
+	background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+	border-color: transparent;
+	background-size: 100% 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: var(--primary-6);
+}
+
+.checkbox-container > div > .checkbox-info > label,
+.radio-container > label > span {
+	font-style: var(--roboto);
+	font-weight: var(--font-bold-roboto);
+	color: var(--neutral-3);
+	font-size: 15px;
+}
+
+.checkbox-container p {
+	margin-top: var(--space-xxs);
+}
+
+.radio-options h5 {
+	color: var(--neutral-2);
+	font-size: 15px;
+	margin-bottom: var(--space-xs);
+}
+.radio-options h5 ~ div {
+	margin-left: var(--space-m);
+}
+.radio-container > label {
+	line-height: var(--space-s);
+	margin: var(--space-xs) 0;
+	cursor: pointer;
+	display: flex;
+	align-items: flex-start;
+}
+
+.radio-container > label > span {
+	margin-left: var(--space-xs);
+}
+
+[type="radio"] {
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+[type="radio"]:checked + .outer .inner {
+	transform: scale(1);
+	opacity: 1;
+}
+[type="radio"]:checked + .outer {
+	border: 2px solid var(--primary-6);
+}
+
+[type="radio"]:focus + .outer .inner {
+	transform: scale(1);
+	opacity: 1;
+	background-color: var(--primary-6);
+}
+
+.outer {
+	width: 10px;
+	height: 10px;
+	display: block;
+	float: left;
+	border: 2px solid var(--neutral-4);
+	border-radius: 50%;
+	background-color: var(--neutral-10);
+}
+
+.inner {
+	transition: all var(--transition-normal) ease-in-out;
+	width: 6px;
+	height: 6px;
+	transform: scale(0);
+	display: block;
+	margin: 2px;
+	border-radius: 50%;
+	background-color: var(--primary-5);
+	opacity: 0;
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>HELLO</title>
+
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:400,500,700|Source+Sans+Pro:400,600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="main.css" />
+		<link rel="stylesheet" href="header.css" />
+		<link rel="stylesheet" href="aside.css" />
+		<link rel="stylesheet" href="footer.css" />
+		<script src="https://kit.fontawesome.com/358fa893fd.js" crossorigin="anonymous"></script>
+	</head>
+	<body style="background-color: var(--neutral-10);">
+		<section>
+			<header class="main-header">
+				<div class="menu-container restrict-width" id="mobileMenu">
+					<span class="logo">Try IT!</span>
+					<i class="fas fa-bars"></i>
+				</div>
+			</header>
+			<div class="menu-blank"></div>
+
+			<script>
+				const h = document.querySelector("#mobileMenu").offsetHeight + "px"
+				document.querySelector(".menu-blank").style.height = h
+			</script>
+		</section>
+
+		<div style="padding: 15px 25px">
+			<h1 class="restrict-width">This is a H1</h1>
+			<h2 class="restrict-width">This is a H2</h2>
+			<h3 class="restrict-width">This is a H3</h3>
+			<h4 class="restrict-width">This is a H4</h4>
+			<h5 class="restrict-width">This is a H5</h5>
+			<h6 class="restrict-width">This is a H6</h6>
+		</div>
+		<div style="padding: 15px 25px">
+			<p class="restrict-width">
+				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+				invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+				et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+				Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+				diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+				voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+				gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+			</p>
+			<p class="restrict-width">
+				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+				invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+				et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+				Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+				diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+				voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+				gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+			</p>
+		</div>
+
+		<section>
+			<div class="menu">
+				<aside>
+					<header class="logo">Try IT!</header>
+					<ul class="primary-options">
+						<li>Entrada</li>
+						<li>Programa</li>
+						<li>Talleres</li>
+						<li>Eventos</li>
+						<li>Escape Room</li>
+						<li>Registro voluntarios</li>
+					</ul>
+					<ul class="secondary-options">
+						<li>ECTS obtenidos</li>
+						<li>Ediciones anteriores</li>
+						<li>Organizadores</li>
+						<li>Contacto</li>
+					</ul>
+				</aside>
+				<i class="fas fa-times close"></i>
+			</div>
+		</section>
+
+		<section>
+			<div style="margin-top: 40px; padding: 15px 25px" ; justify-content: center>
+				<button style="display: flex; margin: 0 auto" class="primary-btn">Enviar</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="primary-btn hover">Enviar</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="primary-btn focus">Enviar</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="primary-btn disabled">Enviar</button>
+			</div>
+			<div style="margin-top: 40px; padding: 15px 25px" ; justify-content: center>
+				<button style="display: flex; margin: 0 auto" class="secondary-btn">Visitar</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="secondary-btn hover">Visitar</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="secondary-btn focus">Visitar</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="secondary-btn disabled">
+					Visitar
+				</button>
+			</div>
+			<div style="margin-top: 40px; padding: 15px 25px;" ; justify-content: center>
+				<button
+					style="display: flex; margin: 0 auto"
+					style="display: flex; margin: 0 auto"
+					class="tertiary-btn"
+				>
+					Cancelar
+				</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="tertiary-btn hover">Cancelar</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="tertiary-btn focus">Cancelar</button>
+				<div style="height: 20px;"></div>
+				<button style="display: flex; margin: 0 auto" class="tertiary-btn disabled">
+					Cancelar
+				</button>
+			</div>
+		</section>
+		<section>
+			<footer>
+				<!-- TODO Add links-->
+				<div class="container restrict-width">
+					<div class="organizations">
+						<div class="organizer">
+							<h6>Organiza</h6>
+							<div>
+								<img src="../assets/img/daetsiinf.png" alt="Logo de DA-ETSIINF" />
+							</div>
+						</div>
+						<div class="collaborators">
+							<h6>Colabora</h6>
+							<div>
+								<img src="../assets/img/ACM.png" alt="Logo de ACM" />
+							</div>
+						</div>
+					</div>
+					<div class="find-us">
+						<i class="fab fa-twitter"></i>
+						<span>Contacto</span>
+						<i class="fab fa-github"></i>
+					</div>
+					<i class="fab fa-creative-commons creative-commons"></i>
+				</div>
+			</footer>
+		</section>
+		<script>
+			window.scrollTo(0, document.body.scrollHeight)
+		</script>
+
+		<section style="margin: 25px 0;">
+			<div class="checkbox-container restrict-width">
+				<div>
+					<div>
+						<input id="option1" type="checkbox" />
+					</div>
+					<div class="checkbox-info">
+						<label for="option1">Short item</label>
+						<p class="small">
+							So far so good with just a short label, right?
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="checkbox-container restrict-width">
+				<div>
+					<div>
+						<input id="option2" type="checkbox" />
+					</div>
+					<div class="checkbox-info">
+						<label for="option2">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Est doloribus ex neque
+							blanditiis quibusdam repellat, assumenda exercitationem nesciunt aut qui porro
+							temporibus consequatur eaque minima repudiandae cupiditate obcaecati optio quas.
+						</label>
+						<p class="small">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Est doloribus ex neque
+							blanditiis quibusdam repellat, assumenda exercitationem nesciunt aut qui porro
+							temporibus consequatur eaque minima repudiandae cupiditate obcaecati optio quas
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="checkbox-container restrict-width">
+				<div>
+					<div>
+						<input id="option3" type="checkbox" />
+					</div>
+					<div class="checkbox-info">
+						<label for="option3">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Est doloribus ex neque
+							blanditiis quibusdam repellat, assumenda exercitationem nesciunt aut qui porro
+							temporibus consequatur eaque minima repudiandae cupiditate obcaecati optio quas.
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="radio-options restrict-width" style="margin-top: 25px">
+				<h5>Example of a question</h5>
+				<div class="radio-container restrict-width">
+					<label for="option4">
+						<input id="option4" type="radio" name="radio-input-name" />
+						<div class="outer">
+							<div class="inner"></div>
+						</div>
+						<span>Short item</span>
+					</label>
+				</div>
+				<div class="radio-container restrict-width">
+					<label for="option5">
+						<input id="option5" type="radio" name="radio-input-name" />
+						<div class="outer">
+							<div class="inner"></div>
+						</div>
+						<span for="option5">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Est doloribus ex neque
+							blanditiis quibusdam repellat, assumenda exercitationem nesciunt aut qui porro
+							temporibus consequatur eaque minima repudiandae cupiditate obcaecati optio quas.
+						</span>
+					</label>
+				</div>
+				<div class="radio-container restrict-width">
+					<label for="option6">
+						<input id="option6" type="radio" name="radio-input-name" />
+						<div class="outer">
+							<div class="inner"></div>
+						</div>
+						<span>Short item</span>
+					</label>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

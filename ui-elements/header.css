@@ -1,0 +1,28 @@
+header.main-header {
+	width: 100%;
+	position: fixed;
+	background: var(--neutral-10);
+	box-shadow: var(--box-shadow-light-bck);
+	z-index: 1000;
+}
+
+header.main-header .menu-container {
+	display: flex;
+	justify-content: space-between;
+	padding: var(--space-s) var(--space-l);
+	color: var(--neutral-4);
+	align-items: center;
+}
+
+.logo {
+	font-size: 18px;
+	font-family: var(--roboto);
+	font-weight: var(--font-bold-roboto);
+}
+
+/* TODO 
+Detect when user scroll in the page so it changes the bck
+.menu:not([data-scroll="0"]) {
+
+}
+*/
