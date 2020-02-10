@@ -66,7 +66,7 @@
 	--silver-1: #c0c0c0;
 	--silver-2: #e3e3e3;
 	--silver-3: #f0f0f0;
-	--silver-4: #fcfcfc;
+	--silver-4: #efefef;
 	--gold-1: #ffdb26;
 	--gold-2: #ffe873;
 	--gold-3: #fef3c0;
@@ -74,7 +74,7 @@
 	--platinum-1: #a0b2c6;
 	--platinum-2: #c6d2df;
 	--platinum-3: #e3ebf3;
-	--platinum-4: #f5faff;
+	--platinum-4: #dde6f1;
 	--white: #ffffff;
 
 	--roboto: "Roboto", sans-serif;
@@ -742,6 +742,7 @@ input {
 @media screen and (min-width: 492px) {
 	.slide-to-the-left {
 		display: none;
+	}
 }
 
 @media screen and (min-width: 900px) {
@@ -755,4 +756,45 @@ input {
 	.time-periods-options {
 		margin-left: 70px;
 	}
+}
+
+.tag-selection-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: var(--space-s) auto;
+}
+.tag-selection-container ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tag-selection-container ul li {
+	padding: var(--space-xxs) var(--space-xs);
+	color: var(--primary-5);
+	border: 2px solid var(--primary-5);
+	border-radius: var(--border-radius-m);
+	margin-bottom: var(--space-s);
+	box-shadow: var(--box-shadow-on-light-bck-light);
+	font-weight: var(--font-bold-roboto);
+	font-family: var(--roboto);
+	cursor: pointer;
+	transition: var(--transition-fast);
+}
+
+.tag-selection-container ul li:not(:last-child) {
+	margin-right: var(--space-s);
+}
+
+.tag-selection-container ul li.active {
+	background-color: var(--primary-5);
+	color: var(--neutral-10);
+}
+
+.tag-selection-container ul li:hover {
+	transform: scale(1.05);
+	border: 2px solid var(--primary-4);
+	background: var(--primary-10);
+	color: var(--primary-5);
 }
