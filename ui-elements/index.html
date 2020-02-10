@@ -126,7 +126,7 @@
 		<section>
 			<footer>
 				<!-- TODO Add links-->
-				<div class="container restrict-width">
+				<div class="footer-container restrict-width">
 					<div class="organizations">
 						<div class="organizer">
 							<h6>Organiza</h6>
@@ -154,7 +154,7 @@
 			window.scrollTo(0, document.body.scrollHeight)
 		</script>
 
-		<section style="margin: 25px 0;">
+		<section style="margin: 25px;">
 			<div class="checkbox-container restrict-width">
 				<div>
 					<div>
@@ -234,6 +234,27 @@
 						<span>Short item</span>
 					</label>
 				</div>
+			</div>
+		</section>
+
+		<section style="margin: 25px;">
+			<div class="text-input-container">
+				<input type="text" placeholder="DNI / NIE" />
+				<span>Obligatorio *</span>
+			</div>
+			<div class="text-input-container">
+				<input type="text" class="focus" placeholder="DNI / NIE" />
+				<span>Que no se te olviden las letras &#x1f609;</span>
+			</div>
+			<div class="text-input-container">
+				<input type="text" class="ok" placeholder="DNI / NIE" value="00000000X" />
+			</div>
+			<div class="text-input-container">
+				<input type="text" class="error" placeholder="DNI / NIE" value="00000000X" />
+				<span>Parece que no es un número válido &#x1f62c;</span>
+			</div>
+			<div class="text-input-container">
+				<input type="text" disabled placeholder="DNI / NIE" class="disabled" />
 			</div>
 		</section>
 	</body>

@@ -2,7 +2,7 @@ header.main-header {
 	width: 100%;
 	position: fixed;
 	background: var(--neutral-10);
-	box-shadow: var(--box-shadow-light-bck);
+	box-shadow: var(--box-shadow-on-light-bck);
 	z-index: 1000;
 }
 
