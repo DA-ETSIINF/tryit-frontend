@@ -100,6 +100,8 @@
 	--box-shadow-on-light-bck-light-error: 0px 1px 6px var(--error-8);
 	--box-shadow-on-light-bck-light-info: 0px 1px 6px var(--yellow-8);
 
+	--box-shadow-img-inset: inset 0 0 0 1px hsla(0, 0%, 0%, 0.2);
+
 	--box-shadow-input-inset: inset 0 0 3px var(--neutral-8);
 	--box-shadow-input-inset-ok: inset 0 0 3px var(--ok-8);
 	--box-shadow-input-inset-error: inset 0 0 3px var(--error-8);
@@ -768,6 +770,7 @@ input {
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .tag-selection-container ul li {
@@ -781,10 +784,7 @@ input {
 	font-family: var(--roboto);
 	cursor: pointer;
 	transition: var(--transition-fast);
-}
-
-.tag-selection-container ul li:not(:last-child) {
-	margin-right: var(--space-s);
+	margin: var(--space-xs);
 }
 
 .tag-selection-container ul li.active {
@@ -797,4 +797,138 @@ input {
 	border: 2px solid var(--primary-4);
 	background: var(--primary-10);
 	color: var(--primary-5);
+}
+
+.session-container {
+	background: var(--white);
+	box-shadow: var(--box-shadow-on-light-bck);
+	border-radius: var(--border-radius-m);
+	padding: var(--space-s) var(--space-m);
+	position: relative;
+}
+
+.session-container header h3 {
+	font-size: 20px;
+	text-align: left;
+}
+
+.session-container i.gift {
+	position: absolute;
+	top: calc(-1 * var(--space-s) / 2);
+	left: calc(-1 * var(--space-m) / 2);
+	background-color: var(--neutral-9);
+	padding: var(--space-xxs);
+	border-radius: 50%;
+	height: 14px;
+	width: 14px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--neutral-4);
+	font-size: 14px;
+	border: 2px solid var(--neutral-4);
+}
+
+.session-container .info-wrapper .description,
+.session-container .info-wrapper .room,
+.session-container .info-wrapper .speakers-detail,
+.session-container .info-wrapper .company {
+	display: none;
+}
+
+.session-container.open .info-wrapper .description,
+.session-container.open .info-wrapper .room,
+.session-container.open .info-wrapper .speakers-detail,
+.session-container.open .info-wrapper .company {
+	display: inherit;
+}
+
+.session-container .info-wrapper .speakers-preview {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: var(--space-s) 0;
+}
+
+.session-container.open .info-wrapper .description {
+	margin: var(--space-xxs) 0;
+}
+
+.session-container.open .info-wrapper .room {
+	font-size: 13px;
+	color: var(--neutral-4);
+	text-transform: uppercase;
+	font-weight: var(--font-bold-source-sans-pro);
+	margin: var(--space-xxs) 0;
+	margin-bottom: var(--space-s);
+	letter-spacing: 1.3px;
+}
+.session-container.open .info-wrapper .speakers-preview {
+	display: none;
+}
+
+.session-container .info-wrapper .speaker {
+	margin: var(--space-xxs) var(--space-s);
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	position: relative;
+	z-index: 0;
+	min-width: 200px;
+}
+
+.session-container .info-wrapper .speaker div {
+	box-shadow: var(--box-shadow-input-inset);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin-right: var(--space-s);
+}
+.session-container .info-wrapper .speaker img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: block;
+	position: relative;
+	z-index: -1;
+	object-fit: cover;
+}
+
+.session-container .info-wrapper .speaker h5 {
+	text-align: left;
+}
+
+.session-container .toogle-info {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	width: calc(100% - 2 * var(--space-m));
+	bottom: -16px;
+}
+
+.session-container .toogle-info i {
+	font-size: 12px;
+	padding: var(--space-xs);
+	background: var(--primary-5);
+	border-radius: 50%;
+	color: var(--primary-10);
+	cursor: pointer;
+	box-shadow: var(--box-shadow-on-light-bck-light);
+}
+
+@media screen and (min-width: 592px) {
+	.session-container {
+		padding: var(--space-m) var(--space-l);
+	}
+}
+
+.swiper-container {
+	width: 100%;
+}
+
+.swiper-slide {
+	min-height: 200px;
+	width: 90%;
+	background: #c0c0c0;
 }
