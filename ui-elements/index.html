@@ -650,107 +650,109 @@
 		<section style="margin: 25px;">
 			<div class="session-container open">
 				<i class="fas fa-gift gift"></i>
-				<header>
-					<h3>
-						¿Sueñan los androides con ovejas eléctricas? Cómo puedo crear mis propias inteligencias
-						artificiales
-					</h3>
-				</header>
-				<div class="info-wrapper">
-					<div class="description small">
-						Pequeña descrición de lo que hace y de lo que no hace. Si es muy larga ponemos, labore
-						et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-						dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-						dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-						eirmod.
-					</div>
-					<span class="room">Sala principal</span>
-					<div class="speakers-preview">
-						<div class="speaker">
-							<div>
-								<img
-									src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
-									alt="Random profile picture"
-								/>
+				<div>
+					<header>
+						<h3>
+							¿Sueñan los androides con ovejas eléctricas? Cómo puedo crear mis propias
+							inteligencias artificiales
+						</h3>
+					</header>
+					<div class="info-wrapper">
+						<div class="description small">
+							Pequeña descrición de lo que hace y de lo que no hace. Si es muy larga ponemos, labore
+							et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+							dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+							ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+							diam nonumy eirmod.
+						</div>
+						<span class="room">Sala principal</span>
+						<div class="speakers-preview">
+							<div class="speaker">
+								<div>
+									<img
+										src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+										alt="Random profile picture"
+									/>
+								</div>
+								<h5>José Luis</h5>
 							</div>
-							<h5>José Luis</h5>
-						</div>
-						<div class="speaker">
-							<div>
-								<img
-									src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
-									alt="Random profile picture"
-								/>
+							<div class="speaker">
+								<div>
+									<img
+										src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+										alt="Random profile picture"
+									/>
+								</div>
+								<h5>José Luis tiene un nombre muy largo</h5>
 							</div>
-							<h5>José Luis tiene un nombre muy largo</h5>
-						</div>
-						<div class="speaker">
-							<div>
-								<img
-									src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
-									alt="Random profile picture"
-								/>
+							<div class="speaker">
+								<div>
+									<img
+										src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+										alt="Random profile picture"
+									/>
+								</div>
+								<h5>José Luis tiene un nombre muy largo</h5>
 							</div>
-							<h5>José Luis tiene un nombre muy largo</h5>
-						</div>
-						<div class="speaker">
-							<div>
-								<img
-									src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
-									alt="Random profile picture"
-								/>
+							<div class="speaker">
+								<div>
+									<img
+										src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
+										alt="Random profile picture"
+									/>
+								</div>
+								<h5>José Luis</h5>
 							</div>
-							<h5>José Luis</h5>
 						</div>
-					</div>
-					<!-- Swiper -->
-					<div class="swiper-container speakers-detail">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
-							<div class="swiper-slide">Speaker</div>
+						<!-- Swiper -->
+						<div class="swiper-speakers-container speakers-detail">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+								<div class="swiper-slide">Speaker</div>
+							</div>
+							<!-- Add Pagination -->
+							<div class="swiper-speakers-pagination"></div>
 						</div>
-						<!-- Add Pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-					<!-- Swiper JS -->
-					<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-					<script>
-						const swiper = new Swiper(".swiper-container", {
-							slidesPerView: 1.25,
-							centeredSlides: true,
-							spaceBetween: 2,
-							grabCursor: true,
-							pagination: {
-								el: ".swiper-pagination",
-								clickable: true
+						<!-- Swiper JS -->
+						<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+						<script>
+							const swiper = new Swiper(".swiper-speakers-container", {
+								slidesPerView: 1.25,
+								centeredSlides: true,
+								spaceBetween: 2,
+								grabCursor: true,
+								pagination: {
+									el: ".swiper-pagination",
+									clickable: true
+								}
+							})
+
+							/*TODO: CHECK ON RESIZE USING VUE JS*/
+							const width = window.innerWidth
+
+							if (width > 750) {
+								// It will change the number of elements in the slider of speakers depending on the width of window
+								swiper.slidesPerView = 2.5
 							}
-						})
-
-						/*TODO: CHECK ON RESIZE USING VUE JS*/
-						const width = window.innerWidth
-
-						if (width > 750) {
-							// It will change the number of elements in the slider of speakers depending on the width of window
-							swiper.slidesPerView = 2.5
-						}
-					</script>
-					<!-- ADD LINK TO THE COMPANY-->
-					<div class="company">
-						<div>
-							<img
-								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
-								alt="Logo empresa"
-							/>
-							<div class="badge platinum">
-								<span>Platino</span>
+						</script>
+						<!-- ADD LINK TO THE COMPANY-->
+						<div class="company">
+							<div>
+								<img
+									src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+									alt="Logo empresa"
+								/>
+								<div class="badge platinum">
+									<span>Platino</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -791,6 +793,232 @@
 				</div>
 				<div class="dot"></div>
 			</div>
+		</section>
+		<section style="margin: 25px">
+			<div class="sponsorships-container">
+				<div class="sponsorships-wrapper sponsorships-wrapper-platinum">
+					<div class="badge platinum">
+						<span>Platino</span>
+					</div>
+					<div class="logos">
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="sponsorships-wrapper sponsorships-wrapper-gold">
+					<div class="badge gold">
+						<span>Oro</span>
+					</div>
+					<div class="logos">
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="sponsorships-wrapper sponsorships-wrapper-silver">
+					<div class="badge silver">
+						<span>Silver</span>
+					</div>
+					<div class="logos">
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="sponsorships-wrapper sponsorships-wrapper-bronze">
+					<div class="badge bronze">
+						<span>Bronce</span>
+					</div>
+					<div class="logos">
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png"
+								alt="Logo empresa"
+							/>
+						</div>
+						<div>
+							<img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png"
+								alt="Logo empresa"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section style="margin: 25px 0;">
+			<div class="swiper-events-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="swiper-slide-image">
+							<img src="../assets/img/volunteers.jpg" alt="Voluntario Try IT!" />
+						</div>
+						<div class="swiper-slide-content">
+							<h2>¿Quieres ser voluntario?</h2>
+							<h4>Podrás conseguir 1 ECTS extra</h4>
+							<button class="tertiary-btn">Regístrate aquí</button>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div class="swiper-slide-image">
+							<img src="../assets/img/volunteers.jpg" alt="Voluntario Try IT!" />
+						</div>
+						<div class="swiper-slide-content">
+							<h2>¿Quieres ser voluntario?</h2>
+							<h4>Podrás conseguir 1 ECTS extra</h4>
+						</div>
+					</div>
+				</div>
+				<!-- Add Arrows -->
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+
+			<script>
+				const eventsSwiper = new Swiper(".swiper-events-container", {
+					pagination: {
+						el: ".swiper-pagination",
+						dynamicBullets: true
+					},
+					navigation: {
+						nextEl: ".swiper-button-next",
+						prevEl: ".swiper-button-prev"
+					},
+
+					grabCursor: true,
+					centeredSlides: true
+				})
+				const width2 = window.innerWidth
+				if (width2 < 650) {
+					document.querySelector(".swiper-button-next").style.display = "none"
+					document.querySelector(".swiper-button-prev").style.display = "none"
+				}
+			</script>
 		</section>
 	</body>
 </html>

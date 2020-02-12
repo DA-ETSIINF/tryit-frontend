@@ -804,10 +804,13 @@ input {
 	background: var(--white);
 	box-shadow: var(--box-shadow-on-light-bck);
 	border-radius: var(--border-radius-m);
-	padding: var(--space-s) var(--space-m);
 	position: relative;
 }
 
+.session-container > div {
+	padding: var(--space-s) var(--space-m);
+	overflow: hidden;
+}
 .session-container header h3 {
 	font-size: 20px;
 	text-align: left;
@@ -905,7 +908,7 @@ input {
 	display: flex;
 	justify-content: center;
 	width: calc(100% - 2 * var(--space-l));
-	bottom: -16px;
+	bottom: -37px;
 }
 
 .session-container .toogle-info i {
@@ -919,16 +922,16 @@ input {
 }
 
 @media screen and (min-width: 592px) {
-	.session-container {
+	.session-container > div {
 		padding: var(--space-m) var(--space-l);
 	}
 }
 
-.swiper-container {
+.swiper-speakers-container {
 	width: 100%;
 }
 
-.swiper-slide {
+.swiper-speakers-container .swiper-slide {
 	width: 80%;
 	transform: scale(0.9);
 	min-height: 200px;
@@ -943,7 +946,7 @@ input {
 	background-color: var(--neutral-10);
 }
 
-.swiper-slide-active {
+.swiper-speakers-container .swiper-slide-active {
 	transform: scale(1);
 	border: 1px solid var(--neutral-9);
 }
@@ -1048,7 +1051,7 @@ input {
 
 .onlive-container {
 	cursor: pointer;
-	position: fixed;
+	/*position: fixed;*/
 	background: var(--neutral-9);
 	border: 2px solid var(--neutral-2);
 	bottom: 3em;
@@ -1101,7 +1104,6 @@ input {
 }
 
 .onlive-container .text div {
-	overflow: hidden;
 	white-space: nowrap;
 	width: 0;
 	opacity: 0;
@@ -1134,4 +1136,156 @@ input {
 	animation: dot-blink 2s infinite;
 	box-shadow: var(--box-shadow-input-inset);
 	flex-shrink: 0;
+}
+
+.sponsorships-container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+.sponsorships-container .sponsorships-wrapper {
+	margin: var(--space-l) 0;
+}
+.sponsorships-container .sponsorships-wrapper .badge {
+	margin-bottom: var(--space-s) 0;
+}
+.sponsorships-container .sponsorships-wrapper .logos {
+	display: grid;
+	grid-gap: var(--space-s);
+	justify-content: center;
+	align-items: center;
+}
+
+.sponsorships-container .sponsorships-wrapper-platinum .logos {
+	grid-template-columns: 1fr;
+	grid-auto-rows: 100px;
+}
+
+.sponsorships-container .sponsorships-wrapper-gold .logos {
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: 80px;
+}
+
+.sponsorships-container .sponsorships-wrapper-silver .logos,
+.sponsorships-container .sponsorships-wrapper-bronze .logos {
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-rows: 55px;
+}
+
+.sponsorships-container .sponsorships-wrapper div {
+	display: flex;
+	justify-content: center;
+}
+.sponsorships-container .sponsorships-wrapper img {
+	object-fit: contain;
+}
+
+.sponsorships-container .sponsorships-wrapper-platinum img {
+	width: 100px;
+	height: 100px;
+}
+.sponsorships-container .sponsorships-wrapper-gold img {
+	width: 75px;
+	height: 75px;
+}
+.sponsorships-container .sponsorships-wrapper-silver img,
+.sponsorships-container .sponsorships-wrapper-bronze img {
+	width: 50px;
+	height: 50px;
+}
+@media screen and (min-width: 430px) {
+	.sponsorships-container .sponsorships-wrapper .badge {
+		margin: var(--space-s) auto;
+	}
+}
+
+@media screen and (min-width: 650px) {
+	.sponsorships-container .sponsorships-wrapper .logos {
+		grid-gap: var(--space-s) var(--space-l);
+	}
+	.sponsorships-container .sponsorships-wrapper {
+		margin: calc(var(--space-l) * 2) 0;
+	}
+
+	.sponsorships-container .sponsorships-wrapper-platinum .logos {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.sponsorships-container .sponsorships-wrapper-gold .logos {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	.sponsorships-container .sponsorships-wrapper-silver .logos,
+	.sponsorships-container .sponsorships-wrapper-bronze .logos {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
+
+@media screen and (min-width: 950px) {
+	.sponsorships-container .sponsorships-wrapper-platinum .logos {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	.sponsorships-container .sponsorships-wrapper-gold .logos {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	.sponsorships-container .sponsorships-wrapper-silver .logos,
+	.sponsorships-container .sponsorships-wrapper-bronze .logos {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	}
+}
+
+.swiper-events-container {
+	overflow: hidden;
+	position: relative;
+	--swiper-theme-color: var(--primary-10);
+}
+.swiper-events-container .swiper-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.swiper-events-container .swiper-slide .swiper-slide-image {
+	background: var(--primary-3);
+	width: 100%;
+}
+
+.swiper-events-container .swiper-slide .swiper-slide-image img {
+	object-fit: contain;
+	filter: opacity(0.35);
+	width: 100%;
+}
+
+.swiper-slide-content {
+	position: absolute;
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+}
+
+.swiper-slide-content h2 {
+	color: var(--neutral-10);
+	font-size: 30px;
+	text-align: center;
+	font-weight: var(--font-regular);
+}
+
+.swiper-slide-content h4 {
+	color: var(--neutral-10);
+	font-size: 20px;
+	text-align: center;
+	font-weight: var(--font-regular);
+	margin-top: var(--space-xs);
+}
+
+.swiper-slide-content button {
+	margin: 0 auto;
+	margin-top: var(--space-m);
+	color: var(--neutral-10);
+	background: transparent;
+}
+
+.swiper-slide-content button:hover {
+	color: var(--neutral-9);
 }
