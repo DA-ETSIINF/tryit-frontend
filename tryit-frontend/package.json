@@ -1,0 +1,22 @@
+{
+  "name": "tryit-frontend",
+  "description": "Official website for Try IT! congress",
+  "version": "2.11.0",
+  "private": true,
+  "dependencies": {
+    "@nuxtjs/axios": "5.9.5",
+    "@nuxt/typescript-runtime": "0.3.8",
+    "nuxt": "2.11.0",
+    "nuxt-property-decorator": "2.5.0",
+    "vuex-class": "0.3.2"
+  },
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "0.5.6"
+  }
+}
