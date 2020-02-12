@@ -1239,11 +1239,16 @@ input {
 	overflow: hidden;
 	position: relative;
 	--swiper-theme-color: var(--primary-10);
+	max-height: 80vh;
+}
+.swiper-events-wrapper {
+	max-height: 80vh;
 }
 .swiper-events-container .swiper-slide {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	max-height: 80vh;
 }
 
 .swiper-events-container .swiper-slide .swiper-slide-image {
@@ -1288,4 +1293,8 @@ input {
 
 .swiper-slide-content button:hover {
 	color: var(--neutral-9);
+}
+
+.map {
+	height: 85vh;
 }
