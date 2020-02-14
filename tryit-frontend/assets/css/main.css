@@ -122,14 +122,20 @@
 	text-align: justify;
 }
 
+@media screen and (min-width: 600px) {
+	.section-width {
+		max-width: 85vw;
+	}
+}
+
 @media screen and (min-width: 1200px) {
-	.restrict-width {
+	.section-width {
 		max-width: 1000px;
 	}
 }
 
 @media screen and (min-width: 1800px) {
-	.restrict-width {
+	.section-width {
 		max-width: 1500px;
 	}
 }

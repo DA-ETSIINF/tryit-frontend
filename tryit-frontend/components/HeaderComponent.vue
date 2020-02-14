@@ -1,6 +1,6 @@
 <template>
   <header class="main-header">
-    <div class="menu-container restrict-width" id="mobileMenu">
+    <div class="menu-container section-width" id="mobileMenu">
       <span class="logo">Try IT!</span>
       <i class="fas fa-bars"></i>
     </div>
@@ -21,6 +21,7 @@ header.main-header {
   background: var(--neutral-10);
   box-shadow: var(--box-shadow-on-light-bck);
   z-index: 1000;
+  top: 0;
 }
 
 header.main-header .menu-container {
@@ -29,6 +30,7 @@ header.main-header .menu-container {
   padding: var(--space-s) var(--space-l);
   color: var(--neutral-4);
   align-items: center;
+  margin: 0 auto;
 }
 
 .logo {

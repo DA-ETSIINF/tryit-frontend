@@ -4,8 +4,14 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
-@Component({})
-export default class Home extends Vue {}
+import * as Components from "~/components";
+
+@Component({
+  components: {
+    Header: Components.HeaderComponent
+  }
+})
+export default class extends Vue {}
 </script>
 
 <style scoped>
