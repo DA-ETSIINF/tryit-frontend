@@ -1,11 +1,11 @@
 <template>
-  <h1>This is home</h1>
+  <h1>This is NotVisible Page</h1>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 @Component({})
-export default class Home extends Vue {}
+export default class NotVisible extends Vue {}
 </script>
 
 <style scoped>

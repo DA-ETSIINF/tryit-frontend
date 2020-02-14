@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <h1>This is Organizers Page</h1>
+</template>
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
