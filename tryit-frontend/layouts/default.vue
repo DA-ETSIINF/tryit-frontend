@@ -29,6 +29,7 @@ div {
   min-height: 100vh;
 }
 main {
+  margin-top: 52px;
   flex: 1;
 }
 </style>
