@@ -1,5 +1,8 @@
 import { Module } from 'vuex';
 import {RootState, TicketResource} from '~/types'
+import {actions} from './action'
+import {mutations} from './mutations'
+
 
 export interface TicketState{
     ticket?:TicketResource,
@@ -11,5 +14,7 @@ export const state:TicketState={
 
 };
 export const ticket: Module<TicketState, RootState> = {
-    state
+    state,
+    actions,
+    mutations
     };

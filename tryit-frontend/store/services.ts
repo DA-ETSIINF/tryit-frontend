@@ -11,7 +11,7 @@ export function post({data}: any, path:string){
         console.log(error)
     })
 }
-export function get(path : string){
+export function get(path : string):any{
     axios.get(
         path
     ).then((response)=>{
