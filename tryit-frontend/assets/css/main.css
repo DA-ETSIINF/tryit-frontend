@@ -111,6 +111,7 @@
 
 	--transition-fast: 0.18s;
 	--transition-normal: 0.3s;
+	--transition-slow: 0.5s;
 
 	--min-width-m: 250px;
 }
