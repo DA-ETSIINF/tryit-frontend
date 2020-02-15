@@ -21,14 +21,18 @@ export default {
 		],
 		script: [
 			{ src: "https://kit.fontawesome.com/358fa893fd.js", body: true },
-			{ src: "https://unpkg.com/swiper/js/swiper.min.js", body: true }
+			{ src: "https://unpkg.com/swiper/js/swiper.min.js", body: true },
+			{
+				src:
+					"https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/vendors/scrolloverflow.min.js.map"
+			}
 		]
 	},
 	loading: { color: "#3B8070" },
-	css: ["~/assets/css/main.css"],
+	css: ["~/assets/css/main.css", "~/assets/css/fullpage.css"],
 	build: {},
 	buildModules: ["@nuxt/typescript-build"],
-	modules: ["@nuxtjs/axios"],
+	modules: ["@nuxtjs/axios", "nuxt-fullpage.js"],
 	axios: {},
 	router: {
 		middleware: "routing-auth",
