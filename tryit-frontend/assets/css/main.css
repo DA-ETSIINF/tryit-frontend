@@ -222,3 +222,9 @@ input {
 	margin: 0;
 	line-height: inherit;
 }
+
+.form-question {
+	color: var(--primary-2);
+	font-size: 16px;
+	margin-bottom: var(--space-xxs);
+}

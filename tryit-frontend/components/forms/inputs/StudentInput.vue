@@ -31,8 +31,8 @@ import { CheckboxDetail } from "../../";
   components: { CheckboxDetail }
 })
 export default class StudentInput extends Vue {
-  isStudent: boolean = true;
-  isUpmStudent: boolean = true;
+  @Prop({ type: Boolean, required: true }) isStudent!: boolean;
+  @Prop({ type: Boolean, required: true }) isUpmStudent!: boolean;
   answer: string = "";
 
   private posibleAnswers = {

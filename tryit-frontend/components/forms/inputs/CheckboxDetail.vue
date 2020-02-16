@@ -1,5 +1,5 @@
 <template>
-  <div class="checkbox-container" :class="className">
+  <div class="checkbox-container">
     <div>
       <div>
         <checkbox-input :id="id" :checked="checked" v-on:change="$emit('change', $event)"></checkbox-input>
@@ -16,13 +16,13 @@
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 @Component({
-  name: "checkbox-detail"
+  name: "checkbox-detail-input"
 })
 export default class CheckboxDetail extends Vue {
   @Prop({ type: String, required: true }) id!: string;
   @Prop({ type: String, required: true }) text!: string;
   @Prop({ type: Array, default: () => [] }) details!: string[];
-  @Prop({ type: String, default: "" }) className!: string;
+  // @Prop({ type: String, default: "" }) className!: string;
   @Prop({ type: Boolean, default: false }) checked!: boolean;
 }
 </script>
