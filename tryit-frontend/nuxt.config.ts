@@ -21,11 +21,7 @@ export default {
 		],
 		script: [
 			{ src: "https://kit.fontawesome.com/358fa893fd.js", body: true },
-			{ src: "https://unpkg.com/swiper/js/swiper.min.js", body: true },
-			{
-				src:
-					"https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/vendors/scrolloverflow.min.js.map"
-			}
+			{ src: "https://unpkg.com/swiper/js/swiper.min.js", body: true }
 		]
 	},
 	loading: { color: "#3B8070" },

@@ -214,3 +214,11 @@ p.small {
 	font-size: 0.875rem;
 	color: var(--neutral-6);
 }
+
+input {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+	line-height: inherit;
+}
