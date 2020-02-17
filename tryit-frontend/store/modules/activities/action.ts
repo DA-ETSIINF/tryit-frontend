@@ -3,16 +3,27 @@ import { Context as ActivityContext } from "@nuxt/types"
 import { ActivitiesState} from './index';
 import { RootState } from '~/types';
 import {post, get}from '../../services'
-import {getter} from '../../index' 
   
 export const actions: ActionTree<ActivitiesState, RootState> = {
-    getEvent({commit, appContext}:any, path:string): any{
+    getActivities({commit, appContext}:any, year:number): any{
         if (appContext.isStatic){
-            get(path).then((res:any) =>{
+            get('/editions/talks/' + year).then((res:any) =>{
                 if (res.status === 200) {
-                    commit('ActivityLoaded', res.data)
-                  }
+                    commit('TalksLoaded', res.data)
+                }
+                else{
+                    commit('TalksError')                    
+                }
             })
+            get('/editions/workshops/' + year).then((res:any) =>{
+                if (res.status === 200) {
+                    commit('WorkshopsLoaded', res.data)
+                }
+                else{
+                    commit('WorkshopsError')
+                }
+            })
+            
         }
     }
 }

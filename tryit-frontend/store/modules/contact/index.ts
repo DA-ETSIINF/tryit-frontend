@@ -11,7 +11,7 @@ export const state:ContactState={
     error:false
 
 };
-export const ticket: Module<ContactState, RootState> = {
+export const contact: Module<ContactState, RootState> = {
     state,
     getters
     };

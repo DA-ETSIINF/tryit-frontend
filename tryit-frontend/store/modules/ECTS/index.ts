@@ -12,7 +12,7 @@ export const state:ECTState={
     error:false
 
 };
-export const ticket: Module<ECTState, RootState> = {
+export const ects: Module<ECTState, RootState> = {
     state,
     actions,
     mutations
