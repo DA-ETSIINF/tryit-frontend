@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <div class="menu" :class="{'open': isOpen}">
     <aside>
       <header class="logo">Try IT!</header>
       <ul class="primary-options">
@@ -17,7 +17,8 @@
         <li>Contacto</li>
       </ul>
     </aside>
-    <i class="fas fa-times close"></i>
+    <i class="fas fa-times close" @click="$emit('toogleMenu')"></i>
+    <div class="overlay" @click="$emit('toogleMenu')"></div>
   </div>
 </template>
 
@@ -25,17 +26,26 @@
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 @Component({})
-export default class MenuComponent extends Vue {}
+export default class MenuComponent extends Vue {
+  @Prop({ type: Boolean, required: true }) isOpen!: boolean;
+}
 </script>
 
 <style scoped>
 .menu {
-  position: relative;
   display: flex;
-  z-index: 1001;
+  flex-direction: row;
+  z-index: 999;
+  left: calc(-256px - var(--space-l) * 2);
+  transition: var(--transition-normal) all ease;
+  position: fixed;
 }
-
+.menu.open {
+  left: 0;
+  right: inherit;
+}
 .menu aside {
+  z-index: 1001;
   background-color: var(--white);
   width: 256px;
   padding: var(--space-s) var(--space-l);
@@ -86,14 +96,43 @@ export default class MenuComponent extends Vue {}
 }
 
 .menu .close {
-  margin-top: 15px;
-  margin-left: var(--space-m);
+  margin-top: var(--space-m);
+  right: calc(var(--space-l) - 11px);
+  position: absolute;
   color: var(--neutral-2);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: var(--neutral-1);
+  opacity: 0.2;
+  left: 0;
+  top: 0;
+  z-index: 998;
+  transition: var(--transition-normal) all ease;
+  display: none;
+}
+
+.open .overlay {
+  display: inherit;
+  opacity: 0.2;
 }
 
 @media screen and (min-width: 592px) {
   .menu {
     flex-direction: row-reverse;
+    right: calc(-256px - var(--space-l) * 2);
+    transition: var(--transition-normal) all ease;
+    left: initial;
+    z-index: 1001;
+  }
+
+  .menu.open {
+    right: 0;
   }
 
   aside .logo,
@@ -104,6 +143,16 @@ export default class MenuComponent extends Vue {}
   .menu .close {
     margin-top: 25px;
     margin-right: var(--space-m);
+    margin-left: var(--space-m);
+    right: calc(256px + var(--space-l) * 2);
+    display: hidden;
+    opacity: 0;
+    transition: var(--transition-normal) all ease;
+  }
+
+  .menu.open .close {
+    display: initial;
+    opacity: 1;
   }
 
   .secondary-options li {

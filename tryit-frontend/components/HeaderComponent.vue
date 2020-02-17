@@ -2,7 +2,7 @@
   <header class="main-header">
     <div class="menu-container section-width" id="mobileMenu">
       <span class="logo">Try IT!</span>
-      <i class="fas fa-bars"></i>
+      <i class="fas fa-bars" @click="$emit('toogleMenu')"></i>
     </div>
   </header>
 </template>
@@ -39,6 +39,9 @@ header.main-header .menu-container {
   font-weight: var(--font-bold-roboto);
 }
 
+i {
+  cursor: pointer;
+}
 /* TODO 
 Detect when user scroll in the page so it changes the bck
 .menu:not([data-scroll="0"]) {
