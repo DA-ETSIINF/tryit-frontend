@@ -1,11 +1,11 @@
-export interface CheckboxDetailInput {
+export interface CheckboxDetailInputType {
 	text: string
 	details?: string[]
 	checked: boolean
 	id: string
 }
 
-export interface CheckboxDetailType {
+export interface FS_CheckboxDetail {
 	tag: "checkbox-detail"
-	properties: CheckboxDetailInput
+	properties: CheckboxDetailInputType
 }

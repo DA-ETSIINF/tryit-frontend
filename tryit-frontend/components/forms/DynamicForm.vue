@@ -18,6 +18,18 @@
           :noShadows="input.properties.noShadows"
           :leaveSpaceRight="input.properties.leaveSpaceRight"
         ></text-input>
+        <text-area
+          v-if="input.tag === 'text-area'"
+          :helperText="input.properties.helperText"
+          :placeholder="input.properties.placeholder"
+          :value="input.properties.value"
+          :isDisabled="input.properties.isDisabled"
+          :hideText="input.properties.hideText"
+          :status="input.properties.status"
+          :noBorder="input.properties.noBorder"
+          :noShadows="input.properties.noShadows"
+          :leaveSpaceRight="input.properties.leaveSpaceRight"
+        ></text-area>
         <student-input
           v-if="input.tag === 'student-input'"
           :isStudent="input.properties.isStudent"
@@ -47,6 +59,11 @@
           :details="input.properties.details"
           :checked="input.properties.checked"
         ></checkbox-detail>
+        <availability-input
+          v-if="input.tag === 'availability-input'"
+          :timePeriods="input.properties.timePeriods"
+          :periodsAvailable="input.properties.periodsAvailable"
+        ></availability-input>
       </div>
     </form-section>
     <button-form></button-form>
@@ -59,13 +76,47 @@ import { FormType } from "../../types/components";
 @Component({})
 export default class DynamicForm extends Vue {
   @Prop({ type: Object, required: true }) form!: FormType;
-
-  public constructor() {
-    super();
-    console.log(this.form);
-  }
 }
 </script>
 
 <style>
+main {
+  margin-top: 52px;
+}
+
+h4 {
+  margin: var(--space-l);
+  margin-bottom: 0;
+  width: calc(100% - 2 * var(--space-l));
+}
+.form-inputs > div > div {
+  width: calc(100% - 2 * var(--space-l));
+  margin: var(--space-s) var(--space-l);
+}
+
+.one-column .form-inputs > div > div {
+  width: initial;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: var(--space-xxs) var(--space-l);
+}
+
+p {
+  padding-bottom: 0;
+  margin: var(--space-xxs) var(--space-l);
+  margin-top: 0;
+}
+@media screen and (min-width: 900px) {
+  h1 {
+    margin: var(--space-xxs) auto;
+    width: 760px;
+  }
+  p.page-description {
+    margin: var(--space-xxs) auto;
+    margin-bottom: var(--space-l);
+    width: 760px;
+  }
+}
 </style>

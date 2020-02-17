@@ -5,8 +5,8 @@
         <checkbox-input :id="id" :checked="checked" v-on:change="$emit('change', $event)"></checkbox-input>
       </div>
       <div class="checkbox-info">
-        <label :for="id">{{text}}</label>
-        <p class="small" v-for="paragraph in details" :key="paragraph">{{paragraph}}</p>
+        <label :for="id" v-html="text"></label>
+        <p class="small details" v-for="paragraph in details" :key="paragraph">{{paragraph}}</p>
       </div>
     </div>
   </div>
@@ -55,5 +55,9 @@ export default class CheckboxDetail extends Vue {
 
 .checkbox-container p {
   margin-top: var(--space-xxxs);
+}
+
+p.small.details {
+  margin: 0;
 }
 </style>

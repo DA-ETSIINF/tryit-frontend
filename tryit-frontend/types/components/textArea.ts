@@ -3,7 +3,7 @@
  */
 import { InputStatus } from "./inputState"
 
-export interface TextInputType {
+export interface TextAreaType {
 	helperText?: string
 	placeholder?: string
 	value?: string
@@ -15,8 +15,8 @@ export interface TextInputType {
 	leaveSpaceRight?: boolean
 }
 
-export interface FS_TextInput {
-	tag: "text-input"
+export interface FS_TextAreaInput {
+	tag: "text-area"
 	question?: string
-	properties: TextInputType
+	properties: TextAreaType
 }

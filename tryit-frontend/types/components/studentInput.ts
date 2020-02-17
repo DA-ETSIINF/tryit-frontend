@@ -1,10 +1,10 @@
-export interface IsStudentType {
+export interface StudentType {
 	isStudent: boolean
 	isUpmStudent: boolean
 }
 
-export interface IsStudentInput {
+export interface FS_Student {
 	tag: "student-input"
 	question?: string
-	properties: IsStudentType
+	properties: StudentType
 }

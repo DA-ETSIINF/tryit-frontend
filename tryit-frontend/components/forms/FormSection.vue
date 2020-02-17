@@ -1,8 +1,8 @@
 <template>
-  <div class="form-section">
+  <div class="form-section" :class="{'one-column': section.oneColumnSection}">
     <div class="form-info">
       <h4 v-if="section.title !== undefined">{{ section.title }}</h4>
-      <p v-if="section.description !== undefined" class="small">{{ section.description }}</p>
+      <p v-if="section.description !== undefined" class="small" v-html="section.description"></p>
     </div>
     <div class="form-inputs">
       <slot></slot>
@@ -36,7 +36,6 @@ export default class FormSection extends Vue {
 
 .form-info h4 {
   color: var(--primary-1);
-  margin-bottom: 0;
 }
 
 .form-inputs > div:first-child {
@@ -48,12 +47,16 @@ export default class FormSection extends Vue {
     flex-direction: row;
   }
 
-  .form-section:not(:first-child) {
-    margin-top: var(--space-l);
+  .form-section.one-column {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--space-s);
+    margin-top: var(--space-m);
   }
 
-  .form-info {
-    margin-right: var(--space-xl);
+  .form-section:not(:first-child) {
+    margin-top: var(--space-l);
   }
 
   .form-info > * {
@@ -64,13 +67,29 @@ export default class FormSection extends Vue {
   .form-inputs {
     width: 400px;
   }
+  .form-section.one-column .form-inputs {
+    width: initial;
+  }
 
   .form-info h4 {
-    margin-top: 0 !important;
+    margin: 0;
   }
 
   .form-info p {
     margin-top: var(--space-xs);
+  }
+
+  p.small {
+    margin: 0;
+  }
+
+  .form-section.one-column p,
+  .form-section.one-column h4 {
+    text-align: center;
+    width: 100vw;
+  }
+  .form-section.one-column p.small {
+    margin-bottom: var(--space-xxs);
   }
 }
 </style>
