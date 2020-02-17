@@ -29,12 +29,11 @@ export default class LabelsInput extends Vue {
 }
 </script>
 
-<style scoped>
+<style>
 .label-selection-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: var(--space-s);
 }
 .label-selection-wrapper ul {
   list-style: none;

@@ -146,6 +146,7 @@ h1 {
 	font-family: var(--roboto);
 	font-weight: var(--font-bold-roboto);
 	color: var(--primary-1);
+	text-align: left;
 }
 
 h2 {
@@ -213,6 +214,7 @@ p {
 p.small {
 	font-size: 0.875rem;
 	color: var(--neutral-6);
+	padding-bottom: 0;
 }
 
 input {

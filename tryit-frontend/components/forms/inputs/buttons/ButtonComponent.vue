@@ -6,7 +6,7 @@
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 @Component({})
-export default class Button extends Vue {
+export default class ButtonComponent extends Vue {
   @Prop() text!: string;
   @Prop() type!: "primary-btn" | "secondary-btn" | "tertiary-btn";
 }
@@ -82,7 +82,7 @@ button.tertiary-btn {
   text-decoration: underline;
   border: 0;
   color: var(--neutral-3);
-  background: var(--neutral-10);
+  background: transparent;
   font-size: 15px;
   font-family: var(--roboto);
   font-weight: var(--font-bold-roboto);

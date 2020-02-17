@@ -25,7 +25,7 @@ export default class LabelInput extends Vue {
   font-family: var(--roboto);
   cursor: pointer;
   transition: var(--transition-fast);
-  margin: var(--space-xs);
+  margin: var(--space-xxxs) var(--space-xs);
 }
 
 .label-selection-wrapper ul li.active {

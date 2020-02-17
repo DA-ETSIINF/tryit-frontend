@@ -91,12 +91,9 @@ export default class SelectInput extends Vue {
 }
 
 .select-input-container {
-  padding: var(--space-s) var(--space-l);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: var(--space-s) auto;
-  width: calc(100% - 2 * var(--space-l));
 }
 
 .select-input-container > div {

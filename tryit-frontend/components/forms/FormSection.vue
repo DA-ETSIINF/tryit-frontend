@@ -1,8 +1,8 @@
 <template>
   <div class="form-section">
     <div class="form-info">
-      <h4>{{ this.section.title }}</h4>
-      <p class="small">{{ this.section.description }}</p>
+      <h4 v-if="section.title !== undefined">{{ section.title }}</h4>
+      <p v-if="section.description !== undefined" class="small">{{ section.description }}</p>
     </div>
     <div class="form-inputs">
       <slot></slot>
@@ -36,11 +36,7 @@ export default class FormSection extends Vue {
 
 .form-info h4 {
   color: var(--primary-1);
-  margin-bottom: var(--space-xs);
-}
-
-.form-section:not(:first-child) {
-  margin-top: var(--space-l);
+  margin-bottom: 0;
 }
 
 .form-inputs > div:first-child {
@@ -50,6 +46,10 @@ export default class FormSection extends Vue {
 @media screen and (min-width: 900px) {
   .form-section {
     flex-direction: row;
+  }
+
+  .form-section:not(:first-child) {
+    margin-top: var(--space-l);
   }
 
   .form-info {
@@ -63,6 +63,14 @@ export default class FormSection extends Vue {
 
   .form-inputs {
     width: 400px;
+  }
+
+  .form-info h4 {
+    margin-top: 0 !important;
+  }
+
+  .form-info p {
+    margin-top: var(--space-xs);
   }
 }
 </style>

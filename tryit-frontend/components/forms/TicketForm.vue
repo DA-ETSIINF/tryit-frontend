@@ -49,6 +49,7 @@
         ></checkbox-detail>
       </div>
     </form-section>
+    <button-form></button-form>
   </div>
 </template>
 <script lang="ts">
@@ -66,4 +67,5 @@ export default class TicketForm extends Vue {
 }
 </script>
 
-<style scoped></style>
+<style>
+</style>

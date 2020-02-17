@@ -1,5 +1,5 @@
 <template>
-  <div class="checkbox-container">
+  <div class="checkbox-container" :class="className">
     <div>
       <div>
         <checkbox-input :id="id" :checked="checked" v-on:change="$emit('change', $event)"></checkbox-input>
@@ -22,7 +22,7 @@ export default class CheckboxDetail extends Vue {
   @Prop({ type: String, required: true }) id!: string;
   @Prop({ type: String, required: true }) text!: string;
   @Prop({ type: Array, default: () => [] }) details!: string[];
-  // @Prop({ type: String, default: "" }) className!: string;
+  @Prop({ type: String, default: "" }) className!: string;
   @Prop({ type: Boolean, default: false }) checked!: boolean;
 }
 </script>
@@ -31,6 +31,10 @@ export default class CheckboxDetail extends Vue {
 [type="checkbox"] {
   box-sizing: border-box;
   padding: 0;
+}
+
+.checkbox-container {
+  margin: 0 auto;
 }
 
 .checkbox-container > div:first-child {

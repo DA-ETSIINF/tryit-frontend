@@ -1,6 +1,6 @@
 <template>
   <div class="are-u-student-container">
-    <div class="question">
+    <div class="question-wrapper">
       <span class="opening-question-mark">¿</span>
       <span class="closing-question-mark">?</span>
       <span class="you-are">Eres...</span>
@@ -81,6 +81,11 @@ export default class StudentInput extends Vue {
   margin: 0 auto;
 }
 
+.question-wrapper {
+  position: relative;
+  width: 130px;
+}
+
 .are-u-student-container .checkbox-container .checkbox-info {
   margin-left: var(--space-xs);
 }
@@ -93,6 +98,7 @@ export default class StudentInput extends Vue {
 .student-checkbox {
   margin: var(--space-xxxs) var(--space-s);
   margin-right: 0;
+  margin-top: var(--space-xxs);
 }
 
 .upm-checkbox {
@@ -110,15 +116,20 @@ export default class StudentInput extends Vue {
 }
 
 .opening-question-mark {
-  left: 30px;
-  top: -21px;
+  left: -44px;
+  top: -14px;
+  transform: rotate(-5deg);
 }
 
 .closing-question-mark {
-  right: 44px;
+  right: -30px;
   top: -30px;
+  transform: rotate(4deg);
 }
 .answer {
-  margin-top: var(--space-xs);
+  margin-top: var(--space-s);
+  margin-bottom: 0;
+  text-align: center;
+  width: inherit;
 }
 </style>
