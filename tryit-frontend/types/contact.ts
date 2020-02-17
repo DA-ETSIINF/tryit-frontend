@@ -1,6 +1,5 @@
-export interface ContactResource{
-    description:string
-    photo:ImageBitmap
-    email:string
-    title:string
+export interface ContactResource {
+	description: string
+	email: string
+	title: string
 }

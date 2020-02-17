@@ -1,33 +1,17 @@
-import { MutationTree, ActionTree, ActionContext, GetterTree, StoreOptions } from "vuex"
-import { Context as AppContext } from "@nuxt/types"
+import { MutationTree, StoreOptions } from "vuex"
 import { RootState, MenuResource } from "~/types"
-import {ticket} from './modules/ticket/index'
-import {organizer} from './modules/organizer/index'
-import {sponsors} from './modules/sponsors/index'
-import {streaming} from './modules/streaming/index'
-import {ects} from './modules/ECTS/index'
-import {contact} from './modules/contact/index'
-import {activities} from './modules/activities/index'
+import { ticket } from "./ticket"
+import { organizer } from "./organizer"
+import { ects } from "./ECTS"
+import { contact } from "./contact"
+import { activities } from "./activities"
 
+export const store = (): StoreOptions<RootState> => ({})
 
-
-export const store: StoreOptions<RootState> = {
-    modules: {
-		ticket,
-		organizer,
-		sponsors,
-		streaming,
-		ects,
-		contact,
-		activities
-    }
-};
-
-export const MenuState:MenuResource={
-	primary:undefined,
-	secundary:undefined,
-	error:false
-
+export const MenuState: MenuResource = {
+	primary: undefined,
+	secondary: undefined,
+	error: false
 }
 
 export const mutations: MutationTree<RootState> = {}
@@ -40,6 +24,5 @@ export const mutations: MutationTree<RootState> = {}
 // 	async nuxtServerInit({ commit }, context) {}
 // }
 // export const getter: GetterTree<RootState, RootState>={
-	
-	// }
 
+// }
