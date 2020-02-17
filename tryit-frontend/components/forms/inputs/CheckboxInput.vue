@@ -11,12 +11,8 @@ import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 @Component({})
 export default class CheckboxInput extends Vue {
-  @Prop({ type: String }) id!: string;
+  @Prop({ required: true }) id!: string | number;
   @Prop({ type: Boolean }) checked!: boolean;
-
-  created() {
-    console.log(this.checked);
-  }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>{{form.title}}</h1>
-    <p class="page-description">{{form.description}}</p>
+    <h1>{{ form.title }}</h1>
+    <p class="page-description">{{ form.description }}</p>
     <dynamic-form :form="form"></dynamic-form>
     <select-input
       :title="'Example of a question'"
@@ -29,7 +29,7 @@ import {
   ButtonForm,
   ButtonComponent
 } from "../components";
-import { OptionSelected, SelectBoxInput, FormType } from "../types/components";
+import { OptionSelected, SelectInputType, FormType } from "../types/components";
 
 Vue.component("CheckboxInput", CheckboxInput);
 Vue.component("CheckboxDetail", CheckboxDetail);
@@ -218,27 +218,27 @@ export default class Ticket extends Vue {
   // These functions must be moved to the store
   changedOption(newSchool: OptionSelected, shouldClose: boolean = true) {
     (this.form.sections[1].inputs[1]
-      .properties as SelectBoxInput).selected = newSchool;
+      .properties as SelectInputType).selected = newSchool;
     if (shouldClose) {
       (this.form.sections[1].inputs[1]
-        .properties as SelectBoxInput).open = false;
+        .properties as SelectInputType).open = false;
     }
   }
 
   toogleOpen(v: boolean, shouldClear: boolean = false) {
     if (!v) {
       (this.form.sections[1].inputs[1]
-        .properties as SelectBoxInput).selected = (this.form.sections[1]
-        .inputs[1].properties as SelectBoxInput).oldSelected;
+        .properties as SelectInputType).selected = (this.form.sections[1]
+        .inputs[1].properties as SelectInputType).oldSelected;
     }
-    (this.form.sections[1].inputs[1].properties as SelectBoxInput).open = v;
+    (this.form.sections[1].inputs[1].properties as SelectInputType).open = v;
     if (shouldClear) {
       (this.form.sections[1].inputs[1]
-        .properties as SelectBoxInput).oldSelected = (this.form.sections[1]
-        .inputs[1].properties as SelectBoxInput).selected;
+        .properties as SelectInputType).oldSelected = (this.form.sections[1]
+        .inputs[1].properties as SelectInputType).selected;
       (this.form.sections[1].inputs[1]
-        .properties as SelectBoxInput).selected = {
-        ...(this.form.sections[1].inputs[1].properties as SelectBoxInput)
+        .properties as SelectInputType).selected = {
+        ...(this.form.sections[1].inputs[1].properties as SelectInputType)
           .selected,
         title: ""
       };
@@ -269,35 +269,4 @@ export default class Ticket extends Vue {
 }
 </script>
 
-<style>
-main {
-  margin-top: 52px;
-}
-
-h4,
-.form-inputs > div > div {
-  width: calc(100% - 2 * var(--space-l));
-  margin: var(--space-m) var(--space-l);
-}
-
-h1 {
-  margin: var(--space-xxs) var(--space-l);
-}
-
-p {
-  padding-bottom: 0;
-  margin: var(--space-xxs) var(--space-l);
-  margin-top: 0;
-}
-@media screen and (min-width: 900px) {
-  h1 {
-    margin: var(--space-xxs) auto;
-    width: 830px;
-  }
-  p {
-    margin: var(--space-xxs) auto;
-    margin-bottom: var(--space-l);
-    width: 830px;
-  }
-}
-</style>
+<style></style>

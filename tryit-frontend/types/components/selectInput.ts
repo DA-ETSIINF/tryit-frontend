@@ -2,20 +2,17 @@
  * TODO
  */
 
-export interface SelectInput {
-	tag: "select-input"
-	question?: string
-	properties: SelectBoxInput
-}
+import { OptionSelected } from "./options"
 
-export interface OptionSelected {
-	title: string
-	id: number
-}
-
-export interface SelectBoxInput {
+export interface SelectInputType {
 	open: boolean
 	options: OptionSelected[][]
 	selected: OptionSelected
 	oldSelected: OptionSelected
+}
+
+export interface FS_Select {
+	tag: "select-input"
+	question?: string
+	properties: SelectInputType
 }
