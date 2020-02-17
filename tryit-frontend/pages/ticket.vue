@@ -2,7 +2,7 @@
   <div>
     <h1>{{form.title}}</h1>
     <p class="page-description">{{form.description}}</p>
-    <ticket-form :form="form"></ticket-form>
+    <dynamic-form :form="form"></dynamic-form>
     <select-input
       :title="'Example of a question'"
       :options="this.form.sections[1].inputs[1].properties.options"
@@ -25,7 +25,7 @@ import {
   FormSection,
   LabelsInput,
   LabelInput,
-  TicketForm,
+  DynamicForm,
   ButtonForm,
   ButtonComponent
 } from "../components";
@@ -44,7 +44,7 @@ Vue.component("ButtonComponent", ButtonComponent);
 
 @Component({
   name: "ticket",
-  components: { CheckboxDetail, StudentInput, SelectInput, TicketForm }
+  components: { DynamicForm }
 })
 export default class Ticket extends Vue {
   form: FormType = {
