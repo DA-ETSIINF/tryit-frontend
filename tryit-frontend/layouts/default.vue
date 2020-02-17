@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header v-on:toogleMenu="toogleOpen()"></Header>
-    <Menu :isOpen="isOpen" v-on:toogleMenu="toogleOpen()"></Menu>
+    <Header :menu="menu" v-on:toogleMenu="toogleOpen()"></Header>
+    <Menu :isOpen="isOpen" :menu="menu" v-on:toogleMenu="toogleOpen()"></Menu>
     <main>
       <nuxt />
     </main>
@@ -11,6 +11,7 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 import * as Components from "../components";
+import { MenuType } from "../types/components";
 
 @Component({
   components: {
@@ -21,7 +22,44 @@ import * as Components from "../components";
 })
 export default class extends Vue {
   isOpen: boolean = false;
-
+  menu: MenuType = {
+    primary: [
+      {
+        text: "Entrada",
+        url: "/ticket"
+      },
+      {
+        text: "Programa",
+        url: "/schedule"
+      },
+      {
+        text: "Eventos",
+        url: "/"
+      },
+      {
+        text: "Registro voluntarios",
+        url: "/volunteers"
+      }
+    ],
+    secondary: [
+      {
+        text: "ECTS obtenidos",
+        url: "/ects"
+      },
+      {
+        text: "Ediciones anteriores",
+        url: "/previous-editions"
+      },
+      {
+        text: "Organizadores",
+        url: "/organizers"
+      },
+      {
+        text: "Contacto",
+        url: "/contact"
+      }
+    ]
+  };
   toogleOpen() {
     this.isOpen = !this.isOpen;
     console.log(this.isOpen);

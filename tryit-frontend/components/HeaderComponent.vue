@@ -2,6 +2,11 @@
   <header class="main-header">
     <div class="menu-container section-width" id="mobileMenu">
       <span class="logo">Try IT!</span>
+      <ul>
+        <li v-for="(entry, i) in menu.primary" :key="i">
+          <nuxt-link :to="entry.url">{{entry.text}}</nuxt-link>
+        </li>
+      </ul>
       <i class="fas fa-bars" @click="$emit('toogleMenu')"></i>
     </div>
   </header>
@@ -9,9 +14,12 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { MenuType } from "../types/components";
 
 @Component({})
-export default class HeaderComponent extends Vue {}
+export default class HeaderComponent extends Vue {
+  @Prop({ type: Object, required: true }) menu!: MenuType;
+}
 </script>
 
 <style scoped>
@@ -41,6 +49,34 @@ header.main-header .menu-container {
 
 i {
   cursor: pointer;
+}
+
+ul {
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  ul {
+    list-style: none;
+    display: flex;
+  }
+  ul li {
+    margin: 0 var(--space-m);
+  }
+
+  ul li a {
+    color: var(--neutral-2);
+    font-family: var(--roboto);
+    font-size: 14px;
+    padding: var(--space-xs) 0;
+    text-transform: uppercase;
+    padding: var(--space-xxs) var(--space-xs);
+    border-radius: var(--border-radius-m);
+  }
+
+  ul li a:hover {
+    background: var(--neutral-9);
+  }
 }
 /* TODO 
 Detect when user scroll in the page so it changes the bck
