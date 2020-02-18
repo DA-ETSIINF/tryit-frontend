@@ -42,6 +42,10 @@ function compareUrl(currentUrl: string, path: string): boolean {
  *
  */
 export default function({ ssrContext, store, redirect }: any) {
+	if (!ssrContext) {
+		return
+	}
+
 	const currentUrl = ssrContext.url
 
 	// First we check that the route is correct. This is made to remove /event from a valid route

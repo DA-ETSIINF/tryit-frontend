@@ -25,10 +25,10 @@ export default {
 		]
 	},
 	loading: { color: "#3B8070" },
-	css: ["~/assets/css/main.css"],
+	css: ["~/assets/css/main.css", "~/assets/css/fullpage.css"],
 	build: {},
 	buildModules: ["@nuxt/typescript-build"],
-	modules: ["@nuxtjs/axios"],
+	modules: ["@nuxtjs/axios", "nuxt-fullpage.js"],
 	axios: {},
 	router: {
 		middleware: "routing-auth",
@@ -39,5 +39,6 @@ export default {
 				component: resolve(__dirname, "pages/not-found.vue")
 			})
 		}
-	}
+	},
+	transpileDependencies: ["vuex-module-decorators"]
 }

@@ -9,11 +9,11 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { SponsorResourceSize } from './sponsorSize';
+import { SponsorResourceSize } from "./sponsorSize"
 
-export interface SponsorResource { 
-    name: string;
-    logo: string;
-    url: string;
-    size: SponsorResourceSize;
+export interface SponsorResource {
+	name: string
+	logo: string
+	url: string
+	size?: SponsorResourceSize
 }

@@ -9,7 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { SponsorsResourceInner } from './sponsorsResourceInner';
+import { SponsorsResourceInner } from "./sponsorsResourceInner"
 
-export interface SponsorsResource extends Array<SponsorsResourceInner> { 
-}
+export interface SponsorsResource extends Array<SponsorsResourceInner> {}

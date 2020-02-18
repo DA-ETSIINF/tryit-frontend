@@ -111,6 +111,7 @@
 
 	--transition-fast: 0.18s;
 	--transition-normal: 0.3s;
+	--transition-slow: 0.5s;
 
 	--min-width-m: 250px;
 }
@@ -145,6 +146,7 @@ h1 {
 	font-family: var(--roboto);
 	font-weight: var(--font-bold-roboto);
 	color: var(--primary-1);
+	text-align: left;
 }
 
 h2 {
@@ -183,6 +185,12 @@ h6 {
 	text-transform: uppercase;
 }
 
+a {
+	color: var(--primary-4);
+	font-weight: var(--font-bold-source-sans-pro);
+	text-decoration: none;
+}
+
 @media screen and (min-width: 592px) {
 	h1 {
 		font-size: 48px;
@@ -212,4 +220,19 @@ p {
 p.small {
 	font-size: 0.875rem;
 	color: var(--neutral-6);
+	padding-bottom: 0;
+}
+
+input {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+	line-height: inherit;
+}
+
+.form-question {
+	color: var(--primary-2);
+	font-size: 16px;
+	margin-bottom: var(--space-xxs);
 }

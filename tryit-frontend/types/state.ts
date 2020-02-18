@@ -1,7 +1,6 @@
-export interface RootState {
-}
-export interface MenuResource{
-    primary?:string[]
-    secundary?:string[]
-    error:boolean
+export interface RootState {}
+export interface MenuResource {
+	primary?: string[]
+	secondary?: string[]
+	error: boolean
 }
