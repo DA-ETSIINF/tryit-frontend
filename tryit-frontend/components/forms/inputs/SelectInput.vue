@@ -44,10 +44,11 @@ import { OptionSelected } from "../../../types/components";
 
 @Component({})
 export default class SelectInput extends Vue {
-  @Prop({ type: String, required: true }) title!: string;
-  @Prop({ type: Array, required: true }) options!: OptionSelected[][];
-  @Prop({ type: Object, required: true }) optionSelected!: OptionSelected;
-  @Prop({ type: Boolean, default: false }) open!: boolean;
+  @Prop({ type: String, required: true }) readonly title!: string;
+  @Prop({ type: Array, required: true }) readonly options!: OptionSelected[][];
+  @Prop({ type: Object, required: true })
+  readonly optionSelected!: OptionSelected;
+  @Prop({ type: Boolean, default: false }) readonly open!: boolean;
 
   copyOptions: OptionSelected[][] = this.options;
 
@@ -66,7 +67,8 @@ export default class SelectInput extends Vue {
   search(e) {
     this.$emit("open", true);
     // @ts-ignore: It ignores the error caused by the flat()
-    const fuse = new Fuse(this.options.flat(), this.fuseOptions);
+    const options = this.options;
+    const fuse = new Fuse(options.flat(), this.fuseOptions);
     const result = fuse.search(e.target.value);
     this.copyOptions = [[]];
     result.forEach(r => {

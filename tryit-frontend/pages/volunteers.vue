@@ -47,14 +47,20 @@ export default class Volunteers extends Vue {
             properties: {
               placeholder: "DNI / NIE",
               helperText: "Obligatorio"
-            }
+            },
+            value: "",
+            id: "1",
+            requirements: []
           },
           {
             tag: "text-area",
             properties: {
               placeholder:
                 "¿Algo qué deberíamos saber?¿Necesitas los créditos con urgencia?"
-            }
+            },
+            value: "",
+            id: "2",
+            requirements: []
           },
           {
             tag: "checkbox-detail",
@@ -65,8 +71,11 @@ export default class Volunteers extends Vue {
                 "Si rellenas esta casilla, es posible que deberás instalarte una app para el checkeo de las entradas"
               ],
               checked: false,
-              id: "android"
-            }
+              htmlId: "android"
+            },
+            id: "3",
+            value: "",
+            requirements: []
           }
         ]
       },
@@ -89,12 +98,12 @@ export default class Volunteers extends Vue {
                     {
                       period: "morning",
                       checked: false,
-                      id: 1
+                      htmlId: 1
                     },
                     {
                       period: "afternoon",
                       checked: false,
-                      id: 2
+                      htmlId: 2
                     }
                   ]
                 },
@@ -106,12 +115,12 @@ export default class Volunteers extends Vue {
                     {
                       period: "morning",
                       checked: false,
-                      id: 3
+                      htmlId: 3
                     },
                     {
                       period: "afternoon",
                       checked: false,
-                      id: 4
+                      htmlId: 4
                     }
                   ]
                 },
@@ -123,12 +132,12 @@ export default class Volunteers extends Vue {
                     {
                       period: "morning",
                       checked: false,
-                      id: 5
+                      htmlId: 5
                     },
                     {
                       period: "afternoon",
                       checked: false,
-                      id: 6
+                      htmlId: 6
                     }
                   ]
                 },
@@ -140,17 +149,20 @@ export default class Volunteers extends Vue {
                     {
                       period: "morning",
                       checked: false,
-                      id: 7
+                      htmlId: 7
                     },
                     {
                       period: "afternoon",
                       checked: false,
-                      id: 8
+                      htmlId: 8
                     }
                   ]
                 }
               ]
-            }
+            },
+            id: "3",
+            value: "",
+            requirements: []
           }
         ]
       },
@@ -163,8 +175,11 @@ export default class Volunteers extends Vue {
               text:
                 "He leído y acepto los <a target='_blank' href='https://drive.google.com/file/d/1XsGYJJyDW2Flq06Qpj1HQM4Z1SgvIqTV/view?usp=sharing'>términos y condiciones de inscripción de voluntarios Try IT! 2020</a>",
               checked: false,
-              id: "ticket-conditions"
-            }
+              htmlId: "ticket-conditions"
+            },
+            id: "3",
+            value: "",
+            requirements: []
           }
         ]
       }

@@ -1,6 +1,7 @@
 /**
  * TODO
  */
+import { Requirements } from "./requirements"
 import { InputStatus } from "./inputState"
 
 export interface TextAreaType {
@@ -19,4 +20,7 @@ export interface FS_TextAreaInput {
 	tag: "text-area"
 	question?: string
 	properties: TextAreaType
+	id: string
+	value: string
+	requirements: Requirements[]
 }

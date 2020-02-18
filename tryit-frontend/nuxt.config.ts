@@ -39,5 +39,6 @@ export default {
 				component: resolve(__dirname, "pages/not-found.vue")
 			})
 		}
-	}
+	},
+	transpileDependencies: ["vuex-module-decorators"]
 }

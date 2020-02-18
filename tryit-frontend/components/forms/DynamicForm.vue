@@ -10,7 +10,7 @@
           v-if="input.tag === 'text-input'"
           :helperText="input.properties.helperText"
           :placeholder="input.properties.placeholder"
-          :value="input.properties.value"
+          :value="input.value"
           :isDisabled="input.properties.isDisabled"
           :hideText="input.properties.hideText"
           :status="input.properties.status"
@@ -55,7 +55,7 @@
         <checkbox-detail
           v-if="input.tag === 'checkbox-detail'"
           :text="input.properties.text"
-          :id="input.properties.id"
+          :id="input.id"
           :details="input.properties.details"
           :checked="input.properties.checked"
         ></checkbox-detail>
@@ -75,7 +75,7 @@ import { FormType } from "../../types/components";
 
 @Component({})
 export default class DynamicForm extends Vue {
-  @Prop({ type: Object, required: true }) form!: FormType;
+  @Prop({ type: Object, required: true }) readonly form!: FormType;
 }
 </script>
 

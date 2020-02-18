@@ -1,7 +1,8 @@
+import { Requirements } from "./requirements"
 export interface dayPeriodType {
 	period: string
 	checked: boolean
-	id: number
+	htmlId: number
 }
 
 export interface TimePeriodsType {
@@ -21,4 +22,7 @@ export interface AvailabilityInputType {
 export interface FS_Availability {
 	tag: "availability-input"
 	properties: AvailabilityInputType
+	id: string
+	value: string
+	requirements: Requirements[]
 }

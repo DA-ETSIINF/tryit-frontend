@@ -1,50 +1,51 @@
 <template>
-	<div>
-		<h1>{{ this.$store.ticket.form.title }}</h1>
-		<p class="page-description">{{ this.$store.ticket.form.description }}</p>
-		<dynamic-form :form="this.$store.ticket.form"></dynamic-form>
-	</div>
+  <div>
+    <h1>{{ this.$store.getters['ticket/title'] }}</h1>
+    <p class="page-description">{{ this.$store.getters['ticket/description'] }}</p>
+    <dynamic-form :form="this.$store.mutations['ticket/form']"></dynamic-form>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator"
-import {
-	TextInput,
-	CheckboxInput,
-	CheckboxDetail,
-	StudentInput,
-	SelectInput,
-	FormSection,
-	LabelsInput,
-	LabelInput,
-	DynamicForm,
-	ButtonForm,
-	ButtonComponent
-} from "../components"
-import { OptionSelected, SelectInputType, FormType } from "../types/components"
+import { Component, Vue } from "nuxt-property-decorator";
 
-Vue.component("CheckboxInput", CheckboxInput)
-Vue.component("CheckboxDetail", CheckboxDetail)
-Vue.component("StudentInput", StudentInput)
-Vue.component("SelectInput", SelectInput)
-Vue.component("TextInput", TextInput)
-Vue.component("FormSection", FormSection)
-Vue.component("LabelsInput", LabelsInput)
-Vue.component("LabelInput", LabelInput)
-Vue.component("ButtonForm", ButtonForm)
-Vue.component("ButtonComponent", ButtonComponent)
+import {
+  TextInput,
+  CheckboxInput,
+  CheckboxDetail,
+  StudentInput,
+  SelectInput,
+  FormSection,
+  LabelsInput,
+  LabelInput,
+  DynamicForm,
+  ButtonForm,
+  ButtonComponent
+} from "../components";
+import { OptionSelected, SelectInputType, FormType } from "../types/components";
+
+Vue.component("CheckboxInput", CheckboxInput);
+Vue.component("CheckboxDetail", CheckboxDetail);
+Vue.component("StudentInput", StudentInput);
+Vue.component("SelectInput", SelectInput);
+Vue.component("TextInput", TextInput);
+Vue.component("FormSection", FormSection);
+Vue.component("LabelsInput", LabelsInput);
+Vue.component("LabelInput", LabelInput);
+Vue.component("ButtonForm", ButtonForm);
+Vue.component("ButtonComponent", ButtonComponent);
 
 @Component({
-	name: "ticket",
-	components: { DynamicForm }
+  name: "ticket",
+  components: { DynamicForm }
 })
 export default class Ticket extends Vue {
-	public constructor() {
-		super()
-		console.log("TICKET", this.$store.ticket)
-	}
-	// These functions must be moved to the store
-	/*
+  public constructor() {
+    super();
+    console.log(this.$store._mutations);
+  }
+  // These functions must be moved to the store
+  /*
   changedOption(newSchool: OptionSelected, shouldClose: boolean = true) {
     this.schoolInput.selected = newSchool;
     if (shouldClose) {

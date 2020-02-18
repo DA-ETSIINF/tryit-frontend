@@ -5,14 +5,14 @@
       <span class="closing-question-mark">?</span>
       <span class="you-are">Eres...</span>
       <CheckboxDetail
-        id="'student'"
+        :id="'student'"
         :text="'estudiante'"
         :checked="isStudent"
         :className="'student-checkbox'"
         @change="updateAnswer($event, isUpmStudent)"
       ></CheckboxDetail>
       <CheckboxDetail
-        id="'upm-student'"
+        :id="'upm-student'"
         :text="'de la UPM'"
         :checked="isUpmStudent"
         :className="'upm-checkbox'"
@@ -31,8 +31,12 @@ import { CheckboxDetail } from "../../";
   components: { CheckboxDetail }
 })
 export default class StudentInput extends Vue {
-  @Prop({ type: Boolean, required: true }) isStudent!: boolean;
-  @Prop({ type: Boolean, required: true }) isUpmStudent!: boolean;
+  @Prop({ type: Boolean, required: true }) readonly isStudent!: boolean;
+  @Prop({ type: Boolean, required: true }) readonly isUpmStudent!: boolean;
+
+  _isStudent: boolean = this.isStudent;
+  _isUpmStudent: boolean = this.isUpmStudent;
+
   answer: string = "";
 
   private posibleAnswers = {
@@ -64,8 +68,8 @@ export default class StudentInput extends Vue {
         isUpmStudent = true;
       }
     }
-    this.isStudent = isStudent;
-    this.isUpmStudent = isUpmStudent;
+    this._isStudent = isStudent;
+    this._isUpmStudent = isUpmStudent;
   }
 }
 </script>

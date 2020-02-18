@@ -2,11 +2,11 @@
  * TODO
  */
 import { InputStatus } from "./inputState"
+import { Requirements } from "./requirements"
 
 export interface TextInputType {
 	helperText?: string
 	placeholder?: string
-	value?: string
 	isDisabled?: boolean
 	hideText?: boolean
 	status?: InputStatus
@@ -19,4 +19,7 @@ export interface FS_TextInput {
 	tag: "text-input"
 	question?: string
 	properties: TextInputType
+	value: string
+	id: string
+	requirements: Requirements[]
 }

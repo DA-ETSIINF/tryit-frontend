@@ -21,11 +21,11 @@ import { Component, Prop, Vue } from "nuxt-property-decorator";
 import { OptionSelected, InputStatus } from "../../../types/components";
 @Component({})
 export default class LabelsInput extends Vue {
-  @Prop({ type: String, required: true }) question!: string;
-  @Prop({ type: Array, required: true }) options!: OptionSelected[];
-  @Prop({ type: Number, required: true }) selected!: number;
-  @Prop({ type: String }) status!: InputStatus;
-  @Prop({ type: String }) errorMsg!: string;
+  @Prop({ type: String, required: true }) readonly question!: string;
+  @Prop({ type: Array, required: true }) readonly options!: OptionSelected[];
+  @Prop({ type: Number, required: true }) readonly selected!: number;
+  @Prop({ type: String }) readonly status!: InputStatus;
+  @Prop({ type: String }) readonly errorMsg!: string;
 }
 </script>
 

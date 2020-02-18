@@ -66,7 +66,7 @@ export default class AvailabilityInput extends Vue {
         if (e) {
           this.slots.push({
             type: "slot",
-            id: e.id
+            id: e.htmlId
           });
         } else {
           this.slots.push({

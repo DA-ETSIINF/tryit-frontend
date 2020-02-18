@@ -14,35 +14,50 @@ export const ticketForm: FormType = {
 					properties: {
 						placeholder: "Nombre",
 						helperText: "Obligatorio"
-					}
+					},
+					value: "",
+					id: "1",
+					requirements: [{ type: "only-letters" }]
 				},
 				{
 					tag: "text-input",
 					properties: {
 						placeholder: "Apellidos",
 						helperText: "Obligatorio"
-					}
+					},
+					value: "",
+					id: "2",
+					requirements: [{ type: "only-letters" }]
 				},
 				{
 					tag: "text-input",
 					properties: {
 						placeholder: "DNI / NIE",
 						helperText: "Obligatorio"
-					}
+					},
+					value: "",
+					id: "3",
+					requirements: []
 				},
 				{
 					tag: "text-input",
 					properties: {
 						placeholder: "Email",
 						helperText: "Obligatorio"
-					}
+					},
+					value: "",
+					id: "4",
+					requirements: []
 				},
 				{
 					tag: "text-input",
 					properties: {
 						placeholder: "Teléfono",
 						helperText: "Obligatorio"
-					}
+					},
+					value: "",
+					id: "5",
+					requirements: []
 				}
 			]
 		},
@@ -56,7 +71,10 @@ export const ticketForm: FormType = {
 					properties: {
 						isStudent: true,
 						isUpmStudent: true
-					}
+					},
+					value: "",
+					id: "6",
+					requirements: []
 				},
 				{
 					tag: "select-input",
@@ -66,32 +84,35 @@ export const ticketForm: FormType = {
 							[
 								{
 									title: "Escuela Superior de Ingenieros Informáticos",
-									id: 1
+									id: "1"
 								}
 							],
 							[
 								{
 									title: "Escuela Superior de Arquitectos",
-									id: 2
+									id: "2"
 								},
 								{
 									title: "Escuela Superior de Moda",
-									id: 3
+									id: "3"
 								}
 							]
 						],
 						// TODO change this to an index
 						selected: {
 							title: "Escuela Superior de Ingenieros Informáticos",
-							id: 1
+							id: "1"
 						},
 						// TODO change this to an index
 						oldSelected: {
 							title: "Escuela Superior de Ingenieros Informáticos",
-							id: 1
+							id: "1"
 						},
 						open: false
-					}
+					},
+					value: "",
+					id: "7",
+					requirements: []
 				},
 				{
 					tag: "select-input",
@@ -101,32 +122,35 @@ export const ticketForm: FormType = {
 							[
 								{
 									title: "Ingenería Informática",
-									id: 1
+									id: "1"
 								}
 							],
 							[
 								{
 									title: "Ingenería de Telecomunicaciones",
-									id: 2
+									id: "2"
 								},
 								{
 									title: "Ingenería la calle",
-									id: 3
+									id: "3"
 								}
 							]
 						],
 						// TODO change this to an index
 						selected: {
 							title: "Escuela Superior de Ingenieros Informáticos",
-							id: 1
+							id: "1"
 						},
 						// TODO change this to an index
 						oldSelected: {
 							title: "Escuela Superior de Ingenieros Informáticos",
-							id: 1
+							id: "1"
 						},
 						open: false
-					}
+					},
+					id: "8",
+					value: "",
+					requirements: []
 				},
 				{
 					tag: "labels-input",
@@ -135,19 +159,22 @@ export const ticketForm: FormType = {
 						options: [
 							{
 								title: "1",
-								id: 1
+								id: "1"
 							},
 							{
 								title: "2",
-								id: 2
+								id: "2"
 							},
 							{
 								title: "3",
-								id: 3
+								id: "3"
 							}
 						],
 						selected: 1
-					}
+					},
+					id: "9",
+					value: "",
+					requirements: []
 				}
 			]
 		},
@@ -160,8 +187,11 @@ export const ticketForm: FormType = {
 						text:
 							"El usuario concede a la organización el derecho de uso de las imágenes tomadas durante el evento para su posible uso en redes sociales y página web.",
 						checked: false,
-						id: "ticket-conditions"
-					}
+						htmlId: "ticket-conditions"
+					},
+					id: "10",
+					value: "",
+					requirements: []
 				}
 			]
 		}
