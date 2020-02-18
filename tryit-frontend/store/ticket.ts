@@ -2,32 +2,41 @@ import { Module, Mutation, VuexModule, getModule } from "vuex-module-decorators"
 import { TicketResource } from "~/types"
 import { FormType, TextInputType } from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
-import {store} from "~/store"
+import { store } from "~/store"
 
-@Module({dynamic:true, store, name:'ticket', stateFactory: true,
-namespaced: true})
+@Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
 	ticket!: TicketResource
 	ticketForm: FormType = tf
 
-	get title(): string | undefined {
+	get getTitle(): string | undefined {
 		return this.ticketForm.title
 	}
 
-	get description(): string | undefined {
+	get getDescription(): string | undefined {
 		return this.ticketForm.description
 	}
 
 	@Mutation
-	form(): FormType {
+	modifyInput(state, { sectionIndex, inputIndex, rIndex }) {
+		console.log("_____-", sectionIndex, inputIndex, rIndex)
+		this.ticketForm.sections[sectionIndex].inputs[inputIndex].requirements[rIndex].validate = (
+			v: string
+		) => this.isOnlyLetters(v)
+	}
+
+	get getForm(): FormType {
 		this.ticketForm.sections.forEach((section, sectionIndex) => {
 			section.inputs.forEach((input, inputIndex) => {
 				input.requirements.forEach((r, rIndex) => {
 					switch (r.type) {
 						case "only-letters":
-							this.addValidationFunctionInput(sectionIndex, inputIndex, rIndex, (v: string) =>
-								this.isOnlyLetters(v)
-							)
+							store.commit("ticket/addValidationFunctionInput", {
+								sectionIndex,
+								inputIndex,
+								rIndex,
+								fn: ((v) => this.isOnlyLetters(v))
+							})
 							break
 					}
 				})
@@ -43,8 +52,12 @@ export default class Ticket extends VuexModule {
 		requirementIndex: number,
 		fn: Function
 	) {
+		if (!sectionIndex || !inputIndex || !requirementIndex || !fn) {
+			return
+		}
+
 		this.ticketForm.sections[sectionIndex].inputs[inputIndex].requirements[
-		requirementIndex
+			requirementIndex
 		].validate = fn()
 	}
 
@@ -68,6 +81,8 @@ export default class Ticket extends VuexModule {
 		})
 		return { sectionIndex, indexInput }
 	}
+
+	private setError
 
 	@Mutation
 	setName(name: string, id: string) {

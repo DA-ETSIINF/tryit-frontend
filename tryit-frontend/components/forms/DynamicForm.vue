@@ -17,6 +17,7 @@
           :noBorder="input.properties.noBorder"
           :noShadows="input.properties.noShadows"
           :leaveSpaceRight="input.properties.leaveSpaceRight"
+          :validate="input.validate"
         ></text-input>
         <text-area
           v-if="input.tag === 'text-area'"

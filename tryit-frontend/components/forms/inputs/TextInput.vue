@@ -11,11 +11,11 @@
 					'no-shadows': noShadows,
 					'leave-space': leaveSpaceRight
 				}"
-        :value="value"
+        v-model="userValue"
         @keyup.esc="$emit('esc', $event)"
         @keypress="$emit('keypress', $event)"
         @focus="$emit('focus', $event)"
-        @blur="$emit('blur', $event)"
+        @blur="outfocus()"
       />
       <span v-if="!hideText">{{ helperText }}</span>
     </div>
@@ -24,22 +24,34 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { TextInputType } from "../../../types/components";
 
 @Component({})
 export default class TextInput extends Vue {
   @Prop({ type: String, default: "" }) readonly helperText!: string;
   @Prop({ type: String, default: "" }) readonly placeholder!: string;
   @Prop({ type: String, default: "" }) readonly value!: string;
+  @Prop({ type: String, default: "" }) xuserValue!: string;
   @Prop({ type: Boolean, default: false }) readonly isDisabled!: boolean;
   @Prop({ type: Boolean, default: false }) readonly hideText!: boolean;
-  @Prop({ type: String, default: "" }) readonly status!:
-    | ""
-    | "ok"
-    | "error"
-    | "info";
+  @Prop({ type: String, default: "" }) readonly status!: TextInputType;
   @Prop({ type: Boolean, default: false }) readonly noBorder!: boolean;
   @Prop({ type: Boolean, default: false }) readonly noShadows!: boolean;
   @Prop({ type: Boolean, default: false }) readonly leaveSpaceRight!: boolean;
+  @Prop({ type: Function, default: () => {} }) readonly validate!: Function;
+
+  get userValue(): string {
+    return this.xuserValue;
+  }
+
+  set userValue(value: string) {
+    this.xuserValue = value;
+  }
+
+  outfocus() {
+    console.log("L52", this.userValue);
+    console.log("L53", this.validate(this.userValue));
+  }
 }
 </script>
 
