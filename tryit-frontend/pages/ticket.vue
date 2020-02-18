@@ -2,7 +2,7 @@
   <div>
     <h1>{{ this.$store.getters['ticket/title'] }}</h1>
     <p class="page-description">{{ this.$store.getters['ticket/description'] }}</p>
-    <dynamic-form :form="this.$store.mutations['ticket/form']"></dynamic-form>
+    <dynamic-form :form="getForm()"></dynamic-form>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ import {
 } from "../components";
 import { OptionSelected, SelectInputType, FormType } from "../types/components";
 
-import {TicketModule} from "../store/ticket"
+import {TicketModule} from "~/store/ticket"
 
 Vue.component("CheckboxInput", CheckboxInput);
 Vue.component("CheckboxDetail", CheckboxDetail);
@@ -44,7 +44,11 @@ Vue.component("ButtonComponent", ButtonComponent);
 export default class Ticket extends Vue {
   public constructor() {
     super();
-    console.log(TicketModule.mutations);
+    console.log(TicketModule, 99999)
+    // console.log(TicketModule.mutations);
+  }
+  getForm(){
+    return TicketModule.form()
   }
   // These functions must be moved to the store
   /*
