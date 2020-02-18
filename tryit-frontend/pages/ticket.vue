@@ -24,6 +24,8 @@ import {
 } from "../components";
 import { OptionSelected, SelectInputType, FormType } from "../types/components";
 
+import {TicketModule} from "../store/ticket"
+
 Vue.component("CheckboxInput", CheckboxInput);
 Vue.component("CheckboxDetail", CheckboxDetail);
 Vue.component("StudentInput", StudentInput);
@@ -42,7 +44,7 @@ Vue.component("ButtonComponent", ButtonComponent);
 export default class Ticket extends Vue {
   public constructor() {
     super();
-    console.log(this.$store.state.mutations);
+    console.log(TicketModule.mutations);
   }
   // These functions must be moved to the store
   /*

@@ -1,8 +1,6 @@
 import Vuex from "vuex"
-import ticket from "./ticket"
+import Vue from 'vue'
 
-const store = new Vuex.Store({
-	modules: {
-		ticket
-	}
-})
+// import  from "./ticket"
+Vue.use(Vuex)
+export const store = new Vuex.Store({})

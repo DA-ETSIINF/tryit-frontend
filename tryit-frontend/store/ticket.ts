@@ -1,9 +1,11 @@
-import { Module, Mutation, VuexModule } from "vuex-module-decorators"
+import { Module, Mutation, VuexModule, getModule } from "vuex-module-decorators"
 import { TicketResource } from "~/types"
 import { FormType, TextInputType } from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
+import {store} from "~/store"
 
-@Module
+@Module({dynamic:true, store, name:'ticket', stateFactory: true,
+namespaced: true})
 export default class Ticket extends VuexModule {
 	ticket!: TicketResource
 	ticketForm: FormType = tf
@@ -42,7 +44,7 @@ export default class Ticket extends VuexModule {
 		fn: Function
 	) {
 		this.ticketForm.sections[sectionIndex].inputs[inputIndex].requirements[
-			requirementIndex
+		requirementIndex
 		].validate = fn()
 	}
 
@@ -86,3 +88,4 @@ export default class Ticket extends VuexModule {
 	*/
 	}
 }
+export const TicketModule = getModule(Ticket)
