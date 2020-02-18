@@ -1,17 +1,18 @@
 import { GetterTree } from 'vuex';
 import { ActivitiesState } from './index';
-import { RootState, ActivityResource } from '~/types';
+import { RootState, ActivityResource, ActivitySelect } from '~/types';
+
+type SortedActivities = {[day:number] : ActivitySelect[]}
 
 export const getters: GetterTree<ActivitiesState, RootState> = {
-    getOrganizers(state): ActivityResource[] | undefined {
+    getOrganizers(state): SortedActivities | undefined {
         let { activities } = state
-        const dict : {[day:number] : ActivityResource} = {}
+        const dict : SortedActivities = {}
         if(activities != undefined){
             activities.forEach(activity => {
-                if 
-                
+                dict[activity.date ].push(activity.activity)
             });
         }
-        return activities
+        return dict
     }
 };
