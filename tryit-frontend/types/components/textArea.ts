@@ -1,8 +1,9 @@
 /**
  * TODO
  */
-import { Requirements } from "./requirements"
+import { Requirement } from "./requirements"
 import { InputStatus } from "./inputState"
+import { Indexes } from "./indexes"
 
 export interface TextAreaType {
 	helperText?: string
@@ -22,5 +23,6 @@ export interface FS_TextAreaInput {
 	properties: TextAreaType
 	id: string
 	value: string
-	requirements: Requirements[]
+	requirements: Requirement[]
+	indexes?: Indexes
 }

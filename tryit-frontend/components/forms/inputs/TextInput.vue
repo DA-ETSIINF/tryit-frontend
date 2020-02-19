@@ -23,34 +23,68 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "nuxt-property-decorator";
-import { TextInputType } from "../../../types/components";
+import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
+import {
+  TextInputType,
+  Requirement,
+  Indexes,
+  ErrorOnInput
+} from "../../../types/components";
+// import store from "store";
+import { TicketModule } from "../../../store/ticket";
+import { validate } from "../../../utils";
 
 @Component({})
 export default class TextInput extends Vue {
   @Prop({ type: String, default: "" }) readonly helperText!: string;
   @Prop({ type: String, default: "" }) readonly placeholder!: string;
   @Prop({ type: String, default: "" }) readonly value!: string;
-  @Prop({ type: String, default: "" }) xuserValue!: string;
   @Prop({ type: Boolean, default: false }) readonly isDisabled!: boolean;
   @Prop({ type: Boolean, default: false }) readonly hideText!: boolean;
   @Prop({ type: String, default: "" }) readonly status!: TextInputType;
   @Prop({ type: Boolean, default: false }) readonly noBorder!: boolean;
   @Prop({ type: Boolean, default: false }) readonly noShadows!: boolean;
   @Prop({ type: Boolean, default: false }) readonly leaveSpaceRight!: boolean;
-  @Prop({ type: Function, default: () => {} }) readonly validate!: Function;
+  @Prop({ type: String, default: "" }) readonly id!: string;
+  @Prop({ type: Object }) readonly indexes!: Indexes;
+  @Prop({ type: Array, default: () => {} })
+  readonly validations!: Requirement[];
 
+  valueInput: string = this.value;
+
+  public constructor() {
+    super();
+  }
   get userValue(): string {
-    return this.xuserValue;
+    return this.value;
   }
 
   set userValue(value: string) {
-    this.xuserValue = value;
+    this.updateInput("value", value);
+    this.valueInput = value;
   }
 
   outfocus() {
-    console.log("L52", this.userValue);
-    console.log("L53", this.validate(this.userValue));
+    this.validations.forEach(validation => {
+      if (validation === undefined) {
+        return;
+      }
+      const v: ErrorOnInput = validate(validation, this.valueInput);
+      if (v.error) {
+        this.updateInput("status", "error");
+        this.updateInput("helperText", v.errorDetail.message);
+        console.log(TicketModule.ticketForm.sections[0].inputs[0]);
+      }
+    });
+  }
+
+  updateInput(key: string, value: string) {
+    TicketModule.updateInput({
+      key,
+      value,
+      sectionIndex: this.indexes.section,
+      inputIndex: this.indexes.input
+    });
   }
 }
 </script>

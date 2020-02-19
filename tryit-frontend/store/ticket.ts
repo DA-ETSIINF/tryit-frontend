@@ -1,6 +1,6 @@
 import { Module, Mutation, VuexModule, getModule } from "vuex-module-decorators"
 import { TicketResource } from "~/types"
-import { FormType, TextInputType } from "~/types/components"
+import { FormType, Requirement } from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
 
@@ -17,72 +17,44 @@ export default class Ticket extends VuexModule {
 		return this.ticketForm.description
 	}
 
-	@Mutation
-	modifyInput(state, { sectionIndex, inputIndex, rIndex }) {
-		console.log("_____-", sectionIndex, inputIndex, rIndex)
-		this.ticketForm.sections[sectionIndex].inputs[inputIndex].requirements[rIndex].validate = (
-			v: string
-		) => this.isOnlyLetters(v)
+	get getForm_(): FormType {
+		return this.ticketForm
 	}
 
 	get getForm(): FormType {
 		this.ticketForm.sections.forEach((section, sectionIndex) => {
-			section.inputs.forEach((input, inputIndex) => {
-				input.requirements.forEach((r, rIndex) => {
-					switch (r.type) {
-						case "only-letters":
-							store.commit("ticket/addValidationFunctionInput", {
-								sectionIndex,
-								inputIndex,
-								rIndex,
-								fn: ((v) => this.isOnlyLetters(v))
-							})
-							break
-					}
-				})
+			section.inputs.forEach((_, inputIndex) => {
+				store.commit("ticket/updateIndexes", { sectionIndex, inputIndex })
 			})
 		})
 		return this.ticketForm
 	}
 
 	@Mutation
-	addValidationFunctionInput(
-		sectionIndex: number,
-		inputIndex: number,
-		requirementIndex: number,
-		fn: Function
-	) {
-		if (!sectionIndex || !inputIndex || !requirementIndex || !fn) {
+	updateInput({
+		key,
+		value,
+		sectionIndex,
+		inputIndex
+	}: {
+		key: string
+		value: string
+		sectionIndex: number
+		inputIndex: number
+	}) {
+		if (sectionIndex === undefined || inputIndex === undefined) {
 			return
 		}
-
-		this.ticketForm.sections[sectionIndex].inputs[inputIndex].requirements[
-			requirementIndex
-		].validate = fn()
+		this.ticketForm.sections[sectionIndex].inputs[inputIndex][key] = value
 	}
 
-	private isOnlyLetters(str: string): boolean {
-		const letters = /^[A-Za-z]+$/
-		return str.match(letters) !== null
+	@Mutation
+	updateIndexes({ sectionIndex, inputIndex }: { sectionIndex: number; inputIndex: number }) {
+		this.ticketForm.sections[sectionIndex].inputs[inputIndex].indexes = {
+			section: sectionIndex,
+			input: inputIndex
+		}
 	}
-
-	private findInputById(
-		id: string
-	): { sectionIndex: undefined | number; indexInput: undefined | number } {
-		let sectionIndex: undefined | number = undefined
-		let indexInput: undefined | number = undefined
-		this.ticketForm.sections.forEach((s, _sectionIndex) => {
-			s.inputs.forEach((input, _indexInput) => {
-				if (input.id === id) {
-					sectionIndex = _sectionIndex
-					indexInput = _indexInput
-				}
-			})
-		})
-		return { sectionIndex, indexInput }
-	}
-
-	private setError
 
 	@Mutation
 	setName(name: string, id: string) {

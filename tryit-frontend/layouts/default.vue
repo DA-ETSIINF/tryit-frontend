@@ -62,7 +62,6 @@ export default class extends Vue {
   };
   toogleOpen() {
     this.isOpen = !this.isOpen;
-    console.log(this.isOpen);
   }
 }
 </script>

@@ -13,7 +13,7 @@ import { FS_Availability } from "./availabilityInput"
 export interface FormSectionType {
 	title?: string
 	description?: string
-	oneColumnSection?: boolean
+	oneColumnSection?: boolean 
 	inputs: (
 		| FS_TextInput
 		| FS_Student

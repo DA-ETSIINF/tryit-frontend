@@ -1,4 +1,6 @@
-import { Requirements } from "./requirements"
+import { Requirement } from "./requirements"
+import { Indexes } from "./indexes"
+
 export interface StudentType {
 	isStudent: boolean
 	isUpmStudent: boolean
@@ -10,5 +12,6 @@ export interface FS_Student {
 	properties: StudentType
 	id: string
 	value: string
-	requirements: Requirements[]
+	requirements: Requirement[]
+	indexes?: Indexes
 }

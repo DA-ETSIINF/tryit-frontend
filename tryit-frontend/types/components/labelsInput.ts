@@ -1,6 +1,7 @@
-import { Requirements } from "./requirements"
+import { Requirement } from "./requirements"
 import { InputStatus } from "./inputState"
 import { OptionSelected } from "./options"
+import { Indexes } from "./indexes"
 
 export interface LabelInputType {
 	options: OptionSelected[]
@@ -15,5 +16,6 @@ export interface FS_Labels {
 	properties: LabelInputType
 	id: string
 	value: string
-	requirements: Requirements[]
+	requirements: Requirement[]
+	indexes?: Indexes
 }

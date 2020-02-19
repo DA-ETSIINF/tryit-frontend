@@ -2,7 +2,8 @@
  * TODO
  */
 import { InputStatus } from "./inputState"
-import { Requirements } from "./requirements"
+import { Requirement } from "./requirements"
+import { Indexes } from "./indexes"
 
 export interface TextInputType {
 	helperText?: string
@@ -21,5 +22,6 @@ export interface FS_TextInput {
 	properties: TextInputType
 	value: string
 	id: string
-	requirements: Requirements[]
+	requirements: Requirement[]
+	indexes?: Indexes
 }

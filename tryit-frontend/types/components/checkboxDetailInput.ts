@@ -1,4 +1,5 @@
-import { Requirements } from "./requirements"
+import { Requirement } from "./requirements"
+import { Indexes } from "./indexes"
 export interface CheckboxDetailInputType {
 	text: string
 	details?: string[]
@@ -11,5 +12,6 @@ export interface FS_CheckboxDetail {
 	properties: CheckboxDetailInputType
 	id: string
 	value: string
-	requirements: Requirements[]
+	requirements: Requirement[]
+	indexes?: Indexes
 }

@@ -17,7 +17,7 @@ export const ticketForm: FormType = {
 					},
 					value: "",
 					id: "1",
-					requirements: [{ type: "only-letters" }]
+					requirements: ["not-empty", "only-letters"]
 				},
 				{
 					tag: "text-input",
@@ -27,7 +27,7 @@ export const ticketForm: FormType = {
 					},
 					value: "",
 					id: "2",
-					requirements: [{ type: "only-letters" }]
+					requirements: ["not-empty", "only-letters"]
 				},
 				{
 					tag: "text-input",

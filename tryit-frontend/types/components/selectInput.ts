@@ -2,8 +2,9 @@
  * TODO
  */
 
-import { Requirements } from "./requirements"
+import { Requirement } from "./requirements"
 import { OptionSelected } from "./options"
+import { Indexes } from "./indexes"
 
 export interface SelectInputType {
 	open: boolean
@@ -18,5 +19,6 @@ export interface FS_Select {
 	properties: SelectInputType
 	id: string
 	value: string
-	requirements: Requirements[]
+	requirements: Requirement[]
+	indexes?: Indexes
 }

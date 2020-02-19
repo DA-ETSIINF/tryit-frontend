@@ -1,4 +1,6 @@
-import { Requirements } from "./requirements"
+import { Requirement } from "./requirements"
+import { Indexes } from "./indexes"
+
 export interface dayPeriodType {
 	period: string
 	checked: boolean
@@ -24,5 +26,6 @@ export interface FS_Availability {
 	properties: AvailabilityInputType
 	id: string
 	value: string
-	requirements: Requirements[]
+	requirements: Requirement[]
+	indexes?: Indexes
 }
