@@ -1,5 +1,5 @@
 import { Requirement } from "./requirements"
-import { InputStatus } from "./inputState"
+import { InputStatus } from "./inputStatus"
 import { OptionSelected } from "./options"
 import { Indexes } from "./indexes"
 

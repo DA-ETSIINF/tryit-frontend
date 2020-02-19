@@ -2,7 +2,7 @@
  * TODO
  */
 import { Requirement } from "./requirements"
-import { InputStatus } from "./inputState"
+import { InputStatus } from "./inputStatus"
 import { Indexes } from "./indexes"
 
 export interface TextAreaType {

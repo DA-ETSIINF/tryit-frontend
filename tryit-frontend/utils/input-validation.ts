@@ -1,38 +1,58 @@
-import { ErrorOnInput, _ErrorOnInput, Requirement } from "~/types/components"
+import {
+	StatusOnInput,
+	Requirement,
+	StatusDetailOnInput,
+	Indexes,
+	InputStatus
+} from "~/types/components"
+import { TicketModule } from "../store/ticket"
 
-export function isOnlyLetters(str: string): boolean {
-	const letters = /^[A-Za-z]+$/
-	return str.match(letters) !== null
+const INPUTS_ERRORS = {
+	notEmpty: {
+		message: "Este campo no puede estar vacío",
+		abbreviation: "field_cannot_be_empty"
+	},
+	isOnlyLetters: {
+		message: "Sólo puede contener letras",
+		abbreviation: "just_letters"
+	}
 }
 
-export function notEmpty(str: string): boolean {
-	return str.length > 0
-}
+function generateResponse(status: InputStatus, statusDetail: StatusDetailOnInput): StatusOnInput {
+	if (status === "ok") {
+		statusDetail = { message: "", abbreviation: "" }
+	}
 
-function generateError(errorDetail): _ErrorOnInput {
 	return {
-		error: true,
-		errorDetail: errorDetail
+		status,
+		statusDetail
 	}
 }
 
-function validateFn(e: boolean, message: string, abbreviation: string): ErrorOnInput {
-	if (e) {
-		return { error: false }
-	} else {
-		return generateError({ message, abbreviation })
-	}
+export function isOnlyLetters(str: string): StatusOnInput {
+	const letters = /^[A-Za-z]+$/
+	const containsErrors = str.match(letters) !== null
+	return generateResponse(containsErrors ? "ok" : "error", INPUTS_ERRORS.isOnlyLetters)
 }
 
-export function validate(type: Requirement, str: string): ErrorOnInput {
+export function notEmpty(str: string): StatusOnInput {
+	const containsErrors = str.length <= 0
+	return generateResponse(containsErrors ? "error" : "ok", INPUTS_ERRORS.notEmpty)
+}
+
+export function validate(type: Requirement, str: string, indexes: Indexes) {
+	let status: StatusOnInput
 	switch (type) {
 		case "not-empty":
-			return validateFn(
-				isOnlyLetters(str),
-				"Este campo no puede estar vacío",
-				"field_cannot_be_empty"
-			)
+			status = isOnlyLetters(str)
+			break
 		case "only-letters":
-			return validateFn(isOnlyLetters(str), "Sólo puede contener letras", "just_letters")
+			status = notEmpty(str)
+			break
 	}
+	TicketModule.updateErrorOnInput({
+		indexes,
+		status
+	})
+	return status.status !== "error"
 }

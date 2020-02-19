@@ -2,7 +2,7 @@
   <div>
     <h1>{{ this.$store.getters['ticket/getTitle'] }}</h1>
     <p class="page-description">{{ this.$store.getters['ticket/getDescription'] }}</p>
-    <dynamic-form :form=" this.$store.getters['ticket/getForm']"></dynamic-form>
+    <dynamic-form :form=" TicketModule.ticketForm "></dynamic-form>
   </div>
 </template>
 
@@ -44,7 +44,7 @@ Vue.component("ButtonComponent", ButtonComponent);
 export default class Ticket extends Vue {
   public constructor() {
     super();
-    // console.log(TicketModule.mutations);
+    console.log(":::", TicketModule.getTicketForm());
   }
   // These functions must be moved to the store
   /*

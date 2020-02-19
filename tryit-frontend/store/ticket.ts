@@ -1,13 +1,13 @@
 import { Module, Mutation, VuexModule, getModule } from "vuex-module-decorators"
 import { TicketResource } from "~/types"
-import { FormType, Requirement } from "~/types/components"
+import { FormType, Indexes, StatusOnInput } from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
 
 @Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
 	ticket!: TicketResource
-	ticketForm: FormType = tf
+	ticketForm: FormType = this.getForm()
 
 	get getTitle(): string | undefined {
 		return this.ticketForm.title
@@ -17,35 +17,36 @@ export default class Ticket extends VuexModule {
 		return this.ticketForm.description
 	}
 
-	get getForm_(): FormType {
+	get getTicketForm(): FormType {
 		return this.ticketForm
 	}
 
-	get getForm(): FormType {
-		this.ticketForm.sections.forEach((section, sectionIndex) => {
+	getForm(): FormType {
+		tf.sections.forEach((section, sectionIndex) => {
 			section.inputs.forEach((_, inputIndex) => {
-				store.commit("ticket/updateIndexes", { sectionIndex, inputIndex })
+				tf.sections[sectionIndex].inputs[inputIndex].indexes = {
+					section: sectionIndex,
+					input: inputIndex
+				}
 			})
 		})
-		return this.ticketForm
+		return tf
 	}
 
 	@Mutation
-	updateInput({
-		key,
-		value,
-		sectionIndex,
-		inputIndex
-	}: {
-		key: string
-		value: string
-		sectionIndex: number
-		inputIndex: number
-	}) {
-		if (sectionIndex === undefined || inputIndex === undefined) {
+	updateInput({ key, value, indexes }: { key: string; value: string; indexes: Indexes }) {
+		if (indexes.section === undefined || indexes.input === undefined) {
 			return
 		}
-		this.ticketForm.sections[sectionIndex].inputs[inputIndex][key] = value
+		this.ticketForm.sections[indexes.section].inputs[indexes.input][key] = value
+	}
+
+	@Mutation
+	updateProperty({ key, value, indexes }: { key: string; value: string; indexes: Indexes }) {
+		if (indexes.section === undefined || indexes.input === undefined) {
+			return
+		}
+		this.ticketForm.sections[indexes.section].inputs[indexes.input].properties[key] = value
 	}
 
 	@Mutation
@@ -57,22 +58,13 @@ export default class Ticket extends VuexModule {
 	}
 
 	@Mutation
-	setName(name: string, id: string) {
-		/*
-		const { sectionIndex, indexInput } = this.findInputById(id)
-		if (!sectionIndex || !indexInput) {
-			return
-		}
-		const input = this.ticketForm.sections[sectionIndex].inputs[indexInput]
-		if (!this.isStringCorrect(input.value)) {
-			const inputWithError: TextInputType = {
-				status: "error",
-				helperText: "Sólo puede contener letras",
-				...input.properties
-			}
-			this.ticketForm.sections[sectionIndex].inputs[indexInput].properties = inputWithError
-		}
-	*/
+	updateErrorOnInput({ indexes, status }: { indexes: Indexes; status: StatusOnInput }) {
+		store.commit("ticket/updateProperty", { key: "status", value: status, indexes })
+		store.commit("ticket/updateProperty", {
+			key: "helperText",
+			value: status.statusDetail.message,
+			indexes
+		})
 	}
 }
 export const TicketModule = getModule(Ticket)

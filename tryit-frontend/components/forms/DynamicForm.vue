@@ -1,10 +1,6 @@
 <template>
   <div class="form-container">
-    <form-section
-      v-for="(section, i) in this.form.sections"
-      :key="`section-${i}`"
-      :section="section"
-    >
+    <form-section v-for="(section, i) in form.sections" :key="`section-${i}`" :section="section">
       <div v-for="(input, j) in section.inputs" :key="`input-${i}-${j}`">
         <text-input
           v-if="input.tag === 'text-input'"
@@ -73,12 +69,12 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
 import { FormType } from "../../types/components";
 
 @Component({})
 export default class DynamicForm extends Vue {
-  @Prop({ type: Object, required: true }) readonly form!: FormType;
+  @Prop({}) readonly form!: FormType;
 }
 </script>
 

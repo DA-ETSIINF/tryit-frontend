@@ -6,7 +6,7 @@
         :disabled="isDisabled"
         :placeholder="placeholder"
         :class="{
-					status,
+          'error': status.status === 'error',
 					'no-border': noBorder,
 					'no-shadows': noShadows,
 					'leave-space': leaveSpaceRight
@@ -23,12 +23,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
+import { Component, Prop, Vue } from "nuxt-property-decorator";
 import {
   TextInputType,
   Requirement,
   Indexes,
-  ErrorOnInput
+  StatusOnInput
 } from "../../../types/components";
 // import store from "store";
 import { TicketModule } from "../../../store/ticket";
@@ -36,19 +36,28 @@ import { validate } from "../../../utils";
 
 @Component({})
 export default class TextInput extends Vue {
-  @Prop({ type: String, default: "" }) readonly helperText!: string;
-  @Prop({ type: String, default: "" }) readonly placeholder!: string;
-  @Prop({ type: String, default: "" }) readonly value!: string;
-  @Prop({ type: Boolean, default: false }) readonly isDisabled!: boolean;
-  @Prop({ type: Boolean, default: false }) readonly hideText!: boolean;
-  @Prop({ type: String, default: "" }) readonly status!: TextInputType;
-  @Prop({ type: Boolean, default: false }) readonly noBorder!: boolean;
-  @Prop({ type: Boolean, default: false }) readonly noShadows!: boolean;
-  @Prop({ type: Boolean, default: false }) readonly leaveSpaceRight!: boolean;
-  @Prop({ type: String, default: "" }) readonly id!: string;
-  @Prop({ type: Object }) readonly indexes!: Indexes;
-  @Prop({ type: Array, default: () => {} })
-  readonly validations!: Requirement[];
+  @Prop({ default: "" }) readonly helperText!: string;
+  @Prop({ default: "" }) readonly placeholder!: string;
+  @Prop({ default: "" }) readonly value!: string;
+  @Prop({ default: false }) readonly isDisabled!: boolean;
+  @Prop({ default: false }) readonly hideText!: boolean;
+  @Prop({
+    default: (): StatusOnInput => {
+      return { status: "ok", statusDetail: { message: "", abbreviation: "" } };
+    }
+  })
+  readonly status!: StatusOnInput;
+  @Prop({ default: false }) readonly noBorder!: boolean;
+  @Prop({ default: false }) readonly noShadows!: boolean;
+  @Prop({ default: false }) readonly leaveSpaceRight!: boolean;
+  @Prop({ default: "" }) readonly id!: string;
+  @Prop({
+    default: (): Indexes => {
+      return { section: 0, input: 0 };
+    }
+  })
+  readonly indexes!: Indexes;
+  @Prop({ default: () => [] }) readonly validations!: Requirement[];
 
   valueInput: string = this.value;
 
@@ -66,14 +75,9 @@ export default class TextInput extends Vue {
 
   outfocus() {
     this.validations.forEach(validation => {
-      if (validation === undefined) {
+      const statusNotOk = validate(validation, this.valueInput, this.indexes);
+      if (!statusNotOk) {
         return;
-      }
-      const v: ErrorOnInput = validate(validation, this.valueInput);
-      if (v.error) {
-        this.updateInput("status", "error");
-        this.updateInput("helperText", v.errorDetail.message);
-        console.log(TicketModule.ticketForm.sections[0].inputs[0]);
       }
     });
   }
@@ -82,8 +86,7 @@ export default class TextInput extends Vue {
     TicketModule.updateInput({
       key,
       value,
-      sectionIndex: this.indexes.section,
-      inputIndex: this.indexes.input
+      indexes: this.indexes
     });
   }
 }

@@ -1,7 +1,7 @@
 /**
  * TODO
  */
-import { InputStatus } from "./inputState"
+import { StatusOnInput } from "./inputStatus"
 import { Requirement } from "./requirements"
 import { Indexes } from "./indexes"
 
@@ -10,7 +10,7 @@ export interface TextInputType {
 	placeholder?: string
 	isDisabled?: boolean
 	hideText?: boolean
-	status?: InputStatus
+	status?: StatusOnInput
 	noBorder?: boolean
 	noShadows?: boolean
 	leaveSpaceRight?: boolean
