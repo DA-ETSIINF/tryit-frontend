@@ -50,9 +50,13 @@ export function validate(type: Requirement, str: string, indexes: Indexes) {
 			status = notEmpty(str)
 			break
 	}
-	TicketModule.updateErrorOnInput({
-		indexes,
-		status
-	})
+	
+	if (status.status === "error") {
+		TicketModule.updateErrorOnInput({
+			indexes,
+			status
+		})
+	}
+
 	return status.status !== "error"
 }
