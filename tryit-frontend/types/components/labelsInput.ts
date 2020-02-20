@@ -1,13 +1,13 @@
 import { Requirement } from "./requirements"
-import { InputStatus } from "./inputStatus"
+import { InputStatus, StatusOnInput } from "./inputStatus"
 import { OptionSelected } from "./options"
 import { Indexes } from "./indexes"
 
 export interface LabelInputType {
 	options: OptionSelected[]
 	selected: number
-	status?: InputStatus
 	errorMsg?: string
+	status?: StatusOnInput
 }
 
 export interface FS_Labels {

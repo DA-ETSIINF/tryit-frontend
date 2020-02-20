@@ -7,15 +7,17 @@
         :placeholder="placeholder"
         :class="{
           'error': status.status === 'error',
+          'info': status.status === 'info',
+          'ok': status.status === 'ok',
 					'no-border': noBorder,
 					'no-shadows': noShadows,
 					'leave-space': leaveSpaceRight
 				}"
         v-model="userValue"
         @keyup.esc="$emit('esc', $event)"
-        @keypress="$emit('keypress', $event)"
+        @updateValue="onUpdateValue($event)"
         @focus="$emit('focus', $event)"
-        @blur="outfocus()"
+        @blur="makeValidation()"
       />
       <span v-if="!hideText">{{ helperText }}</span>
     </div>
@@ -28,10 +30,12 @@ import {
   TextInputType,
   Requirement,
   Indexes,
-  StatusOnInput
+  StatusOnInput,
+  DynamicFormModule
 } from "../../../types/components";
 // import store from "store";
 import { TicketModule } from "../../../store/ticket";
+import { VolunteerModule } from "../../../store/volunteer";
 import { validate } from "../../../utils";
 
 @Component({})
@@ -58,6 +62,8 @@ export default class TextInput extends Vue {
   })
   readonly indexes!: Indexes;
   @Prop({ default: () => [] }) readonly validations!: Requirement[];
+  @Prop({ type: String })
+  readonly formModule!: DynamicFormModule;
 
   valueInput: string = this.value;
 
@@ -73,21 +79,34 @@ export default class TextInput extends Vue {
     this.valueInput = value;
   }
 
-  outfocus() {
-    this.validations.forEach(validation => {
-      const statusNotOk = validate(validation, this.valueInput, this.indexes);
-      if (!statusNotOk) {
-        return;
-      }
-    });
+  makeValidation() {
+    validate(this.validations, this.valueInput, this.indexes, this.formModule);
   }
 
   updateInput(key: string, value: string) {
-    TicketModule.updateInput({
-      key,
-      value,
-      indexes: this.indexes
-    });
+    switch (this.formModule) {
+      case "ticket":
+        TicketModule.updateInput({
+          key,
+          value,
+          indexes: this.indexes
+        });
+        break;
+      case "volunteer":
+        VolunteerModule.updateInput({
+          key,
+          value,
+          indexes: this.indexes
+        });
+        break;
+    }
+  }
+
+  onUpdateValue(e) {
+    this.$emit("keypress", e);
+    if (this.status.status === "error" || this.status.status === "info") {
+      this.makeValidation();
+    }
   }
 }
 </script>
@@ -117,6 +136,18 @@ export default class TextInput extends Vue {
 
 [type="text"]::placeholder {
   color: var(--neutral-7);
+}
+
+[type="text"].ok::placeholder {
+  color: var(--ok-7);
+}
+
+[type="text"].error::placeholder {
+  color: var(--error-7);
+}
+
+[type="text"].info::placeholder {
+  color: var(--yellow-2);
 }
 
 [type="text"]:focus {

@@ -16,6 +16,7 @@
           :id="input.id"
           :validations="input.requirements"
           :indexes="input.indexes"
+          :formModule="formModule"
         ></text-input>
         <text-area
           v-if="input.tag === 'text-area'"
@@ -70,11 +71,13 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
-import { FormType } from "../../types/components";
+import { FormType, DynamicFormModule } from "../../types/components";
 
 @Component({})
 export default class DynamicForm extends Vue {
-  @Prop({}) readonly form!: FormType;
+  @Prop({ type: Object, required: true }) readonly form!: FormType;
+  @Prop({ type: String, required: true })
+  readonly formModule!: DynamicFormModule;
 }
 </script>
 

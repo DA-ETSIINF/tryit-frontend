@@ -1,9 +1,11 @@
 import { Requirement } from "./requirements"
 import { Indexes } from "./indexes"
+import { StatusOnInput } from "./inputStatus"
 
 export interface StudentType {
 	isStudent: boolean
 	isUpmStudent: boolean
+	status?: StatusOnInput
 }
 
 export interface FS_Student {

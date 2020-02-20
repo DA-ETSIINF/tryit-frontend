@@ -10,10 +10,11 @@ import { FS_Labels } from "./labelsInput"
 import { FS_CheckboxDetail } from "./checkboxDetailInput"
 import { FS_Availability } from "./availabilityInput"
 
+export type DynamicFormModule = "ticket" | "volunteer"
 export interface FormSectionType {
 	title?: string
 	description?: string
-	oneColumnSection?: boolean 
+	oneColumnSection?: boolean
 	inputs: (
 		| FS_TextInput
 		| FS_Student
@@ -29,4 +30,5 @@ export interface FormType {
 	title?: string
 	description?: string
 	sections: FormSectionType[]
+	formModule: DynamicFormModule
 }

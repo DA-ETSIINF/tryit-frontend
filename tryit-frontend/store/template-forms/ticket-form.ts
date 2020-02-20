@@ -1,8 +1,17 @@
-import { FormType } from "~/types/components"
+import { FormType, StatusOnInput } from "~/types/components"
 
+// Default status
+const status: StatusOnInput = {
+	status: "",
+	statusDetail: {
+		message: "",
+		abbreviation: ""
+	}
+}
 export const ticketForm: FormType = {
 	title: "Consigue tu entrada",
 	description: "TODO",
+	formModule: "ticket",
 	sections: [
 		{
 			title: "Información personal",
@@ -13,7 +22,8 @@ export const ticketForm: FormType = {
 					tag: "text-input",
 					properties: {
 						placeholder: "Nombre",
-						helperText: "Obligatorio"
+						helperText: "Obligatorio",
+						status
 					},
 					value: "",
 					id: "1",
@@ -23,7 +33,8 @@ export const ticketForm: FormType = {
 					tag: "text-input",
 					properties: {
 						placeholder: "Apellidos",
-						helperText: "Obligatorio"
+						helperText: "Obligatorio",
+						status
 					},
 					value: "",
 					id: "2",
@@ -33,31 +44,34 @@ export const ticketForm: FormType = {
 					tag: "text-input",
 					properties: {
 						placeholder: "DNI / NIE",
-						helperText: "Obligatorio"
+						helperText: "Obligatorio",
+						status
 					},
 					value: "",
 					id: "3",
-					requirements: []
+					requirements: ["not-empty", "is-person-id"]
 				},
 				{
 					tag: "text-input",
 					properties: {
 						placeholder: "Email",
-						helperText: "Obligatorio"
+						helperText: "Obligatorio",
+						status
 					},
 					value: "",
 					id: "4",
-					requirements: []
+					requirements: ["not-empty", "is-email"]
 				},
 				{
 					tag: "text-input",
 					properties: {
 						placeholder: "Teléfono",
-						helperText: "Obligatorio"
+						helperText: "Obligatorio",
+						status
 					},
 					value: "",
 					id: "5",
-					requirements: []
+					requirements: ["not-empty", "is-phone"]
 				}
 			]
 		},

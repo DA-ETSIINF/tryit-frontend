@@ -2,7 +2,7 @@
  * TODO
  */
 import { Requirement } from "./requirements"
-import { InputStatus } from "./inputStatus"
+import { InputStatus, StatusOnInput } from "./inputStatus"
 import { Indexes } from "./indexes"
 
 export interface TextAreaType {
@@ -11,7 +11,7 @@ export interface TextAreaType {
 	value?: string
 	isDisabled?: boolean
 	hideText?: boolean
-	status?: InputStatus
+	status?: StatusOnInput
 	noBorder?: boolean
 	noShadows?: boolean
 	leaveSpaceRight?: boolean

@@ -1,41 +1,41 @@
 import { Module, Mutation, VuexModule, getModule, Action } from "vuex-module-decorators"
-import { TicketResource } from "~/types"
+import { VolunteerResource } from "~/types"
 import { FormType, Indexes, StatusOnInput, DynamicFormModule } from "~/types/components"
-import { ticketForm as tf } from "./template-forms"
+import { volunteerForm as vf } from "./template-forms"
 import { store } from "~/store"
-import { post } from "./services"
+import { post, get } from "./services"
 
-@Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
-export default class Ticket extends VuexModule {
-	ticket!: TicketResource
-	ticketForm: FormType = this.getForm()
+@Module({ dynamic: true, store, name: "volunteer", stateFactory: true, namespaced: true })
+export default class Volunteer extends VuexModule {
+	volunteer!: VolunteerResource
+	volunteerForm: FormType = this.getForm()
 
 	get getTitle(): string | undefined {
-		return this.ticketForm.title
+		return this.volunteerForm.title
 	}
 
 	get getDescription(): string | undefined {
-		return this.ticketForm.description
-	}
-
-	get getTicketForm(): FormType {
-		return this.ticketForm
+		return this.volunteerForm.description
 	}
 
 	get getFormModule(): DynamicFormModule {
-		return this.ticketForm.formModule
+		return this.volunteerForm.formModule
+	}
+
+	get getVolunteerForm(): FormType {
+		return this.volunteerForm
 	}
 
 	getForm(): FormType {
-		tf.sections.forEach((section, sectionIndex) => {
+		vf.sections.forEach((section, sectionIndex) => {
 			section.inputs.forEach((_, inputIndex) => {
-				tf.sections[sectionIndex].inputs[inputIndex].indexes = {
+				vf.sections[sectionIndex].inputs[inputIndex].indexes = {
 					section: sectionIndex,
 					input: inputIndex
 				}
 			})
 		})
-		return tf
+		return vf
 	}
 
 	@Mutation
@@ -43,7 +43,7 @@ export default class Ticket extends VuexModule {
 		if (indexes.section === undefined || indexes.input === undefined) {
 			return
 		}
-		this.ticketForm.sections[indexes.section].inputs[indexes.input][key] = value
+		this.volunteerForm.sections[indexes.section].inputs[indexes.input][key] = value
 	}
 
 	@Mutation
@@ -51,12 +51,12 @@ export default class Ticket extends VuexModule {
 		if (indexes.section === undefined || indexes.input === undefined) {
 			return
 		}
-		this.ticketForm.sections[indexes.section].inputs[indexes.input].properties[key] = value
+		this.volunteerForm.sections[indexes.section].inputs[indexes.input].properties[key] = value
 	}
 
 	@Mutation
 	updateIndexes({ sectionIndex, inputIndex }: { sectionIndex: number; inputIndex: number }) {
-		this.ticketForm.sections[sectionIndex].inputs[inputIndex].indexes = {
+		this.volunteerForm.sections[sectionIndex].inputs[inputIndex].indexes = {
 			section: sectionIndex,
 			input: inputIndex
 		}
@@ -72,8 +72,8 @@ export default class Ticket extends VuexModule {
 		})
 	}
 	@Action
-	postTicket() {
-		post({ ticketForm: this.ticketForm }, "/ticket")
+	getVolunteersTimePeriods() {
+		const payload = get("/volunteers-time-periods")
 	}
 }
-export const TicketModule = getModule(Ticket)
+export const VolunteerModule = getModule(Volunteer)

@@ -16,6 +16,7 @@ export function get(path : string):any{
     axios.get(
         path
     ).then((response)=>{
+        console.log(response)
         return response
     },(error) =>{
         console.log(error)

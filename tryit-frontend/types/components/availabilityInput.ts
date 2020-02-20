@@ -1,5 +1,6 @@
 import { Requirement } from "./requirements"
 import { Indexes } from "./indexes"
+import { StatusOnInput } from "./inputStatus"
 
 export interface dayPeriodType {
 	period: string
@@ -19,6 +20,7 @@ export type PeriodsAvailable = "morning" | "afternoon"
 export interface AvailabilityInputType {
 	timePeriods: TimePeriodsType[]
 	periodsAvailable: PeriodsAvailable[]
+	status?: StatusOnInput
 }
 
 export interface FS_Availability {
