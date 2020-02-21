@@ -141,24 +141,7 @@ export const ticketForm: FormType = {
 					tag: "select-input",
 					question: "¿Que titulación?",
 					properties: {
-						options: [
-							[
-								{
-									title: "Ingenería Informática",
-									id: "1"
-								}
-							],
-							[
-								{
-									title: "Ingenería de Telecomunicaciones",
-									id: "2"
-								},
-								{
-									title: "Ingenería la calle",
-									id: "3"
-								}
-							]
-						],
+						options: [],
 						// TODO change this to an index
 						selected: {
 							title: "Escuela Superior de Ingenieros Informáticos",

@@ -2,7 +2,7 @@
   <div>
     <h1>{{ getTitle() }}</h1>
     <p class="page-description">{{ getDescription() }}</p>
-    <dynamic-form :form="getForm()"></dynamic-form>
+    <dynamic-form :form="getForm()" :formModule="getFormModule()"></dynamic-form>
   </div>
 </template>
 
@@ -42,7 +42,11 @@ export default class Volunteers extends Vue {
   }
 
   getForm(): FormType {
-    return VolunteerModule.volunteerForm;
+    console.log("Form: ", VolunteerModule.getVolunteerForm)
+    return VolunteerModule.getVolunteerForm;
+  }
+  getFormModule(): string {
+    return VolunteerModule.getFormModule;
   }
 }
 </script>

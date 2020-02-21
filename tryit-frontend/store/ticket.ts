@@ -10,7 +10,7 @@ import {
 } from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
-import { post } from "./services"
+import { post, get } from "./services"
 
 @Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
@@ -51,6 +51,19 @@ export default class Ticket extends VuexModule {
 			})
 		})
 		return tf
+	}
+	@Action
+	getUpmInfo(){
+		const indexes: Indexes = {
+			section: 1,
+			input: 1
+		}
+		get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json")
+		.then((payload) =>{
+			console.log("undefined", payload);
+			store.commit("ticket/updateProperty", {key:"options", payload, indexes});
+		})
+
 	}
 
 	@Mutation

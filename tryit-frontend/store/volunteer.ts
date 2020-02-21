@@ -42,6 +42,10 @@ export default class Volunteer extends VuexModule {
 					section: sectionIndex,
 					input: inputIndex
 				}
+				const requires = vf.sections[sectionIndex].inputs[inputIndex].requires
+				if (requires && requires.length > 0) {
+					vf.sections[sectionIndex].inputs[inputIndex].show = false
+				}
 			})
 		})
 		return vf
@@ -91,11 +95,12 @@ export default class Volunteer extends VuexModule {
 	}
 
 	getTimePeriod(timePeriod: VolunteerPeriodsResource): TimePeriodsType {
-		const mils = timePeriod.date // TODO I am really picky, but I think is better ms, BUENOS DíAS
-		const date: Date = new Date(mils)
+		const ms = timePeriod.date // Subnormal
+		const date: Date = new Date(ms)
 		const dayMonth = date.getDate()
-		const dayWeek = date.getDay()
-		const dayWeekString: string = dayWeekSwitch[dayWeek]
+		const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+		const dayWeek = date.toLocaleDateString(undefined, options)
+		// const dayWeekString: string = dayWeekSwitch[dayWeek]
 		//TODO: Change the dayPeriodTypeArray
 		const periods: DayPeriodType[] = [
 			{
@@ -105,20 +110,12 @@ export default class Volunteer extends VuexModule {
 			}
 		]
 		const res: TimePeriodsType = {
-			ms: mils,
-			dayWeek: dayWeekString,
+			ms: ms,
+			dayWeek: dayWeek,
 			dayMonth: String(dayMonth),
 			dayPeriods: periods
 		}
 		return res
 	}
-}
-// TODO https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
-const dayWeekSwitch = {
-	0: "Lunes",
-	1: "Martes",
-	2: "Miércoles",
-	3: "Jueves",
-	4: "Viernes"
 }
 export const VolunteerModule = getModule(Volunteer)

@@ -41,20 +41,22 @@ Vue.component("ButtonComponent", ButtonComponent);
   components: { DynamicForm }
 })
 export default class Ticket extends Vue {
-  getTitle(): string {
-    return this.$store.getters["ticket/getTitle"];
+  getTitle(): string | undefined{
+    return TicketModule.getTitle;
   }
 
-  getDescription(): string {
-    return this.$store.getters["ticket/getDescription"];
+  getDescription(): string | undefined{
+    return TicketModule.getDescription;
   }
 
   getForm(): FormType {
+    console.log(TicketModule.ticketForm)
+    TicketModule.getUpmInfo()
     return TicketModule.ticketForm;
   }
 
   getFormModule(): string {
-    return this.$store.getters["ticket/getFormModule"];
+    return TicketModule.getFormModule;
   }
   // These functions must be moved to the store
   /*
