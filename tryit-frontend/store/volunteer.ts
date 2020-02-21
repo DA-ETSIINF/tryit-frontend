@@ -1,15 +1,18 @@
 import { Module, Mutation, VuexModule, getModule, Action } from "vuex-module-decorators"
-import { VolunteerResource } from "~/types"
+import { VolunteerResource, VolunteerPeriodsResource } from "~/types"
 import {
 	FormType,
 	Indexes,
 	StatusOnInput,
 	DynamicFormModule,
-	InputValueType
+	InputValueType,
+	AvailabilityInputType,
+	TimePeriodsType,
+	DayPeriodType
 } from "~/types/components"
 import { volunteerForm as vf } from "./template-forms"
 import { store } from "~/store"
-import { post, get } from "./services"
+import { get } from "./services"
 
 @Module({ dynamic: true, store, name: "volunteer", stateFactory: true, namespaced: true })
 export default class Volunteer extends VuexModule {
@@ -79,7 +82,42 @@ export default class Volunteer extends VuexModule {
 	}
 	@Action
 	getVolunteersTimePeriods() {
-		const payload = get("/volunteers-time-periods")
+		const payload: VolunteerPeriodsResource[] = get("/volunteers-time-periods")
+		payload.forEach((timePeriod: VolunteerPeriodsResource, _) => {
+			const time: TimePeriodsType = this.getTimePeriod(timePeriod)
+			;(this.volunteerForm.sections[2].inputs[0]
+				.properties as AvailabilityInputType).timePeriods.push(time)
+		})
 	}
+
+	getTimePeriod(timePeriod: VolunteerPeriodsResource): TimePeriodsType {
+		const mils = timePeriod.date // TODO I am really picky, but I think is better ms, BUENOS DíAS
+		const date: Date = new Date(mils)
+		const dayMonth = date.getDate()
+		const dayWeek = date.getDay()
+		const dayWeekString: string = dayWeekSwitch[dayWeek]
+		//TODO: Change the dayPeriodTypeArray
+		const periods: DayPeriodType[] = [
+			{
+				period: timePeriod.period,
+				checked: false,
+				htmlId: timePeriod.id
+			}
+		]
+		const res: TimePeriodsType = {
+			ms: mils,
+			dayWeek: dayWeekString,
+			dayMonth: String(dayMonth),
+			dayPeriods: periods
+		}
+		return res
+	}
+}
+const dayWeekSwitch = {
+	0: "Lunes",
+	1: "Martes",
+	2: "Miércoles",
+	3: "Jueves",
+	4: "Viernes"
 }
 export const VolunteerModule = getModule(Volunteer)

@@ -33,12 +33,12 @@ Vue.component("AvailabilityInput", AvailabilityInput);
 
 @Component({ components: { DynamicForm } })
 export default class Volunteers extends Vue {
-  getTitle(): string {
-    return this.$store.getters["ticket/getTitle"];
+  getTitle(): string | undefined {
+    return VolunteerModule.getTitle;
   }
 
-  getDescription(): string {
-    return this.$store.getters["ticket/getDescription"];
+  getDescription(): string | undefined {
+    return VolunteerModule.getDescription;
   }
 
   getForm(): FormType {

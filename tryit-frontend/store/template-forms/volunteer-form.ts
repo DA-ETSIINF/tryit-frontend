@@ -67,76 +67,7 @@ export const volunteerForm: FormType = {
 					tag: "availability-input",
 					properties: {
 						periodsAvailable: ["morning", "afternoon"],
-						timePeriods: [
-							{
-								ms: 1581957346821,
-								dayWeek: "Lunes",
-								dayMonth: "17 de febrero",
-								dayPeriods: [
-									{
-										period: "morning",
-										checked: false,
-										htmlId: 1
-									},
-									{
-										period: "afternoon",
-										checked: false,
-										htmlId: 2
-									}
-								]
-							},
-							{
-								ms: 1581957346821,
-								dayWeek: "Martes",
-								dayMonth: "18 de febrero",
-								dayPeriods: [
-									{
-										period: "morning",
-										checked: false,
-										htmlId: 3
-									},
-									{
-										period: "afternoon",
-										checked: false,
-										htmlId: 4
-									}
-								]
-							},
-							{
-								ms: 1581957346821,
-								dayWeek: "Miércoles",
-								dayMonth: "19 de febrero",
-								dayPeriods: [
-									{
-										period: "morning",
-										checked: false,
-										htmlId: 5
-									},
-									{
-										period: "afternoon",
-										checked: false,
-										htmlId: 6
-									}
-								]
-							},
-							{
-								ms: 1581957346821,
-								dayWeek: "Jueves",
-								dayMonth: "20 de febrero",
-								dayPeriods: [
-									{
-										period: "morning",
-										checked: false,
-										htmlId: 7
-									},
-									{
-										period: "afternoon",
-										checked: false,
-										htmlId: 8
-									}
-								]
-							}
-						]
+						timePeriods: []
 					},
 					id: "3",
 					value: [],
