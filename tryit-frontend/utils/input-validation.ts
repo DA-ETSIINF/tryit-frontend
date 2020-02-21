@@ -163,17 +163,22 @@ function checkForRequires(indexes: Indexes, formModule: DynamicFormModule) {
 		if (input.requires) {
 			input.requires.forEach(requires => {
 				const inputRequired = getInputById(form, requires.id)
+				console.log("INPUT COMP", inputRequired?.value, requires.value)
 				if (inputRequired?.value !== input.value) {
 					return false
 				}
 			})
 		}
+		return true
+	})
+	inputsToUnlock.forEach(input => {
 		// If all of the requires array elements are fulfilled then we show the input
 		const data = {
-			key: "value",
+			key: "show",
 			value: true,
 			indexes: findInputById(form, input.id)
 		}
+		console.log(data)
 		switch (formModule) {
 			case "ticket":
 				TicketModule.updateInput(data)
@@ -230,7 +235,7 @@ export function validate(
 			return false
 		}
 	}
-
+	console.log("CHEKCIN")
 	checkForRequires(indexes, formModule)
 	return true
 }

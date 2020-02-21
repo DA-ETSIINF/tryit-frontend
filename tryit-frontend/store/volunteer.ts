@@ -113,6 +113,7 @@ export default class Volunteer extends VuexModule {
 		return res
 	}
 }
+// TODO https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
 const dayWeekSwitch = {
 	0: "Lunes",
 	1: "Martes",

@@ -40,6 +40,14 @@ export default class Ticket extends VuexModule {
 					section: sectionIndex,
 					input: inputIndex
 				}
+				console.log(
+					tf.sections[sectionIndex].inputs[inputIndex].tag,
+					tf.sections[sectionIndex].inputs[inputIndex].value
+				)
+				const requires = tf.sections[sectionIndex].inputs[inputIndex].requires
+				if (requires && requires.length > 0) {
+					tf.sections[sectionIndex].inputs[inputIndex].show = false
+				}
 			})
 		})
 		return tf

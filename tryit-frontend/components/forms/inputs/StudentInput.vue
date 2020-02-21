@@ -87,10 +87,16 @@ export default class StudentInput extends Vue {
     }
     this._isStudent = isStudent;
     this._isUpmStudent = isUpmStudent;
+
+    this.makeValidation();
   }
 
   makeValidation() {
-    validate(this.validations, this.value, this.indexes, this.formModule);
+    const value: StudentInputValueType = {
+      isStudent: this._isStudent,
+      isUpmStudent: this._isUpmStudent
+    };
+    validate(this.validations, value, this.indexes, this.formModule);
   }
 }
 </script>
