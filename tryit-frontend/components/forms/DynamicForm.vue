@@ -32,8 +32,11 @@
         ></text-area>
         <student-input
           v-if="input.tag === 'student-input'"
-          :isStudent="input.properties.isStudent"
-          :isUpmStudent="input.properties.isUpmStudent"
+          :isStudent="input.value.isStudent"
+          :isUpmStudent="input.value.isUpmStudent"
+          :validations="input.requirements"
+          :indexes="input.indexes"
+          :formModule="formModule"
         ></student-input>
         <select-input
           v-if="input.tag === 'select-input'"

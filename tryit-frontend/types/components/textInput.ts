@@ -4,7 +4,10 @@
 import { StatusOnInput } from "./inputStatus"
 import { Requirement } from "./requirements"
 import { Indexes } from "./indexes"
+import { Requires } from "./requires"
 
+export type TextInputValueType = string
+export type TextInputIdType = string
 export interface TextInputType {
 	helperText?: string
 	placeholder?: string
@@ -20,8 +23,10 @@ export interface FS_TextInput {
 	tag: "text-input"
 	question?: string
 	properties: TextInputType
-	value: string
-	id: string
+	value: TextInputValueType
+	id: TextInputIdType
 	requirements: Requirement[]
 	indexes?: Indexes
+	requires?: Requires[]
+	show?: boolean
 }

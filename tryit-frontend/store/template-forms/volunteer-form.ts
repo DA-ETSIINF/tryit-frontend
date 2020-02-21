@@ -1,7 +1,7 @@
-import { FormType } from "~/types/components"
+import { FormType, StatusOnInput } from "~/types/components"
 
 // Default status
-const status = {
+const status: StatusOnInput = {
 	status: "",
 	statusDetail: {
 		message: "",
@@ -24,17 +24,17 @@ export const volunteerForm: FormType = {
 					properties: {
 						placeholder: "DNI / NIE",
 						helperText: "Obligatorio",
-						...status
+						status
 					},
 					value: "",
 					id: "1",
-					requirements: ["not-empty", "is-person-id"]
+					requirements: ["string-not-empty", "is-person-id"]
 				},
 				{
 					tag: "text-area",
 					properties: {
 						placeholder: "¿Algo qué deberíamos saber?¿Necesitas los créditos con urgencia?",
-						...status
+						status
 					},
 					value: "",
 					id: "2",
@@ -52,7 +52,7 @@ export const volunteerForm: FormType = {
 						htmlId: "android"
 					},
 					id: "3",
-					value: "",
+					value: false,
 					requirements: []
 				}
 			]
@@ -139,7 +139,7 @@ export const volunteerForm: FormType = {
 						]
 					},
 					id: "3",
-					value: "",
+					value: [],
 					requirements: []
 				}
 			]
@@ -156,7 +156,7 @@ export const volunteerForm: FormType = {
 						htmlId: "ticket-conditions"
 					},
 					id: "3",
-					value: "",
+					value: false,
 					requirements: []
 				}
 			]

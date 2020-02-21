@@ -7,16 +7,16 @@
       <CheckboxDetail
         :id="'student'"
         :text="'estudiante'"
-        :checked="isStudent"
+        :checked="_isStudent"
         :className="'student-checkbox'"
-        @change="updateAnswer($event, isUpmStudent)"
+        @change="updateAnswer($event, _isUpmStudent)"
       ></CheckboxDetail>
       <CheckboxDetail
         :id="'upm-student'"
         :text="'de la UPM'"
-        :checked="isUpmStudent"
+        :checked="_isUpmStudent"
         :className="'upm-checkbox'"
-        @change="updateAnswer(isStudent, $event)"
+        @change="updateAnswer(_isStudent, $event)"
       ></CheckboxDetail>
     </div>
     <p class="small answer">{{answer}}</p>
@@ -26,6 +26,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 import { CheckboxDetail } from "../../";
+import { validate } from "../../../utils";
+import {
+  Indexes,
+  Requirement,
+  DynamicFormModule,
+  StudentInputValueType
+} from "../../../types/components";
 
 @Component({
   components: { CheckboxDetail }
@@ -33,6 +40,16 @@ import { CheckboxDetail } from "../../";
 export default class StudentInput extends Vue {
   @Prop({ type: Boolean, required: true }) readonly isStudent!: boolean;
   @Prop({ type: Boolean, required: true }) readonly isUpmStudent!: boolean;
+  @Prop({ default: "" }) readonly value!: StudentInputValueType;
+  @Prop({
+    default: (): Indexes => {
+      return { section: 0, input: 0 };
+    }
+  })
+  readonly indexes!: Indexes;
+  @Prop({ default: () => [] }) readonly validations!: Requirement[];
+  @Prop({ type: String })
+  readonly formModule!: DynamicFormModule;
 
   _isStudent: boolean = this.isStudent;
   _isUpmStudent: boolean = this.isUpmStudent;
@@ -56,12 +73,12 @@ export default class StudentInput extends Vue {
       this.answer = this.posibleAnswers.student;
     } else if (!isStudent && !isUpmStudent) {
       this.answer = this.posibleAnswers.nonStudent;
-    } else if (this.isStudent) {
+    } else if (this._isStudent) {
       if (!isStudent) {
         this.answer = this.posibleAnswers.nonStudent;
         isUpmStudent = false;
       }
-    } else if (!this.isStudent && !this.isUpmStudent) {
+    } else if (!this._isStudent && !this._isUpmStudent) {
       if (isUpmStudent) {
         this.answer = this.posibleAnswers.studentUPM;
         isStudent = true;
@@ -70,6 +87,10 @@ export default class StudentInput extends Vue {
     }
     this._isStudent = isStudent;
     this._isUpmStudent = isUpmStudent;
+  }
+
+  makeValidation() {
+    validate(this.validations, this.value, this.indexes, this.formModule);
   }
 }
 </script>

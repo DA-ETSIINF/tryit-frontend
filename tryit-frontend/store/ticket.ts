@@ -1,6 +1,13 @@
 import { Module, Mutation, VuexModule, getModule, Action } from "vuex-module-decorators"
 import { TicketResource } from "~/types"
-import { FormType, Indexes, StatusOnInput, DynamicFormModule } from "~/types/components"
+import {
+	FormType,
+	Indexes,
+	StatusOnInput,
+	DynamicFormModule,
+	InputValueType,
+	InputIdType
+} from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
 import { post } from "./services"
@@ -39,7 +46,7 @@ export default class Ticket extends VuexModule {
 	}
 
 	@Mutation
-	updateInput({ key, value, indexes }: { key: string; value: string; indexes: Indexes }) {
+	updateInput({ key, value, indexes }: { key: string; value: InputValueType; indexes: Indexes }) {
 		if (indexes.section === undefined || indexes.input === undefined) {
 			return
 		}

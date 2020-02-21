@@ -2,13 +2,14 @@
  * TODO
  */
 import { Requirement } from "./requirements"
-import { InputStatus, StatusOnInput } from "./inputStatus"
+import { StatusOnInput } from "./inputStatus"
 import { Indexes } from "./indexes"
-
+import { Requires } from "./requires"
+export type TextAreaValueType = string
+export type TextAreaIdType = string
 export interface TextAreaType {
 	helperText?: string
 	placeholder?: string
-	value?: string
 	isDisabled?: boolean
 	hideText?: boolean
 	status?: StatusOnInput
@@ -21,8 +22,10 @@ export interface FS_TextAreaInput {
 	tag: "text-area"
 	question?: string
 	properties: TextAreaType
-	id: string
-	value: string
+	id: TextAreaIdType
+	value: TextAreaValueType
 	requirements: Requirement[]
 	indexes?: Indexes
+	requires?: Requires[]
+	show?: boolean
 }

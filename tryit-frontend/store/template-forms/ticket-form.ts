@@ -27,7 +27,7 @@ export const ticketForm: FormType = {
 					},
 					value: "",
 					id: "1",
-					requirements: ["not-empty", "only-letters"]
+					requirements: ["string-not-empty", "only-letters"]
 				},
 				{
 					tag: "text-input",
@@ -38,7 +38,7 @@ export const ticketForm: FormType = {
 					},
 					value: "",
 					id: "2",
-					requirements: ["not-empty", "only-letters"]
+					requirements: ["string-not-empty", "only-letters"]
 				},
 				{
 					tag: "text-input",
@@ -49,7 +49,7 @@ export const ticketForm: FormType = {
 					},
 					value: "",
 					id: "3",
-					requirements: ["not-empty", "is-person-id"]
+					requirements: ["string-not-empty", "is-person-id"]
 				},
 				{
 					tag: "text-input",
@@ -60,7 +60,7 @@ export const ticketForm: FormType = {
 					},
 					value: "",
 					id: "4",
-					requirements: ["not-empty", "is-email"]
+					requirements: ["string-not-empty", "is-email"]
 				},
 				{
 					tag: "text-input",
@@ -71,7 +71,7 @@ export const ticketForm: FormType = {
 					},
 					value: "",
 					id: "5",
-					requirements: ["not-empty", "is-phone"]
+					requirements: ["string-not-empty", "is-phone"]
 				}
 			]
 		},
@@ -82,12 +82,12 @@ export const ticketForm: FormType = {
 			inputs: [
 				{
 					tag: "student-input",
-					properties: {
+					properties: {},
+					value: {
 						isStudent: true,
 						isUpmStudent: true
 					},
-					value: "",
-					id: "6",
+					id: "student-input",
 					requirements: []
 				},
 				{
@@ -126,7 +126,16 @@ export const ticketForm: FormType = {
 					},
 					value: "",
 					id: "7",
-					requirements: []
+					requirements: [],
+					requires: [
+						{
+							id: "student-input",
+							value: {
+								isStudent: true,
+								isUpmStudent: true
+							}
+						}
+					]
 				},
 				{
 					tag: "select-input",
@@ -204,7 +213,7 @@ export const ticketForm: FormType = {
 						htmlId: "ticket-conditions"
 					},
 					id: "10",
-					value: "",
+					value: false,
 					requirements: []
 				}
 			]

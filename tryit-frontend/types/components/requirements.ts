@@ -1,1 +1,6 @@
-export type Requirement = "only-letters" | "not-empty" | "is-person-id" | "is-email" | "is-phone"
+export type Requirement =
+	| "only-letters"
+	| "string-not-empty"
+	| "is-person-id"
+	| "is-email"
+	| "is-phone"

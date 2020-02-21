@@ -4,7 +4,11 @@ import {
 	StatusDetailOnInput,
 	Indexes,
 	InputStatus,
-	DynamicFormModule
+	DynamicFormModule,
+	InputValueType,
+	FormType,
+	InputType,
+	InputIdType
 } from "~/types/components"
 import { TicketModule } from "../store/ticket"
 import { VolunteerModule } from "../store/volunteer"
@@ -52,19 +56,19 @@ function generateResponse(
 	}
 }
 
-export function isOnlyLetters(str: string): StatusOnInput {
+function isOnlyLetters(str: string): StatusOnInput {
 	// Allow alphabets and accented characters
 	const re = /^[a-zA-Z\u00C0-\u00FF]*$/
 	const isJustLetteres = re.test(str.toLowerCase())
 	return generateResponse(isJustLetteres ? "ok" : "error", INPUTS_ERRORS.isOnlyLetters)
 }
 
-export function notEmpty(str: string): StatusOnInput {
+function notEmpty(str: string): StatusOnInput {
 	const containsErrors = str.length > 0
 	return generateResponse(containsErrors ? "ok" : "error", INPUTS_ERRORS.notEmpty)
 }
 
-export function isPersonId(_str: string): StatusOnInput {
+function isPersonId(_str: string): StatusOnInput {
 	const str = _str.toUpperCase()
 
 	const validChars = "TRWAGMYFPDXBNJZSQVHLCKET"
@@ -95,21 +99,95 @@ export function isPersonId(_str: string): StatusOnInput {
 	}
 }
 
-export function isEmail(str: string) {
+function isEmail(str: string) {
 	const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	const isEmail = re.test(str.toLowerCase())
 	return generateResponse(isEmail ? "ok" : "error", INPUTS_ERRORS.invalidEmail)
 }
 
-export function isPhone(phone: string) {
+function isPhone(phone: string) {
 	const re = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
 	const isPhone = re.test(phone.toLowerCase())
 	return generateResponse(isPhone ? "ok" : "error", INPUTS_ERRORS.invalidPhone)
 }
 
+function findInputById(form: FormType, id: InputIdType): Indexes {
+	let section: number = -1
+	let input: number = -1
+	form.sections.forEach((s, _sectionIndex) => {
+		s.inputs.forEach((i, _inputIndex) => {
+			if (i.id === id) {
+				section = _sectionIndex
+				input = _inputIndex
+			}
+		})
+	})
+	return { section, input }
+}
+
+function getIdByIndexes(form: FormType, indexes: Indexes): InputType {
+	return form.sections[indexes.section].inputs[indexes.input]
+}
+function getInputById(form: FormType, id: InputIdType): InputType | null {
+	form.sections.forEach(section => {
+		section.inputs.forEach(input => {
+			if (input.id === id) {
+				return input
+			}
+		})
+	})
+	return null
+}
+function checkForRequires(indexes: Indexes, formModule: DynamicFormModule) {
+	let form: FormType
+	switch (formModule) {
+		case "ticket":
+			form = TicketModule.ticketForm
+			break
+		case "volunteer":
+			form = VolunteerModule.volunteerForm
+			break
+	}
+
+	// It gets all the inputs that depend on the input being checked
+	const inputId = getIdByIndexes(form, indexes).id
+	let inputsToUnlock: InputType[] = []
+	form.sections.forEach(section => {
+		const unlockInputs = section.inputs.filter(e => e.id === inputId)
+		inputsToUnlock.push(...unlockInputs)
+	})
+
+	// It checks that the rest of the inputs for all the inputs that were depending
+	// on the input being checked are valid as well
+	inputsToUnlock = inputsToUnlock.filter(input => {
+		if (input.requires) {
+			input.requires.forEach(requires => {
+				const inputRequired = getInputById(form, requires.id)
+				if (inputRequired?.value !== input.value) {
+					return false
+				}
+			})
+		}
+		// If all of the requires array elements are fulfilled then we show the input
+		const data = {
+			key: "value",
+			value: true,
+			indexes: findInputById(form, input.id)
+		}
+		switch (formModule) {
+			case "ticket":
+				TicketModule.updateInput(data)
+				break
+			case "volunteer":
+				VolunteerModule.updateInput(data)
+				break
+		}
+	})
+}
+
 export function validate(
 	requirements: Requirement[],
-	str: string,
+	value: InputValueType,
 	indexes: Indexes,
 	formModule: DynamicFormModule
 ): boolean {
@@ -117,20 +195,20 @@ export function validate(
 		const r = requirements[i]
 		let status: StatusOnInput
 		switch (r) {
-			case "not-empty":
-				status = notEmpty(str)
+			case "string-not-empty":
+				status = notEmpty(value as string)
 				break
 			case "only-letters":
-				status = isOnlyLetters(str)
+				status = isOnlyLetters(value as string)
 				break
 			case "is-person-id":
-				status = isPersonId(str)
+				status = isPersonId(value as string)
 				break
 			case "is-email":
-				status = isEmail(str)
+				status = isEmail(value as string)
 				break
 			case "is-phone":
-				status = isPhone(str)
+				status = isPhone(value as string)
 				break
 		}
 		switch (formModule) {
@@ -152,5 +230,7 @@ export function validate(
 			return false
 		}
 	}
+
+	checkForRequires(indexes, formModule)
 	return true
 }

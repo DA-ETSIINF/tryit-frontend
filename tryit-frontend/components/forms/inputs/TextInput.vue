@@ -31,7 +31,8 @@ import {
   Requirement,
   Indexes,
   StatusOnInput,
-  DynamicFormModule
+  DynamicFormModule,
+  TextInputValueType
 } from "../../../types/components";
 // import store from "store";
 import { TicketModule } from "../../../store/ticket";
@@ -42,7 +43,7 @@ import { validate } from "../../../utils";
 export default class TextInput extends Vue {
   @Prop({ default: "" }) readonly helperText!: string;
   @Prop({ default: "" }) readonly placeholder!: string;
-  @Prop({ default: "" }) readonly value!: string;
+  @Prop({ default: "" }) readonly value!: TextInputValueType;
   @Prop({ default: false }) readonly isDisabled!: boolean;
   @Prop({ default: false }) readonly hideText!: boolean;
   @Prop({
