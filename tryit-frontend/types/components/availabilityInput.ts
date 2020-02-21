@@ -12,7 +12,9 @@ export interface TimePeriodsType {
 	ms: number
 	dayWeek: string
 	dayMonth: string
+	//I think that this should be just one value, not an array (=
 	dayPeriods: dayPeriodType[]
+	//dayPeriods: dayPeriodType
 }
 
 export type PeriodsAvailable = "morning" | "afternoon"

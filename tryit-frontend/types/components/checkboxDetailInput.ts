@@ -1,6 +1,6 @@
 import { Requirement } from "./requirements"
 import { Indexes } from "./indexes"
-import { StatusOnInput } from "./inputStatus"
+import { StatusOnInput, InputStatus } from "./inputStatus"
 export interface CheckboxDetailInputType {
 	text: string
 	details?: string[]
