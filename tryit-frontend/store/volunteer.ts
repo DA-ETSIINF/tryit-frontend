@@ -60,7 +60,15 @@ export default class Volunteer extends VuexModule {
 	}
 
 	@Mutation
-	updateProperty({ key, value, indexes }: { key: string; value: string; indexes: Indexes }) {
+	updateProperty({
+		key,
+		value,
+		indexes
+	}: {
+		key: string
+		value: InputValueType
+		indexes: Indexes
+	}) {
 		if (indexes.section === undefined || indexes.input === undefined) {
 			return
 		}
@@ -98,7 +106,7 @@ export default class Volunteer extends VuexModule {
 		const ms = timePeriod.date // Subnormal
 		const date: Date = new Date(ms)
 		const dayMonth = date.getDate()
-		const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+		const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" }
 		const dayWeek = date.toLocaleDateString(undefined, options)
 		// const dayWeekString: string = dayWeekSwitch[dayWeek]
 		//TODO: Change the dayPeriodTypeArray

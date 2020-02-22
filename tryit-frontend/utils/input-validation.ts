@@ -7,8 +7,7 @@ import {
 	DynamicFormModule,
 	InputValueType
 } from "~/types/components"
-import { TicketModule } from "../store/ticket"
-import { VolunteerModule } from "../store/volunteer"
+import { emitErrorOnInput, emitInput } from "./"
 import { checkForRequires } from "./"
 
 const INPUTS_ERRORS = {
@@ -115,6 +114,7 @@ export function validate(
 	indexes: Indexes,
 	formModule: DynamicFormModule
 ): boolean {
+	let isOk = true
 	for (let i = 0; i < requirements.length; i++) {
 		const r = requirements[i]
 		let status: StatusOnInput
@@ -135,25 +135,14 @@ export function validate(
 				status = isPhone(value as string)
 				break
 		}
-		switch (formModule) {
-			case "ticket":
-				TicketModule.updateErrorOnInput({
-					indexes,
-					status
-				})
-				break
-			case "volunteer":
-				VolunteerModule.updateErrorOnInput({
-					indexes,
-					status
-				})
-				break
-		}
+		emitErrorOnInput(formModule, { indexes, status })
 
 		if (status.status !== "ok") {
-			return false
+			value = false
+			break
 		}
 	}
-	checkForRequires(indexes, formModule)
-	return true
+	emitInput(formModule, { indexes, key: "show", value: isOk })
+	checkForRequires(indexes, formModule, value)
+	return isOk
 }

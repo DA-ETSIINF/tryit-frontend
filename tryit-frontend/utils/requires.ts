@@ -1,6 +1,12 @@
-import { Indexes, DynamicFormModule, FormType, InputType, InputIdType } from "~/types/components"
-import { TicketModule } from "../store/ticket"
-import { VolunteerModule } from "../store/volunteer"
+import {
+	Indexes,
+	DynamicFormModule,
+	FormType,
+	InputType,
+	InputIdType,
+	InputValueType
+} from "~/types/components"
+import { emitInput } from "./"
 
 function findInputById(form: FormType, id: InputIdType): Indexes {
 	let section: number = -1
@@ -21,28 +27,22 @@ function getInputByIndexes(form: FormType, indexes: Indexes): InputType {
 }
 
 function getInputById(form: FormType, id: InputIdType): InputType | null {
-	form.sections.forEach(section => {
-		section.inputs.forEach(input => {
+	for (let i = 0; i < form.sections.length; i++) {
+		const section = form.sections[i]
+		for (let j = 0; j < section.inputs.length; j++) {
+			const input = section.inputs[j]
 			if (input.id === id) {
 				return input
 			}
-		})
-	})
-	return null
-}
-
-function getForm(formModule: DynamicFormModule) {
-	switch (formModule) {
-		case "ticket":
-			return TicketModule.ticketForm
-		case "volunteer":
-			return VolunteerModule.volunteerForm
+		}
 	}
+	return null
 }
 
 function compareObjects(obj1: any, obj2: any) {
 	return JSON.stringify(obj1) === JSON.stringify(obj2)
 }
+
 function getDependencies(form: FormType, indexes: Indexes): InputType[] {
 	// It gets all the inputs that depend on the input being checked
 	const input = getInputByIndexes(form, indexes)
@@ -56,54 +56,83 @@ function getDependencies(form: FormType, indexes: Indexes): InputType[] {
 	return inputsToUnlock
 }
 
-function checkForTheRest(form: FormType, inputsToUnlock: InputType[]) {
+interface InputTypeValue {
+	show: boolean
+	input: InputType
+}
+function checkForTheRest(
+	inputsToUnlock: InputType[],
+	expectedValue: InputValueType
+): InputTypeValue[] {
 	// It checks that the rest of the inputs for all the inputs that were depending
 	// on the input being checked are valid as well
-	return inputsToUnlock.filter(input => {
+	return inputsToUnlock.map(input => {
 		if (input.requires) {
-			input.requires.forEach(requires => {
-				const inputRequired = getInputById(form, requires.id)
-				if (compareObjects(inputRequired?.value, input.value)) {
-					return false
+			if (!input.requires || input.requires.length > 0) {
+				for (let i = 0; i < input.requires.length; i++) {
+					const requires = input.requires[i]
+					if (!compareObjects(expectedValue, requires.value)) {
+						return {
+							show: false,
+							input
+						}
+					}
 				}
-			})
+			}
 		}
-		return true
+		return {
+			show: true,
+			input
+		}
 	})
 }
 
-function unlock(form: FormType, formModule: DynamicFormModule, inputsToUnlock: InputType[]) {
+function unlock(form: FormType, formModule: DynamicFormModule, inputsToUnlock: InputTypeValue[]) {
 	inputsToUnlock.forEach(input => {
 		// If all of the requires array elements are fulfilled then we show the input
 		const data = {
 			key: "show",
-			value: true,
-			indexes: findInputById(form, input.id)
+			value: input.show,
+			indexes: findInputById(form, input.input.id)
 		}
-		switch (formModule) {
-			case "ticket":
-				TicketModule.updateInput(data)
-				break
-			case "volunteer":
-				VolunteerModule.updateInput(data)
-				break
-		}
+		emitInput(formModule, data)
 	})
 }
+import { TicketModule } from "../store/ticket"
 
-export function checkForRequires(indexes: Indexes, formModule: DynamicFormModule) {
-	let form: FormType = getForm(formModule)
+function getFormName(formModule) {
+	switch (formModule) {
+		case "ticket":
+			return "ticketForm"
+		case "volunteer":
+			return "volunteerForm"
+	}
+}
+export function checkForRequires(
+	indexes: Indexes,
+	formModule: DynamicFormModule,
+	expectedValue: InputValueType
+) {
+	let formName = getFormName(formModule)
+	if (!formName) {
+		return
+	}
+
+	let form: FormType = TicketModule[formName]
 	let inputsToUnlock: InputType[] = getDependencies(form, indexes)
-	let checkedInputsToUnlock: InputType[] = checkForTheRest(form, inputsToUnlock)
+	let checkedInputsToUnlock: InputTypeValue[] = checkForTheRest(inputsToUnlock, expectedValue)
 	unlock(form, formModule, checkedInputsToUnlock)
-	console.log(checkedInputsToUnlock)
 }
 
-export function checkInputsForRequires(form: FormType, formModule: DynamicFormModule) {
+export function checkInputsForRequires(
+	form: FormType,
+	formModule: DynamicFormModule,
+	expectedValue: InputValueType
+) {
 	form.sections.forEach((s, section) => {
 		s.inputs.forEach((i, input) => {
 			let inputsToUnlock: InputType[] = getDependencies(form, { section, input })
-			let checkedInputsToUnlock: InputType[] = checkForTheRest(form, inputsToUnlock)
+			let checkedInputsToUnlock: InputTypeValue[] = checkForTheRest(inputsToUnlock, expectedValue)
 			unlock(form, formModule, checkedInputsToUnlock)
 		})
 	})

@@ -67,7 +67,15 @@ export default class Ticket extends VuexModule {
 	}
 
 	@Mutation
-	updateProperty({ key, value, indexes }: { key: string; value: string; indexes: Indexes }) {
+	updateProperty({
+		key,
+		value,
+		indexes
+	}: {
+		key: string
+		value: InputValueType
+		indexes: Indexes
+	}) {
 		if (indexes.section === undefined || indexes.input === undefined) {
 			return
 		}

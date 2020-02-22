@@ -156,7 +156,16 @@ export const ticketForm: FormType = {
 					},
 					id: "8",
 					value: "",
-					requirements: []
+					requirements: [],
+					requires: [
+						{
+							id: "student-input",
+							value: {
+								isStudent: true,
+								isUpmStudent: true
+							}
+						}
+					]
 				},
 				{
 					tag: "labels-input",
@@ -180,7 +189,16 @@ export const ticketForm: FormType = {
 					},
 					id: "9",
 					value: "",
-					requirements: []
+					requirements: [],
+					requires: [
+						{
+							id: "student-input",
+							value: {
+								isStudent: true,
+								isUpmStudent: true
+							}
+						}
+					]
 				}
 			]
 		},

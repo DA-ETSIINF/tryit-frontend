@@ -1,5 +1,5 @@
 <template>
-  <div class="select-input-container">
+  <div class="select-input-container" v-if="show">
     <h5 class="form-question">{{ title }}</h5>
     <div v-bind:class="{ open: open }">
       <div class="select-input-wrapper">
@@ -11,6 +11,7 @@
             :noShadows="true"
             :leaveSpaceRight="true"
             :value="optionSelected.title"
+            :status="textStatus"
             v-on:keypress="search($event)"
             v-on:focus="$emit('toogleOpen', true, true)"
             v-on:blur="$emit('toogleOpen', false)"
@@ -40,7 +41,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 import Fuse from "fuse.js";
-import { OptionSelected } from "../../../types/components";
+import { OptionSelected, StatusOnInput } from "../../../types/components";
 
 @Component({})
 export default class SelectInput extends Vue {
@@ -49,6 +50,11 @@ export default class SelectInput extends Vue {
   @Prop({ type: Object, required: true })
   readonly optionSelected!: OptionSelected;
   @Prop({ type: Boolean, default: false }) readonly open!: boolean;
+  @Prop({ type: Boolean, default: false }) readonly show!: boolean;
+  textStatus: StatusOnInput = {
+    status: "",
+    statusDetail: { message: "", abbreviation: "" }
+  };
 
   copyOptions: OptionSelected[][] = this.options;
 
