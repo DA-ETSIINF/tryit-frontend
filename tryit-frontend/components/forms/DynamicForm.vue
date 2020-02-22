@@ -17,18 +17,20 @@
           :validations="input.requirements"
           :indexes="input.indexes"
           :formModule="formModule"
+          :show="input.show"
         ></text-input>
         <text-area
           v-if="input.tag === 'text-area'"
           :helperText="input.properties.helperText"
           :placeholder="input.properties.placeholder"
-          :value="input.properties.value"
+          :value="input.value"
           :isDisabled="input.properties.isDisabled"
           :hideText="input.properties.hideText"
           :status="input.properties.status"
           :noBorder="input.properties.noBorder"
           :noShadows="input.properties.noShadows"
           :leaveSpaceRight="input.properties.leaveSpaceRight"
+          :show="input.show"
         ></text-area>
         <student-input
           v-if="input.tag === 'student-input'"
@@ -37,15 +39,17 @@
           :validations="input.requirements"
           :indexes="input.indexes"
           :formModule="formModule"
+          :show="input.show"
         ></student-input>
         <select-input
-          v-if="input.tag === 'select-input'"
+          v-if="input.tag === 'select-input' && input.show"
           :title="input.question"
           :options="input.properties.options"
           :optionSelected="input.properties.selected"
           :open="input.properties.open"
           v-on:change="$emit('change', ...arguments)"
           v-on:toogleOpen="$emit('toogleOpen', ...arguments)"
+          :show="input.show"
         ></select-input>
         <labels-input
           v-if="input.tag === 'labels-input'"
@@ -54,6 +58,7 @@
           :selected="input.properties.selected"
           :status="input.properties.status"
           :errorMsg="input.properties.errorMsg"
+          :show="input.show"
         ></labels-input>
         <checkbox-detail
           v-if="input.tag === 'checkbox-detail'"
@@ -61,11 +66,13 @@
           :id="input.id"
           :details="input.properties.details"
           :checked="input.properties.checked"
+          :show="input.show"
         ></checkbox-detail>
         <availability-input
           v-if="input.tag === 'availability-input'"
           :timePeriods="input.properties.timePeriods"
           :periodsAvailable="input.properties.periodsAvailable"
+          :show="input.show"
         ></availability-input>
       </div>
     </form-section>

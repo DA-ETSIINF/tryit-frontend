@@ -5,12 +5,12 @@ import {
 	Indexes,
 	StatusOnInput,
 	DynamicFormModule,
-	InputValueType,
-	InputIdType
+	InputValueType
 } from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
 import { post, get } from "./services"
+import { checkInputsForRequires } from "../utils"
 
 @Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
@@ -40,30 +40,22 @@ export default class Ticket extends VuexModule {
 					section: sectionIndex,
 					input: inputIndex
 				}
-				console.log(
-					tf.sections[sectionIndex].inputs[inputIndex].tag,
-					tf.sections[sectionIndex].inputs[inputIndex].value
-				)
 				const requires = tf.sections[sectionIndex].inputs[inputIndex].requires
-				if (requires && requires.length > 0) {
-					tf.sections[sectionIndex].inputs[inputIndex].show = false
-				}
+				tf.sections[sectionIndex].inputs[inputIndex].show = !(requires && requires.length > 0)
 			})
 		})
 		return tf
 	}
+
 	@Action
-	getUpmInfo(){
+	getUpmInfo() {
 		const indexes: Indexes = {
 			section: 1,
 			input: 1
 		}
-		get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json")
-		.then((payload) =>{
-			console.log("undefined", payload);
-			store.commit("ticket/updateProperty", {key:"options", payload, indexes});
+		get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json").then(payload => {
+			store.commit("ticket/updateProperty", { key: "options", payload, indexes })
 		})
-
 	}
 
 	@Mutation

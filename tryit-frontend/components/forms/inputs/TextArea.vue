@@ -23,19 +23,20 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
-
+import { TextAreaValueType, StatusOnInput } from "../../../types/components";
 @Component({})
 export default class TextArea extends Vue {
   @Prop({ type: String, default: "" }) readonly helperText!: string;
   @Prop({ type: String, default: "" }) readonly placeholder!: string;
-  @Prop({ type: String, default: "" }) readonly value!: string;
+  @Prop({ required: true }) readonly value!: TextAreaValueType;
   @Prop({ type: Boolean, default: false }) readonly isDisabled!: boolean;
   @Prop({ type: Boolean, default: false }) readonly hideText!: boolean;
-  @Prop({ type: String, default: "" }) readonly status!:
-    | ""
-    | "ok"
-    | "error"
-    | "info";
+  @Prop({
+    default: (): StatusOnInput => {
+      return { status: "ok", statusDetail: { message: "", abbreviation: "" } };
+    }
+  })
+  readonly status!: StatusOnInput;
   @Prop({ type: Boolean, default: false }) readonly noBorder!: boolean;
   @Prop({ type: Boolean, default: false }) readonly noShadows!: boolean;
   @Prop({ type: Boolean, default: false }) readonly leaveSpaceRight!: boolean;

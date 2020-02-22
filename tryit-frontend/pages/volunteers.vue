@@ -42,7 +42,6 @@ export default class Volunteers extends Vue {
   }
 
   getForm(): FormType {
-    console.log("Form: ", VolunteerModule.getVolunteerForm)
     return VolunteerModule.getVolunteerForm;
   }
   getFormModule(): string {

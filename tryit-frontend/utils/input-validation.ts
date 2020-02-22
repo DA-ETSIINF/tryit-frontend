@@ -5,13 +5,11 @@ import {
 	Indexes,
 	InputStatus,
 	DynamicFormModule,
-	InputValueType,
-	FormType,
-	InputType,
-	InputIdType
+	InputValueType
 } from "~/types/components"
 import { TicketModule } from "../store/ticket"
 import { VolunteerModule } from "../store/volunteer"
+import { checkForRequires } from "./"
 
 const INPUTS_ERRORS = {
 	notEmpty: {
@@ -111,85 +109,6 @@ function isPhone(phone: string) {
 	return generateResponse(isPhone ? "ok" : "error", INPUTS_ERRORS.invalidPhone)
 }
 
-function findInputById(form: FormType, id: InputIdType): Indexes {
-	let section: number = -1
-	let input: number = -1
-	form.sections.forEach((s, _sectionIndex) => {
-		s.inputs.forEach((i, _inputIndex) => {
-			if (i.id === id) {
-				section = _sectionIndex
-				input = _inputIndex
-			}
-		})
-	})
-	return { section, input }
-}
-
-function getIdByIndexes(form: FormType, indexes: Indexes): InputType {
-	return form.sections[indexes.section].inputs[indexes.input]
-}
-function getInputById(form: FormType, id: InputIdType): InputType | null {
-	form.sections.forEach(section => {
-		section.inputs.forEach(input => {
-			if (input.id === id) {
-				return input
-			}
-		})
-	})
-	return null
-}
-function checkForRequires(indexes: Indexes, formModule: DynamicFormModule) {
-	let form: FormType
-	switch (formModule) {
-		case "ticket":
-			form = TicketModule.ticketForm
-			break
-		case "volunteer":
-			form = VolunteerModule.volunteerForm
-			break
-	}
-
-	// It gets all the inputs that depend on the input being checked
-	const inputId = getIdByIndexes(form, indexes).id
-	let inputsToUnlock: InputType[] = []
-	form.sections.forEach(section => {
-		const unlockInputs = section.inputs.filter(e => e.id === inputId)
-		inputsToUnlock.push(...unlockInputs)
-	})
-
-	// It checks that the rest of the inputs for all the inputs that were depending
-	// on the input being checked are valid as well
-	inputsToUnlock = inputsToUnlock.filter(input => {
-		if (input.requires) {
-			input.requires.forEach(requires => {
-				const inputRequired = getInputById(form, requires.id)
-				console.log("INPUT COMP", inputRequired?.value, requires.value)
-				if (inputRequired?.value !== input.value) {
-					return false
-				}
-			})
-		}
-		return true
-	})
-	inputsToUnlock.forEach(input => {
-		// If all of the requires array elements are fulfilled then we show the input
-		const data = {
-			key: "show",
-			value: true,
-			indexes: findInputById(form, input.id)
-		}
-		console.log(data)
-		switch (formModule) {
-			case "ticket":
-				TicketModule.updateInput(data)
-				break
-			case "volunteer":
-				VolunteerModule.updateInput(data)
-				break
-		}
-	})
-}
-
 export function validate(
 	requirements: Requirement[],
 	value: InputValueType,
@@ -235,7 +154,6 @@ export function validate(
 			return false
 		}
 	}
-	console.log("CHEKCIN")
 	checkForRequires(indexes, formModule)
 	return true
 }
