@@ -94,38 +94,13 @@ export const ticketForm: FormType = {
 					tag: "select-input",
 					question: "¿En qué Escuela estudias?",
 					properties: {
-						options: [
-							[
-								{
-									title: "Escuela Superior de Ingenieros Informáticos",
-									id: "1"
-								}
-							],
-							[
-								{
-									title: "Escuela Superior de Arquitectos",
-									id: "2"
-								},
-								{
-									title: "Escuela Superior de Moda",
-									id: "3"
-								}
-							]
-						],
-						// TODO change this to an index
-						selected: {
-							title: "Escuela Superior de Ingenieros Informáticos",
-							id: "1"
-						},
-						// TODO change this to an index
-						oldSelected: {
-							title: "Escuela Superior de Ingenieros Informáticos",
-							id: "1"
-						},
+						options: [],
+						selected: "10",
+						oldSelected: "10",
 						open: false
 					},
 					value: "",
-					id: "7",
+					id: "schools-selection",
 					requirements: [],
 					requires: [
 						{
@@ -142,20 +117,12 @@ export const ticketForm: FormType = {
 					question: "¿Que titulación?",
 					properties: {
 						options: [],
-						// TODO change this to an index
-						selected: {
-							title: "Escuela Superior de Ingenieros Informáticos",
-							id: "1"
-						},
-						// TODO change this to an index
-						oldSelected: {
-							title: "Escuela Superior de Ingenieros Informáticos",
-							id: "1"
-						},
+						selected: "10",
+						oldSelected: "10",
 						open: false
 					},
 					id: "8",
-					value: "",
+					value: "degrees-selection",
 					requirements: [],
 					requires: [
 						{

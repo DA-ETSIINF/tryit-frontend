@@ -1,63 +1,63 @@
 <template>
-	<div class="badge" :class="type">
-		<span>{{ text }}</span>
-	</div>
+  <div class="badge" :class="type">
+    <span>{{ text }}</span>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "nuxt-property-decorator"
-import { SponsorCategory } from "../types"
+import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { SponsorCategory } from "../types/api";
 
 @Component({})
 export default class Badge extends Vue {
-	@Prop() type!: SponsorCategory
-	types = {
-		platinum: "platino",
-		gold: "oro",
-		silver: "plata",
-		bronze: "bronce"
-	}
-	text = this.types[this.type]
+  @Prop() type!: SponsorCategory;
+  types = {
+    platinum: "platino",
+    gold: "oro",
+    silver: "plata",
+    bronze: "bronce"
+  };
+  text = this.types[this.type];
 }
 </script>
 
 <style>
 .badge {
-	border: 3px solid var(--neutral-2);
-	font-size: 12px;
-	font-weight: var(--font-bold-source-sans-pro);
-	border-radius: var(--border-radius-m);
-	display: flex;
-	justify-content: center;
+  border: 3px solid var(--neutral-2);
+  font-size: 12px;
+  font-weight: var(--font-bold-source-sans-pro);
+  border-radius: var(--border-radius-m);
+  display: flex;
+  justify-content: center;
 }
 
 .badge.platinum {
-	max-width: 60px;
-	border-color: var(--platinum-1);
-	background: var(--platinum-4);
-	box-shadow: 0px 1px 6px var(--platinum-2);
+  max-width: 60px;
+  border-color: var(--platinum-1);
+  background: var(--platinum-4);
+  box-shadow: 0px 1px 6px var(--platinum-2);
 }
 .badge.gold {
-	max-width: 30px;
-	border-color: var(--gold-1);
-	background: var(--gold-4);
-	box-shadow: 0px 1px 6px var(--gold-2);
+  max-width: 30px;
+  border-color: var(--gold-1);
+  background: var(--gold-4);
+  box-shadow: 0px 1px 6px var(--gold-2);
 }
 .badge.silver {
-	max-width: 40px;
-	border-color: var(--silver-1);
-	background: var(--silver-4);
-	box-shadow: 0px 1px 6px var(--silver-2);
+  max-width: 40px;
+  border-color: var(--silver-1);
+  background: var(--silver-4);
+  box-shadow: 0px 1px 6px var(--silver-2);
 }
 .badge.bronze {
-	max-width: 50px;
-	border-color: var(--bronze-1);
-	background: var(--bronze-4);
-	box-shadow: 0px 1px 6px var(--bronze-2);
+  max-width: 50px;
+  border-color: var(--bronze-1);
+  background: var(--bronze-4);
+  box-shadow: 0px 1px 6px var(--bronze-2);
 }
 
 .badge span {
-	text-transform: uppercase;
-	text-align: center;
+  text-transform: uppercase;
+  text-align: center;
 }
 </style>

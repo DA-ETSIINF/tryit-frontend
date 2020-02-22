@@ -1,5 +1,5 @@
 import { Module, Mutation, VuexModule, getModule, Action } from "vuex-module-decorators"
-import { VolunteerResource, VolunteerPeriodsResource } from "~/types"
+import { VolunteerResource, VolunteerPeriodsResource } from "~/types/api"
 import {
 	FormType,
 	Indexes,
@@ -11,8 +11,7 @@ import {
 	DayPeriodType
 } from "~/types/components"
 import { volunteerForm as vf } from "./template-forms"
-import { store } from "~/store"
-import { get } from "./services"
+import { store } from "./"
 
 @Module({ dynamic: true, store, name: "volunteer", stateFactory: true, namespaced: true })
 export default class Volunteer extends VuexModule {
@@ -94,7 +93,7 @@ export default class Volunteer extends VuexModule {
 	}
 	@Action
 	getVolunteersTimePeriods() {
-		const payload: VolunteerPeriodsResource[] = get("/volunteers-time-periods")
+		const payload: VolunteerPeriodsResource[] = [] // TODO
 		payload.forEach((timePeriod: VolunteerPeriodsResource, _) => {
 			const time: TimePeriodsType = this.getTimePeriod(timePeriod)
 			;(this.volunteerForm.sections[2].inputs[0]

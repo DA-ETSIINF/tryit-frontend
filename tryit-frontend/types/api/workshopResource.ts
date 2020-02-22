@@ -9,13 +9,13 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DateResource } from './date';
-import { SpeakerResource } from './speaker';
+import { DateResource } from "./date"
+import { SpeakerResource } from "./speaker"
 
-export interface WorkshopResource { 
-    name: string;
-    description: string;
-    speakers: Array<SpeakerResource>;
-    room: string;
-    date: DateResource;
+export interface WorkshopResource {
+	name: string
+	description: string
+	speakers: Array<SpeakerResource>
+	room: string
+	date: DateResource
 }

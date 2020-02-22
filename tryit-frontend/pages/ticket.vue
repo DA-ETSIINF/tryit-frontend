@@ -50,7 +50,6 @@ export default class Ticket extends Vue {
   }
 
   getForm(): FormType {
-    TicketModule.getUpmInfo();
     return TicketModule.ticketForm;
   }
 

@@ -1,0 +1,90 @@
+[
+	{
+		"codigo": "1",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIEROS AERONAUTICOS"
+	},
+	{
+		"codigo": "3",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE ARQUITECTURA"
+	},
+	{
+		"codigo": "4",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIEROS DE CAMINOS, CANALES Y PUERTOS"
+	},
+	{
+		"codigo": "5",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIEROS INDUSTRIALES"
+	},
+	{
+		"codigo": "6",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIEROS DE MINAS Y ENERGIA"
+	},
+	{
+		"codigo": "8",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIEROS NAVALES"
+	},
+	{
+		"codigo": "9",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIEROS DE TELECOMUNICACION"
+	},
+	{
+		"codigo": "10",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIEROS INFORMATICOS"
+	},
+	{
+		"codigo": "11",
+		"nombre": "FACULTAD DE CIENCIAS DE LA ACTIVIDAD FISICA Y DEL DEPORTE - INEF"
+	},
+	{
+		"codigo": "12",
+		"nombre": "E.T.S.I. EN TOPOGRAFIA, GEODESIA Y CARTOGRAFIA"
+	},
+	{
+		"codigo": "13",
+		"nombre": "E.T.S. DE INGENIERIA DE MONTES, FORESTAL Y DEL MEDIO NATURAL"
+	},
+	{
+		"codigo": "14",
+		"nombre": "ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA AERONÁUTICA Y DEL ESPACIO"
+	},
+	{
+		"codigo": "20",
+		"nombre": "E.T.S. DE INGENIERIA AGRONOMICA, ALIMENTARIA Y DE BIOSISTEMAS"
+	},
+	{
+		"codigo": "21",
+		"nombre": "ESCUELA INTERNACIONAL DE DOCTORADO"
+	},
+	{
+		"codigo": "30",
+		"nombre": "ESCUELA POLITECNICA DE ENSEÑANZA SUPERIOR"
+	},
+	{
+		"codigo": "54",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE EDIFICACION"
+	},
+	{
+		"codigo": "56",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIERIA Y DISEÑO INDUSTRIAL"
+	},
+	{
+		"codigo": "58",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIERIA CIVIL"
+	},
+	{
+		"codigo": "59",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIERIA Y SISTEMAS DE TELECOMUNICACION"
+	},
+	{
+		"codigo": "61",
+		"nombre": "ESCUELA TECNICA SUPERIOR DE INGENIERIA DE SISTEMAS INFORMATICOS"
+	},
+	{
+		"codigo": "81",
+		"nombre": "CENTRO SUPERIOR DE DISEÑO DE MODA "
+	},
+	{
+		"codigo": "90",
+		"nombre": "RECTORADO UPM"
+	}
+]

@@ -47,8 +47,8 @@ import { OptionSelected, StatusOnInput } from "../../../types/components";
 export default class SelectInput extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string;
   @Prop({ type: Array, required: true }) readonly options!: OptionSelected[][];
-  @Prop({ type: Object, required: true })
-  readonly optionSelected!: OptionSelected;
+  @Prop({ type: String, required: true })
+  readonly optionSelected!: string;
   @Prop({ type: Boolean, default: false }) readonly open!: boolean;
   @Prop({ type: Boolean, default: false }) readonly show!: boolean;
   textStatus: StatusOnInput = {
@@ -72,8 +72,8 @@ export default class SelectInput extends Vue {
 
   search(e) {
     this.$emit("open", true);
-    // @ts-ignore: It ignores the error caused by the flat()
     const options = this.options;
+    // @ts-ignore: It ignores the error caused by the flat()
     const fuse = new Fuse(options.flat(), this.fuseOptions);
     const result = fuse.search(e.target.value);
     this.copyOptions = [[]];

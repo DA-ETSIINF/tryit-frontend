@@ -9,16 +9,16 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DateResource } from './date';
-import { IdResource } from './id';
+import { DateResource } from "./date"
+import { IdResource } from "./id"
 
-export interface EditionsResourceInner { 
-    id: IdResource;
-    year: number;
-    title: string;
-    slogan: string;
-    description: string;
-    startDate: DateResource;
-    endDate: DateResource;
-    googleCalendarUrl: string;
+export interface EditionsResourceInner {
+	id: IdResource
+	year: number
+	title: string
+	slogan: string
+	description: string
+	startDate: DateResource
+	endDate: DateResource
+	googleCalendarUrl: string
 }

@@ -1,22 +1,27 @@
 import { Module, Mutation, VuexModule, getModule, Action } from "vuex-module-decorators"
-import { TicketResource } from "~/types"
+import { TicketResource, UPMSchools } from "~/types/api"
 import {
 	FormType,
 	Indexes,
 	StatusOnInput,
 	DynamicFormModule,
-	InputValueType
+	InputValueType,
+	SelectInputType,
+	OptionSelected
 } from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
-import { post, get } from "./services"
-import { checkInputsForRequires } from "../utils"
+import { getHTTP, schoolsUPM } from "../utils"
+import axios from "axios"
 
 @Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
 	ticket!: TicketResource
 	ticketForm: FormType = this.getForm()
 
+	created() {
+		console.log("LKLOLO")
+	}
 	get getTitle(): string | undefined {
 		return this.ticketForm.title
 	}
@@ -35,27 +40,58 @@ export default class Ticket extends VuexModule {
 
 	getForm(): FormType {
 		tf.sections.forEach((section, sectionIndex) => {
-			section.inputs.forEach((_, inputIndex) => {
+			section.inputs.forEach((input, inputIndex) => {
 				tf.sections[sectionIndex].inputs[inputIndex].indexes = {
 					section: sectionIndex,
 					input: inputIndex
 				}
 				const requires = tf.sections[sectionIndex].inputs[inputIndex].requires
 				tf.sections[sectionIndex].inputs[inputIndex].show = !(requires && requires.length > 0)
+				console.log(inputIndex)
+				if (
+					tf.sections[sectionIndex].inputs[inputIndex].tag === "select-input" &&
+					input.id === "schools-selection"
+				) {
+					axios
+						.get(schoolsUPM, {
+							headers: {
+								"Content-type": "application/json"
+							}
+						})
+						.then(data => {
+							const schools: OptionSelected[] = data.data.map(s => {
+								return { title: s.nombre, id: s.codigo }
+							})
+							const schoolsOptions: OptionSelected[][] = [[]]
+							const schoolsByDefault = ["10"]
+							schoolsByDefault.forEach(school => {
+								const i = schools
+									.map(s => {
+										return s.id
+									})
+									.indexOf(school)
+								schoolsOptions[0].push(schools[i])
+								schools.splice(i, 1)
+							})
+							schoolsOptions.push(schools)
+							//@ts-ignore It is already a SelectInput type, it has the options attribute
+							tf.sections[sectionIndex].inputs[inputIndex].properties.options = schoolsOptions
+							console.log("a")
+						})
+				}
 			})
 		})
 		return tf
 	}
 
-	@Action
-	getUpmInfo() {
-		const indexes: Indexes = {
-			section: 1,
-			input: 1
-		}
-		get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json").then(payload => {
-			store.commit("ticket/updateProperty", { key: "options", payload, indexes })
-		})
+	private async getUpmInfo() {
+		// const indexes: Indexes = {
+		// 	section: 1,
+		// 	input: 1
+		// }
+		// get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json").then(payload => {
+		// 	store.commit("ticket/updateProperty", { key: "options", payload, indexes })
+		// })
 	}
 
 	@Mutation
@@ -101,7 +137,7 @@ export default class Ticket extends VuexModule {
 	}
 	@Action
 	postTicket() {
-		post({ ticketForm: this.ticketForm }, "/ticket")
+		// post({ ticketForm: this.ticketForm }, "/ticket")
 	}
 }
 export const TicketModule = getModule(Ticket)

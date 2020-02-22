@@ -7,14 +7,15 @@ import { OptionSelected } from "./options"
 import { Indexes } from "./indexes"
 import { StatusOnInput } from "./inputStatus"
 import { Requires } from "./requires"
+import { UPMSchools } from "../api"
 
 export type SelectInputValueType = string
 export type SelectInputIdType = SelectInputValueType
 export interface SelectInputType {
 	open: boolean
 	options: OptionSelected[][]
-	selected: OptionSelected
-	oldSelected: OptionSelected
+	selected: string
+	oldSelected: string
 	status?: StatusOnInput
 }
 
