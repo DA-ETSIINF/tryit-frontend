@@ -56,29 +56,6 @@ export default class Ticket extends Vue {
   getFormModule(): string {
     return TicketModule.getFormModule;
   }
-  // These functions must be moved to the store
-  /*
-  changedOption(newSchool: OptionSelected, shouldClose: boolean = true) {
-    this.schoolInput.selected = newSchool;
-    if (shouldClose) {
-      this.schoolInput.open = false;
-    }
-  }
-
-  toogleOpen(v: boolean, shouldClear: boolean = false) {
-    if (!v) {
-      this.schoolInput.selected = this.schoolInput.oldSelected;
-    }
-    this.schoolInput.open = v;
-    if (shouldClear) {
-      this.schoolInput.oldSelected = this.schoolInput.selected;
-      this.schoolInput.selected = {
-        ...this.schoolInput.selected,
-        title: ""
-      };
-    }
-  }
-  */
 }
 </script>
 

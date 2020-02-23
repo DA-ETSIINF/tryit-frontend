@@ -10,15 +10,15 @@
             :noBorder="true"
             :noShadows="true"
             :leaveSpaceRight="true"
-            :value="optionSelected.title"
+            :value="selected.title"
             :status="textStatus"
             v-on:keypress="search($event)"
-            v-on:focus="$emit('toogleOpen', true, true)"
-            v-on:blur="$emit('toogleOpen', false)"
-            v-on:esc="$emit('toogleOpen', false)"
+            v-on:focus="toogleOpen(true, true)"
+            v-on:blur="toogleOpen(false)"
+            v-on:esc="toogleOpen(false)"
           ></TextInput>
-          <i class="fas fa-times" v-if="open" @click="$emit('change', {}, false)"></i>
-          <i class="fas fa-angle-down" v-if="!open" @click="$emit('toogleOpen', true)"></i>
+          <i class="fas fa-times" v-if="open" @click="changeOption({}, false)"></i>
+          <i class="fas fa-angle-down" v-if="!open" @click="toogleOpen(true)"></i>
         </div>
       </div>
       <div class="select-input-options">
@@ -26,7 +26,7 @@
           <div v-for="(optionSection, index) in copyOptions" :key="index">
             <li
               v-for="option in optionSection"
-              :class="{ active: option.id === optionSelected.id }"
+              :class="{ active: option.id === selected.id }"
               :key="option.id"
               v-on:click="changeOption(option)"
             >{{ option.title }}</li>
@@ -39,24 +39,43 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
 import Fuse from "fuse.js";
-import { OptionSelected, StatusOnInput } from "../../../types/components";
+import {
+  OptionSelected,
+  StatusOnInput,
+  InputValueType,
+  Indexes
+} from "../../../types/components";
+import { TicketModule } from "../../../store/ticket";
 
 @Component({})
 export default class SelectInput extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string;
   @Prop({ type: Array, required: true }) readonly options!: OptionSelected[][];
   @Prop({ type: String, required: true })
-  readonly optionSelected!: string;
+  readonly selected!: string;
+  @Prop({ type: String, required: true })
+  readonly oldSelected!: string;
   @Prop({ type: Boolean, default: false }) readonly open!: boolean;
   @Prop({ type: Boolean, default: false }) readonly show!: boolean;
   textStatus: StatusOnInput = {
     status: "",
     statusDetail: { message: "", abbreviation: "" }
   };
-
+  @Prop({
+    default: (): Indexes => {
+      return { section: 0, input: 0 };
+    }
+  })
+  readonly indexes!: Indexes;
   copyOptions: OptionSelected[][] = this.options;
+
+  @Watch("options")
+  onOptionsChanged(value: OptionSelected[][], oldValue: OptionSelected[][]) {
+    console.log("watch", value);
+    this.copyOptions = value;
+  }
 
   fuseOptions = {
     shouldSort: true,
@@ -70,12 +89,8 @@ export default class SelectInput extends Vue {
     keys: ["title"]
   };
 
-  created() {
-    console.log(this.options);
-  }
-
   search(e) {
-    this.$emit("open", true);
+    this.updateProperty("open", true);
     const options = this.options;
     // @ts-ignore: It ignores the error caused by the flat()
     const fuse = new Fuse(options.flat(), this.fuseOptions);
@@ -87,11 +102,37 @@ export default class SelectInput extends Vue {
     });
   }
 
-  changeOption(option) {
+  changeOption(option: OptionSelected) {
     setTimeout(() => {
       this.copyOptions = this.options;
     }, 500);
-    this.$emit("change", option);
+    this.changedOption(option);
+  }
+
+  changedOption(newSchool: OptionSelected, shouldClose: boolean = true) {
+    this.updateInput("selected", newSchool.id);
+    if (shouldClose) {
+      this.updateProperty("open", false);
+    }
+  }
+
+  toogleOpen(v: boolean, shouldClear: boolean = false) {
+    if (!v) {
+      this.updateProperty("selected", this.oldSelected);
+    }
+    this.updateProperty("open", v);
+    if (shouldClear) {
+      this.updateProperty("oldSelected", this.selected);
+      this.updateProperty("selected", this.selected);
+    }
+  }
+
+  updateInput(key: string, value: InputValueType) {
+    TicketModule.updateInput({ key, value, indexes: this.indexes });
+  }
+
+  updateProperty(key: string, value: any) {
+    TicketModule.updateProperty({ key, value, indexes: this.indexes });
   }
 }
 </script>

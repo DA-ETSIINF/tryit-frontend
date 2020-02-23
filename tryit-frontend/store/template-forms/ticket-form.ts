@@ -116,7 +116,14 @@ export const ticketForm: FormType = {
 					tag: "select-input",
 					question: "¿Que titulación?",
 					properties: {
-						options: [],
+						options: [
+							[
+								{
+									title: "Ingería informatica",
+									id: "10"
+								}
+							]
+						],
 						selected: "10",
 						oldSelected: "10",
 						open: false
@@ -150,6 +157,18 @@ export const ticketForm: FormType = {
 							{
 								title: "3",
 								id: "3"
+							},
+							{
+								title: "4",
+								id: "4"
+							},
+							{
+								title: "5",
+								id: "5"
+							},
+							{
+								title: "6",
+								id: "6"
 							}
 						],
 						selected: 1

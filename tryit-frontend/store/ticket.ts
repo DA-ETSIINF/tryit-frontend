@@ -45,48 +45,38 @@ export default class Ticket extends VuexModule {
 				tf.sections[sectionIndex].inputs[inputIndex].indexes = indexes
 				const requires = tf.sections[sectionIndex].inputs[inputIndex].requires
 				tf.sections[sectionIndex].inputs[inputIndex].show = !(requires && requires.length > 0)
-				if (
-					tf.sections[sectionIndex].inputs[inputIndex].tag === "select-input" &&
-					input.id === "schools-selection"
-				) {
-					axios
-						.get(schoolsUPM, {
-							headers: {
-								"Content-type": "application/json"
-							}
-						})
-						.then(data => {
-							const schools: OptionSelected[] = data.data.map(s => {
-								return { title: s.nombre, id: s.codigo }
-							})
-							const schoolsOptions: OptionSelected[][] = [[]]
-							const schoolsByDefault = ["10"]
-							schoolsByDefault.forEach(school => {
-								const i = schools
-									.map(s => {
-										return s.id
-									})
-									.indexOf(school)
-								schoolsOptions[0].push(schools[i])
-								schools.splice(i, 1)
-							})
-							schoolsOptions.push(schools)
-							this.updateProperty({ key: "options", value: schoolsOptions, indexes })
-						})
+				if (indexes.section === 1 && indexes.input === 1) {
+					//this.getUpmInfo(indexes)
 				}
 			})
 		})
 		return tf
 	}
 
-	private async getUpmInfo() {
-		// const indexes: Indexes = {
-		// 	section: 1,
-		// 	input: 1
-		// }
-		// get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json").then(payload => {
-		// 	store.commit("ticket/updateProperty", { key: "options", payload, indexes })
-		// })
+	getUpmInfo(indexes: Indexes) {
+		axios
+			.get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json")
+			.then(data => {
+				const schools: OptionSelected[] = data.data.map(s => {
+					return { title: s.nombre, id: s.codigo }
+				})
+				const schoolsOptions: OptionSelected[][] = [[]]
+				const schoolsByDefault = ["10"]
+				schoolsByDefault.forEach(school => {
+					const i = schools
+						.map(s => {
+							return s.id
+						})
+						.indexOf(school)
+					schoolsOptions[0].push(schools[i])
+					schools.splice(i, 1)
+				})
+				schoolsOptions.push(schools)
+				this.updateProperty({ key: "options", value: schoolsOptions, indexes })
+			})
+			.catch(e => {
+				console.error(e)
+			})
 	}
 
 	@Mutation
@@ -98,19 +88,10 @@ export default class Ticket extends VuexModule {
 	}
 
 	@Mutation
-	updateProperty({
-		key,
-		value,
-		indexes
-	}: {
-		key: string
-		value: InputValueType | OptionSelected[][]
-		indexes: Indexes
-	}) {
+	updateProperty({ key, value, indexes }: { key: string; value: any; indexes: Indexes }) {
 		if (indexes.section === undefined || indexes.input === undefined) {
 			return
 		}
-		console.log(value)
 		this.ticketForm.sections[indexes.section].inputs[indexes.input].properties[key] = value
 	}
 
