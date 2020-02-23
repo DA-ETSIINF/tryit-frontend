@@ -19,9 +19,6 @@ export default class Ticket extends VuexModule {
 	ticket!: TicketResource
 	ticketForm: FormType = this.getForm()
 
-	created() {
-		console.log("LKLOLO")
-	}
 	get getTitle(): string | undefined {
 		return this.ticketForm.title
 	}
@@ -38,16 +35,16 @@ export default class Ticket extends VuexModule {
 		return this.ticketForm.formModule
 	}
 
-	getForm(): FormType {
+	getForm() {
 		tf.sections.forEach((section, sectionIndex) => {
 			section.inputs.forEach((input, inputIndex) => {
-				tf.sections[sectionIndex].inputs[inputIndex].indexes = {
+				const indexes = {
 					section: sectionIndex,
 					input: inputIndex
 				}
+				tf.sections[sectionIndex].inputs[inputIndex].indexes = indexes
 				const requires = tf.sections[sectionIndex].inputs[inputIndex].requires
 				tf.sections[sectionIndex].inputs[inputIndex].show = !(requires && requires.length > 0)
-				console.log(inputIndex)
 				if (
 					tf.sections[sectionIndex].inputs[inputIndex].tag === "select-input" &&
 					input.id === "schools-selection"
@@ -74,9 +71,7 @@ export default class Ticket extends VuexModule {
 								schools.splice(i, 1)
 							})
 							schoolsOptions.push(schools)
-							//@ts-ignore It is already a SelectInput type, it has the options attribute
-							tf.sections[sectionIndex].inputs[inputIndex].properties.options = schoolsOptions
-							console.log("a")
+							this.updateProperty({ key: "options", value: schoolsOptions, indexes })
 						})
 				}
 			})
@@ -109,12 +104,13 @@ export default class Ticket extends VuexModule {
 		indexes
 	}: {
 		key: string
-		value: InputValueType
+		value: InputValueType | OptionSelected[][]
 		indexes: Indexes
 	}) {
 		if (indexes.section === undefined || indexes.input === undefined) {
 			return
 		}
+		console.log(value)
 		this.ticketForm.sections[indexes.section].inputs[indexes.input].properties[key] = value
 	}
 

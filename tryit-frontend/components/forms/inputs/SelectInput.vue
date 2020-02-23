@@ -70,6 +70,10 @@ export default class SelectInput extends Vue {
     keys: ["title"]
   };
 
+  created() {
+    console.log(this.options);
+  }
+
   search(e) {
     this.$emit("open", true);
     const options = this.options;
