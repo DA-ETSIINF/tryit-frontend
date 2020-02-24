@@ -18,7 +18,7 @@ import dataDegrees from "../assets/data/degrees.json"
 
 @Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
-	ticket!: TicketResource
+	ticket!: TicketResource 
 	ticketForm: FormType = this.getForm()
 
 	get getTitle(): string | undefined {
@@ -136,7 +136,7 @@ export default class Ticket extends VuexModule {
 		})
 	}
 	@Mutation
-	setVolunteer() {
+	setTicket() {
 		this.ticket.name = this.ticketForm.sections[0].inputs[0]["value"]
 		this.ticket.lastname = this.ticketForm.sections[0].inputs[1]["value"]
 		this.ticket.identity = this.ticketForm.sections[0].inputs[2]["value"]
@@ -151,16 +151,6 @@ export default class Ticket extends VuexModule {
 	}
 	@Action
 	postTicket() {
-		this.ticket.name = this.ticketForm.sections[0].inputs[0]["value"]
-		this.ticket.lastname = this.ticketForm.sections[0].inputs[1]["value"]
-		this.ticket.identity = this.ticketForm.sections[0].inputs[2]["value"]
-		this.ticket.email = this.ticketForm.sections[0].inputs[3]["value"]
-		this.ticket.phone = this.ticketForm.sections[0].inputs[4]["value"]
-		this.ticket.isStudent = this.ticketForm.sections[1].inputs[0]["value"]["isStudent"]
-		this.ticket.isUpmStudent = this.ticketForm.sections[1].inputs[0]["value"]["isUpmStudent"]
-		this.ticket.upmSchool = this.ticketForm.sections[1].inputs[1]["value"]
-		this.ticket.degree = this.ticketForm.sections[1].inputs[2]["value"]
-		this.ticket.year = this.ticketForm.sections[1].inputs[3]["value"]
 		console.log("PostTicket: ", this.ticket)
 		const config = {
 			headers: { "Content-Type": "application/json" }
