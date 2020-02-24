@@ -10,7 +10,7 @@
             :noBorder="true"
             :noShadows="true"
             :leaveSpaceRight="true"
-            :value="getTitleById(selected)"
+            :value="copySelected.title"
             :status="textStatus"
             v-on:keypress="search($event)"
             v-on:focus="toogleOpen(true, true)"
@@ -26,7 +26,7 @@
           <div v-for="(optionSection, index) in copyOptions" :key="index">
             <li
               v-for="option in optionSection"
-              :class="{ active: option.id === selected }"
+              :class="{ active: option.id === copySelected.id }"
               :key="option.id"
               v-on:click="changeOption(option)"
             >{{ option.title }}</li>
@@ -70,15 +70,22 @@ export default class SelectInput extends Vue {
   })
   readonly indexes!: Indexes;
   copyOptions: OptionSelected[][] = this.options;
+  copySelected: string = this.selected;
 
   @Watch("options", { deep: true, immediate: true })
   onOptionsChanged(value: OptionSelected[][], oldValue: OptionSelected[][]) {
     this.copyOptions = value;
   }
 
-  getTitleById(id: string) {
+  @Watch("selected", { deep: true, immediate: true })
+  onSelectedChanged(value: string, oldValue: string) {
+    console.log(123)
+    this.copySelected = this.getSelectedById(value);
+  }
+
+  getSelectedById(id: string) {
     // @ts-ignore
-    this.options.flat().find(e => e.id === id).title;
+    return this.options.flat().find(e => e.id === id);
   }
 
   fuseOptions = {
