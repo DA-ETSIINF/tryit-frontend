@@ -18,7 +18,6 @@ import axios from "axios"
 export default class Ticket extends VuexModule {
 	ticket!: TicketResource
 	ticketForm: FormType = this.getForm()
-
 	get getTitle(): string | undefined {
 		return this.ticketForm.title
 	}
@@ -36,6 +35,7 @@ export default class Ticket extends VuexModule {
 	}
 
 	getForm() {
+		// console.log("getForm")
 		tf.sections.forEach((section, sectionIndex) => {
 			section.inputs.forEach((input, inputIndex) => {
 				const indexes = {
@@ -45,8 +45,9 @@ export default class Ticket extends VuexModule {
 				tf.sections[sectionIndex].inputs[inputIndex].indexes = indexes
 				const requires = tf.sections[sectionIndex].inputs[inputIndex].requires
 				tf.sections[sectionIndex].inputs[inputIndex].show = !(requires && requires.length > 0)
+				// console.log("Indexes: ", indexes)
 				if (indexes.section === 1 && indexes.input === 1) {
-					//this.getUpmInfo(indexes)
+				this.getUpmInfo(indexes)
 				}
 			})
 		})
@@ -54,8 +55,12 @@ export default class Ticket extends VuexModule {
 	}
 
 	getUpmInfo(indexes: Indexes) {
+		console.log("getUpmInfo")
+		const config = {
+			headers: {'Access-Control-Allow-Origin': '*'}
+		}
 		axios
-			.get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json")
+			.get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json", config)
 			.then(data => {
 				const schools: OptionSelected[] = data.data.map(s => {
 					return { title: s.nombre, id: s.codigo }
@@ -72,7 +77,14 @@ export default class Ticket extends VuexModule {
 					schools.splice(i, 1)
 				})
 				schoolsOptions.push(schools)
+				// console.log("Value: ", schoolsOptions)
+				// const indexes: Indexes ={
+				// 	section: 1,
+				// 	input: 1
+				// }
+				// console.log("Schools: ", schoolsOptions)
 				this.updateProperty({ key: "options", value: schoolsOptions, indexes })
+				// console.log("Store:", this.ticketForm.sections[1].inputs[1])
 			})
 			.catch(e => {
 				console.error(e)

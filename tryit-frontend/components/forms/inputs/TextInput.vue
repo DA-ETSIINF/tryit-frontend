@@ -81,6 +81,7 @@ export default class TextInput extends Vue {
   }
 
   makeValidation() {
+    console.log("Make validation")
     validate(this.validations, this.valueInput, this.indexes, this.formModule);
   }
 

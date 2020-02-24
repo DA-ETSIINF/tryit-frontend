@@ -102,7 +102,7 @@ export default class Volunteer extends VuexModule {
 	}
 
 	getTimePeriod(timePeriod: VolunteerPeriodsResource): TimePeriodsType {
-		const ms = timePeriod.date // Subnormal
+		const ms = timePeriod.date 
 		const date: Date = new Date(ms)
 		const dayMonth = date.getDate()
 		const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" }

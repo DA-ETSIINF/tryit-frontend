@@ -23,6 +23,7 @@ function findInputById(form: FormType, id: InputIdType): Indexes {
 }
 
 function getInputByIndexes(form: FormType, indexes: Indexes): InputType {
+	// console.log("Form requires.ts: ", form)
 	return form.sections[indexes.section].inputs[indexes.input]
 }
 
@@ -98,7 +99,8 @@ function unlock(form: FormType, formModule: DynamicFormModule, inputsToUnlock: I
 		emitInput(formModule, data)
 	})
 }
-import { TicketModule } from "../store/ticket"
+import { TicketModule } from "~/store/ticket"
+import {VolunteerModule} from "~/store/volunteer"
 
 function getFormName(formModule) {
 	switch (formModule) {
@@ -117,8 +119,9 @@ export function checkForRequires(
 	if (!formName) {
 		return
 	}
-
-	let form: FormType = TicketModule[formName]
+	//I think I have found a bug
+	// console.log("formName: ", formName)
+	let form: FormType = formName == "ticketForm" ? TicketModule[formName] : VolunteerModule[formName]
 	let inputsToUnlock: InputType[] = getDependencies(form, indexes)
 	let checkedInputsToUnlock: InputTypeValue[] = checkForTheRest(inputsToUnlock, expectedValue)
 	unlock(form, formModule, checkedInputsToUnlock)

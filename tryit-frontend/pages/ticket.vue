@@ -22,7 +22,7 @@ import {
   ButtonForm,
   ButtonComponent
 } from "../components";
-import { OptionSelected, SelectInputType, FormType } from "../types/components";
+import { OptionSelected, SelectInputType, FormType, Indexes } from "../types/components";
 import { TicketModule } from "../store/ticket";
 
 Vue.component("CheckboxInput", CheckboxInput);

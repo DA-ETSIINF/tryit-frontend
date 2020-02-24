@@ -114,6 +114,11 @@ export function validate(
 	indexes: Indexes,
 	formModule: DynamicFormModule
 ): boolean {
+	// console.log("value: ", value)
+	// console.log("Indexes: ", indexes)
+	// console.log("FormModule: ", formModule)
+	// console.log("Requirements: ", requirements)
+	
 	let isOk = true
 	for (let i = 0; i < requirements.length; i++) {
 		const r = requirements[i]
