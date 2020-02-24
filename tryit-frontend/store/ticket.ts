@@ -13,6 +13,7 @@ import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
 import { getHTTP, schoolsUPM } from "../utils"
 import axios from "axios"
+import data from "../assets/data/schools.json"
 
 @Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
@@ -45,9 +46,10 @@ export default class Ticket extends VuexModule {
 				tf.sections[sectionIndex].inputs[inputIndex].indexes = indexes
 				const requires = tf.sections[sectionIndex].inputs[inputIndex].requires
 				tf.sections[sectionIndex].inputs[inputIndex].show = !(requires && requires.length > 0)
-				// console.log("Indexes: ", indexes)
 				if (indexes.section === 1 && indexes.input === 1) {
-				this.getUpmInfo(indexes)
+					// this.getUpmInfo(indexes)
+					tf.sections[sectionIndex].inputs[inputIndex].properties.options = data
+					tf.sections[sectionIndex].inputs[inputIndex].properties.selected = "10"
 				}
 			})
 		})
@@ -55,9 +57,8 @@ export default class Ticket extends VuexModule {
 	}
 
 	getUpmInfo(indexes: Indexes) {
-		console.log("getUpmInfo")
 		const config = {
-			headers: {'Access-Control-Allow-Origin': '*'}
+			headers: { "Access-Control-Allow-Origin": "*" }
 		}
 		axios
 			.get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json", config)
@@ -82,7 +83,6 @@ export default class Ticket extends VuexModule {
 				// 	section: 1,
 				// 	input: 1
 				// }
-				// console.log("Schools: ", schoolsOptions)
 				this.updateProperty({ key: "options", value: schoolsOptions, indexes })
 				// console.log("Store:", this.ticketForm.sections[1].inputs[1])
 			})

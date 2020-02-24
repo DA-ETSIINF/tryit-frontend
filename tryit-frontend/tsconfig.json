@@ -17,6 +17,7 @@
 		"paths": {
 			"~/*": ["./*"]
 		},
-		"types": ["@nuxt/types", "@nuxtjs/axios"]
+		"types": ["@nuxt/types", "@nuxtjs/axios"],
+		"resolveJsonModule": true
 	}
 }

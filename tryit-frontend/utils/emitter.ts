@@ -18,7 +18,14 @@ export function emitInput(
 		indexes: Indexes
 	}
 ) {
-	getModuleByType(formModule).updateInput(content)
+	switch (formModule) {
+		case "ticket":
+			TicketModule.updateInput(content)
+			break
+		case "volunteer":
+			VolunteerModule.updateInput(content)
+			break
+	}
 }
 
 export function emitProperty(
@@ -29,12 +36,26 @@ export function emitProperty(
 		indexes: Indexes
 	}
 ) {
-	getModuleByType(formModule).updateProperty(content)
+	switch (formModule) {
+		case "ticket":
+			TicketModule.updateProperty(content)
+			break
+		case "volunteer":
+			VolunteerModule.updateProperty(content)
+			break
+	}
 }
 
 export function emitErrorOnInput(
 	formModule: DynamicFormModule,
 	content: { indexes: Indexes; status: StatusOnInput }
 ) {
-	getModuleByType(formModule).updateErrorOnInput(content)
+	switch (formModule) {
+		case "ticket":
+			TicketModule.updateErrorOnInput(content)
+			break
+		case "volunteer":
+			VolunteerModule.updateErrorOnInput(content)
+			break
+	}
 }

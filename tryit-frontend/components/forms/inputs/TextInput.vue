@@ -18,6 +18,7 @@
         @updateValue="onUpdateValue($event)"
         @focus="$emit('focus', $event)"
         @blur="makeValidation()"
+        @keypress="$emit('keypress', $event)"
       />
       <span v-if="!hideText">{{ helperText }}</span>
     </div>
@@ -81,7 +82,6 @@ export default class TextInput extends Vue {
   }
 
   makeValidation() {
-    console.log("Make validation")
     validate(this.validations, this.valueInput, this.indexes, this.formModule);
   }
 
