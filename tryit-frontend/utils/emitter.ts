@@ -10,6 +10,23 @@ export function getModuleByType(formModule: DynamicFormModule) {
 			return VolunteerModule
 	}
 }
+
+export function emitAreInputOk(
+	formModule: DynamicFormModule,
+	content: {
+		value: boolean
+	}
+) {
+	switch (formModule) {
+		case "ticket":
+			TicketModule.updateAreInputsOk(content)
+			break
+		case "volunteer":
+			VolunteerModule.updateAreInputsOk(content)
+			break
+	}
+}
+
 export function emitInput(
 	formModule: DynamicFormModule,
 	content: {
@@ -46,16 +63,16 @@ export function emitProperty(
 	}
 }
 
-export function emitErrorOnInput(
+export function emitStatusOnInput(
 	formModule: DynamicFormModule,
 	content: { indexes: Indexes; status: StatusOnInput }
 ) {
 	switch (formModule) {
 		case "ticket":
-			TicketModule.updateErrorOnInput(content)
+			TicketModule.updateStatusOnInput(content)
 			break
 		case "volunteer":
-			VolunteerModule.updateErrorOnInput(content)
+			VolunteerModule.updateStatusOnInput(content)
 			break
 	}
 }

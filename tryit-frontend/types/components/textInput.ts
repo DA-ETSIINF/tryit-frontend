@@ -13,7 +13,7 @@ export interface TextInputType {
 	placeholder?: string
 	isDisabled?: boolean
 	hideText?: boolean
-	status?: StatusOnInput
+	status: StatusOnInput
 	noBorder?: boolean
 	noShadows?: boolean
 	leaveSpaceRight?: boolean

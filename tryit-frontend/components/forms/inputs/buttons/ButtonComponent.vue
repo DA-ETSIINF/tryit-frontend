@@ -1,5 +1,5 @@
 <template>
-  <button :class="type">{{text}}</button>
+  <button :class="type" :disabled="disabled" @click="$emit('onClick')">{{text}}</button>
 </template>
 
 <script lang="ts">
@@ -9,6 +9,7 @@ import { Component, Prop, Vue } from "nuxt-property-decorator";
 export default class ButtonComponent extends Vue {
   @Prop() text!: string;
   @Prop() type!: "primary-btn" | "secondary-btn" | "tertiary-btn";
+  @Prop({ default: false }) disabled!: boolean;
 }
 </script>
 
@@ -27,7 +28,7 @@ button.primary-btn {
   transition: var(--transition-fast) background ease;
 }
 
-button.primary-btn:hover {
+button.primary-btn:not(:disabled):hover {
   background: var(--primary-4);
 }
 
@@ -60,7 +61,7 @@ button.secondary-btn {
   transition: var(--transition-fast) background ease;
 }
 
-button.secondary-btn:hover {
+button.secondary-btn:not(:disabled):hover {
   border: 1px solid var(--primary-4);
   background: var(--neutral-9);
 }
@@ -91,7 +92,7 @@ button.tertiary-btn {
   padding: var(--space-xs) var(--space-s);
 }
 
-button.tertiary-btn:hover {
+button.tertiary-btn:not(:disabled):hover {
   color: var(--neutral-1);
 }
 

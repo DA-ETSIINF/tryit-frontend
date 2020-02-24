@@ -10,13 +10,16 @@ const status: StatusOnInput = {
 }
 export const ticketForm: FormType = {
 	title: "Consigue tu entrada",
-	description: "TODO",
+	description: "",
 	formModule: "ticket",
+	status: {
+		everythingOk: false
+	},
 	sections: [
 		{
 			title: "Información personal",
 			description:
-				"Usaremos esta información para poder enviarte el ticket y para poder convalidarte los créditos",
+				"Usaremos esta información para poder enviarte el ticket y convalidarte los créditos",
 			inputs: [
 				{
 					tag: "text-input",
@@ -82,7 +85,12 @@ export const ticketForm: FormType = {
 			inputs: [
 				{
 					tag: "student-input",
-					properties: {},
+					properties: {
+						status: {
+							...status,
+							status: "ok"
+						}
+					},
 					value: {
 						isStudent: true,
 						isUpmStudent: true
@@ -95,10 +103,14 @@ export const ticketForm: FormType = {
 					question: "¿En qué Escuela estudias?",
 					properties: {
 						options: [],
-						selected: "10",
-						oldSelected: "10",
-						open: false
+						open: false,
+						status: {
+							...status,
+							status: "ok"
+						}
 					},
+					selected: "10",
+					oldSelected: "10",
 					value: "",
 					id: "schools-selection",
 					requirements: [],
@@ -114,22 +126,18 @@ export const ticketForm: FormType = {
 				},
 				{
 					tag: "select-input",
-					question: "¿Que titulación?",
+					question: "¿Qué titulación?",
 					properties: {
-						options: [
-							[
-								{
-									title: "Ingería informatica",
-									id: "10"
-								}
-							]
-						],
-						selected: "10",
-						oldSelected: "10",
-						open: false
+						options: [],
+						open: false,
+						status: {
+							...status,
+							status: "ok"
+						}
 					},
 					id: "8",
-					value: "degrees-selection",
+					selected: "10II",
+					oldSelected: "10II",
 					requirements: [],
 					requires: [
 						{
@@ -143,8 +151,12 @@ export const ticketForm: FormType = {
 				},
 				{
 					tag: "labels-input",
-					question: "¿Que curso estudias?",
+					question: "¿Qué curso estudias?",
 					properties: {
+						status: {
+							...status,
+							status: "ok"
+						},
 						options: [
 							{
 								title: "1",
@@ -170,12 +182,12 @@ export const ticketForm: FormType = {
 								title: "6",
 								id: "6"
 							}
-						],
-						selected: 1
+						]
 					},
+					selected: "",
 					id: "9",
 					value: "",
-					requirements: [],
+					requirements: ["at-least-N-selected"],
 					requires: [
 						{
 							id: "student-input",
@@ -194,14 +206,30 @@ export const ticketForm: FormType = {
 				{
 					tag: "checkbox-detail",
 					properties: {
+						text: "Quiero tener mi entrada impresa.",
+						checked: false,
+						htmlId: "printed-ticket",
+						status: {
+							...status,
+							status: "ok"
+						}
+					},
+					id: "printed-ticket",
+					value: false,
+					requirements: []
+				},
+				{
+					tag: "checkbox-detail",
+					properties: {
 						text:
 							"El usuario concede a la organización el derecho de uso de las imágenes tomadas durante el evento para su posible uso en redes sociales y página web.",
 						checked: false,
-						htmlId: "ticket-conditions"
+						htmlId: "ticket-conditions",
+						status
 					},
 					id: "10",
 					value: false,
-					requirements: []
+					requirements: ["must-be-checked"]
 				}
 			]
 		}

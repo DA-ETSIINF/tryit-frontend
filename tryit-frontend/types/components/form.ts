@@ -26,9 +26,14 @@ export interface FormSectionType {
 	inputs: InputType[]
 }
 
+export interface StatusForm {
+	everythingOk: boolean
+}
+
 export interface FormType {
 	title?: string
 	description?: string
 	sections: FormSectionType[]
 	formModule: DynamicFormModule
+	status: StatusForm
 }

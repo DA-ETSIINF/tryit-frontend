@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
 import { TimePeriodsType, PeriodsAvailable } from "../../../types/components";
 
 interface AvailabilitySlot {
@@ -47,12 +47,23 @@ export default class AvailabilityInput extends Vue {
 
   slots: AvailabilitySlot[] = [];
 
+  @Watch("timePeriods", { immediate: true, deep: true })
+  onTimePeriods(val: TimePeriodsType[], oldVal: TimePeriodsType[]) {
+    console.log("sd");
+    this.setOptions();
+  }
+
   /**
    * This function converts the data from the periods in the corrects order of display,
    * which is top to bottom, left to rigth. This is made like that in order to be able
    * to make use of CSS grid.
    */
   beforeMount() {
+    this.setOptions();
+  }
+
+  setOptions() {
+    this.slots = [];
     this.timePeriods.forEach(p => {
       this.slots.push({
         type: "header",

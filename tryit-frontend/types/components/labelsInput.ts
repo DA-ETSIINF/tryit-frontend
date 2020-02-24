@@ -8,9 +8,8 @@ export type LabelInputValueType = string
 export type LabelInputIdType = string
 export interface LabelInputType {
 	options: OptionSelected[]
-	selected: number
 	errorMsg?: string
-	status?: StatusOnInput
+	status: StatusOnInput
 }
 
 export interface FS_Labels {
@@ -18,7 +17,7 @@ export interface FS_Labels {
 	question: string
 	properties: LabelInputType
 	id: LabelInputIdType
-	value: LabelInputValueType
+	selected: LabelInputValueType
 	requirements: Requirement[]
 	indexes?: Indexes
 	requires?: Requires[]

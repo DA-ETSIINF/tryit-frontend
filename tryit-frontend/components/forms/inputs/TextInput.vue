@@ -38,7 +38,7 @@ import {
 // import store from "store";
 import { TicketModule } from "../../../store/ticket";
 import { VolunteerModule } from "../../../store/volunteer";
-import { validate } from "../../../utils";
+import { validate, emitInput } from "../../../utils";
 
 @Component({})
 export default class TextInput extends Vue {
@@ -64,8 +64,7 @@ export default class TextInput extends Vue {
   })
   readonly indexes!: Indexes;
   @Prop({ default: () => [] }) readonly validations!: Requirement[];
-  @Prop({ type: String })
-  readonly formModule!: DynamicFormModule;
+  @Prop({ type: String }) readonly formModule!: DynamicFormModule;
 
   valueInput: string = this.value;
 
@@ -77,31 +76,12 @@ export default class TextInput extends Vue {
   }
 
   set userValue(value: string) {
-    this.updateInput("value", value);
+    emitInput(this.formModule, { key: "value", value, indexes: this.indexes });
     this.valueInput = value;
   }
 
   makeValidation() {
     validate(this.validations, this.valueInput, this.indexes, this.formModule);
-  }
-
-  updateInput(key: string, value: string) {
-    switch (this.formModule) {
-      case "ticket":
-        TicketModule.updateInput({
-          key,
-          value,
-          indexes: this.indexes
-        });
-        break;
-      case "volunteer":
-        VolunteerModule.updateInput({
-          key,
-          value,
-          indexes: this.indexes
-        });
-        break;
-    }
   }
 
   onUpdateValue(e) {

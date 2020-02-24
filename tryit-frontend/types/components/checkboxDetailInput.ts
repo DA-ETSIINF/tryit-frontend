@@ -10,7 +10,7 @@ export interface CheckboxDetailInputType {
 	details?: string[]
 	checked: boolean
 	htmlId: string
-	status?: StatusOnInput
+	status: StatusOnInput
 }
 
 export interface FS_CheckboxDetail {

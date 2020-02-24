@@ -50,7 +50,11 @@ function getDependencies(form: FormType, indexes: Indexes): InputType[] {
 	let inputsToUnlock: InputType[] = []
 	form.sections.forEach(section => {
 		const unlockInputs = section.inputs.filter(i =>
-			i.requires?.find(r => r.id === input.id && compareObjects(r.value, input.value))
+			i.requires?.find(
+				r =>
+					r.id === input.id &&
+					(compareObjects(r.value, input["value"]) || compareObjects(r.value, input["selected"]))
+			)
 		)
 		inputsToUnlock.push(...unlockInputs)
 	})
@@ -100,15 +104,18 @@ function unlock(form: FormType, formModule: DynamicFormModule, inputsToUnlock: I
 	})
 }
 import { TicketModule } from "~/store/ticket"
-import {VolunteerModule} from "~/store/volunteer"
+import { VolunteerModule } from "~/store/volunteer"
 
-function getFormName(formModule) {
+export function getFormName(formModule: DynamicFormModule): string {
 	switch (formModule) {
 		case "ticket":
 			return "ticketForm"
 		case "volunteer":
 			return "volunteerForm"
 	}
+}
+export function getFormByName(formName: string) {
+	return formName == "ticketForm" ? TicketModule[formName] : VolunteerModule[formName]
 }
 export function checkForRequires(
 	indexes: Indexes,
@@ -119,9 +126,7 @@ export function checkForRequires(
 	if (!formName) {
 		return
 	}
-	//I think I have found a bug
-	// console.log("formName: ", formName)
-	let form: FormType = formName == "ticketForm" ? TicketModule[formName] : VolunteerModule[formName]
+	let form: FormType = getFormByName(formName)
 	let inputsToUnlock: InputType[] = getDependencies(form, indexes)
 	let checkedInputsToUnlock: InputTypeValue[] = checkForTheRest(inputsToUnlock, expectedValue)
 	unlock(form, formModule, checkedInputsToUnlock)

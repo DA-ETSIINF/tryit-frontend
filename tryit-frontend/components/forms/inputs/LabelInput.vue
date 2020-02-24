@@ -1,5 +1,5 @@
 <template>
-  <li :class="active">{{text}}</li>
+  <li :class="{'active': active}" @click="$emit('change', id)">{{text}}</li>
 </template>
 
 <script lang="ts">
@@ -33,7 +33,7 @@ export default class LabelInput extends Vue {
   color: var(--neutral-10);
 }
 
-.label-selection-wrapper ul li:hover {
+.label-selection-wrapper ul li:not(.active):hover {
   transform: scale(1.05);
   border: 2px solid var(--primary-4);
   background: var(--primary-10);

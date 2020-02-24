@@ -1,7 +1,12 @@
 <template>
   <div class="buttons-container">
-    <button-component :type="'tertiary-btn'" :text="'Cancelar'"></button-component>
-    <button-component :type="'primary-btn'" :text="'Enviar'"></button-component>
+    <button-component :type="'tertiary-btn'" @onClick="goTo('/')" :text="'Cancelar'"></button-component>
+    <button-component
+      :type="'primary-btn'"
+      @onClick="$emit('send')"
+      :disabled="disabled"
+      :text="'Enviar'"
+    ></button-component>
   </div>
 </template>
 
@@ -10,7 +15,13 @@ import { Component, Prop, Vue } from "nuxt-property-decorator";
 import { ButtonComponent } from "../../../";
 
 @Component({})
-export default class ButtonForm extends Vue {}
+export default class ButtonForm extends Vue {
+  @Prop({ default: false }) readonly disabled!: boolean;
+
+  goTo(path: string) {
+    window.location.href = path; // TODO use router
+  }
+}
 </script>
 
 <style scoped>

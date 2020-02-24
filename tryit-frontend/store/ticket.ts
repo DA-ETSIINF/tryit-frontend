@@ -13,12 +13,14 @@ import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
 import { getHTTP, schoolsUPM } from "../utils"
 import axios from "axios"
-import data from "../assets/data/schools.json"
+import dataSchools from "../assets/data/schools.json"
+import dataDegrees from "../assets/data/degrees.json"
 
 @Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
 	ticket!: TicketResource
 	ticketForm: FormType = this.getForm()
+
 	get getTitle(): string | undefined {
 		return this.ticketForm.title
 	}
@@ -46,10 +48,14 @@ export default class Ticket extends VuexModule {
 				tf.sections[sectionIndex].inputs[inputIndex].indexes = indexes
 				const requires = tf.sections[sectionIndex].inputs[inputIndex].requires
 				tf.sections[sectionIndex].inputs[inputIndex].show = !(requires && requires.length > 0)
+
 				if (indexes.section === 1 && indexes.input === 1) {
 					// this.getUpmInfo(indexes)
-					tf.sections[sectionIndex].inputs[inputIndex].properties.options = data
-					tf.sections[sectionIndex].inputs[inputIndex].properties.selected = "10"
+					tf.sections[sectionIndex].inputs[inputIndex].properties["options"] = dataSchools
+					tf.sections[sectionIndex].inputs[inputIndex].properties["selected"] = "10"
+				} else if (indexes.section === 1 && indexes.input === 2) {
+					tf.sections[sectionIndex].inputs[inputIndex].properties["options"] = dataDegrees
+					tf.sections[sectionIndex].inputs[inputIndex].properties["selected"] = "10II"
 				}
 			})
 		})
@@ -58,7 +64,7 @@ export default class Ticket extends VuexModule {
 
 	getUpmInfo(indexes: Indexes) {
 		const config = {
-			headers: { "Access-Control-Allow-Origin": "*" }
+			headers: { "Content-Type": "application/json" }
 		}
 		axios
 			.get("https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json", config)
@@ -116,7 +122,12 @@ export default class Ticket extends VuexModule {
 	}
 
 	@Mutation
-	updateErrorOnInput({ indexes, status }: { indexes: Indexes; status: StatusOnInput }) {
+	updateAreInputsOk({ value }: { value: boolean }) {
+		this.ticketForm.status.everythingOk = value
+	}
+
+	@Mutation
+	updateStatusOnInput({ indexes, status }: { indexes: Indexes; status: StatusOnInput }) {
 		store.commit("ticket/updateProperty", { key: "status", value: status, indexes })
 		store.commit("ticket/updateProperty", {
 			key: "helperText",
@@ -124,9 +135,46 @@ export default class Ticket extends VuexModule {
 			indexes
 		})
 	}
+	@Mutation
+	setVolunteer() {
+		this.ticket.name = this.ticketForm.sections[0].inputs[0]["value"]
+		this.ticket.lastname = this.ticketForm.sections[0].inputs[1]["value"]
+		this.ticket.identity = this.ticketForm.sections[0].inputs[2]["value"]
+		this.ticket.email = this.ticketForm.sections[0].inputs[3]["value"]
+		this.ticket.phone = this.ticketForm.sections[0].inputs[4]["value"]
+		this.ticket.isStudent = this.ticketForm.sections[1].inputs[0]["value"]["isStudent"]
+		this.ticket.isUpmStudent = this.ticketForm.sections[1].inputs[0]["value"]["isUpmStudent"]
+		this.ticket.upmSchool = this.ticketForm.sections[1].inputs[1]["value"]
+		this.ticket.degree = this.ticketForm.sections[1].inputs[2]["value"]
+		this.ticket.year = this.ticketForm.sections[1].inputs[3]["value"]
+		
+	}
 	@Action
 	postTicket() {
-		// post({ ticketForm: this.ticketForm }, "/ticket")
+		this.ticket.name = this.ticketForm.sections[0].inputs[0]["value"]
+		this.ticket.lastname = this.ticketForm.sections[0].inputs[1]["value"]
+		this.ticket.identity = this.ticketForm.sections[0].inputs[2]["value"]
+		this.ticket.email = this.ticketForm.sections[0].inputs[3]["value"]
+		this.ticket.phone = this.ticketForm.sections[0].inputs[4]["value"]
+		this.ticket.isStudent = this.ticketForm.sections[1].inputs[0]["value"]["isStudent"]
+		this.ticket.isUpmStudent = this.ticketForm.sections[1].inputs[0]["value"]["isUpmStudent"]
+		this.ticket.upmSchool = this.ticketForm.sections[1].inputs[1]["value"]
+		this.ticket.degree = this.ticketForm.sections[1].inputs[2]["value"]
+		this.ticket.year = this.ticketForm.sections[1].inputs[3]["value"]
+		console.log("PostTicket: ", this.ticket)
+		const config = {
+			headers: { "Content-Type": "application/json" }
+		}
+		axios
+			.post("https://iecisamandaynotupanda.congresotryit.es/tickets", this.ticket, config)
+			.then(response => {
+				console.log(response)
+			})
+			.catch(response => {
+				console.log("response_error: ", response)
+			})
+
 	}
 }
+
 export const TicketModule = getModule(Ticket)

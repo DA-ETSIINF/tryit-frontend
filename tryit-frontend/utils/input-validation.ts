@@ -7,8 +7,7 @@ import {
 	DynamicFormModule,
 	InputValueType
 } from "~/types/components"
-import { emitErrorOnInput, emitInput } from "./"
-import { checkForRequires } from "./"
+import { emitStatusOnInput, emitInput, checkForRequires, checkForRequirements } from "./"
 
 const INPUTS_ERRORS = {
 	notEmpty: {
@@ -21,13 +20,17 @@ const INPUTS_ERRORS = {
 	},
 	isPersonId: {
 		incorrectFormat: {
-			message: "Esto no está bien, recuerda que debe tener una letra",
+			message: "El DNI/NIE es incorrecto, recuerda que debe tener letra",
 			abbreviation: "not_contains_letters"
 		},
 		invalidLetter: {
 			message: "Comprueba el {{type}}",
 			abbreviation: "invalid_letter"
 		}
+	},
+	atLeastOneSelected: {
+		message: "Tienes que seleccionar al menos una de las opciones",
+		abbreviation: "at_least_one_selected"
 	},
 	invalidEmail: {
 		message: "Comprueba el email",
@@ -36,6 +39,10 @@ const INPUTS_ERRORS = {
 	invalidPhone: {
 		message: "Comprueba el número de telefóno",
 		abbreviation: "invalid_phone"
+	},
+	isNotChecked: {
+		message: "Debes aceptar los términos y condiciones",
+		abbreviation: "not_checked"
 	}
 }
 
@@ -54,8 +61,8 @@ function generateResponse(
 }
 
 function isOnlyLetters(str: string): StatusOnInput {
-	// Allow alphabets and accented characters
-	const re = /^[a-zA-Z\u00C0-\u00FF]*$/
+	// Allow spaces, alphabets and accented characters
+	const re = /^[\sa-zA-Z\u00C0-\u00FF]*$/
 	const isJustLetteres = re.test(str.toLowerCase())
 	return generateResponse(isJustLetteres ? "ok" : "error", INPUTS_ERRORS.isOnlyLetters)
 }
@@ -87,7 +94,7 @@ function isPersonId(_str: string): StatusOnInput {
 	if (validChars.charAt(charIndex) === letter) {
 		return generateResponse("ok")
 	} else {
-		let personIdType = str[0] === "X" || str[0] === "X" || str[0] === "X" ? "NIE" : "DNI"
+		let personIdType = str[0] === "X" || str[0] === "Y" || str[0] === "Z" ? "NIE" : "DNI"
 		const e = {
 			...INPUTS_ERRORS.isPersonId.invalidLetter,
 			message: INPUTS_ERRORS.isPersonId.invalidLetter.message.replace("{{type}}", personIdType)
@@ -108,17 +115,22 @@ function isPhone(phone: string) {
 	return generateResponse(isPhone ? "ok" : "error", INPUTS_ERRORS.invalidPhone)
 }
 
+function isChecked(checked: boolean) {
+	return generateResponse(checked ? "ok" : "error", INPUTS_ERRORS.isNotChecked)
+}
+
+function atLeastNSelected(actives: string[], n: number) {
+	const checked = actives.length == n
+	return generateResponse(checked ? "ok" : "error", INPUTS_ERRORS.atLeastOneSelected)
+}
+
 export function validate(
 	requirements: Requirement[],
 	value: InputValueType,
 	indexes: Indexes,
-	formModule: DynamicFormModule
+	formModule: DynamicFormModule,
+	N: number = 1
 ): boolean {
-	// console.log("value: ", value)
-	// console.log("Indexes: ", indexes)
-	// console.log("FormModule: ", formModule)
-	// console.log("Requirements: ", requirements)
-	
 	let isOk = true
 	for (let i = 0; i < requirements.length; i++) {
 		const r = requirements[i]
@@ -139,8 +151,14 @@ export function validate(
 			case "is-phone":
 				status = isPhone(value as string)
 				break
+			case "must-be-checked":
+				status = isChecked(value as boolean)
+				break
+			case "at-least-N-selected":
+				status = atLeastNSelected(value as string[], N)
+				break
 		}
-		emitErrorOnInput(formModule, { indexes, status })
+		emitStatusOnInput(formModule, { indexes, status })
 
 		if (status.status !== "ok") {
 			value = false
@@ -149,5 +167,6 @@ export function validate(
 	}
 	emitInput(formModule, { indexes, key: "show", value: isOk })
 	checkForRequires(indexes, formModule, value)
+	checkForRequirements(formModule)
 	return isOk
 }

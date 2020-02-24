@@ -22,7 +22,7 @@ export type PeriodsAvailable = "morning" | "afternoon"
 export interface AvailabilityInputType {
 	timePeriods: TimePeriodsType[]
 	periodsAvailable: PeriodsAvailable[]
-	status?: StatusOnInput
+	status: StatusOnInput
 }
 
 export interface FS_Availability {

@@ -2,12 +2,12 @@
   <div>
     <h1>{{ getTitle() }}</h1>
     <p class="page-description">{{ getDescription()}}</p>
-    <dynamic-form :form=" getForm()" :formModule=" getFormModule() "></dynamic-form>
+    <dynamic-form :form="getForm()" :formModule="getFormModule()" @send="postTicket()"></dynamic-form>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component, Vue, Watch } from "nuxt-property-decorator";
 
 import {
   TextInput,
@@ -22,7 +22,12 @@ import {
   ButtonForm,
   ButtonComponent
 } from "../components";
-import { OptionSelected, SelectInputType, FormType, Indexes } from "../types/components";
+import {
+  OptionSelected,
+  SelectInputType,
+  FormType,
+  Indexes
+} from "../types/components";
 import { TicketModule } from "../store/ticket";
 
 Vue.component("CheckboxInput", CheckboxInput);
@@ -55,6 +60,10 @@ export default class Ticket extends Vue {
 
   getFormModule(): string {
     return TicketModule.getFormModule;
+  }
+
+  postTicket() {
+    TicketModule.postTicket();
   }
 }
 </script>

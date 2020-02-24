@@ -9,7 +9,7 @@ export interface StudentInputValueType {
 	isUpmStudent: boolean
 }
 export interface StudentType {
-	status?: StatusOnInput
+	status: StatusOnInput
 }
 
 export interface FS_Student {

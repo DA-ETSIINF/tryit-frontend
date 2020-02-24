@@ -13,6 +13,7 @@
             :value="copySelected.title"
             :status="textStatus"
             v-on:keypress="search($event)"
+            v-on:keypress.delete="search($event)"
             v-on:focus="toogleOpen(true, true)"
             v-on:blur="toogleOpen(false)"
             v-on:esc="toogleOpen(false)"
@@ -45,6 +46,7 @@ import {
   OptionSelected,
   StatusOnInput,
   InputValueType,
+  SelectInputValueType,
   Indexes
 } from "../../../types/components";
 import { TicketModule } from "../../../store/ticket";
@@ -54,9 +56,9 @@ export default class SelectInput extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string;
   @Prop({ type: Array, required: true }) readonly options!: OptionSelected[][];
   @Prop({ type: String, required: true })
-  readonly selected!: string;
+  readonly selected!: SelectInputValueType;
   @Prop({ type: String, required: true })
-  readonly oldSelected!: string;
+  readonly oldSelected!: SelectInputValueType;
   @Prop({ type: Boolean, default: false }) readonly open!: boolean;
   @Prop({ type: Boolean, default: false }) readonly show!: boolean;
   textStatus: StatusOnInput = {
@@ -70,22 +72,16 @@ export default class SelectInput extends Vue {
   })
   readonly indexes!: Indexes;
   copyOptions: OptionSelected[][] = this.options;
-  copySelected: string = this.selected;
+  copySelected: OptionSelected = this.getSelectedById(this.selected);
 
   @Watch("options", { deep: true, immediate: true })
   onOptionsChanged(value: OptionSelected[][], oldValue: OptionSelected[][]) {
     this.copyOptions = value;
   }
 
-  @Watch("selected", { deep: true, immediate: true })
-  onSelectedChanged(value: string, oldValue: string) {
-    console.log(123)
-    this.copySelected = this.getSelectedById(value);
-  }
-
-  getSelectedById(id: string) {
+  getSelectedById(id: string): OptionSelected {
     // @ts-ignore
-    return this.options.flat().find(e => e.id === id);
+    return this.options.flat().find(e => e.id === id) || { title: "", id: "" };
   }
 
   fuseOptions = {
@@ -114,19 +110,14 @@ export default class SelectInput extends Vue {
   }
 
   changeOption(option: OptionSelected) {
-    this.changedOption(option);
+    this.updateInput("selected", option.id);
+    this.copySelected = option;
+    setTimeout(() => {
+      this.updateProperty("open", false);
+    }, 10);
     setTimeout(() => {
       this.copyOptions = this.options;
     }, 500);
-  }
-
-  changedOption(newSchool: OptionSelected, shouldClose: boolean = true) {
-    this.updateInput("selected", newSchool.id);
-    setTimeout(() => {
-      if (shouldClose) {
-        this.updateProperty("open", false);
-      }
-    }, 10);
   }
 
   toogleOpen(v: boolean, shouldClear: boolean = false) {
@@ -223,11 +214,11 @@ export default class SelectInput extends Vue {
 .select-input-options {
   max-height: 0;
   transition: var(--transition-slow) all ease-in-out;
-}
-.open .select-input-options {
   position: absolute;
   z-index: 991;
   background-color: var(--neutral-10);
+}
+.open .select-input-options {
   max-height: 50vh;
 }
 
