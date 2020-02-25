@@ -171,7 +171,7 @@ export default class Ticket extends VuexModule {
 			headers: { "Content-Type": "application/json", "Access-Control-Allow-Methods": "POST" }
 		}
 		axios
-			.post("http://192.168.0.105:8000/tickets/create", this.ticket)
+			.post("http:/congresotryit.es/tickets/create", this.ticket)
 			.then(response => {
 				console.log(response)
 				this.ticketForm.title = "Tu entrada ha sido creada"

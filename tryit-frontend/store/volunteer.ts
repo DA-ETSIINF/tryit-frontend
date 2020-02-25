@@ -102,11 +102,13 @@ export default class Volunteer extends VuexModule {
 		const config = {
 			headers: { "Content-Type": "application/json" }
 		}
-		axios.get("https://api.myjson.com/bins/1b2b40", config).then(response => {
-			const timePeriods: TimePeriodsType[] = response.data.map(tp => getTimePeriod(tp))
-			const indexes: Indexes = { section: 1, input: 0 }
-			this.updateProperty({ key: "timePeriods", value: timePeriods, indexes })
-		})
+		axios
+			.get("https://iecisamandaynotupanda.congresotryit.es/volunteers-time-periods", config)
+			.then(response => {
+				const timePeriods: TimePeriodsType[] = response.data.map(tp => getTimePeriod(tp))
+				const indexes: Indexes = { section: 1, input: 0 }
+				this.updateProperty({ key: "timePeriods", value: timePeriods, indexes })
+			})
 	}
 	@Mutation
 	setVolunteer() {
@@ -124,7 +126,7 @@ export default class Volunteer extends VuexModule {
 			headers: { "Content-Type": "application/json" }
 		}
 		axios
-			.post("https://iecisamandaynotupanda.congresotryit.es/volunteers", this.volunteer, config)
+			.post("http:/congresotryit.es/volunteers/create", this.volunteer, config)
 			.then(response => {
 				console.log(response)
 			})

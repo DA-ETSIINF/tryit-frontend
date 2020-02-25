@@ -38,36 +38,40 @@ export default class Sponsors extends Vue {
     const config = {
       headers: { "Content-Type": "application/json" }
     };
-    axios.get("http://192.168.0.105:8000/editions/sponsors/2019/").then(d => {
-      const data: any = d.data;
-      const allSponsors = data.filter(
-        sponsor => sponsor.sponsor_type !== "None"
-      );
-      this.sponsors.push({
-        category: "bronze",
-        sponsors: allSponsors
-          .filter(s => s.sponsor_type === "BRONCE")
-          .map(s => s.company)
+    axios
+      .get(
+        "https://iecisamandaynotupanda.congresotryit.es/editions/sponsors/2019/"
+      )
+      .then(d => {
+        const data: any = d.data;
+        const allSponsors = data.filter(
+          sponsor => sponsor.sponsor_type !== "None"
+        );
+        this.sponsors.push({
+          category: "bronze",
+          sponsors: allSponsors
+            .filter(s => s.sponsor_type === "BRONCE")
+            .map(s => s.company)
+        });
+        this.sponsors.push({
+          category: "gold",
+          sponsors: allSponsors
+            .filter(s => s.sponsor_type === "ORO")
+            .map(s => s.company)
+        });
+        this.sponsors.push({
+          category: "silver",
+          sponsors: allSponsors
+            .filter(s => s.sponsor_type === "PLATA")
+            .map(s => s.company)
+        });
+        this.sponsors.push({
+          category: "platinum",
+          sponsors: allSponsors
+            .filter(s => s.sponsor_type === "PLATINO")
+            .map(s => s.company)
+        });
       });
-      this.sponsors.push({
-        category: "gold",
-        sponsors: allSponsors
-          .filter(s => s.sponsor_type === "ORO")
-          .map(s => s.company)
-      });
-      this.sponsors.push({
-        category: "silver",
-        sponsors: allSponsors
-          .filter(s => s.sponsor_type === "PLATA")
-          .map(s => s.company)
-      });
-      this.sponsors.push({
-        category: "platinum",
-        sponsors: allSponsors
-          .filter(s => s.sponsor_type === "PLATINO")
-          .map(s => s.company)
-      });
-    });
   }
 }
 </script>
