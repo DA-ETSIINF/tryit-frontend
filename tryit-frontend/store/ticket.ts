@@ -171,7 +171,7 @@ export default class Ticket extends VuexModule {
 			headers: { "Content-Type": "application/json", "Access-Control-Allow-Methods": "POST" }
 		}
 		axios
-			.post(`${process.env.api}/tickets/create`, this.ticket)
+			.post(`${process.env.api}/tickets/create/`, this.ticket)
 			.then(response => {
 				console.log(response)
 				this.ticketForm.title = "Tu entrada ha sido creada"

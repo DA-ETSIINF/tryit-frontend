@@ -1,7 +1,7 @@
 export default {
 	env: {
 		dev: process.env.NODE_ENV !== "production",
-		api: "https:/iecisamandaynotupanda.congresotryit.es"
+		api: "https://iecisamandaynotupanda.congresotryit.es"
 	},
 	head: {
 		title: "Try IT!",
