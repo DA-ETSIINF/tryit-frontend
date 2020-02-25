@@ -73,7 +73,10 @@ function notEmpty(str: string): StatusOnInput {
 }
 
 function isPersonId(_str: string): StatusOnInput {
-	const str = _str.toUpperCase()
+	const str = _str
+		.toUpperCase()
+		.replace("-", "")
+		.replace(" ", "")
 
 	const validChars = "TRWAGMYFPDXBNJZSQVHLCKET"
 	const nifRegex = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i
@@ -112,7 +115,7 @@ function isEmail(str: string) {
 function isPhone(phone: string) {
 	const re = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
 	const isPhone = re.test(phone.toLowerCase())
-	return generateResponse(isPhone ? "ok" : "error", INPUTS_ERRORS.invalidPhone)
+	return generateResponse(isPhone || phone === "" ? "ok" : "error", INPUTS_ERRORS.invalidPhone)
 }
 
 function isChecked(checked: boolean) {

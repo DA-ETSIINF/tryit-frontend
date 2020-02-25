@@ -71,6 +71,9 @@ export default class extends Vue {
 </script>
 
 <style scoped>
+main {
+  margin-top: 52px;
+}
 div {
   display: flex;
   flex-direction: column;

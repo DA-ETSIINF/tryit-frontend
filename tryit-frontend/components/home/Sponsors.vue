@@ -19,6 +19,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
 import { SponsorsResource } from "../../types/api";
+import axios from "axios";
 import * as Components from "../";
 
 @Component({
@@ -27,77 +28,47 @@ import * as Components from "../";
   }
 })
 export default class Sponsors extends Vue {
-  sponsors: SponsorsResource = [
-    {
-      category: "platinum",
-      sponsors: [
-        {
-          name: "Google",
-          logo:
-            "https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png",
-          url: ""
-        },
-        {
-          name: "Google",
-          logo:
-            "https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png",
-          url: ""
-        },
-        {
-          name: "Facebook_Logo",
-          logo:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png",
-          url: ""
-        }
-      ]
-    },
-    {
-      category: "gold",
-      sponsors: [
-        {
-          name: "Google",
-          logo:
-            "https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png",
-          url: ""
-        },
-        {
-          name: "Google",
-          logo:
-            "https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png",
-          url: ""
-        },
-        {
-          name: "Facebook_Logo",
-          logo:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png",
-          url: ""
-        }
-      ]
-    },
-    {
-      category: "silver",
-      sponsors: [
-        {
-          name: "Google",
-          logo:
-            "https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png",
-          url: ""
-        },
-        {
-          name: "Google",
-          logo:
-            "https://logodownload.org/wp-content/uploads/2014/09/google-logo-1.png",
-          url: ""
-        },
-        {
-          name: "Facebook_Logo",
-          logo:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png",
-          url: ""
-        }
-      ]
-    }
-  ];
+  sponsors: SponsorsResource = [];
+  created() {
+    this.getSponsors();
+  }
+
+  getSponsors() {
+    console.log("SPONSORS");
+    const config = {
+      headers: { "Content-Type": "application/json" }
+    };
+    axios.get("http://192.168.0.105:8000/editions/sponsors/2019/").then(d => {
+      const data: any = d.data;
+      const allSponsors = data.filter(
+        sponsor => sponsor.sponsor_type !== "None"
+      );
+      this.sponsors.push({
+        category: "bronze",
+        sponsors: allSponsors
+          .filter(s => s.sponsor_type === "BRONCE")
+          .map(s => s.company)
+      });
+      this.sponsors.push({
+        category: "gold",
+        sponsors: allSponsors
+          .filter(s => s.sponsor_type === "ORO")
+          .map(s => s.company)
+      });
+      this.sponsors.push({
+        category: "silver",
+        sponsors: allSponsors
+          .filter(s => s.sponsor_type === "PLATA")
+          .map(s => s.company)
+      });
+      this.sponsors.push({
+        category: "platinum",
+        sponsors: allSponsors
+          .filter(s => s.sponsor_type === "PLATINO")
+          .map(s => s.company)
+      });
+    });
+  }
 }
 </script>
 

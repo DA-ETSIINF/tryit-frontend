@@ -49,7 +49,6 @@ export default class AvailabilityInput extends Vue {
 
   @Watch("timePeriods", { immediate: true, deep: true })
   onTimePeriods(val: TimePeriodsType[], oldVal: TimePeriodsType[]) {
-    console.log("sd");
     this.setOptions();
   }
 

@@ -100,11 +100,7 @@ export default class DynamicForm extends Vue {
 }
 </script>
 
-<style>
-main {
-  margin-top: 52px;
-}
-
+<style >
 h4 {
   margin: var(--space-l);
   margin-bottom: 0;

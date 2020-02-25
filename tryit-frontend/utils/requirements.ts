@@ -13,6 +13,6 @@ export function checkForRequirements(formModule: DynamicFormModule) {
 		form.sections
 			.map(s => s.inputs)
 			.flat()
-			.filter((i: InputType) => i.properties.status?.status !== "ok").length === 0
+			.filter((i: InputType) => i.properties.status?.status !== "ok" && i.show).length === 0
 	emitAreInputOk(formModule, { value: canShowButton })
 }

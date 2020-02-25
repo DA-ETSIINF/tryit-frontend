@@ -7,9 +7,13 @@
         </div>
         <div class="welcome-content">
           <h1>Try IT! 2020</h1>
-          <h4>ETSIINF - UPM</h4>
+          <h4 style="width: initial">ETSIINF - UPM</h4>
           <h3>16-20 MARZO</h3>
-          <button-component :type="'secondary-btn'" :text="'Consigue tu entrada'"></button-component>
+          <button-component
+            :type="'secondary-btn'"
+            :text="'Consigue tu entrada'"
+            @onClick="goTo('/ticket')"
+          ></button-component>
         </div>
       </div>
     </section>
@@ -113,7 +117,7 @@
       <h2>Patrocinadores</h2>
       <Sponsors></Sponsors>
     </section>
-    <section class="section">
+    <section class="section" v-if="false">
       <SliderEvents></SliderEvents>
     </section>
     <section class="section">
@@ -181,6 +185,10 @@ export default class extends Vue {
     btn: true,
     btn_text: "Regístrate aquí"
   };
+
+  goTo(path: string) {
+    window.location.href = path; // TODO use router
+  }
 }
 </script>
 

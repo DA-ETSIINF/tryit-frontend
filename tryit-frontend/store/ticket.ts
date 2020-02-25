@@ -162,24 +162,25 @@ export default class Ticket extends VuexModule {
 		this.ticket.upmSchool = this.ticketForm.sections[1].inputs[1]["value"]
 		this.ticket.degree = this.ticketForm.sections[1].inputs[2]["value"]
 		this.ticket.year = this.ticketForm.sections[1].inputs[3]["value"]
-		
 	}
 	@Action
 	postTicket() {
 		store.commit("ticket/setTicket")
 		console.log("PostTicket: ", this.ticket)
 		const config = {
-			headers: { "Content-Type": "application/json" }
+			headers: { "Content-Type": "application/json", "Access-Control-Allow-Methods": "POST" }
 		}
 		axios
-			.post("https://iecisamandaynotupanda.congresotryit.es/tickets", this.ticket, config)
+			.post("http://192.168.0.105:8000/tickets/create", this.ticket)
 			.then(response => {
 				console.log(response)
+				this.ticketForm.title = "Tu entrada ha sido creada"
+				this.ticketForm.description = "En breves momentos recibirás un correo con la entrada"
+				this.ticketForm.sections = []
 			})
 			.catch(response => {
 				console.log("response_error: ", response)
 			})
-
 	}
 }
 

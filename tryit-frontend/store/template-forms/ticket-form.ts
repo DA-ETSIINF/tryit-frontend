@@ -69,12 +69,15 @@ export const ticketForm: FormType = {
 					tag: "text-input",
 					properties: {
 						placeholder: "Teléfono",
-						helperText: "Obligatorio",
-						status
+						helperText: "",
+						status: {
+							...status,
+							status: "ok"
+						}
 					},
 					value: "",
 					id: "5",
-					requirements: ["string-not-empty", "is-phone"]
+					requirements: ["is-phone"]
 				}
 			]
 		},
@@ -153,10 +156,7 @@ export const ticketForm: FormType = {
 					tag: "labels-input",
 					question: "¿Qué curso estudias?",
 					properties: {
-						status: {
-							...status,
-							status: "ok"
-						},
+						status,
 						options: [
 							{
 								title: "1",
