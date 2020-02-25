@@ -1,5 +1,5 @@
 import { Module, Mutation, VuexModule, getModule, Action } from "vuex-module-decorators"
-import { TicketResource, UPMSchools } from "~/types/api"
+import { TicketResource } from "~/types/api"
 import {
 	FormType,
 	Indexes,
