@@ -7,8 +7,8 @@ export function checkForRequirements(formModule: DynamicFormModule) {
 	if (!formName) {
 		return
 	}
-
 	let form: FormType = getFormByName(formName)
+	console.log("Requirements: ", form)
 	let canShowButton =
 		form.sections
 			.map(s => s.inputs)

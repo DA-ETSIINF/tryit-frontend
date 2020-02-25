@@ -18,7 +18,7 @@ import dataDegrees from "../assets/data/degrees.json"
 
 @Module({ dynamic: true, store, name: "ticket", stateFactory: true, namespaced: true })
 export default class Ticket extends VuexModule {
-	ticket!: TicketResource 
+	ticket: TicketResource = this.getTicket()
 	ticketForm: FormType = this.getForm()
 
 	get getTitle(): string | undefined {
@@ -60,6 +60,21 @@ export default class Ticket extends VuexModule {
 			})
 		})
 		return tf
+	}
+	getTicket() {
+		const ticket: TicketResource = {
+			name: "",
+			lastname: "",
+			identity: "",
+			email: "",
+			isStudent: false,
+			isUpmStudent: false,
+			upmSchool: "",
+			degree: "",
+			year: 0,
+			phone: ""
+		}
+		return ticket
 	}
 
 	getUpmInfo(indexes: Indexes) {
@@ -151,6 +166,7 @@ export default class Ticket extends VuexModule {
 	}
 	@Action
 	postTicket() {
+		store.commit("ticket/setTicket")
 		console.log("PostTicket: ", this.ticket)
 		const config = {
 			headers: { "Content-Type": "application/json" }

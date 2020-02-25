@@ -63,6 +63,7 @@ export default class StudentInput extends Vue {
   };
 
   created() {
+    console.log(this.isStudent, this.isUpmStudent)
     this.updateAnswer(this.isStudent, this.isUpmStudent);
   }
 
