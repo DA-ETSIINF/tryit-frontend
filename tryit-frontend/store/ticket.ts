@@ -159,7 +159,7 @@ export default class Ticket extends VuexModule {
 		this.ticket.isStudent = this.ticketForm.sections[1].inputs[0]["value"]["isStudent"]
 		this.ticket.isUpmStudent = this.ticketForm.sections[1].inputs[0]["value"]["isUpmStudent"]
 		this.ticket.upmSchool = this.ticketForm.sections[1].inputs[1]["value"]
-		this.ticket.degree = this.ticketForm.sections[1].inputs[2]["value"]
+		this.ticket.degree = this.ticketForm.sections[1].inputs[2]["selected"]
 		this.ticket.year = this.ticketForm.sections[1].inputs[3]["value"]
 		this.ticket.toPrint = this.ticketForm.sections[2].inputs[0]["properties"]["checked"]
 	}
