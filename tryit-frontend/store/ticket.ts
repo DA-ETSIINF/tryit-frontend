@@ -6,12 +6,10 @@ import {
 	StatusOnInput,
 	DynamicFormModule,
 	InputValueType,
-	SelectInputType,
 	OptionSelected
 } from "~/types/components"
 import { ticketForm as tf } from "./template-forms"
 import { store } from "~/store"
-import { getHTTP, schoolsUPM } from "../utils"
 import axios from "axios"
 import dataSchools from "../assets/data/schools.json"
 import dataDegrees from "../assets/data/degrees.json"
