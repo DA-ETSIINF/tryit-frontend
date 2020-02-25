@@ -1,5 +1,8 @@
 export default {
-	env: {},
+	env: {
+		dev: process.env.NODE_ENV !== "production",
+		api: "https:/iecisamandaynotupanda.congresotryit.es"
+	},
 	head: {
 		title: "Try IT!",
 		meta: [

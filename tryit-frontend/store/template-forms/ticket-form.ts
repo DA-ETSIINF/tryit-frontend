@@ -69,11 +69,8 @@ export const ticketForm: FormType = {
 					tag: "text-input",
 					properties: {
 						placeholder: "Teléfono",
-						helperText: "",
-						status: {
-							...status,
-							status: "ok"
-						}
+						helperText: "Obligatorio",
+						status
 					},
 					value: "",
 					id: "5",
