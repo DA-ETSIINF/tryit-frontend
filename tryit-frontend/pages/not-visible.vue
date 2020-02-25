@@ -1,5 +1,5 @@
 <template>
-  <h1>This is NotVisible Page</h1>
+  <h1>Está pagina no está disponible temporalmente</h1>
 </template>
 
 <script lang="ts">

@@ -6,16 +6,19 @@
         :disabled="isDisabled"
         :placeholder="placeholder"
         :class="{
-					status,
+          'error': status.status === 'error',
+          'info': status.status === 'info',
+          'ok': status.status === 'ok',
 					'no-border': noBorder,
 					'no-shadows': noShadows,
 					'leave-space': leaveSpaceRight
 				}"
-        :value="value"
+        v-model="userValue"
         @keyup.esc="$emit('esc', $event)"
-        @keypress="$emit('keypress', $event)"
+        @updateValue="onUpdateValue($event)"
         @focus="$emit('focus', $event)"
-        @blur="$emit('blur', $event)"
+        @blur="makeValidation()"
+        @keypress="$emit('keypress', $event)"
       />
       <span v-if="!hideText">{{ helperText }}</span>
     </div>
@@ -24,18 +27,69 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
+import {
+  TextInputType,
+  Requirement,
+  Indexes,
+  StatusOnInput,
+  DynamicFormModule,
+  TextInputValueType
+} from "../../../types/components";
+// import store from "store";
+import { TicketModule } from "../../../store/ticket";
+import { VolunteerModule } from "../../../store/volunteer";
+import { validate, emitInput } from "../../../utils";
 
 @Component({})
 export default class TextInput extends Vue {
-  @Prop({ type: String, default: "" }) helperText!: string;
-  @Prop({ type: String, default: "" }) placeholder!: string;
-  @Prop({ type: String, default: "" }) value!: string;
-  @Prop({ type: Boolean, default: false }) isDisabled!: boolean;
-  @Prop({ type: Boolean, default: false }) hideText!: boolean;
-  @Prop({ type: String, default: "" }) status!: "" | "ok" | "error" | "info";
-  @Prop({ type: Boolean, default: false }) noBorder!: boolean;
-  @Prop({ type: Boolean, default: false }) noShadows!: boolean;
-  @Prop({ type: Boolean, default: false }) leaveSpaceRight!: boolean;
+  @Prop({ default: "" }) readonly helperText!: string;
+  @Prop({ default: "" }) readonly placeholder!: string;
+  @Prop({ default: "" }) readonly value!: TextInputValueType;
+  @Prop({ default: false }) readonly isDisabled!: boolean;
+  @Prop({ default: false }) readonly hideText!: boolean;
+  @Prop({
+    default: (): StatusOnInput => {
+      return { status: "ok", statusDetail: { message: "", abbreviation: "" } };
+    }
+  })
+  readonly status!: StatusOnInput;
+  @Prop({ default: false }) readonly noBorder!: boolean;
+  @Prop({ default: false }) readonly noShadows!: boolean;
+  @Prop({ default: false }) readonly leaveSpaceRight!: boolean;
+  @Prop({ default: "" }) readonly id!: string;
+  @Prop({
+    default: (): Indexes => {
+      return { section: 0, input: 0 };
+    }
+  })
+  readonly indexes!: Indexes;
+  @Prop({ default: () => [] }) readonly validations!: Requirement[];
+  @Prop({ type: String }) readonly formModule!: DynamicFormModule;
+
+  valueInput: string = this.value;
+
+  public constructor() {
+    super();
+  }
+  get userValue(): string {
+    return this.value;
+  }
+
+  set userValue(value: string) {
+    emitInput(this.formModule, { key: "value", value, indexes: this.indexes });
+    this.valueInput = value;
+  }
+
+  makeValidation() {
+    validate(this.validations, this.valueInput, this.indexes, this.formModule);
+  }
+
+  onUpdateValue(e) {
+    this.$emit("keypress", e);
+    if (this.status.status === "error" || this.status.status === "info") {
+      this.makeValidation();
+    }
+  }
 }
 </script>
 
@@ -64,6 +118,18 @@ export default class TextInput extends Vue {
 
 [type="text"]::placeholder {
   color: var(--neutral-7);
+}
+
+[type="text"].ok::placeholder {
+  color: var(--ok-7);
+}
+
+[type="text"].error::placeholder {
+  color: var(--error-7);
+}
+
+[type="text"].info::placeholder {
+  color: var(--yellow-2);
 }
 
 [type="text"]:focus {

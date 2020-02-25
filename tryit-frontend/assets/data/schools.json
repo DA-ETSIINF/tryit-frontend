@@ -1,0 +1,94 @@
+[
+	[
+		{
+			"id": "10",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIEROS INFORMATICOS"
+		}
+	],
+	[
+		{
+			"id": "1",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIEROS AERONAUTICOS"
+		},
+		{
+			"id": "3",
+			"title": "ESCUELA TECNICA SUPERIOR DE ARQUITECTURA"
+		},
+		{
+			"id": "4",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIEROS DE CAMINOS, CANALES Y PUERTOS"
+		},
+		{
+			"id": "5",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIEROS INDUSTRIALES"
+		},
+		{
+			"id": "6",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIEROS DE MINAS Y ENERGIA"
+		},
+		{
+			"id": "8",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIEROS NAVALES"
+		},
+		{
+			"id": "9",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIEROS DE TELECOMUNICACION"
+		},
+		{
+			"id": "11",
+			"title": "FACULTAD DE CIENCIAS DE LA ACTIVIDAD FISICA Y DEL DEPORTE - INEF"
+		},
+		{
+			"id": "12",
+			"title": "E.T.S.I. EN TOPOGRAFIA, GEODESIA Y CARTOGRAFIA"
+		},
+		{
+			"id": "13",
+			"title": "E.T.S. DE INGENIERIA DE MONTES, FORESTAL Y DEL MEDIO NATURAL"
+		},
+		{
+			"id": "14",
+			"title": "ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA AERONÁUTICA Y DEL ESPACIO"
+		},
+		{
+			"id": "20",
+			"title": "E.T.S. DE INGENIERIA AGRONOMICA, ALIMENTARIA Y DE BIOSISTEMAS"
+		},
+		{
+			"id": "21",
+			"title": "ESCUELA INTERNACIONAL DE DOCTORADO"
+		},
+		{
+			"id": "30",
+			"title": "ESCUELA POLITECNICA DE ENSEÑANZA SUPERIOR"
+		},
+		{
+			"id": "54",
+			"title": "ESCUELA TECNICA SUPERIOR DE EDIFICACION"
+		},
+		{
+			"id": "56",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIERIA Y DISEÑO INDUSTRIAL"
+		},
+		{
+			"id": "58",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIERIA CIVIL"
+		},
+		{
+			"id": "59",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIERIA Y SISTEMAS DE TELECOMUNICACION"
+		},
+		{
+			"id": "61",
+			"title": "ESCUELA TECNICA SUPERIOR DE INGENIERIA DE SISTEMAS INFORMATICOS"
+		},
+		{
+			"id": "81",
+			"title": "CENTRO SUPERIOR DE DISEÑO DE MODA "
+		},
+		{
+			"id": "90",
+			"title": "RECTORADO UPM"
+		}
+	]
+]

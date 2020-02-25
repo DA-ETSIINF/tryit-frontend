@@ -1,23 +1,25 @@
 <template>
-  <div class="select-input-container">
+  <div class="select-input-container" v-if="show">
     <h5 class="form-question">{{ title }}</h5>
     <div v-bind:class="{ open: open }">
       <div class="select-input-wrapper">
         <div class="selection-box">
-          <TextInput
+          <text-input
             :placeholder="'Buscar'"
             :hideText="true"
             :noBorder="true"
             :noShadows="true"
             :leaveSpaceRight="true"
-            :value="optionSelected.title"
+            :value="copySelected.title"
+            :status="textStatus"
             v-on:keypress="search($event)"
-            v-on:focus="$emit('toogleOpen', true, true)"
-            v-on:blur="$emit('toogleOpen', false)"
-            v-on:esc="$emit('toogleOpen', false)"
-          ></TextInput>
-          <i class="fas fa-times" v-if="open" @click="$emit('change', {}, false)"></i>
-          <i class="fas fa-angle-down" v-if="!open" @click="$emit('toogleOpen', true)"></i>
+            v-on:keypress.delete="search($event)"
+            v-on:focus="toogleOpen(true, true)"
+            v-on:blur="toogleOpen(false)"
+            v-on:esc="toogleOpen(false)"
+          ></text-input>
+          <i class="fas fa-times" v-if="open" @click="changeOption({}, false)"></i>
+          <i class="fas fa-angle-down" v-if="!open" @click="toogleOpen(true)"></i>
         </div>
       </div>
       <div class="select-input-options">
@@ -25,7 +27,7 @@
           <div v-for="(optionSection, index) in copyOptions" :key="index">
             <li
               v-for="option in optionSection"
-              :class="{ active: option.id === optionSelected.id }"
+              :class="{ active: option.id === copySelected.id }"
               :key="option.id"
               v-on:click="changeOption(option)"
             >{{ option.title }}</li>
@@ -38,18 +40,49 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
 import Fuse from "fuse.js";
-import { OptionSelected } from "../../../types/components";
+import {
+  OptionSelected,
+  StatusOnInput,
+  InputValueType,
+  SelectInputValueType,
+  Indexes
+} from "../../../types/components";
+import { TicketModule } from "../../../store/ticket";
 
 @Component({})
 export default class SelectInput extends Vue {
-  @Prop({ type: String, required: true }) title!: string;
-  @Prop({ type: Array, required: true }) options!: OptionSelected[][];
-  @Prop({ type: Object, required: true }) optionSelected!: OptionSelected;
-  @Prop({ type: Boolean, default: false }) open!: boolean;
-
+  @Prop({ type: String, required: true }) readonly title!: string;
+  @Prop({ type: Array, required: true }) readonly options!: OptionSelected[][];
+  @Prop({ type: String, required: true })
+  readonly selected!: SelectInputValueType;
+  @Prop({ type: String, required: true })
+  readonly oldSelected!: SelectInputValueType;
+  @Prop({ type: Boolean, default: false }) readonly open!: boolean;
+  @Prop({ type: Boolean, default: false }) readonly show!: boolean;
+  textStatus: StatusOnInput = {
+    status: "",
+    statusDetail: { message: "", abbreviation: "" }
+  };
+  @Prop({
+    default: (): Indexes => {
+      return { section: 0, input: 0 };
+    }
+  })
+  readonly indexes!: Indexes;
   copyOptions: OptionSelected[][] = this.options;
+  copySelected: OptionSelected = this.getSelectedById(this.selected);
+
+  @Watch("options", { deep: true, immediate: true })
+  onOptionsChanged(value: OptionSelected[][], oldValue: OptionSelected[][]) {
+    this.copyOptions = value;
+  }
+
+  getSelectedById(id: string): OptionSelected {
+    // @ts-ignore
+    return this.options.flat().find(e => e.id === id) || { title: "", id: "" };
+  }
 
   fuseOptions = {
     shouldSort: true,
@@ -64,9 +97,10 @@ export default class SelectInput extends Vue {
   };
 
   search(e) {
-    this.$emit("open", true);
+    this.updateProperty("open", true);
+    const options = this.options;
     // @ts-ignore: It ignores the error caused by the flat()
-    const fuse = new Fuse(this.options.flat(), this.fuseOptions);
+    const fuse = new Fuse(options.flat(), this.fuseOptions);
     const result = fuse.search(e.target.value);
     this.copyOptions = [[]];
     result.forEach(r => {
@@ -75,11 +109,34 @@ export default class SelectInput extends Vue {
     });
   }
 
-  changeOption(option) {
+  changeOption(option: OptionSelected) {
+    this.updateInput("selected", option.id);
+    this.copySelected = option;
+    setTimeout(() => {
+      this.updateProperty("open", false);
+    }, 10);
     setTimeout(() => {
       this.copyOptions = this.options;
     }, 500);
-    this.$emit("change", option);
+  }
+
+  toogleOpen(v: boolean, shouldClear: boolean = false) {
+    if (!v) {
+      this.updateProperty("selected", this.oldSelected);
+    }
+    this.updateProperty("open", v);
+    if (shouldClear) {
+      this.updateProperty("oldSelected", this.selected);
+      this.updateProperty("selected", this.selected);
+    }
+  }
+
+  updateInput(key: string, value: InputValueType) {
+    TicketModule.updateInput({ key, value, indexes: this.indexes });
+  }
+
+  updateProperty(key: string, value: any) {
+    TicketModule.updateProperty({ key, value, indexes: this.indexes });
   }
 }
 </script>
@@ -157,12 +214,11 @@ export default class SelectInput extends Vue {
 .select-input-options {
   max-height: 0;
   transition: var(--transition-slow) all ease-in-out;
-}
-.open .select-input-options {
   position: absolute;
-  width: 100%;
   z-index: 991;
   background-color: var(--neutral-10);
+}
+.open .select-input-options {
   max-height: 50vh;
 }
 

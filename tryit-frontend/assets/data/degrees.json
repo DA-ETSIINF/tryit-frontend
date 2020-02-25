@@ -1,0 +1,4118 @@
+[
+	[
+		{
+			"id": "10II",
+			"title": "GRADO EN INGENIERIA INFORMATICA",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10II/asignaturas?anio=201920"
+		},
+		{
+			"id": "10ID",
+			"title": "DOBLE GRADO EN INGENIERIA INFORMATICA Y EN ADE",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10ID/asignaturas?anio=201920"
+		},
+		{
+			"id": "10MI",
+			"title": "GRADO EN MATEMATICAS E INFORMATICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10MI/asignaturas?anio=201920"
+		}
+	],
+	[
+		{
+			"id": "1001",
+			"title": "ENSAYOS EN VUELO Y CERTIFICACION DE AERONAVES",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1001/asignaturas?anio=201920"
+		},
+		{
+			"id": "1058",
+			"title": "INVESTIGACIÓN DE ACCIDENTES E INCIDENTES DE AERONAVES",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1058/asignaturas?anio=201920"
+		},
+		{
+			"id": "1059",
+			"title": "INVESTIGACIÓN DE ACCIDENTES E INCIDENTES DE AERONAVES -semipresencial",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1059/asignaturas?anio=201920"
+		},
+		{
+			"id": "1060",
+			"title": "GESTIÓN DE SISTEMAS AERONÁUTICOS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1060/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX03",
+			"title": "PLAN GRADO VISITANTES ARQUITECTURA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX03/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV03",
+			"title": "MOVILIDAD CENTRO 3",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV03/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AB",
+			"title": "MASTER UNIVERSITARIO EN ESTRUCTURAS DE EDIFICACION",
+			"anio_inicio": "2007-08",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AE",
+			"title": "MASTER UNIVERSITARIO EN PLANEAMIENTO URBANO Y TERRITORIAL",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AF",
+			"title": "MASTER UNIVERSITARIO EN ESTRUCTURAS DE LA EDIFICACION",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AG",
+			"title": "MASTER UNIVERSITARIO EN CONSERVACION Y RESTAURACION DEL PATRIMONIO ARQUITEC",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AG/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AH",
+			"title": "MASTER UNIVERSITARIO EN ANALISIS, TEORIA E HISTORIA DE LA ARQUITECTURA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AH/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AK",
+			"title": "MASTER UNIVERSITARIO EN PROYECTOS ARQUITECTONICOS AVANZADOS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AK/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AM",
+			"title": "MASTER UNIVERSITARIO EN ARQUITECTURA",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AM/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AN",
+			"title": "MASTER UNIVERSITARIO EN CONSTRUCCION Y TECNOLOGIA DE EDIFICIOS HISTORICOS",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AN/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AP",
+			"title": "MASTER UNIVERSITARIO EN COMUNICACION ARQUITECTONICA",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AP/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AQ",
+			"title": "GRADO EN FUNDAMENTOS DE LA ARQUITECTURA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AQ/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AR",
+			"title": "MASTER UNIVERSITARIO EN DISEÑO DE INSTALACIONES",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AR/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AS",
+			"title": "MASTER UNIVERSITARIO EN CONSTRUCCION Y TECNOLOGIA ARQUITECTONICAS",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AS/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AT",
+			"title": "MASTER UNIVERSITARIO EN CONSTRUCCION Y TECNOLOGIA ARQUITECTONICAS",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AT/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AX",
+			"title": "MASTER UNIVERSITARIO EN PROYECTOS ARQUITECTONICOS AVANZADOS",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AX/asignaturas?anio=201920"
+		},
+		{
+			"id": "03AZ",
+			"title": "MASTER UNIVERSITARIO EN PLANEAMIENTO URBANO Y TERRITORIAL",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03AZ/asignaturas?anio=201920"
+		},
+		{
+			"id": "03E4",
+			"title": "DOCTORADO EN PROYECTOS ARQUITECTONICOS AVANZADOS",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03E4/asignaturas?anio=201920"
+		},
+		{
+			"id": "03E5",
+			"title": "DOCTORADO EN CONSTRUCCION Y TECNOLOGIA ARQUITECTONICAS",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03E5/asignaturas?anio=201920"
+		},
+		{
+			"id": "03E6",
+			"title": "DOCTORADO EN SOSTENIBILIDAD Y REGENERACION URBANA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03E6/asignaturas?anio=201920"
+		},
+		{
+			"id": "03E7",
+			"title": "DOCTORADO EN PATRIMONIO ARQUITECTONICO",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03E7/asignaturas?anio=201920"
+		},
+		{
+			"id": "03E8",
+			"title": "DOCTORADO EN COMUNICACION ARQUITECTONICA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03E8/asignaturas?anio=201920"
+		},
+		{
+			"id": "03E9",
+			"title": "DOCTORADO EN ESTRUCTURAS DE LA EDIFICACIÓN",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03E9/asignaturas?anio=201920"
+		},
+		{
+			"id": "03F1",
+			"title": "DOCTORADO EN ARQUITECTURA Y URBANISMO",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03F1/asignaturas?anio=201920"
+		},
+		{
+			"id": "03PC",
+			"title": "M. UNIV. EN PATRIMONIO CULTURAL EN EL SIGLO XXI: GESTIÓN E INVESTIGACIÓN",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/03PC/asignaturas?anio=201920"
+		},
+		{
+			"id": "3008",
+			"title": "METODOLOGÍA Y GESTIÓN BIM DE PROYECTOS, CONSTRUCCIÓN",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3008/asignaturas?anio=201920"
+		},
+		{
+			"id": "3015",
+			"title": "TITULO PROPIO EN DISEÑO DE INTERIORES",
+			"anio_inicio": "2007-08",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3015/asignaturas?anio=201920"
+		},
+		{
+			"id": "3027",
+			"title": "DIRECCION INTEGRADA DE PROYECTOS DE EDIFICACION",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3027/asignaturas?anio=201920"
+		},
+		{
+			"id": "3033",
+			"title": "MASTER EN DISEÑO Y ARQUITECTURA DE INTERIORES",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3033/asignaturas?anio=201920"
+		},
+		{
+			"id": "3037",
+			"title": "GRADUADO EN DISEÑO DE INTERIORES",
+			"anio_inicio": "2003-04",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3037/asignaturas?anio=201920"
+		},
+		{
+			"id": "3055",
+			"title": "GESTION INTEGRAL DE INMUEBLES Y SERVICIOS (FACILITIES MANAGEMENT)",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3055/asignaturas?anio=201920"
+		},
+		{
+			"id": "3056",
+			"title": "INSTALACIONES EFIMERAS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3056/asignaturas?anio=201920"
+		},
+		{
+			"id": "3061",
+			"title": "METODOLOGÍA Y GESTIÓN BIM DE PROYECTOS, CONSTRUCCIÓN",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3061/asignaturas?anio=201920"
+		},
+		{
+			"id": "3099",
+			"title": "MEDIO AMBIENTE Y ARQUITECTURA BIOCLIMATICA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3099/asignaturas?anio=201920"
+		},
+		{
+			"id": "3100",
+			"title": "COOPERACION PARA EL DESARROLLO DE ASENTAMIENTOS HUMANOS PRECARIOS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3100/asignaturas?anio=201920"
+		},
+		{
+			"id": "3102",
+			"title": "PATOLOGIA DE LA EDIFICACION Y TECNICAS DE INTERVENCION",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3102/asignaturas?anio=201920"
+		},
+		{
+			"id": "3104",
+			"title": "PATOLOGIA  DE LA EDIFICACION",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3104/asignaturas?anio=201920"
+		},
+		{
+			"id": "3107",
+			"title": "VALORACION DEL SUELO Y DE LA EDIFICACION",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3107/asignaturas?anio=201920"
+		},
+		{
+			"id": "3108",
+			"title": "ARQUITECTURA TEXTIL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3108/asignaturas?anio=201920"
+		},
+		{
+			"id": "3110",
+			"title": "MASTER EN DIRECCION DE EMPRESAS CONSTRUCTORAS E INMOBILIARIAS (MDI) ECUADOR",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3110/asignaturas?anio=201920"
+		},
+		{
+			"id": "3111",
+			"title": "MASTER EN DIRECCION DE EMPRESAS CONSTRUCTORAS E INMOBILIARIAS (MDI) PERU",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3111/asignaturas?anio=201920"
+		},
+		{
+			"id": "3112",
+			"title": "MASTER EN DIRECCION DE EMPRESAS CONSTRUCTORAS E INMOBILIARIAS (MDI) MEXICO",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3112/asignaturas?anio=201920"
+		},
+		{
+			"id": "3113",
+			"title": "MASTER EN DIRECCION DE EMPRESAS CONSTRUCTORAS E INMOBILIARIAS (MDI) GUATEMA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3113/asignaturas?anio=201920"
+		},
+		{
+			"id": "3115",
+			"title": "MASTER EN DIRECCION DE EMPRESAS CONSTRUCTORAS E INMOBILIARIAS MDI ARGENTINA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3115/asignaturas?anio=201920"
+		},
+		{
+			"id": "3118",
+			"title": "ESPECIALISTA EN PATOLOGIA Y TECNOLOGIA DE LA REHABILITACION",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3118/asignaturas?anio=201920"
+		},
+		{
+			"id": "3154",
+			"title": "EXPERTO EN REHABILITACION",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3154/asignaturas?anio=201920"
+		},
+		{
+			"id": "3155",
+			"title": "MASTER EN REAL ESTATE Y FACILITY MANAGEMENT",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3155/asignaturas?anio=201920"
+		},
+		{
+			"id": "3158",
+			"title": "REHABILITACIÓN Y AHORRO ENERGÉTICO EN EDIFICACIÓN",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3158/asignaturas?anio=201920"
+		},
+		{
+			"id": "3159",
+			"title": "MEDIO AMBIENTE Y ARQUITECTURA BIOCLIMÁTICA - on line",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3159/asignaturas?anio=201920"
+		},
+		{
+			"id": "3160",
+			"title": "ARQUITECTURA, MODA Y DISEÑO",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3160/asignaturas?anio=201920"
+		},
+		{
+			"id": "3165",
+			"title": "GESTIÓN DE PROYECTOS DE INFRAESTRUCTURA Y EDIFICACIÓN SOSTENIBLE CON METODO",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3165/asignaturas?anio=201920"
+		},
+		{
+			"id": "3166",
+			"title": "ESPECIALISTA EN ACTIVOS INMOBILIARIOS Y REAL STATE",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3166/asignaturas?anio=201920"
+		},
+		{
+			"id": "3168",
+			"title": "MEDIO AMBIENTE Y ARQUITECTURA BIOCLIMATICA (MAYAB CHILE)",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3168/asignaturas?anio=201920"
+		},
+		{
+			"id": "3170",
+			"title": "EXPERTO EN FACILITY MANAGEMENT",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3170/asignaturas?anio=201920"
+		},
+		{
+			"id": "3171",
+			"title": "MASTER IN ADVANCED STUDIES IN COLLECTIVE HOUSING",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3171/asignaturas?anio=201920"
+		},
+		{
+			"id": "3172",
+			"title": "MASTER EN FACHADAS LIGERAS Y ENVOLVENTES ARQUITECTONICAS",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3172/asignaturas?anio=201920"
+		},
+		{
+			"id": "3173",
+			"title": "ARQUITECTURAS  EFÍMERAS",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3173/asignaturas?anio=201920"
+		},
+		{
+			"id": "3174",
+			"title": "MASTER EXECUTIVE IN REAL ESTATE RISK MANGEMENT",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3174/asignaturas?anio=201920"
+		},
+		{
+			"id": "3175",
+			"title": "PATOLOGÍA Y REHABILITACIÓN DE LA EDIFICACIÓN",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3175/asignaturas?anio=201920"
+		},
+		{
+			"id": "3176",
+			"title": "ADVANCED INFOGRAPHICS",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3176/asignaturas?anio=201920"
+		},
+		{
+			"id": "3177",
+			"title": "BUILDING QUALITY & RISK MANAGEMENT",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3177/asignaturas?anio=201920"
+		},
+		{
+			"id": "3178",
+			"title": "DIRECCIÓN DE EMPRESAS CONSTRUCTORAS E INMOBILIARIAS",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3178/asignaturas?anio=201920"
+		},
+		{
+			"id": "3179",
+			"title": "DIRECCION INTEGRADA DE PROYECTOS DE EDIFICACION Y ACTIVOS INMOBILIARIOS",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3179/asignaturas?anio=201920"
+		},
+		{
+			"id": "3180",
+			"title": "MASTER EN DISEÑO Y ARQUITECTURA DE INTERIORES",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3180/asignaturas?anio=201920"
+		},
+		{
+			"id": "3181",
+			"title": "MASTER EN FACHADAS TECNOLÓGICAS Y ENVOLVENTES SOSTENIBLES",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3181/asignaturas?anio=201920"
+		},
+		{
+			"id": "3182",
+			"title": "MASTER EN PATOLOGÍA Y REHABILITACIÓN DE LA EDIFICACIÓN",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/3182/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX04",
+			"title": "PLAN VISITANTE GRADO CENTRO 4 CAMINOS",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX04/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV04",
+			"title": "MOVILIDAD CENTRO 4",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV04/asignaturas?anio=201920"
+		},
+		{
+			"id": "04AE",
+			"title": "MASTER UNIVERSITARIO EN SISTEMAS DE INGENIERIA CIVIL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "04AF",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE MATERIALES",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "04AG",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE CAMINOS, CANALES Y PUERTOS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04AG/asignaturas?anio=201920"
+		},
+		{
+			"id": "04AH",
+			"title": "MASTER UNIVERSITARIO EN SISTEMAS DE INGENIERIA CIVIL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04AH/asignaturas?anio=201920"
+		},
+		{
+			"id": "04AI",
+			"title": "DOBLE MASTER UNIVERSITARIO EN ICCP Y EN SISTEMAS DE INGENIERIA CIVIL",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04AI/asignaturas?anio=201920"
+		},
+		{
+			"id": "04AM",
+			"title": "MASTER UNIVERSITARIO INGENIERIA DE ESTRUCTURAS, CIMENTACIONES Y MATERIALES",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04AM/asignaturas?anio=201920"
+		},
+		{
+			"id": "04D6",
+			"title": "DOCTORADO EN INGENIERIA DE ESTRUCTURAS, CIMENTACIONES Y MATERIALES",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04D6/asignaturas?anio=201920"
+		},
+		{
+			"id": "04D7",
+			"title": "DOCTORADO EN SISTEMAS DE INGENIERIA CIVIL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04D7/asignaturas?anio=201920"
+		},
+		{
+			"id": "04GC",
+			"title": "GRADO EN INGENIERIA CIVIL Y TERRITORIAL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04GC/asignaturas?anio=201920"
+		},
+		{
+			"id": "04GD",
+			"title": "DOBLE GRADO EN INGENIERIA CIVIL Y TERRITORIAL Y EN ADE",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04GD/asignaturas?anio=201920"
+		},
+		{
+			"id": "04IM",
+			"title": "GRADO EN INGENIERIA DE MATERIALES",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04IM/asignaturas?anio=201920"
+		},
+		{
+			"id": "04MI",
+			"title": "GRADO EN INGENIERIA DE MATERIALES",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/04MI/asignaturas?anio=201920"
+		},
+		{
+			"id": "4004",
+			"title": "MASTER EN GESTION DE INFRAESTRUCTURAS, EQUIPAMIENTOS Y SERVICIOS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/4004/asignaturas?anio=201920"
+		},
+		{
+			"id": "4009",
+			"title": "GESTION INTEGRADA DE PROYECTOS DE INGENIERIA Y CONSTRUCCION",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/4009/asignaturas?anio=201920"
+		},
+		{
+			"id": "4012",
+			"title": "MASTER INTERNACIONAL DE LIDERAZGO PARA ING DE CAMINOS, CANALES Y PUERTOS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/4012/asignaturas?anio=201920"
+		},
+		{
+			"id": "4013",
+			"title": "MASTER EN GESTION Y PLANIFICACION PORTUARIA E INTERMODALIDAD",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/4013/asignaturas?anio=201920"
+		},
+		{
+			"id": "4019",
+			"title": "EXPLOTACION Y SEGURIDAD DE PRESAS Y BALSAS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/4019/asignaturas?anio=201920"
+		},
+		{
+			"id": "4020",
+			"title": "GESTIÓN Y FINANCIACIÓN DE INFRAESTRUCTURAS, EQUIPAMIENTOS Y SERVICIOS",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/4020/asignaturas?anio=201920"
+		},
+		{
+			"id": "4021",
+			"title": "PROVISIÓN DE INFRAESTRUCTURAS edición Monterrey",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/4021/asignaturas?anio=201920"
+		},
+		{
+			"id": "4022",
+			"title": "EMPRENDIMIENTO, INNOVACIÓN Y CREATIVIDAD",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/4022/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV05",
+			"title": "MOVILIDAD CENTRO 5",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV05/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AK",
+			"title": "MASTER UNIVERSITARIO INGENIERIA ACUSTICA EN LA INDUSTRIA Y EL TRANSPORTE",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AK/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AL",
+			"title": "MASTER UNIVERSITARIO EN CIENCIA Y TECNOLOGIA NUCLEAR",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AL/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AN",
+			"title": "MASTER UNIVERSITARIO EN ELECTRONICA INDUSTRIAL",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AN/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AQ",
+			"title": "MASTER UNIVERSITARIO EN ECONOMIA Y GESTION DE LA INNOVACION",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AQ/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AR",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA SISMICA: DINAMICA DE SUELOS Y ESTRUCTURA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AR/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AS",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE LA ORGANIZACION",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AS/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AT",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA MECANICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AT/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AU",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA QUIMICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AU/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AV",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA ELECTRICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AV/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AW",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA AMBIENTAL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AW/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AX",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE LA ENERGIA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AX/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AY",
+			"title": "MASTER UNIVERSITARIO EN AUTOMATICA Y ROBOTICA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AY/asignaturas?anio=201920"
+		},
+		{
+			"id": "05AZ",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA INDUSTRIAL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05AZ/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BA",
+			"title": "MASTER UNIVERSITARIO EN PLASMA, LASER Y TECNOLOGIA DE SUPERFICIE",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BA/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BC",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA QUIMICA",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BC/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BD",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE LA ORGANIZACION",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BD/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BE",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA ELECTRICA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BE/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BF",
+			"title": "MASTER UNIVERSITARIO EN CIENCIA Y TECNOLOGIA NUCLEAR",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BF/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BG",
+			"title": "MASTER UNIVERSITARIO EN ELECTRONICA INDUSTRIAL",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BG/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BH",
+			"title": "MASTER UNIVERSITARIO EN AUTOMATICA Y ROBOTICA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BH/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BI",
+			"title": "DOBLE MASTER UNIVERSITARIO INGENIERIA INDUSTRIAL - ELECTRONICA INDUSTRIAL",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BI/asignaturas?anio=201920"
+		},
+		{
+			"id": "05BJ",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA AMBIENTAL",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05BJ/asignaturas?anio=201920"
+		},
+		{
+			"id": "05CN",
+			"title": "D.M.U.  EN INGENIERÍA INDUSTRIAL Y EN CIENCIA Y TECNOLOGÍA NUCLEAR",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05CN/asignaturas?anio=201920"
+		},
+		{
+			"id": "05DI",
+			"title": "DOBLE MASTER UNIVERSITARIO EN INGENIERIA INDUSTRIAL Y EN AUTOMATICA Y ROBOT",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05DI/asignaturas?anio=201920"
+		},
+		{
+			"id": "05FI",
+			"title": "DOBLE MASTER UNIVERSITARIO EN INGENIERIA INDUSTRIAL Y EN INGENIERIA SISMICA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05FI/asignaturas?anio=201920"
+		},
+		{
+			"id": "05F4",
+			"title": "EUROPEAN DOCTORATE IN INDUSTRIAL MANAGEMENT (EDIM)",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05F4/asignaturas?anio=201920"
+		},
+		{
+			"id": "05F5",
+			"title": "DOCTORADO EN AUTOMATICA Y ROBOTICA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05F5/asignaturas?anio=201920"
+		},
+		{
+			"id": "05F6",
+			"title": "DOCTORADO EN INGENIERIA ELECTRICA Y ELECTRONICA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05F6/asignaturas?anio=201920"
+		},
+		{
+			"id": "05F7",
+			"title": "DOCTORADO EN INGENIERIA AMBIENTAL, QUIMICA  Y DE LOS MATERIALES",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05F7/asignaturas?anio=201920"
+		},
+		{
+			"id": "05F8",
+			"title": "DOCTORADO EN ENERGIA SOSTENIBLE, NUCLEAR Y RENOVABLE",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05F8/asignaturas?anio=201920"
+		},
+		{
+			"id": "05F9",
+			"title": "DOCTORADO EN INGENIERIA DE ORGANIZACION",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05F9/asignaturas?anio=201920"
+		},
+		{
+			"id": "05G1",
+			"title": "DOCTORADO EN INGENIERIA MECANICA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05G1/asignaturas?anio=201920"
+		},
+		{
+			"id": "05G2",
+			"title": "DOCTORADO EN ECONOMIA Y GESTION DE LA INNOVACION",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05G2/asignaturas?anio=201920"
+		},
+		{
+			"id": "05IA",
+			"title": "GRADO EN INGENIERIA ELECTRONICA INDUSTRIAL Y AUTOMATICA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05IA/asignaturas?anio=201920"
+		},
+		{
+			"id": "05IE",
+			"title": "GRADO EN INGENIERIA ELECTRICA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05IE/asignaturas?anio=201920"
+		},
+		{
+			"id": "05IM",
+			"title": "GRADO EN INGENIERIA MECANICA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05IM/asignaturas?anio=201920"
+		},
+		{
+			"id": "05IO",
+			"title": "GRADO EN INGENIERIA DE ORGANIZACION",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05IO/asignaturas?anio=201920"
+		},
+		{
+			"id": "05IQ",
+			"title": "GRADO EN INGENIERIA QUIMICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05IQ/asignaturas?anio=201920"
+		},
+		{
+			"id": "05IR",
+			"title": "GRADO EN INGENIERIA DE ORGANIZACION",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05IR/asignaturas?anio=201920"
+		},
+		{
+			"id": "05TI",
+			"title": "GRADO EN INGENIERIA EN TECNOLOGIAS INDUSTRIALES",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/05TI/asignaturas?anio=201920"
+		},
+		{
+			"id": "5003",
+			"title": "ADMINISTRACION Y DIRECCION INTERNACIONAL DE EMPRESAS (MBA INTERNACIONAL)",
+			"anio_inicio": "2006-07",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5003/asignaturas?anio=201920"
+		},
+		{
+			"id": "5004",
+			"title": "ADMINISTRACION DE EMPRESAS EN LA ECONOMIA DIGITAL  (PRESENCIAL)",
+			"anio_inicio": "2006-07",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5004/asignaturas?anio=201920"
+		},
+		{
+			"id": "5005",
+			"title": "COMERCIO EXTERIOR Y MARKETING INTERNACIONAL",
+			"anio_inicio": "2006-07",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5005/asignaturas?anio=201920"
+		},
+		{
+			"id": "5013",
+			"title": "METROLOGIA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5013/asignaturas?anio=201920"
+		},
+		{
+			"id": "5014",
+			"title": "CALIDAD TOTAL",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5014/asignaturas?anio=201920"
+		},
+		{
+			"id": "5018",
+			"title": "TECNOLOGIAS DE GENERACION DE ENERGIA ELECTRICA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5018/asignaturas?anio=201920"
+		},
+		{
+			"id": "5020",
+			"title": "MASTER EN ADMINISTRACION DE EMPRESAS (MBA)",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5020/asignaturas?anio=201920"
+		},
+		{
+			"id": "5025",
+			"title": "MASTER EN GESTION INTERNACIONAL DE EMPRESAS (MBA GLOBAL EXECUTIVE)",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5025/asignaturas?anio=201920"
+		},
+		{
+			"id": "5028",
+			"title": "COMERCIO EXTERIOR Y MARKETING INTERNACIONAL - Presencial",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5028/asignaturas?anio=201920"
+		},
+		{
+			"id": "5029",
+			"title": "GESTION DE EMPRESAS EN LA ECONOMIA DIGITAL-PRESENCIAL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5029/asignaturas?anio=201920"
+		},
+		{
+			"id": "5030",
+			"title": "ADMINISTRACION DE EMPRESAS PARA EMPRENDEDORES -SEMIPRESENCIAL",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5030/asignaturas?anio=201920"
+		},
+		{
+			"id": "5033",
+			"title": "INTERNATIONAL MASTER IN INDUSTRIAL MANAGEMENT",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5033/asignaturas?anio=201920"
+		},
+		{
+			"id": "5034",
+			"title": "ME3 - EUROPEAN JOINT MASTERS IN MANAGEMENT AND ENGINEERING",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5034/asignaturas?anio=201920"
+		},
+		{
+			"id": "5040",
+			"title": "NUMERICAL SIMULATION IN ENGINEERING WITH ANSYS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5040/asignaturas?anio=201920"
+		},
+		{
+			"id": "5041",
+			"title": "MASTER EN DIRECCION ESTRATEGICA INTERNACIONAL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5041/asignaturas?anio=201920"
+		},
+		{
+			"id": "5042",
+			"title": "METROLOGÍA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5042/asignaturas?anio=201920"
+		},
+		{
+			"id": "5046",
+			"title": "ADMINISTRACIÓN Y DIRECCIÓN  INTERNACIONAL DE EMPRESAS (MBA INTERNACIONAL)",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5046/asignaturas?anio=201920"
+		},
+		{
+			"id": "5047",
+			"title": "MASTER EN ADMINISTRACION DE EMPRESAS (MBA - EXECUTIVE)",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5047/asignaturas?anio=201920"
+		},
+		{
+			"id": "5048",
+			"title": "DESARROLLO GERENCIAL",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5048/asignaturas?anio=201920"
+		},
+		{
+			"id": "5049",
+			"title": "MERCADOS REGULADOS Y COMPETENCIA",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5049/asignaturas?anio=201920"
+		},
+		{
+			"id": "5050",
+			"title": "INGENIERÍA DE LOS VEHÍCULOS HÍBRIDOS Y ELÉCTRICOS",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5050/asignaturas?anio=201920"
+		},
+		{
+			"id": "5056",
+			"title": "INGENIERÍA DE AUTOMOCIÓN",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5056/asignaturas?anio=201920"
+		},
+		{
+			"id": "5057",
+			"title": "BUSINESS PROJECT MANAGEMENT",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5057/asignaturas?anio=201920"
+		},
+		{
+			"id": "5058",
+			"title": "INGENIERÍA DE VEHÍCULOS AUTÓNOMOS Y CONECTADOS",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5058/asignaturas?anio=201920"
+		},
+		{
+			"id": "5059",
+			"title": "MASTER EN INGENIERIA DE LA AUTOMOCION",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5059/asignaturas?anio=201920"
+		},
+		{
+			"id": "5060",
+			"title": "INGENIERÍA DE LOS VEHÍCULOS HÍBRIDOS Y ELÉCTRICOS",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5060/asignaturas?anio=201920"
+		},
+		{
+			"id": "5061",
+			"title": "FINANZAS",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5061/asignaturas?anio=201920"
+		},
+		{
+			"id": "5062",
+			"title": "ADMINISTRACIÓN Y DIRECCIÓN INTERNACIONAL DE EMPRESAS (MBA INTERNACIONAL)",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5062/asignaturas?anio=201920"
+		},
+		{
+			"id": "5063",
+			"title": "INGENIERÍA DE AUTOMOCIÓN",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5063/asignaturas?anio=201920"
+		},
+		{
+			"id": "5064",
+			"title": "EXPERTO GESTIÓN DE PRODUCTOS SANITARIOS",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5064/asignaturas?anio=201920"
+		},
+		{
+			"id": "5065",
+			"title": "ANÁLISIS FINANCIERO",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5065/asignaturas?anio=201920"
+		},
+		{
+			"id": "5067",
+			"title": "INTERNATIONAL MASTER IN INDUSTRIAL MANAGEMENT",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5067/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX06",
+			"title": "GRADO VISITANTES CENTRO 6",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX06/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV06",
+			"title": "MOVILIDAD CENTRO 6",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV06/asignaturas?anio=201920"
+		},
+		{
+			"id": "06AE",
+			"title": "MASTER UNIV. EN INVESTIGACION, MODELIZACION Y ANALISIS DEL RIESGO EN M.A.",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "06AF",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE MINAS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "06AG",
+			"title": "MASTER UNIVERSITARIO EN MINERIA SOSTENIBLE",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06AG/asignaturas?anio=201920"
+		},
+		{
+			"id": "06AH",
+			"title": "M U EN EFICIENCIA ENERGETICA EN LA EDIFICACION LA INDUSTRIA Y EL TRANSPORTE",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06AH/asignaturas?anio=201920"
+		},
+		{
+			"id": "06AI",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA GEOLOGICA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06AI/asignaturas?anio=201920"
+		},
+		{
+			"id": "06AJ",
+			"title": "MÁSTER UNIVERSITARIO EN INGENIERÍA GEOLÓGICA",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06AJ/asignaturas?anio=201920"
+		},
+		{
+			"id": "06D5",
+			"title": "DOCTORADO INVESTIGACION, MODELIZACION Y ANALISIS RIESGO EN MEDIO AMBIENTE",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06D5/asignaturas?anio=201920"
+		},
+		{
+			"id": "06GD",
+			"title": "MASTER UNIVERSITARIO EN GESTION DE DESASTRES",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06GD/asignaturas?anio=201920"
+		},
+		{
+			"id": "06GE",
+			"title": "GRADO EN INGENIERIA GEOLOGICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06GE/asignaturas?anio=201920"
+		},
+		{
+			"id": "06IE",
+			"title": "GRADO EN INGENIERIA DE LA ENERGIA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06IE/asignaturas?anio=201920"
+		},
+		{
+			"id": "06RE",
+			"title": "GRADO EN INGENIERIA DE LOS RECURSOS ENERGETICOS, COMBUSTIBLES Y EXPLOSIVOS",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06RE/asignaturas?anio=201920"
+		},
+		{
+			"id": "06TM",
+			"title": "GRADO EN INGENIERIA EN TECNOLOGIA MINERA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/06TM/asignaturas?anio=201920"
+		},
+		{
+			"id": "6005",
+			"title": "ATMOSFERAS EXPLOSIVAS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/6005/asignaturas?anio=201920"
+		},
+		{
+			"id": "6006",
+			"title": "INGENIERIA DE PETROLEO Y GAS",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/6006/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX08",
+			"title": "GRADO VISITANTES CENTRO 8",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX08/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV08",
+			"title": "MOVILIDAD CENTRO 08",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV08/asignaturas?anio=201920"
+		},
+		{
+			"id": "08D2",
+			"title": "DOCTORADO EN INGENIERIA NAVAL Y OCEANICA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/08D2/asignaturas?anio=201920"
+		},
+		{
+			"id": "08IA",
+			"title": "GRADO EN ARQUITECTURA NAVAL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/08IA/asignaturas?anio=201920"
+		},
+		{
+			"id": "08IM",
+			"title": "GRADO EN INGENIERIA MARITIMA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/08IM/asignaturas?anio=201920"
+		},
+		{
+			"id": "08NO",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA NAVAL Y OCEANICA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/08NO/asignaturas?anio=201920"
+		},
+		{
+			"id": "8008",
+			"title": "INTERNACIONAL EN INGENIERÍA NAVAL MILITAR",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/8008/asignaturas?anio=201920"
+		},
+		{
+			"id": "8009",
+			"title": "MASTER'S DEGREE ON MARINE RENEWABLE ENERGIES HARNESSING",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/8009/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX09",
+			"title": "VISITANTES GRADO CENTRO 9",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX09/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV09",
+			"title": "MOVILIDAD CENTRO 09",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV09/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AM",
+			"title": "MASTER UNIVERSITARIO EN ENERGIA SOLAR FOTOVOLTAICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AM/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AN",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE SISTEMAS ELECTRONICOS",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AN/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AQ",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE TELECOMUNICACION",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AQ/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AR",
+			"title": "MASTER UNIV. EN TRATAMIENTO ESTADISTICO-COMPUTACIONAL DE LA INFORMACION",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AR/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AS",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE REDES Y SERVICIOS TELEMATICOS",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AS/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AT",
+			"title": "MASTER UNIVERSITARIO EN TEORIA DE LA SEÑAL Y COMUNICACIONES",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AT/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AU",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA BIOMEDICA",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AU/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AV",
+			"title": "EIT DIGITAL TRACK ON SOFTWARE AND SERVICES ARCHITECTURE",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AV/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AW",
+			"title": "MASTER UNIVERSITARIO EN CIBERSEGURIDAD",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AW/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AX",
+			"title": "MASTER UNIVERSITARIO EN ENERGIA SOLAR FOTOVOLTAICA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AX/asignaturas?anio=201920"
+		},
+		{
+			"id": "09AZ",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE SISTEMAS ELECTRONICOS",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09AZ/asignaturas?anio=201920"
+		},
+		{
+			"id": "09BA",
+			"title": "MASTER UNIVERSITARIO EN INGENIERÍA DE REDES Y SERVICIOS TELEMÁTICOS",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09BA/asignaturas?anio=201920"
+		},
+		{
+			"id": "09BB",
+			"title": "DOBLE MASTER INGENIERIA TELECOMUNICACION Y EN REDES Y SERVICIOS TELEMATICOS",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09BB/asignaturas?anio=201920"
+		},
+		{
+			"id": "09BC",
+			"title": "DOBLE MASTER UNIV. ING. TELECOMUNICACION Y EN ING. DE SISTEMAS ELECTRONICOS",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09BC/asignaturas?anio=201920"
+		},
+		{
+			"id": "09BD",
+			"title": "DOBLE MASTER ING.TELECOMUNICACION Y TEORIA DE LA SEÑAL Y COMUNICACIONES",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09BD/asignaturas?anio=201920"
+		},
+		{
+			"id": "09E6",
+			"title": "DOCTORADO EN ENERGIA SOLAR FOTOVOLTAICA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09E6/asignaturas?anio=201920"
+		},
+		{
+			"id": "09E7",
+			"title": "DOCTORADO EN INGENIERIA BIOMEDICA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09E7/asignaturas?anio=201920"
+		},
+		{
+			"id": "09E8",
+			"title": "DOCTORADO EN INGENIERIA DE SISTEMAS ELECTRONICOS",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09E8/asignaturas?anio=201920"
+		},
+		{
+			"id": "09E9",
+			"title": "DOCTORADO EN INGENIERIA DE SISTEMAS TELEMATICOS",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09E9/asignaturas?anio=201920"
+		},
+		{
+			"id": "09F1",
+			"title": "DOCTORADO EN INGENIERIA MATEMATICA, ESTADISTICA E INVESTIGACION OPERATIVA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09F1/asignaturas?anio=201920"
+		},
+		{
+			"id": "09F2",
+			"title": "DOCTORADO EN TECNOLOGIAS Y SISTEMAS DE COMUNICACION",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09F2/asignaturas?anio=201920"
+		},
+		{
+			"id": "09F3",
+			"title": "DOC EN TECNOLOGIAS DE LA INFORMACION Y COMUNICACIONES MATERIALES Y DISPOSIT",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09F3/asignaturas?anio=201920"
+		},
+		{
+			"id": "09IB",
+			"title": "GRADO EN INGENIERIA BIOMEDICA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09IB/asignaturas?anio=201920"
+		},
+		{
+			"id": "09TT",
+			"title": "GRADO EN INGENIERIA DE TECNOLOGIAS Y SERVICIOS DE TELECOMUNICACION",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/09TT/asignaturas?anio=201920"
+		},
+		{
+			"id": "90TD",
+			"title": "POSGRADO EN TECNOLOGIAS PARA LA DEFENSA",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90TD/asignaturas?anio=201920"
+		},
+		{
+			"id": "9003",
+			"title": "DIRECCION DE EMPRESAS MBA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9003/asignaturas?anio=201920"
+		},
+		{
+			"id": "9004",
+			"title": "ADMINISTRACION Y DIRECCION DE EMPRESAS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9004/asignaturas?anio=201920"
+		},
+		{
+			"id": "9005",
+			"title": "DIRECCION Y ORGANIZACION SISTEMAS DE INFORMACION Y COMUNICACIONES",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9005/asignaturas?anio=201920"
+		},
+		{
+			"id": "9011",
+			"title": "DIRECCION Y ADMINISTRACION DE EMPRESAS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9011/asignaturas?anio=201920"
+		},
+		{
+			"id": "9012",
+			"title": "DIRECCION DE PROYECTOS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9012/asignaturas?anio=201920"
+		},
+		{
+			"id": "9013",
+			"title": "GESTION DE LA CALIDAD",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9013/asignaturas?anio=201920"
+		},
+		{
+			"id": "9022",
+			"title": "SAP EN SISTEMAS DE INFORMACION INTEGRADOS (ERP)",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9022/asignaturas?anio=201920"
+		},
+		{
+			"id": "9063",
+			"title": "DIRECCION DE SISTEMAS DE INFORMACION: GESTION Y NEGOCIO DE SISTEMAS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9063/asignaturas?anio=201920"
+		},
+		{
+			"id": "9064",
+			"title": "DIRECCIÓN DE REDES, SERVICIOS Y NEGOCIO",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9064/asignaturas?anio=201920"
+		},
+		{
+			"id": "9077",
+			"title": "SISTEMAS Y MODELOS CUANTITATIVOS DE TRADING ALGORÍTMICO",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9077/asignaturas?anio=201920"
+		},
+		{
+			"id": "9079",
+			"title": "CURSO DE ESPECIALIZACION HUAWEI - UPM \"LIDERANDO LA NUEVA ERA DIGITAL: 5G\"",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9079/asignaturas?anio=201920"
+		},
+		{
+			"id": "9080",
+			"title": "ACCENTURE-UPM EN CIBERSEGURIDAD DIGITAL",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9080/asignaturas?anio=201920"
+		},
+		{
+			"id": "9082",
+			"title": "DIRECCION SISTEMAS DE INFORMACION:GESTION Y NEGOCIO DE SISTEMAS Y SERVICIOS",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9082/asignaturas?anio=201920"
+		},
+		{
+			"id": "9083",
+			"title": "ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS MBA - on line",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9083/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX10",
+			"title": "PLAN VISITANTES GRADO FACULTAD INFORMATICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX10/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV10",
+			"title": "MOVILIDAD CENTRO 10",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV10/asignaturas?anio=201920"
+		},
+		{
+			"id": "PR01",
+			"title": "PLAN PRUEBA FIRMA DIGITAL",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/PR01/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AJ",
+			"title": "MASTER UNIVERSITARIO EN INTELIGENCIA ARTIFICIAL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AJ/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AK",
+			"title": "MASTER UNIVERSITARIO EN SOFTWARE Y SISTEMAS",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AK/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AM",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DEL SOFTWARE",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AM/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AN",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA INFORMATICA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AN/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AP",
+			"title": "EIT DIGITAL MASTER'S PROGRAMME IN DATA SCIENCE",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AP/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AQ",
+			"title": "EIT DIGITAL MASTER'S PROGRAMME IN HUMAN COMPUTER INTERACTION AND DESIGN",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AQ/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AR",
+			"title": "MASTER INTERUNIVERSITARIO EN MÉTODOS FORMALES EN INGENIERÍA INFORMÁTICA",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AR/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AX",
+			"title": "MASTER UNIVERSITARIO INNOVACIÓN DIGITAL CIENCIA DE DATOS ITINERARIO HEALTH",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AX/asignaturas?anio=201920"
+		},
+		{
+			"id": "10AZ",
+			"title": "MASTER UNIVERSITARIO EN INNOVACIÓN DIGITAL",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10AZ/asignaturas?anio=201920"
+		},
+		{
+			"id": "10BA",
+			"title": "MASTER UNIVERSITARIO EN CIENCIA DE DATOS",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10BA/asignaturas?anio=201920"
+		},
+		{
+			"id": "10E1",
+			"title": "DOCTORADO EN INTELIGENCIA ARTIFICIAL",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10E1/asignaturas?anio=201920"
+		},
+		{
+			"id": "10E2",
+			"title": "DOCTORADO EN SOFTWARE, SISTEMAS Y COMPUTACION",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/10E2/asignaturas?anio=201920"
+		},
+		{
+			"id": "1007",
+			"title": "CONSULTORIA Y GESTION DE EMPRESAS",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1007/asignaturas?anio=201920"
+		},
+		{
+			"id": "1020",
+			"title": "DIRECCION Y GESTION DE PROYECTOS SOFTWARE - A DISTANCIA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1020/asignaturas?anio=201920"
+		},
+		{
+			"id": "1056",
+			"title": "AUDITORÍA Y CONTROL DE LOS SISTEMAS DE INFORMACIÓN",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1056/asignaturas?anio=201920"
+		},
+		{
+			"id": "1057",
+			"title": "SEGURIDAD DE LA INFORMACIÓN",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1057/asignaturas?anio=201920"
+		},
+		{
+			"id": "1061",
+			"title": "MASTER EN DIRECCIÓN Y GESTIÓN DE PROYECTOS SOFTWARE - Distancia",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1061/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX11",
+			"title": "PLAN VISITANTES GRADO INEF",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX11/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV11",
+			"title": "MOVILIDAD CENTRO 11",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV11/asignaturas?anio=201920"
+		},
+		{
+			"id": "11AB",
+			"title": "MASTER UNIVERSITARIO EN CIENCIAS DE LA ACTIVIDAD FISICA Y DEL DEPORTE",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/11AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "11AF",
+			"title": "GRADO EN CIENCIAS DE LA ACTIVIDAD FÍSICA Y DEL DEPORTE",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/11AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "11CD",
+			"title": "GRADO EN CIENCIAS DEL DEPORTE",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/11CD/asignaturas?anio=201920"
+		},
+		{
+			"id": "11D3",
+			"title": "DOCTORADO EN CIENCIAS DE LA ACTIVIDAD FISICA Y DEL DEPORTE",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/11D3/asignaturas?anio=201920"
+		},
+		{
+			"id": "1111",
+			"title": "ENTRENAMIENTO PERSONAL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1111/asignaturas?anio=201920"
+		},
+		{
+			"id": "1113",
+			"title": "ESPECIALISTA UNIVERSITARIO EN ENTRENAMIENTO PERSONAL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1113/asignaturas?anio=201920"
+		},
+		{
+			"id": "1114",
+			"title": "PREVENCION, INTERVENCION Y RECUPERACION FUNCIONAL DE LESIONES EN LA ACTIVID",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1114/asignaturas?anio=201920"
+		},
+		{
+			"id": "1116",
+			"title": "INTERVENCION EN EL MEDIO ACUATICO Y NATACION PARA PERSONAS CON DISCAPACIDAD",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1116/asignaturas?anio=201920"
+		},
+		{
+			"id": "1120",
+			"title": "DESARROLLO PROFESIONAL PGA-UPM",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1120/asignaturas?anio=201920"
+		},
+		{
+			"id": "1121",
+			"title": "MUJER Y DEPORTE",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1121/asignaturas?anio=201920"
+		},
+		{
+			"id": "1122",
+			"title": "ANÁLISIS DEL RENDIMIENTO EN FÚTBOL",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1122/asignaturas?anio=201920"
+		},
+		{
+			"id": "1123",
+			"title": "CURSO DE ENSEÑANZA DEL FUTBOL",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1123/asignaturas?anio=201920"
+		},
+		{
+			"id": "30AG",
+			"title": "M U EN FORMACION DEL PROFESORADO EN ESO BACHILLERATO Y FP (ESP EDUC FÍSICA)",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/30AG/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX12",
+			"title": "VISITANTES GRADO CENTRO 12 TOPOGRAFIA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX12/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV12",
+			"title": "MOVILIDAD CENTRO 12",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV12/asignaturas?anio=201920"
+		},
+		{
+			"id": "12AB",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA GEODESICA Y CARTOGRAFIA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/12AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "12AC",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA GEODESICA Y CARTOGRAFIA",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/12AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "12AR",
+			"title": "MÁSTER UNIV. ANÁLISIS DEL RIESGO SÍSMICO MEDIANTE TECNOLOGÍAS GEOESPACIALES",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/12AR/asignaturas?anio=201920"
+		},
+		{
+			"id": "12D3",
+			"title": "DOCTORADO EN INGENIERIA GEOMATICA",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/12D3/asignaturas?anio=201920"
+		},
+		{
+			"id": "12GM",
+			"title": "GRADO EN INGENIERIA GEOMATICA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/12GM/asignaturas?anio=201920"
+		},
+		{
+			"id": "12GT",
+			"title": "GRADO EN INGENIERIA GEOMATICA Y TOPOGRAFIA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/12GT/asignaturas?anio=201920"
+		},
+		{
+			"id": "12TG",
+			"title": "GRADO EN INGENIERIA DE LAS TECNOLOGIAS DE LA INFORMACION GEOESPACIAL",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/12TG/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX13",
+			"title": "VISITANTES GRADO CENTRO 13",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX13/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV13",
+			"title": "MOVILIDAD CENTRO 13",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV13/asignaturas?anio=201920"
+		},
+		{
+			"id": "07AB",
+			"title": "MASTER UNIVERSITARIO EN TECNICAS DE LUCHA CONTRA INCENDIOS FORESTALES",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/07AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "07D3",
+			"title": "DOCTORADO EN INVESTIGACION FORESTAL AVANZADA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/07D3/asignaturas?anio=201920"
+		},
+		{
+			"id": "13AA",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE MONTES",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13AA/asignaturas?anio=201920"
+		},
+		{
+			"id": "13AB",
+			"title": "MASTER UNIVERSITARIO EN GESTION DEL TURISMO ECOLOGICO Y SOSTENIBLE",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "13AC",
+			"title": "MASTER UNIVERSITARIO EN ECONOMIA CIRCULAR",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "13AD",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE MONTES",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13AD/asignaturas?anio=201920"
+		},
+		{
+			"id": "13AM",
+			"title": "MASTER UNIVERSITARIO EL AGUA EN EL MEDIO NATURAL. USOS Y GESTION.",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13AM/asignaturas?anio=201920"
+		},
+		{
+			"id": "13D1",
+			"title": "DOCTORADO EN ECOLOGIA. CONSERVACION Y RESTAURACION DE ECOSISTEMAS",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13D1/asignaturas?anio=201920"
+		},
+		{
+			"id": "13D2",
+			"title": "DOCTORADO EN INGENIERIA Y GESTION DEL MEDIO NATURAL",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13D2/asignaturas?anio=201920"
+		},
+		{
+			"id": "13IF",
+			"title": "GRADO EN INGENIERIA FORESTAL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13IF/asignaturas?anio=201920"
+		},
+		{
+			"id": "13IG",
+			"title": "GRADO EN INGENIERIA FORESTAL",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13IG/asignaturas?anio=201920"
+		},
+		{
+			"id": "13MN",
+			"title": "GRADO EN INGENIERIA DEL MEDIO NATURAL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13MN/asignaturas?anio=201920"
+		},
+		{
+			"id": "13MP",
+			"title": "GRADO EN INGENIERIA DEL MEDIO NATURAL",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13MP/asignaturas?anio=201920"
+		},
+		{
+			"id": "13RE",
+			"title": "MASTER UNIVERSITARIO EN RESTAURACION DE ECOSISTEMAS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13RE/asignaturas?anio=201920"
+		},
+		{
+			"id": "13TA",
+			"title": "GRADO EN INGENIERIA EN TECNOLOGIAS AMBIENTALES",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/13TA/asignaturas?anio=201920"
+		},
+		{
+			"id": "1304",
+			"title": "GESTIÓN SOSTENIBLE DE LOS RESIDUOS / SUSTAINABLE WASTE MANAGEMENT",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1304/asignaturas?anio=201920"
+		},
+		{
+			"id": "1305",
+			"title": "JARDINES HISTÓRICOS Y SERVICIOS ECOSISTÉMICOS DE LA INFRAESTRUCTURA VERDE",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1305/asignaturas?anio=201920"
+		},
+		{
+			"id": "7023",
+			"title": "CATASTRO VALORACION Y TRIBUTACION INMOBILIARIA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/7023/asignaturas?anio=201920"
+		},
+		{
+			"id": "7035",
+			"title": "GESTIÓN DE RESIDUOS URBANOS",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/7035/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX14",
+			"title": "VISITANTES GRADO CENTRO 14",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX14/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV14",
+			"title": "MOVILIDAD CENTRO 14",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV14/asignaturas?anio=201920"
+		},
+		{
+			"id": "01D4",
+			"title": "DOCTOR EN INGENIERIA AEROESPACIAL",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/01D4/asignaturas?anio=201920"
+		},
+		{
+			"id": "01MI",
+			"title": "MASTER UNIVERSITARIO EN MATEMATICA INDUSTRIAL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/01MI/asignaturas?anio=201920"
+		},
+		{
+			"id": "14D1",
+			"title": "DOCTORADO EN MECANICA DE FLUIDOS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/14D1/asignaturas?anio=201920"
+		},
+		{
+			"id": "14GO",
+			"title": "GRADO EN GESTION Y OPERACIONES DEL TRANSPORTE AEREO",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/14GO/asignaturas?anio=201920"
+		},
+		{
+			"id": "14GY",
+			"title": "GRADO EN GESTIÓN Y OPERACIONES DEL TRANSPORTE AÉREO",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/14GY/asignaturas?anio=201920"
+		},
+		{
+			"id": "14IA",
+			"title": "GRADO EN INGENIERIA AEROESPACIAL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/14IA/asignaturas?anio=201920"
+		},
+		{
+			"id": "14IB",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA AERONAUTICA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/14IB/asignaturas?anio=201920"
+		},
+		{
+			"id": "14SA",
+			"title": "MASTER UNIVERSITARIO EN SISTEMAS ESPACIALES",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/14SA/asignaturas?anio=201920"
+		},
+		{
+			"id": "14SE",
+			"title": "MASTER UNIVERSITARIO EN SISTEMAS ESPACIALES",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/14SE/asignaturas?anio=201920"
+		},
+		{
+			"id": "14TA",
+			"title": "MASTER UNIVERSITARIO EN SISTEMAS DEL TRANSPORTE AEREO",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/14TA/asignaturas?anio=201920"
+		},
+		{
+			"id": "1401",
+			"title": "MATERIALES COMPUESTOS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1401/asignaturas?anio=201920"
+		},
+		{
+			"id": "1402",
+			"title": "ANÁLISIS DE NEGOCIOS CON BIG DATA PARA LA INDUSTRIA",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/1402/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX20",
+			"title": "PLAN VISITANTE GRADO CENTRO 20 AGRONOMICA, ALIMENTARIA Y DE BIOSISTEMAS",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX20/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV20",
+			"title": "MOVILIDAD CENTRO 20",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV20/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AC",
+			"title": "MASTER UNIVERSITARIO EN AGROINGENIERIA",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AF",
+			"title": "MASTER UNIV. PLANIFICACION DE PROYECTOS DE DLLO RURAL Y GESTION SOSTENIBLE",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AH",
+			"title": "MASTER UNIVERSITARIO EN BIOTECNOLOGIA AGROFORESTAL",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AH/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AL",
+			"title": "GRADO EN INGENIERIA ALIMENTARIA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AL/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AN",
+			"title": "MASTER UNIVERSITARIO EN JARDINERIA Y PAISAJISMO",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AN/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AO",
+			"title": "MASTER UNIVERSITARIO EN PRODUCCION Y SANIDAD ANIMAL",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AO/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AP",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA AGRONOMICA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AP/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AQ",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA ALIMENTARIA APLICADA A LA SALUD",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AQ/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AR",
+			"title": "MASTER UNIVERSITARIO EN ECONOMIA AGRARIA, ALIMENTARIA Y RECURSOS NATURALES",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AR/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AS",
+			"title": "MASTER UNIVERSITARIO EN BIOTECNOLOGIA AGROFORESTAL",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AS/asignaturas?anio=201920"
+		},
+		{
+			"id": "02AT",
+			"title": "MU ESTRATEGIAS Y TECNOLOGIAS PARA EL DESARROLLO: LA COOPERACION EN UN MUNDO",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02AT/asignaturas?anio=201920"
+		},
+		{
+			"id": "02BT",
+			"title": "GRADO EN BIOTECNOLOGIA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02BT/asignaturas?anio=201920"
+		},
+		{
+			"id": "02CA",
+			"title": "GRADO EN INGENIERIA Y CIENCIA AGRONOMICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02CA/asignaturas?anio=201920"
+		},
+		{
+			"id": "02E3",
+			"title": "DOCTORADO EN SISTEMAS COMPLEJOS",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02E3/asignaturas?anio=201920"
+		},
+		{
+			"id": "02E4",
+			"title": "DOCTORADO EN BIOTECNOLOGIA Y RECURSOS GENETICOS DE PLANTAS Y MICROORGANISMO",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02E4/asignaturas?anio=201920"
+		},
+		{
+			"id": "02E5",
+			"title": "DOCTORADO EN AGROINGENIERIA",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02E5/asignaturas?anio=201920"
+		},
+		{
+			"id": "02E6",
+			"title": "DOCTORADO TECNOLOGIA AGROAMBIENTAL PARA UNA AGRICULTURA SOSTENIBLE",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02E6/asignaturas?anio=201920"
+		},
+		{
+			"id": "02E7",
+			"title": "DOC EN PLANIFICACIÓN DE PROYECTOS DE DESARROLLO RURAL Y GESTIÓN SOSTENIBLE",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02E7/asignaturas?anio=201920"
+		},
+		{
+			"id": "02IA",
+			"title": "GRADO EN INGENIERIA AGROAMBIENTAL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02IA/asignaturas?anio=201920"
+		},
+		{
+			"id": "02IN",
+			"title": "D.M. UNIV. INGENIERIA AGRONOMICA Y ECONOMIA AGRARIA Y DE LOS RECURSOS NATUR",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/02IN/asignaturas?anio=201920"
+		},
+		{
+			"id": "20AB",
+			"title": "MASTER UNIV EN TECNOLOGIA AGROAMBIENTAL PARA UNA AGRICULTURA SOSTENIBLE",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "20AC",
+			"title": "MASTER UNIVERSITARIO EN PRODUCCION Y SANIDAD ANIMAL",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "20AE",
+			"title": "MU ESTRATEGIAS Y TECNOLOGIAS PARA EL DESARROLLO: LA COOPERACION EN UN MUNDO",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "20AF",
+			"title": "MASTER EN INGENIERIA DE SISTEMAS AGRARIOS",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "20AS",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA ALIMENTARIA APLICADA A LA SALUD",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20AS/asignaturas?anio=201920"
+		},
+		{
+			"id": "20BC",
+			"title": "MASTER UNIVERSITARIO EN BIOLOGIA COMPUTACIONAL",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20BC/asignaturas?anio=201920"
+		},
+		{
+			"id": "20BI",
+			"title": "GRADO EN CIENCIA AGRARIAS Y BIOECONOMIA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20BI/asignaturas?anio=201920"
+		},
+		{
+			"id": "20BT",
+			"title": "GRADO EN BIOTECNOLOGÍA",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20BT/asignaturas?anio=201920"
+		},
+		{
+			"id": "20IA",
+			"title": "GRADO EN INGENIERIA ALIMENTARIA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20IA/asignaturas?anio=201920"
+		},
+		{
+			"id": "20IG",
+			"title": "GRADO EN INGENIERIA AGRICOLA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/20IG/asignaturas?anio=201920"
+		},
+		{
+			"id": "2001",
+			"title": "VITICULTURA Y ENOLOGÍA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/2001/asignaturas?anio=201920"
+		},
+		{
+			"id": "2009",
+			"title": "CERTIFICACION IPMA EN DIRECCION DE PROYECTOS: BASES PARA LA COMPETENCIA",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/2009/asignaturas?anio=201920"
+		},
+		{
+			"id": "2010",
+			"title": "CERTIFICACION EN DIRECCION PROYECTOS. BASES PARA LA COMPETENCIA",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/2010/asignaturas?anio=201920"
+		},
+		{
+			"id": "2011",
+			"title": "VITICULTURA Y ENOLOGÍA (Erasmus Mundus)",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/2011/asignaturas?anio=201920"
+		},
+		{
+			"id": "2012",
+			"title": "CADENAS DE SUMINISTRO LEAN & GREEN /MASTER IN LEAN & GREEN SUPPLY CHAINS",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/2012/asignaturas?anio=201920"
+		},
+		{
+			"id": "2090",
+			"title": "COMPETENCIAS EN DIRECCIÓN DE PROYECTOS (IPMA)",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/2090/asignaturas?anio=201920"
+		},
+		{
+			"id": "52AG",
+			"title": "GRADO EN INGENIERIA AGRICOLA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/52AG/asignaturas?anio=201920"
+		},
+		{
+			"id": "52TI",
+			"title": "GRADO EN TECNOLOGIA DE LAS INDUSTRIAS AGRARIAS Y ALIMENTARIAS",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/52TI/asignaturas?anio=201920"
+		},
+		{
+			"id": "5203",
+			"title": "GESTION DE LA CALIDAD ALIMENTARIA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5203/asignaturas?anio=201920"
+		},
+		{
+			"id": "5212",
+			"title": "CURSO DE ORDENACION Y GESTION CINEGETICA.LA CAZA COMO RECURSO AGRARIO",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5212/asignaturas?anio=201920"
+		},
+		{
+			"id": "9001",
+			"title": "EXPERTO EN COOPERACION PARA EL DESARROLLO",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9001/asignaturas?anio=201920"
+		},
+		{
+			"id": "21D1",
+			"title": "DOCTORADO EN MUSICA Y SU CIENCIA Y TECNOLOGÍA",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/21D1/asignaturas?anio=201920"
+		},
+		{
+			"id": "30AB",
+			"title": "M U EN FORMACION DEL PROFESORADO EN ESO BACHILLERATO Y FP (TECNOLOGIA)",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/30AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "30AC",
+			"title": "M U EN FORMACION DEL PROFESORADO EN ESO BACHILLERATO Y FP (EXP. GRÁFICA)",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/30AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "30AD",
+			"title": "GRADO EN ADMINISTRACION Y DIRECCION DE EMPRESAS",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/30AD/asignaturas?anio=201920"
+		},
+		{
+			"id": "30AE",
+			"title": "M U EN FORMACION DEL PROFESORADO EN ESO BACHILLERATO Y FP(ESP. MATEMÁTICAS)",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/30AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "30AF",
+			"title": "M U EN FORMACION DEL PROFESORADO EN ESO BACHILLERATO Y FP(FÍSICA Y QUÍM)",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/30AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "30D1",
+			"title": "DOCTORADO EN ARQUITECTURA, DISEÑO, MODA & SOCIEDAD",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/30D1/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX54",
+			"title": "VISITANTES GRADO CENTRO 54",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX54/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV54",
+			"title": "MOVILIDAD CENTRO 54",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV54/asignaturas?anio=201920"
+		},
+		{
+			"id": "54AB",
+			"title": "MASTER UNIVERSITARIO EN GESTION DE LA EDIFICACION",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/54AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "54AD",
+			"title": "MASTER UNIVERSITARIO EN INNOVACION TECNOLOGICA EN EDIFICACION (MITE)",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/54AD/asignaturas?anio=201920"
+		},
+		{
+			"id": "54AE",
+			"title": "MASTER UNIVERSITARIO EN GESTION EN EDIFICACION",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/54AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "54AF",
+			"title": "MÁSTER UNIVERSITARIO EN EJECUCIÓN DE OBRAS DE REHABILITACIÓN Y RESTAURACIÓN",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/54AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "54DM",
+			"title": "DOBLE MÁSTER EN INNOVACIÓN TECNOLÓGICA EN EDIFICACIÓN Y EN EJECUCIÓN DE OBR",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/54DM/asignaturas?anio=201920"
+		},
+		{
+			"id": "54D3",
+			"title": "DOCTORADO EN INNOVACION TECNOLOGICA EN EDIFICACION",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/54D3/asignaturas?anio=201920"
+		},
+		{
+			"id": "54ID",
+			"title": "DOBLE GRADO EN EDIFICACION Y EN ADMINISTRACION Y DIRECCION DE EMPRESAS",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/54ID/asignaturas?anio=201920"
+		},
+		{
+			"id": "54IE",
+			"title": "GRADO EN EDIFICACION",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/54IE/asignaturas?anio=201920"
+		},
+		{
+			"id": "5424",
+			"title": "PLANIFICACIÓN Y GESTIÓN INMOBILIARIA",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5424/asignaturas?anio=201920"
+		},
+		{
+			"id": "5425",
+			"title": "GÉNERO, TECNOLOGÍA Y LIDERAZGO",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5425/asignaturas?anio=201920"
+		},
+		{
+			"id": "5426",
+			"title": "PLANIFICACIÓN Y GESTIÓN INMOBILIARIA",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5426/asignaturas?anio=201920"
+		},
+		{
+			"id": "5427",
+			"title": "CIUDADES INTELIGENTES Y NATURACION URBANA EN LA EDIFICACION",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5427/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX56",
+			"title": "VISITANTES GRADO CENTRO 56",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX56/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV56",
+			"title": "MOVILIDAD CENTRO 56",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV56/asignaturas?anio=201920"
+		},
+		{
+			"id": "56AA",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE PRODUCCION",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56AA/asignaturas?anio=201920"
+		},
+		{
+			"id": "56AB",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA ELECTROMECANICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "56AC",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA EN DISEÑO INDUSTRIAL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "56AD",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA DE PRODUCCION",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56AD/asignaturas?anio=201920"
+		},
+		{
+			"id": "56AE",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA ELECTROMECANICA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "56AF",
+			"title": "MÁSTER UNIVERSITARIO EN INGENIERÍA DE PRODUCCIÓN",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "56DD",
+			"title": "GRADO INGENIERIA EN DISEÑO INDUSTRIAL Y DESARROLLO DE PRODUCTO",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56DD/asignaturas?anio=201920"
+		},
+		{
+			"id": "56DM",
+			"title": "DOBLE GRADO ING EN DISEÑO INDUSTRIAL Y DESARROLLO PRODUCTO Y EN ING MECANIC",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56DM/asignaturas?anio=201920"
+		},
+		{
+			"id": "56D2",
+			"title": "DOCTORADO EN INGENIERIA DE PRODUCCION Y DISEÑO INDUSTRIAL",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56D2/asignaturas?anio=201920"
+		},
+		{
+			"id": "56EE",
+			"title": "DOBLE GRADO EN INGENIERIA ELECTRICA Y EN ING. ELECTRO INDUSTRIAL Y AUTOMATI",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56EE/asignaturas?anio=201920"
+		},
+		{
+			"id": "56IA",
+			"title": "GRADO EN INGENIERIA ELECTRONICA INDUSTRIAL Y AUTOMATICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56IA/asignaturas?anio=201920"
+		},
+		{
+			"id": "56IE",
+			"title": "GRADO EN INGENIERIA ELECTRICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56IE/asignaturas?anio=201920"
+		},
+		{
+			"id": "56IM",
+			"title": "GRADO EN INGENIERIA MECANICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56IM/asignaturas?anio=201920"
+		},
+		{
+			"id": "56IQ",
+			"title": "GRADO EN INGENIERIA QUIMICA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/56IQ/asignaturas?anio=201920"
+		},
+		{
+			"id": "5601",
+			"title": "ENERGIAS RENOVABLES Y MEDIO AMBIENTE",
+			"anio_inicio": "2007-08",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5601/asignaturas?anio=201920"
+		},
+		{
+			"id": "5604",
+			"title": "ESPECIALISTA EN GESTION INTEGRADA DE PROYECTOS DE CLIMATIZACION (B-leraning",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5604/asignaturas?anio=201920"
+		},
+		{
+			"id": "5605",
+			"title": "GESTION INTEGRADA DE PROYECTOS DE CLIMATIZACION (Presencial)",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5605/asignaturas?anio=201920"
+		},
+		{
+			"id": "5607",
+			"title": "ENERGÍAS RENOVABLES Y MEDIO AMBIENTE",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5607/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX58",
+			"title": "VISITANTES GRADO CENTRO 58",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX58/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV58",
+			"title": "MOVILIDAD CENTRO 58",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV58/asignaturas?anio=201920"
+		},
+		{
+			"id": "58AB",
+			"title": "MASTER UNIVERSITARIO EN PLANIFICACION Y GESTION DE INFRAESTRUCTURAS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/58AB/asignaturas?anio=201920"
+		},
+		{
+			"id": "58AC",
+			"title": "MASTER UNIVERSITARIO EN PLANIFICACION Y GESTION DE INFRAESTRUCTURAS",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/58AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "58CI",
+			"title": "GRADO EN INGENIERIA CIVIL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/58CI/asignaturas?anio=201920"
+		},
+		{
+			"id": "58IC",
+			"title": "GRADO EN INGENIERIA CIVIL",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/58IC/asignaturas?anio=201920"
+		},
+		{
+			"id": "5802",
+			"title": "AUDITORIAS DE SEGURIDAD VIAL Y MOVILIDAD",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5802/asignaturas?anio=201920"
+		},
+		{
+			"id": "5803",
+			"title": "PROYECTO DE ESTRUCTURAS DE CIMENTACIÓN Y CONTENCIÓN",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5803/asignaturas?anio=201920"
+		},
+		{
+			"id": "5804",
+			"title": "AUDITORIAS DE SEGURIDAD VIAL Y MOVILIDAD",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5804/asignaturas?anio=201920"
+		},
+		{
+			"id": "5805",
+			"title": "MASTER EN AUDITORIAS DE SEGURIDAD VIAL Y MOVILIDAD",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/5805/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX59",
+			"title": "VISITANTES GRADO CENTRO 59",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX59/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV59",
+			"title": "MOVILIDAD CENTRO 59",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV59/asignaturas?anio=201920"
+		},
+		{
+			"id": "59AC",
+			"title": "MASTER UNIV. EN ING DE SISTEMAS Y SERVICIOS PARA LA SOCIEDAD DE LA INFORMAC",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "59AD",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA ACUSTICA DE EDIFICACION Y MEDIOAMBIENTE",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59AD/asignaturas?anio=201920"
+		},
+		{
+			"id": "59AE",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA ACUSTICA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "59AF",
+			"title": "MASTER UNIV. ING. SISTEMAS Y SERVICIOS PARA LA SOCIEDAD DE LA INFORMACION",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "59AG",
+			"title": "EIT DIGITAL TRACK ON INTERNET TECHNOLOGY AND ARCHITECTURE",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59AG/asignaturas?anio=201920"
+		},
+		{
+			"id": "59AH",
+			"title": "MASTER UNIVERSITARIO EN INTERNET OF THINGS (Iot)",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59AH/asignaturas?anio=201920"
+		},
+		{
+			"id": "59D3",
+			"title": "DOCTORADO EN INGENIERIA DE SISTEMAS Y SERVICIOS PARA LA SOCIEDAD DE LA INFO",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59D3/asignaturas?anio=201920"
+		},
+		{
+			"id": "59EC",
+			"title": "GRADO EN INGENIERIA ELECTRONICA DE COMUNICACIONES",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59EC/asignaturas?anio=201920"
+		},
+		{
+			"id": "59ET",
+			"title": "DOBLE GRADO EN ING.ELECTRONICA DE COMUNICACIONES Y EN ING.TELEMATICA",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59ET/asignaturas?anio=201920"
+		},
+		{
+			"id": "59SC",
+			"title": "GRADO EN INGENIERIA DE SISTEMAS DE TELECOMUNICACION",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59SC/asignaturas?anio=201920"
+		},
+		{
+			"id": "59SO",
+			"title": "GRADO EN INGENIERIA DE SONIDO E IMAGEN",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59SO/asignaturas?anio=201920"
+		},
+		{
+			"id": "59TL",
+			"title": "GRADO EN INGENIERIA TELEMATICA",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/59TL/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX61",
+			"title": "VISITANTES GRADO CENTRO 61",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX61/asignaturas?anio=201920"
+		},
+		{
+			"id": "MV61",
+			"title": "MOVILIDAD CENTRO 61",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/MV61/asignaturas?anio=201920"
+		},
+		{
+			"id": "61AC",
+			"title": "MASTER UNIVERSITARIO EN SOFTWARE DE SISTEMAS DISTRIBUIDOS Y EMPOTRADOS",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "61AD",
+			"title": "MASTER UNIVERSITARIO EN CIENCIAS Y TECNOLOGIAS DE LA COMPUTACION",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61AD/asignaturas?anio=201920"
+		},
+		{
+			"id": "61AE",
+			"title": "MU EN DESARROLLOS DE APLICACIONES Y SERVICIOS PARA DISPOSITIVOS MOVILES",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "61AF",
+			"title": "MASTER UNIVERSITARIO EN INGENIERIA WEB",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "61AG",
+			"title": "MASTER UNIVERSITARIO EN SOFTWARE DE SISTEMAS DISTRIBUIDOS Y EMPOTRADOS",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61AG/asignaturas?anio=201920"
+		},
+		{
+			"id": "61A6",
+			"title": "EXPERTO EN TECNOLOGIAS DE LA INFORMACION PARA LAS ADMINISTRACIONES PUBLICAS",
+			"anio_inicio": "2006-07",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61A6/asignaturas?anio=201920"
+		},
+		{
+			"id": "61B6",
+			"title": "EXPERTO EN SISTEMAS INFORMATICOS DISTRIBUIDOS",
+			"anio_inicio": "2006-07",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61B6/asignaturas?anio=201920"
+		},
+		{
+			"id": "61CI",
+			"title": "GRADO EN INGENIERIA DE COMPUTADORES",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61CI/asignaturas?anio=201920"
+		},
+		{
+			"id": "61CT",
+			"title": "DOBLE GRADO INGENIERIA COMPUTADORES Y TECNOLOGIAS PARA SOCIEDAD INFORMACION",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61CT/asignaturas?anio=201920"
+		},
+		{
+			"id": "61C6",
+			"title": "EXPERTO EN ALGORITMICA APLICADA A LA EMPRESA Y LA INDUSTRIA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61C6/asignaturas?anio=201920"
+		},
+		{
+			"id": "61D1",
+			"title": "DOCTORADO EN CIENCIAS Y TECNOLOGIAS DE LA COMPUTACION PARA SMART CITIES",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "TCL",
+			"subtipo_estudio": "DOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61D1/asignaturas?anio=201920"
+		},
+		{
+			"id": "61IC",
+			"title": "GRADO EN INGENIERIA DE COMPUTADORES",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61IC/asignaturas?anio=201920"
+		},
+		{
+			"id": "61IF",
+			"title": "GRADO EN INGENIERIA DEL SOFTWARE",
+			"anio_inicio": "2009-10",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61IF/asignaturas?anio=201920"
+		},
+		{
+			"id": "61IW",
+			"title": "GRADO EN INGENIERIA DEL SOFTWARE",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61IW/asignaturas?anio=201920"
+		},
+		{
+			"id": "61SI",
+			"title": "GRADO EN SISTEMAS DE INFORMACION",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61SI/asignaturas?anio=201920"
+		},
+		{
+			"id": "61ST",
+			"title": "DOBLE GRADO INGENIERIA DE SOFTWARE Y TECNOLOGIAS PARA SOCIEDAD INFORMACION",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61ST/asignaturas?anio=201920"
+		},
+		{
+			"id": "61TI",
+			"title": "GRADO EN TECNOLOGIAS PARA LA SOCIEDAD DE LA INFORMACION",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/61TI/asignaturas?anio=201920"
+		},
+		{
+			"id": "6110",
+			"title": "EXPERTO EN ARQUITECTURA Y DESARROLLO SOFTWARE",
+			"anio_inicio": "2015-16",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/6110/asignaturas?anio=201920"
+		},
+		{
+			"id": "6111",
+			"title": "MASTER EN DISEÑO Y DESARROLLO DE VIDEOJUEGOS",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/6111/asignaturas?anio=201920"
+		},
+		{
+			"id": "6112",
+			"title": "ARQUITECTURA Y DESARROLLO SOFTWARE",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/6112/asignaturas?anio=201920"
+		},
+		{
+			"id": "6113",
+			"title": "HACKING ETICO",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/6113/asignaturas?anio=201920"
+		},
+		{
+			"id": "6114",
+			"title": "SOFTWARE CRAFTSMANSHIP",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/6114/asignaturas?anio=201920"
+		},
+		{
+			"id": "GX81",
+			"title": "VISITANTES CENTRO 81",
+			"anio_inicio": "2016-17",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/GX81/asignaturas?anio=201920"
+		},
+		{
+			"id": "81DM",
+			"title": "GRADO EN DISEÑO DE MODA",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "GRA",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/81DM/asignaturas?anio=201920"
+		},
+		{
+			"id": "81MD",
+			"title": "MASTER EN DISEÑO DE MODA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/81MD/asignaturas?anio=201920"
+		},
+		{
+			"id": "81TM",
+			"title": "MÁSTER UNIVERSITARIO EN DISEÑO, TECNOLOGÍA E INNOVACIÓN EN MODA",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "PSC",
+			"subtipo_estudio": "MOF",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/81TM/asignaturas?anio=201920"
+		},
+		{
+			"id": "8108",
+			"title": "DISEÑO SUPERIOR DE MODA (PLAN 2008)",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/8108/asignaturas?anio=201920"
+		},
+		{
+			"id": "8110",
+			"title": "ENSEÑANZAS ARTISTICAS SUPERIORES, ESPECIALIDAD EN DISEÑO DE MODA",
+			"anio_inicio": "2010-11",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/8110/asignaturas?anio=201920"
+		},
+		{
+			"id": "8189",
+			"title": "DISEÑO SUPERIOR DE MODA",
+			"anio_inicio": "2007-08",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/8189/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AC",
+			"title": "GESTION DE EMPRESAS EN LA ECONOMIA DIGITAL",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AC/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AD",
+			"title": "GESTION DE EMPRESAS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AD/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AE",
+			"title": "COMERCIO EXTERIOR Y MARKETING INTERNACIONAL",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AE/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AF",
+			"title": "CONTABILIDAD Y FINANZAS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AF/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AG",
+			"title": "GESTION COMERCIAL Y MARKETING",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AG/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AH",
+			"title": "GESTION DE LOS RECURSOS HUMANOS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AH/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AI",
+			"title": "GESTION MEDIOAMBIENTAL",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AI/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AJ",
+			"title": "GESTION DE LA PRODUCCION, LA CALIDAD Y LA TECNOLOGIA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AJ/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AK",
+			"title": "DERECHO EMPRESARIAL",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AK/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AM",
+			"title": "ASESORIA ECONOMICA DE EMPRESAS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AM/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AN",
+			"title": "GESTION ENERGETICA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AN/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AO",
+			"title": "GESTION APLICADA A LAS ADMINISTRACIONES PUBLICAS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AO/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AP",
+			"title": "ORGANIZACION Y GESTION DE LA INNOVACION TECNOLOGIA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AP/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AQ",
+			"title": "GESTION DE SISTEMAS Y LAS TECNOLOGIAS DE LA INFORMACION DE LA EMPRESA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AQ/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AS",
+			"title": "GESTION DE SISTEMAS DE CALIDAD, EL MEDIO AMBIENTE Y LOS RIESGOS LABORALES",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AS/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AV",
+			"title": "GESTION DEL DESARROLLO TERRITORIAL",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AV/asignaturas?anio=201920"
+		},
+		{
+			"id": "90AZ",
+			"title": "GESTIÓN Y DIRECCIÓN HOTELERA",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90AZ/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BB",
+			"title": "ADMINISTRACION DE EMPRESAS (MBA)",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BB/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BC",
+			"title": "ADMINISTRACION Y DIRECCION INTERNACIONAL DE EMPRESAS (MBA INTERNACIONAL)",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BC/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BD",
+			"title": "DIRECCION Y AUDITORIA FINANCIERA EN LA EMPRESA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BD/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BE",
+			"title": "DIRECCION DE MARKETING EN LA EMPRESA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BE/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BF",
+			"title": "ORGANIZACION Y DIRECCION DE RECURSOS HUMANOS",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BF/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BG",
+			"title": "PLANIFICACION Y GESTION DEL MEDIO AMBIENTE Y LOS RECURSOS NATURALES",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BG/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BH",
+			"title": "DIRECCION DE OPERACIONES, CALIDAD E INNOVACION",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BH/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BK",
+			"title": "ASESORIA Y GESTION FISCAL Y DE INVERSIONES",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BK/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BL",
+			"title": "GESTION Y AUDITORIA ENERGETICA EN LA EMPRESA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BL/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BN",
+			"title": "DIRECCION DE LA INNOVACION TECNOLOGICA E INDUSTRIAL",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BN/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BO",
+			"title": "TECNOLOGIAS DE LA INFORMACION APLICADAS A LA EMPRESA",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BO/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BT",
+			"title": "DESARROLLO Y ADMINISTRACION TERRITORIAL (REGIONAL, LOCAL Y RURAL)",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BT/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BU",
+			"title": "ADMINISTRACION DE EMPRESAS PARA EMPRENDEDORES (MBA EMPRENDEDORES)",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BU/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BV",
+			"title": "INTERNATIONAL BUSINESS ADMINISTRATION (MBA INTERNATIONAL)",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BV/asignaturas?anio=201920"
+		},
+		{
+			"id": "90BZ",
+			"title": "ESPECIALISTA EN PRACTICAS EMPRESARIALES (EXPERTISE)",
+			"anio_inicio": "2012-13",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90BZ/asignaturas?anio=201920"
+		},
+		{
+			"id": "90CR",
+			"title": "PLAN DE ESTUDIOS CEPADE",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90CR/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DA",
+			"title": "GESTION DE EMPRESAS EN LA ECONOMIA DIGITAL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DA/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DB",
+			"title": "GESTION DE EMPRESAS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DB/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DC",
+			"title": "COMERCIO EXTERIOR Y MARKETING INTERNACIONAL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DC/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DE",
+			"title": "CONTABILIDAD Y FINANZAS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DE/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DF",
+			"title": "GESTION COMERCIAL Y MARKETING",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DF/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DG",
+			"title": "GESTION DE LOS RECURSOS HUMANOS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DG/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DH",
+			"title": "GESTION MEDIOAMBIENTAL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DH/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DI",
+			"title": "GESTION DE LA PRODUCCION, LA CALIDAD Y LA TECNOLOGIA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DI/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DJ",
+			"title": "DERECHO EMPRESARIAL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DJ/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DM",
+			"title": "GESTION ENERGETICA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DM/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DN",
+			"title": "GESTION APLICADA A LAS ADMINISTRACIONES PUBLICAS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DN/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DO",
+			"title": "ORGANIZACION Y GESTION DE LA INNOVACION TECNOLOGICA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DO/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DP",
+			"title": "GESTION DE SISTEMAS Y LAS TECNOLOGIAS DE LA INFORMACION DE LA EMPRESA",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DP/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DR",
+			"title": "GESTION DE SISTEMAS DE CALIDAD, EL MEDIO AMBIENTE Y LOS RIESGOS LABORALES",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DR/asignaturas?anio=201920"
+		},
+		{
+			"id": "90DS",
+			"title": "GESTION DEL DESARROLLO TERRITORIAL",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90DS/asignaturas?anio=201920"
+		},
+		{
+			"id": "90EB",
+			"title": "ADMINISTRACION DE NEGOCIOS EN INTERNET Y COMERCIO ELECTRONICO",
+			"anio_inicio": "2008-09",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90EB/asignaturas?anio=201920"
+		},
+		{
+			"id": "90EI",
+			"title": "MASTER EN DIRECCION DE EMPRESAS INTERNACIONALES - EMIB",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90EI/asignaturas?anio=201920"
+		},
+		{
+			"id": "90FG",
+			"title": "EXPERTO EN FINANZAS PARA LA GESTION INTERNACIONAL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90FG/asignaturas?anio=201920"
+		},
+		{
+			"id": "90GH",
+			"title": "MASTER EN GESTIÓN Y DIRECCIÓN HOTELERA",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90GH/asignaturas?anio=201920"
+		},
+		{
+			"id": "90GI",
+			"title": "ESPECIALIZACION EN GESTION INTERNACIONAL DE EMPREAS - IBP",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90GI/asignaturas?anio=201920"
+		},
+		{
+			"id": "90LD",
+			"title": "EXPERTO EN HABILIDADES DE LIDERAZGO DIGITAL",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90LD/asignaturas?anio=201920"
+		},
+		{
+			"id": "90MI",
+			"title": "EXPERTO EN MARKETING INTERNACIONAL",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90MI/asignaturas?anio=201920"
+		},
+		{
+			"id": "90OI",
+			"title": "EXPERTO EN OPERACIONES INTERNACIONALES",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90OI/asignaturas?anio=201920"
+		},
+		{
+			"id": "90PO",
+			"title": "EXPERTO EN PERSONAS Y ORGANIZACIONES INTERNACIONALES",
+			"anio_inicio": "2014-15",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90PO/asignaturas?anio=201920"
+		},
+		{
+			"id": "90YG",
+			"title": "CERTIFICADO DE PROFESIONALIDAD - INSTRUCCIÓN EN YOGA",
+			"anio_inicio": "2018-19",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/90YG/asignaturas?anio=201920"
+		},
+		{
+			"id": "9059",
+			"title": "PROYECTO Y CONSTRUCCION DE CIMENTACIONES PROFUNDAS",
+			"anio_inicio": "2011-12",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9059/asignaturas?anio=201920"
+		},
+		{
+			"id": "9084",
+			"title": "INTERNATIONAL MASTER IN PROJECT ADMINISTRATION (IMPA)",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9084/asignaturas?anio=201920"
+		},
+		{
+			"id": "9097",
+			"title": "ORGANIZACIONES INTELIGENTES HACIA LA TRANSFORMACIÓN DIGITAL",
+			"anio_inicio": "2019-20",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9097/asignaturas?anio=201920"
+		},
+		{
+			"id": "9098",
+			"title": "LIDERAZGO INTERNACIONAL EN INGENIERÍA Y ARQUITECTURA",
+			"anio_inicio": "2017-18",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EP",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9098/asignaturas?anio=201920"
+		},
+		{
+			"id": "9099",
+			"title": "PROMOCION Y GESTION DE PROYECTOS Y ACTUACIONES INTERNACIONALES DE I+D+I",
+			"anio_inicio": "2013-14",
+			"tipo_estudio": "EP",
+			"subtipo_estudio": "EPE",
+			"asignaturas": "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/plan.json/9099/asignaturas?anio=201920"
+		}
+	]
+]

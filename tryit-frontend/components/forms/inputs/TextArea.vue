@@ -23,18 +23,23 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
-
+import { TextAreaValueType, StatusOnInput } from "../../../types/components";
 @Component({})
 export default class TextArea extends Vue {
-  @Prop({ type: String, default: "" }) helperText!: string;
-  @Prop({ type: String, default: "" }) placeholder!: string;
-  @Prop({ type: String, default: "" }) value!: string;
-  @Prop({ type: Boolean, default: false }) isDisabled!: boolean;
-  @Prop({ type: Boolean, default: false }) hideText!: boolean;
-  @Prop({ type: String, default: "" }) status!: "" | "ok" | "error" | "info";
-  @Prop({ type: Boolean, default: false }) noBorder!: boolean;
-  @Prop({ type: Boolean, default: false }) noShadows!: boolean;
-  @Prop({ type: Boolean, default: false }) leaveSpaceRight!: boolean;
+  @Prop({ type: String, default: "" }) readonly helperText!: string;
+  @Prop({ type: String, default: "" }) readonly placeholder!: string;
+  @Prop({ required: true }) readonly value!: TextAreaValueType;
+  @Prop({ type: Boolean, default: false }) readonly isDisabled!: boolean;
+  @Prop({ type: Boolean, default: false }) readonly hideText!: boolean;
+  @Prop({
+    default: (): StatusOnInput => {
+      return { status: "ok", statusDetail: { message: "", abbreviation: "" } };
+    }
+  })
+  readonly status!: StatusOnInput;
+  @Prop({ type: Boolean, default: false }) readonly noBorder!: boolean;
+  @Prop({ type: Boolean, default: false }) readonly noShadows!: boolean;
+  @Prop({ type: Boolean, default: false }) readonly leaveSpaceRight!: boolean;
 }
 </script>
 

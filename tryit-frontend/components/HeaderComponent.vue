@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
     <div class="menu-container section-width" id="mobileMenu">
-      <span class="logo">Try IT!</span>
+      <span class="logo" v-on:click="goTo('/')">Try IT!</span>
       <ul>
         <li v-for="(entry, i) in menu.primary" :key="i">
           <nuxt-link :to="entry.url">{{entry.text}}</nuxt-link>
@@ -19,6 +19,10 @@ import { MenuType } from "../types/components";
 @Component({})
 export default class HeaderComponent extends Vue {
   @Prop({ type: Object, required: true }) menu!: MenuType;
+
+  goTo(path: string) {
+    window.location.href = path; // TODO use router
+  }
 }
 </script>
 
@@ -45,6 +49,7 @@ header.main-header .menu-container {
   font-size: 18px;
   font-family: var(--roboto);
   font-weight: var(--font-bold-roboto);
+  cursor: pointer;
 }
 
 i {

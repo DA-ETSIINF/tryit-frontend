@@ -1,4 +1,4 @@
 export interface OptionSelected {
 	title: string
-	id: number
+	id: string
 }

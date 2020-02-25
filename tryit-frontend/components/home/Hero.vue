@@ -6,7 +6,12 @@
     <div class="content">
       <h2>{{ data.title }}</h2>
       <h4>{{ data.description }}</h4>
-      <button-component v-if="data.btn" :class="'tertiary-btn'" :text="data.btn_text"></button-component>
+      <button-component
+        @onClick="goTo('/volunteers')"
+        v-if="data.btn"
+        :class="'tertiary-btn'"
+        :text="data.btn_text"
+      ></button-component>
     </div>
   </div>
 </template>
@@ -23,6 +28,10 @@ import { HeroType } from "../../types/components";
 })
 export default class Hero extends Vue {
   @Prop() data!: HeroType;
+
+  goTo(path: string) {
+    window.location.href = path; // TODO use router
+  }
 }
 </script>
 

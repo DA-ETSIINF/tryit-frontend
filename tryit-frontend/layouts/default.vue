@@ -25,35 +25,39 @@ export default class extends Vue {
   menu: MenuType = {
     primary: [
       {
+        text: "Inicio",
+        url: "/"
+      },
+      {
         text: "Entrada",
         url: "/ticket"
       },
-      {
-        text: "Programa",
-        url: "/schedule"
-      },
-      {
-        text: "Eventos",
-        url: "/"
-      },
+      // {
+      //   text: "Programa",
+      //   url: "/schedule"
+      // },
+      // {
+      //   text: "Eventos",
+      //   url: "/"
+      // },
       {
         text: "Registro voluntarios",
         url: "/volunteers"
       }
     ],
     secondary: [
-      {
-        text: "ECTS obtenidos",
-        url: "/ects"
-      },
-      {
-        text: "Ediciones anteriores",
-        url: "/previous-editions"
-      },
-      {
-        text: "Organizadores",
-        url: "/organizers"
-      },
+      // {
+      //   text: "ECTS obtenidos",
+      //   url: "/ects"
+      // },
+      // {
+      //   text: "Ediciones anteriores",
+      //   url: "/last-editions"
+      // },
+      // {
+      //   text: "Organizadores",
+      //   url: "/organizers"
+      // },
       {
         text: "Contacto",
         url: "/contact"
@@ -62,12 +66,14 @@ export default class extends Vue {
   };
   toogleOpen() {
     this.isOpen = !this.isOpen;
-    console.log(this.isOpen);
   }
 }
 </script>
 
 <style scoped>
+main {
+  margin-top: 52px;
+}
 div {
   display: flex;
   flex-direction: column;
