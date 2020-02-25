@@ -70,7 +70,8 @@ export default class Ticket extends VuexModule {
 			upmSchool: "",
 			degree: "",
 			year: 0,
-			phone: ""
+			phone: "",
+			toPrint: false
 		}
 		return ticket
 	}
