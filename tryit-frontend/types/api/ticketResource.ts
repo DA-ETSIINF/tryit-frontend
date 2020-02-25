@@ -10,15 +10,16 @@
  * Do not edit the class manually.
  */
 
-export interface TicketResource { 
-    name: string;
-    lastname: string;
-    identity: string;
-    email: string;
-    isStudent: boolean;
-    isUpmStudent?: boolean;
-    upmSchool?: string;
-    degree?: string;
-    year?: number;
-    phone: string;
+export interface TicketResource {
+	name: string
+	lastname: string
+	identity: string
+	email: string
+	isStudent: boolean
+	isUpmStudent?: boolean
+	upmSchool?: string
+	degree?: string
+	year?: number
+	phone: string
+	toPrint: boolean
 }

@@ -160,6 +160,7 @@ export default class Ticket extends VuexModule {
 		this.ticket.upmSchool = this.ticketForm.sections[1].inputs[1]["value"]
 		this.ticket.degree = this.ticketForm.sections[1].inputs[2]["value"]
 		this.ticket.year = this.ticketForm.sections[1].inputs[3]["value"]
+		this.ticket.toPrint = this.ticketForm.sections[2].inputs[0]["properties"]["checked"]
 	}
 	@Action
 	postTicket() {
@@ -169,7 +170,7 @@ export default class Ticket extends VuexModule {
 			headers: { "Content-Type": "application/json", "Access-Control-Allow-Methods": "POST" }
 		}
 		axios
-			.post("http:/congresotryit.es/tickets/create", this.ticket)
+			.post("https:/congresotryit.es/tickets/create", this.ticket)
 			.then(response => {
 				console.log(response)
 				this.ticketForm.title = "Tu entrada ha sido creada"
