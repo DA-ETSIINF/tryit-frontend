@@ -25,11 +25,11 @@ export const routes: RouteConfig[] = [
 		path: "/volunteers",
 		can_be_shown: true
 	},
-	{
-		name: "ects",
-		path: "/ects",
-		can_be_shown: true
-	},
+	// {
+	// 	name: "ects",
+	// 	path: "/ects",
+	// 	can_be_shown: true
+	// },
 	{
 		name: "previous-editions",
 		path: "/previous-editions",
@@ -44,10 +44,10 @@ export const routes: RouteConfig[] = [
 		name: "contact",
 		path: "/contact",
 		can_be_shown: true
-	},
-	{
-		name: "organizers",
-		path: "/organizers",
-		can_be_shown: true
 	}
+	// {
+	// 	name: "organizers",
+	// 	path: "/organizers",
+	// 	can_be_shown: true
+	// }
 ]

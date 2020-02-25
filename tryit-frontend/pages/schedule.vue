@@ -1,12 +1,21 @@
 <template>
-    <h1>This is Schedule Page</h1>
+	<div>
+		<h1>This is Schedule Page</h1>
+		<schedule-component></schedule-component>
+		<talk></talk>
+	</div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component, Vue } from "nuxt-property-decorator"
+import { Schedule as ScheduleComponent, Talk, Badge } from "../components"
+
+Vue.component("ScheduleComponent", ScheduleComponent)
+Vue.component("Talk", Talk)
+Vue.component("Badge", Badge)
+
 @Component({})
 export default class Schedule extends Vue {}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

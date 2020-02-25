@@ -9,19 +9,19 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DateResource } from './date';
-import { PrizeResource } from './prize';
-import { SpeakerResource } from './speaker';
+import { DateResource } from "./date"
+import { PrizeResource } from "./prize"
+import { SpeakerResource } from "./speaker"
 
-export interface TalkResource { 
-    title: string;
-    description: string;
-    url: string;
-    video: string;
-    startDate: DateResource;
-    endDate: DateResource;
-    slide: string;
-    room: string;
-    prize: PrizeResource;
-    speakers?: Array<SpeakerResource>;
+export interface TalkResource {
+	title: string
+	description?: string
+	url?: string
+	video?: string
+	startDate: DateResource
+	endDate: DateResource
+	slide?: string
+	room?: string
+	prize?: PrizeResource
+	speakers?: Array<SpeakerResource>
 }
