@@ -126,7 +126,7 @@ export default class Volunteer extends VuexModule {
 			headers: { "Content-Type": "application/json" }
 		}
 		axios
-			.post("http:/congresotryit.es/volunteers/create", this.volunteer, config)
+			.post("http:/congresotryit.es/volunteers/send", this.volunteer, config)
 			.then(response => {
 				console.log(response)
 			})
