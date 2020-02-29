@@ -16,7 +16,7 @@ import axios from "axios"
 
 @Module({ dynamic: true, store, name: "volunteer", stateFactory: true, namespaced: true })
 export default class Volunteer extends VuexModule {
-	volunteer!: VolunteerResource
+	volunteer: VolunteerResource = this.getVolunteer()
 	volunteerForm: FormType = this.getForm()
 
 	get getTitle(): string | undefined {
@@ -47,6 +47,16 @@ export default class Volunteer extends VuexModule {
 			})
 		})
 		return vf
+	}
+	getVolunteer() {
+		const ticket: VolunteerResource = {
+			timePeriods: [],
+			identity: "",
+			commentary: "",
+			shirt: "",
+			android: false,
+		}
+		return ticket
 	}
 
 	@Mutation
@@ -110,6 +120,7 @@ export default class Volunteer extends VuexModule {
 	}
 	@Mutation
 	setVolunteer() {
+		console.log("SetVolunteer")
 		this.volunteer.timePeriods = this.volunteerForm.sections[1].inputs[0]["value"]
 		this.volunteer.identity = this.volunteerForm.sections[0].inputs[0]["value"]
 		this.volunteer.commentary = this.volunteerForm.sections[0].inputs[1]["value"]
@@ -118,8 +129,8 @@ export default class Volunteer extends VuexModule {
 	}
 	@Action
 	postVolunteer() {
+		store.commit("volunteer/setVolunteer")
 		console.log("PostVolunteer: ", this.volunteer)
-		store.commit("ticket/setVolunteer")
 		const config = {
 			headers: { "Content-Type": "application/json" }
 		}
