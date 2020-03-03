@@ -1,8 +1,7 @@
 <template>
 	<div>
-		<h1>This is Schedule Page</h1>
+		<h1>Programa</h1>
 		<schedule-component></schedule-component>
-		<talk></talk>
 	</div>
 </template>
 

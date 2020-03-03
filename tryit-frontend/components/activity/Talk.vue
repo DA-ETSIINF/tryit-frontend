@@ -2,15 +2,15 @@
 	<div class="session-container" :class="{ open }">
 		<i class="fas fa-gift gift"></i>
 		<header>
-			<h3>{{ talk.title }}</h3>
+			<h3>{{ activity.title }}</h3>
 		</header>
 		<div class="info-wrapper">
 			<div class="description">
-				{{ talk.title }}
+				{{ activity.title }}
 			</div>
-			<span class="room">{{ talk.room }}</span>
+			<span class="room">{{ activity.room }}</span>
 			<div class="speakers-preview">
-				<div class="speaker" v-for="speaker in talk.speakers" :key="speaker.name">
+				<div class="speaker" v-for="speaker in activity.speakers" :key="speaker.name">
 					<div>
 						<img :src="speaker.image" :alt="speaker.name" />
 					</div>
@@ -19,23 +19,24 @@
 			</div>
 			<div
 				class="swiper-speakers-container speakers-detail"
-				:class="`swiper-speakers-container-${talk.startDate}`"
+				:class="`swiper-speakers-container-${activity.startDate}`"
 			>
 				<div class="swiper-wrapper">
-					<div class="swiper-slide" v-for="speaker in talk.speakers" :key="speaker.name">
+					<div class="swiper-slide" v-for="speaker in activity.speakers" :key="speaker.name">
 						{{ speaker.name }}
 					</div>
 				</div>
 				<!-- Add Pagination -->
 				<div class="swiper-speakers-pagination"></div>
 			</div>
-			<div class="company" v-if="talk.speakers[0].company.sponsorType !== ''">
-				<img :src="talk.speakers[0].company.logo" alt="Logo empresa" />
-				<Badge :type="talk.speakers[0].company.sponsorType"></Badge>
+			<div class="company" v-if="activity.speakers[0].company.sponsorType !== ''">
+				<img :src="activity.speakers[0].company.logo" alt="Logo empresa" />
+				<Badge :type="activity.speakers[0].company.sponsorType"></Badge>
 			</div>
 		</div>
 		<div class="toogle-info">
-			<i class="fas fa-plus" @click="toogle"></i>
+			<i class="fas fa-plus" v-if="!open" @click="toogle"></i>
+			<i class="fas fa-minus" v-if="open" @click="toogle"></i>
 		</div>
 	</div>
 </template>
@@ -47,58 +48,12 @@ import Swiper from "swiper"
 
 @Component({})
 export default class Talk extends Vue {
+	@Prop() activity!: TalkResource
 	open: boolean = false
-
-	talk: TalkResource = {
-		title:
-			"¿Sueñan los androides con ovejas eléctricas? Cómo puedo crear mis propias inteligencias artificiales",
-		description:
-			"Pequeña descrición de lo que hace y de lo que no hace. Si es muy larga ponemos, labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.",
-		speakers: [
-			{
-				name: "Arturo Vidal",
-				bio: "Biografia",
-				image:
-					"https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg",
-				company: {
-					name: "Google",
-					sponsorType: "platinum",
-					logo:
-						"https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-					url: "https://google.com"
-				},
-				web: "https://google.com",
-				socialMedia: {
-					twitter: "https://twitter.com/google"
-				}
-			},
-			{
-				name: "Alvaro ",
-				bio: "Biografia",
-				image:
-					"https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg",
-				company: {
-					name: "Google",
-					sponsorType: "platinum",
-					logo:
-						"https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-					url: "https://google.com"
-				},
-				web: "https://google.com",
-				socialMedia: {
-					twitter: "https://twitter.com/google"
-				}
-			}
-		],
-		startDate: 123134131,
-		endDate: 123138131,
-		url: "https://twitter.com/google",
-		room: "Sala principal"
-	}
 
 	mounted() {
 		// console.log("123", document.querySelector(`.swiper-speakers-container-${this.talk.startDate}`))
-		new Swiper(`.swiper-speakers-container-${this.talk.startDate}`, {
+		new Swiper(`.swiper-speakers-container-${this.activity.startDate}`, {
 			slidesPerView: 1.25,
 			centeredSlides: true,
 			spaceBetween: 2,
