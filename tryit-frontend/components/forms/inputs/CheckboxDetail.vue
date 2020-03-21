@@ -7,7 +7,7 @@
       <div>
         <checkbox-input :id="id" :checked="checked" v-on:change="makeValidation"></checkbox-input>
       </div>
-      <div class="checkbox-info">
+      <div class="checkbox-info" :style="{'margin-left': `calc(${gap})`}">
         <label :for="id" v-html="text"></label>
         <p class="small details" v-for="paragraph in details" :key="paragraph">{{paragraph}}</p>
       </div>
@@ -35,6 +35,7 @@ export default class CheckboxDetail extends Vue {
   @Prop({ type: Array, default: () => [] }) details!: string[];
   @Prop({ type: String, default: "" }) className!: string;
   @Prop({ type: Boolean, default: false }) checked!: boolean;
+  @Prop({ type: Boolean, default: false }) needsValidation!: boolean;
   @Prop({
     default: (): StatusOnInput => {
       return { status: "ok", statusDetail: { message: "", abbreviation: "" } };
@@ -49,10 +50,13 @@ export default class CheckboxDetail extends Vue {
   readonly indexes!: Indexes;
   @Prop({ default: () => [] }) readonly validations!: Requirement[];
   @Prop({ type: String }) readonly formModule!: DynamicFormModule;
+  @Prop({ type: String, default: "var(--space-m)" }) gap!: string;
 
   makeValidation(checked) {
     this.$emit("change", checked);
-    validate(this.validations, checked, this.indexes, this.formModule);
+    if (this.needsValidation) {
+      validate(this.validations, checked, this.indexes, this.formModule);
+    }
   }
 }
 </script>
@@ -69,9 +73,6 @@ export default class CheckboxDetail extends Vue {
 
 .checkbox-container > div:first-child {
   display: flex;
-}
-.checkbox-container .checkbox-info {
-  margin-left: var(--space-m);
 }
 
 .checkbox-container > div > .checkbox-info > label,

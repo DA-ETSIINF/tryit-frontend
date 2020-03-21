@@ -76,6 +76,7 @@
 					:validations="input.requirements"
 					:indexes="input.indexes"
 					:formModule="formModule"
+					:needsValidation="true"
 				></checkbox-detail>
 				<availability-input
 					v-if="input.tag === 'availability-input' && input.show"
@@ -104,7 +105,7 @@ export default class DynamicForm extends Vue {
 }
 </script>
 
-<style>
+<style scoped>
 h4 {
 	margin: var(--space-l);
 	margin-bottom: 0;

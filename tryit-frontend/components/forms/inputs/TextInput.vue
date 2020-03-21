@@ -35,7 +35,6 @@ import {
 	DynamicFormModule,
 	TextInputValueType
 } from "../../../types/components"
-// import store from "store";
 import { TicketModule } from "../../../store/ticket"
 import { VolunteerModule } from "../../../store/volunteer"
 import { validate, emitInput } from "../../../utils"

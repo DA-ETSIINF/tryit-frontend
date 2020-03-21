@@ -15,6 +15,7 @@ import { SpeakerResource } from "./speaker"
 
 export interface TalkResource {
 	title: string
+	id: number
 	description?: string
 	url?: string
 	video?: string
@@ -22,6 +23,6 @@ export interface TalkResource {
 	endDate: DateResource
 	slide?: string
 	room?: string
-	prize?: PrizeResource
+	prize?: PrizeResource | null
 	speakers?: Array<SpeakerResource>
 }

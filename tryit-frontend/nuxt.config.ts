@@ -1,3 +1,14 @@
+
+// function resolve(dir) {
+// 	return path.join(__dirname, dir);
+// }
+
+// module.exports = {
+// 	chainWebpack: config => { config.resolve.alias.set("@", resolve("src")); }, devServer: {
+// 		disableHostCheck: true
+// 	}
+// };
+
 export default {
 	env: {
 		dev: process.env.NODE_ENV !== "production",
@@ -109,5 +120,12 @@ export default {
 			})
 		}
 	},
-	transpileDependencies: ["vuex-module-decorators"]
+	// resolve: {
+	// 	alias: {
+	// 		Components: path.resolve(__dirname, 'components/'),
+	// 	}
+	// },
+	// chainWebpack: config => { config.resolve.alias.set("@", resolve("")); },
+	transpileDependencies: ["vuex-module-decorators"],
+	plugins: ["./plugins/main.ts"]
 }

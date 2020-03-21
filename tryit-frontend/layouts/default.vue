@@ -80,6 +80,7 @@ div {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  align-items: center;
 }
 main {
   flex: 1;
