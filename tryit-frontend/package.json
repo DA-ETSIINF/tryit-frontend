@@ -12,15 +12,17 @@
 		"babel-plugin-transform-decorators": "^6.24.1",
 		"fuse.js": "^3.4.6",
 		"gsap": "3.2.4",
-		"nuxt": "2.11.0",
+		"loglevel": "^1.6.8",
+		"nuxt": "2.12.2",
 		"nuxt-fullpage.js": "0.0.3",
+		"nuxt-lazy-load": "^1.1.8",
 		"nuxt-property-decorator": "2.5.0",
 		"swiper": "^5.3.1",
 		"vuex-class": "0.3.2",
 		"vuex-module-decorators": "^0.16.1"
 	},
 	"scripts": {
-		"dev": "nuxt-ts --hostname 0.0.0.0",
+		"dev": "nuxt-ts",
 		"build": "nuxt-ts build",
 		"start": "nuxt-ts start",
 		"generate": "nuxt-ts generate"

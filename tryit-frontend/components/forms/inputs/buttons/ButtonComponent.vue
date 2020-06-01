@@ -1,5 +1,8 @@
 <template>
-  <button :class="type" :disabled="disabled" @click="$emit('onClick')">{{text}}</button>
+  <button :class="type" :disabled="disabled" @click="$emit('onClick')">
+    <span>{{text}}</span>
+    <loading-animation :hide="!loading"></loading-animation>
+  </button>
 </template>
 
 <script lang="ts">
@@ -10,10 +13,15 @@ export default class ButtonComponent extends Vue {
   @Prop() text!: string;
   @Prop() type!: "primary-btn" | "secondary-btn" | "tertiary-btn";
   @Prop({ default: false }) disabled!: boolean;
+  @Prop({ type: Boolean }) loading!: boolean;
 }
 </script>
 
 <style>
+button {
+  display: flex;
+  align-items: center;
+}
 button.primary-btn {
   padding: var(--space-xs) var(--space-s);
   border: 0;

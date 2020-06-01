@@ -9,10 +9,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { PersonType } from "./person"
-import { CompanyResource } from "./company"
 
-export interface SpeakerResource extends PersonType {
-	web?: string
-	company: CompanyResource
+import { SpeakerResourceSocialMedia } from "./speakerSocialMedia"
+export interface PersonType {
+	name: string
+	email: string
+	bio: string
+	image: string
+	social_media: SpeakerResourceSocialMedia
 }

@@ -108,6 +108,7 @@
 	--box-shadow-input-inset-info: inset 0 0 3px var(--yellow-8);
 
 	--border-radius-m: 5px;
+	--border-radius-s: 2px;
 
 	--transition-fast: 0.18s;
 	--transition-normal: 0.3s;

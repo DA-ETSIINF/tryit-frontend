@@ -160,6 +160,7 @@ export default class StickyBar extends Vue {
   top: 51px;
   left: 0;
   transition: 0.3s height ease;
+  z-index: 999; 
 }
 
 .sticky-bar .sticky-bar-container {

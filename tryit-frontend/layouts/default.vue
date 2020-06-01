@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="default-layout">
     <Header :menu="menu" v-on:toogleMenu="toogleOpen()"></Header>
     <Menu :isOpen="isOpen" :menu="menu" v-on:toogleMenu="toogleOpen()"></Menu>
     <main>
@@ -74,7 +74,7 @@ export default class extends Vue {
 main {
   margin-top: 52px;
 }
-div {
+.default-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;

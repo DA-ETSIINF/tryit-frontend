@@ -8,7 +8,12 @@
           @click="$emit('changeDay', index)"
         >{{day.day}}</h3>
         <div class="day-sessions-container">
-          <talk v-for="activity in day.activities" :key="activity.title" :activity="activity"></talk>
+          <talk
+            v-for="activity in day.activities"
+            :key="activity.title"
+            :activity="activity"
+            :openByDefault="activitySelected === activity.id"
+          ></talk>
         </div>
       </div>
     </div>
@@ -17,20 +22,23 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "nuxt-property-decorator";
-import { ActivityResource, TalkResource } from "../../types/api";
+import { ActivitiesByDay } from "../../types/components";
 
-// TODO Move this to types folder. Also used in pages/schedule.vue
-interface ActivitiesByDay {
-  day: string;
-  activities: TalkResource[];
-}
 @Component({})
 export default class Schedule extends Vue {
   @Prop({}) activitiesByDay!: ActivitiesByDay[];
 
-  updated() {
+  activitySelected: number = -1;
+
+  mounted() {
     this.emitRanges();
     window.addEventListener("scroll", this.emitRanges);
+    //@ts-ignore
+    if (this.$route.query.activity) {
+      //@ts-ignore
+      this.activitySelected = parseInt(this.$route.query.activity);
+      this.$emit("scrollToActivity", this.activitySelected);
+    }
   }
 
   emitRanges() {

@@ -1,71 +1,142 @@
 <template>
-  <div class="session-container" :class="{ open }">
+  <div
+    class="session-container"
+    :class="{ open, flash: openByDefault }"
+    :id="`activity-${activity.id}`"
+    @mouseover="mouseHover = true"
+    @mouseleave="mouseHover = false"
+  >
     <div class="session-wrapper">
-      <div class="speakers-pictures" @click="open = !open">
+      <router-link
+        :to="`/schedule${open ? '' : `?activity=${activity.id}`}`"
+        tag="div"
+        class="speakers-pictures"
+        v-if="activity.speakers.some((p) => p.picture !== null)"
+        v-on:click.native="toggleActivity()"
+      >
         <img
-          v-if="activity.speakers.length === 1"
-          :src="activity.speakers[0].image"
+          v-if="activity.speakers.length === 1 && activity.speakers[0].picture !== null"
+          :src="activity.speakers[0].picture"
           :alt="activity.speakers[0].name"
+          v-lazy-load
         />
-        <div class="avatars" v-if="activity.speakers.length > 1">
+        <div
+          class="avatars"
+          v-if="activity.speakers.length > 1 && !activity.speakers.map((s) => s.picture).includes(null)"
+        >
           <img
-            v-for="speaker in activity.speakers.slice(0, nSpeakersPreview - (activity.speakers.length === nSpeakersPreview ? 0 : 1))"
+            v-for="speaker in activity.speakers.slice(
+							0,
+							nSpeakersPreview - (activity.speakers.length === nSpeakersPreview ? 0 : 1)
+						)"
             :key="speaker.name"
-            :src="speaker.image"
+            :src="speaker.picture"
             :alt="speaker.name"
+            v-lazy-load
           />
           <div
             class="plus"
             v-if="activity.speakers.length > nSpeakersPreview"
-          >+{{ activity.speakers.length - nSpeakersPreview + 1}}</div>
+          >+{{ activity.speakers.length - nSpeakersPreview + 1 }}</div>
         </div>
-      </div>
+      </router-link>
       <h5 class="phone-padding">
         <span class="hours">
-          <span class="hour">{{ getHours(activity.startDate) }}</span>
-          <span class="minute">:{{ getMinutes(activity.startDate) }}</span>
+          <span class="hour">{{ getHours(activity.start_date) }}</span>
+          <span class="minute">:{{ getMinutes(activity.start_date) }}</span>
           <span class="separator">-</span>
-          <span class="hour">{{ getHours(activity.endDate) }}</span>
-          <span class="minute">:{{ getMinutes(activity.endDate) }}</span>
+          <span class="hour">{{ getHours(activity.end_date) }}</span>
+          <span class="minute">:{{ getMinutes(activity.end_date) }}</span>
         </span>
         <span class="session-type">Taller</span>
+        <div class="pop-up-container" v-if="mouseHover || open || openMenu">
+          <i class="fas fa-ellipsis-v" @click="toggleMenu()"></i>
+          <div class="pop-up-wrapper" :class="{ open: openMenu }">
+            <ul>
+              <li @click="share()">
+                <span>
+                  <i class="fas fa-share"></i>
+                  <span v-if="canBeShared">Compartir</span>
+                  <span v-if="!canBeShared">
+                    <span v-if="!copiedText">Copiar enlace</span>
+                    <span v-if="copiedText">Copiado</span>
+                  </span>
+                </span>
+              </li>
+              <a :href="calendarUrl" target="_blank" rel="noopener noreferrer">
+                <li>
+                  <span>
+                    <i class="fas fa-calendar-plus"></i>
+                    <span>Añadir al calendario</span>
+                  </span>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
       </h5>
-      <h2 @click="open = !open" class="phone-padding">{{ activity.title }}</h2>
+      <router-link
+        :to="`/schedule${open ? '' : `?activity=${activity.id}`}`"
+        tag="h2"
+        v-on:click.native="toggleActivity()"
+        class="phone-padding"
+      >{{ activity.title }}</router-link>
       <h6 class="speakers-n-company phone-padding" v-html="getSpeakersAndCompanyString()"></h6>
-      <div class="more-info phone-padding" :class="`more-info-${activity.id}`">
+      <div
+        class="more-info phone-padding"
+        :class="`more-info-${activity.id}`"
+        :style="{'--max-height': open ? `${moreInfoHeight}px` : 0}"
+      >
         <p
           class="description"
           v-if="activity.description !== ''"
           :class="open"
-        >{{activity.description}}</p>
-        <span class="location" :class="open" v-if="activity.room !== ''">
+        >{{ activity.description }}</p>
+
+        <span class="location" :class="open" v-if="activity.location !== ''">
           <i class="fas fa-map-marker"></i>
-          <span>{{ activity.room }}</span>
+          <span>{{ activity.location }}</span>
         </span>
+
+        <person v-if="activity.speakers.length == 1" :person="activity.speakers[0]"></person>
+        <div
+          class="swiper-speakers-container speakers-detail speakers-preview"
+          :class="`swiper-speakers-container-${activity.id}`"
+          v-if="activity.speakers.length > 1"
+        >
+          <div class="swiper-wrapper">
+            <div
+              class="swiper-slide speaker"
+              v-for="speaker in activity.speakers"
+              :key="speaker.name"
+            >
+              <person :person="speaker"></person>
+            </div>
+          </div>
+          <div class="swiper-speakers-pagination"></div>
+        </div>
+
+        <div class="company">
+          <div class="company-container">
+            <img
+              :src="'https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg'"
+              alt
+            />
+            <badge
+              class="badge"
+              v-if="activity.speakers[0] !== undefined && activity.speakers[0].company.sponsor_type !== undefined"
+              :type="activity.speakers[0].company.sponsor_type"
+            ></badge>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <!-- <div
-				class="swiper-speakers-container speakers-detail speakers-preview"
-				:class="`swiper-speakers-container-${activity.id}`"
-			>
-				<div class="swiper-wrapper">
-					<div
-						class="swiper-slide speaker"
-						v-for="speaker in activity.speakers"
-						:key="speaker.name"
-					>
-						<img class="item" :src="speaker.image" :alt="speaker.name" />
-						<h5 class="item">{{ speaker.name }}</h5>
-						<p class="item" v-if="open">{{ speaker.bio }}</p>
-					</div>
-				</div>
-				<div class="swiper-speakers-pagination"></div>
-  </div>-->
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
+import { Route } from "vue-router";
 import { SpeakerResource, TalkResource } from "../../types/api";
 import Swiper from "swiper";
 import { SwiperOptions } from "swiper";
@@ -76,15 +147,17 @@ import { App } from "../../utils/app";
 @Component({})
 export default class Talk extends Vue {
   @Prop() activity!: TalkResource;
+  @Prop() openByDefault!: boolean;
 
-  open: boolean = true;
-  nSpeakersPreview: number = App.deviceWidth < 600 ? 3 : 6;
+  open: boolean = false;
+  nSpeakersPreview: number = App.deviceWidth < 600 ? 3 : 4;
+  moreInfoHeight: number = 0;
 
   swiper!: Swiper;
   openSwiperParams: SwiperOptions = {
-    slidesPerView: 1.25,
+    slidesPerView: 1.15,
     centeredSlides: true,
-    spaceBetween: 2,
+    spaceBetween: 30,
     grabCursor: true,
     pagination: {
       el: ".swiper-pagination",
@@ -94,14 +167,28 @@ export default class Talk extends Vue {
 
   deviceWidth!: number;
 
-  mounted() {
-    // this.swiper = new Swiper(
-    //   `.swiper-speakers-container-${this.activity.id}`,
-    //   this.openSwiperParams
-    // );
+  openMenu = false;
+  mouseHover = false;
 
-    this.setMaxHeight();
+  calendarUrl!: string;
+  canBeShared: boolean = false;
+  copiedText: boolean = false;
+
+  mounted() {
+    this.swiper = new Swiper(
+      `.swiper-speakers-container-${this.activity.id}`,
+      this.openSwiperParams
+    );
+
+    this.setMaxHeight(500);
     window.addEventListener("resize", this.onResize);
+
+    setTimeout(() => {
+      this.open = this.openByDefault;
+    }, 500);
+
+    this.setCalendarUrl();
+    this.setCanBeShared();
   }
 
   onResize() {
@@ -109,16 +196,20 @@ export default class Talk extends Vue {
     this.deviceWidth = App.deviceWidth;
   }
 
-  setMaxHeight() {
-    const moreInfoDiv = document.querySelector(
-      `.more-info-${this.activity.id}`
-    ) as any;
-    const heightMoreInfo: number = moreInfoDiv.scrollHeight;
-    moreInfoDiv.style.maxHeight = `${heightMoreInfo}px`;
+  setMaxHeight(offset = 0) {
+    setTimeout(() => {
+      this.moreInfoHeight = (document.querySelector(
+        `.more-info-${this.activity.id}`
+      ) as any).scrollHeight;
+    }, offset);
   }
 
   getSpeakersAndCompanyString() {
     const speakers = this.activity.speakers || [];
+    if (speakers.length === 0) {
+      return "";
+    }
+
     let speakersString = speakers
       .map(n => `<span class="speaker-name">${n.name.trim()}</span>`)
       .join("<span>, </span>");
@@ -130,15 +221,25 @@ export default class Talk extends Vue {
         speakersString.substring(lastComma + 1);
     }
     const companyString =
-      this.activity.speakers !== undefined
+      this.activity.speakers !== undefined && this.activity.speakers.length > 0
         ? this.activity.speakers[0].company.name
         : "";
 
     const fullString = `
       <span>Por </span>
-      ${speakersString}
-      <span>, ${companyString}</span>`;
+      ${speakersString}<span>, ${companyString}</span>`;
     return fullString;
+  }
+
+  toggleMenu() {
+    this.openMenu = !this.openMenu;
+    this.copiedText = false;
+  }
+
+  toggleActivity() {
+    this.setMaxHeight();
+    this.open = !this.open;
+    this.copiedText = false;
   }
 
   getHours(ms: number) {
@@ -147,6 +248,74 @@ export default class Talk extends Vue {
 
   getMinutes(ms: number) {
     return `0${new Date(ms).getMinutes()}`.substr(-2);
+  }
+
+  formatDate(date) {
+    const d = new Date(date);
+    function pad2(n) {
+      // always returns a string
+      return (n < 10 ? "0" : "") + n;
+    }
+
+    return (
+      d.getFullYear() +
+      pad2(d.getMonth() + 1) +
+      pad2(d.getDate()) +
+      "T" +
+      pad2(d.getHours()) +
+      pad2(d.getMinutes()) +
+      pad2(d.getSeconds())
+    );
+  }
+
+  setCalendarUrl() {
+    // https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/master/services/google.md
+    const start_date = this.formatDate(this.activity.start_date);
+    const end_date = this.formatDate(this.activity.end_date);
+    this.calendarUrl =
+      `https://calendar.google.com/calendar/render?action=TEMPLATE&` +
+      `text=TryIT! 2020 - ${this.activity.title}&` + // TODO: Change this to variable data
+      `dates=${start_date}/${end_date}&` +
+      `ctz=Europe/Madrid&` +
+      `details=${this.activity.description}&` +
+      `location=ETSIINF UPM - ${this.activity.location}&` +
+      `sprop=${document.location.origin}${window.location.pathname}?activity=${this.activity.id}`;
+  }
+
+  setCanBeShared() {
+    this.canBeShared = (navigator as any).share ? true : false;
+  }
+
+  share() {
+    if (this.canBeShared) {
+      this.apiShare();
+    } else {
+      this.copyLink();
+    }
+  }
+
+  apiShare() {
+    const url: string = this.activity.title.substring(0, 20);
+    (navigator as any)
+      .share({
+        title: "Try IT! 2020", // TODO: Change this to variable data
+        text: `Mira la charla ${url}${url.length >= 30 ? "..." : ""} `, // TODO: Change this to variable data
+        url: document.location.href
+      })
+      .then(() => console.log("Successful share"))
+      .catch(() => this.copyLink());
+  }
+
+  copyLink() {
+    const dummy = document.createElement("input");
+    const text = `${document.location.origin}${window.location.pathname}?activity=${this.activity.id}`;
+    this.copiedText = true;
+
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
   }
 }
 </script>
@@ -170,7 +339,7 @@ export default class Talk extends Vue {
 .session-wrapper .speakers-pictures {
   cursor: pointer;
   margin-top: var(--space-xs);
-  width: calc(100% + var(--space-xxs));
+  padding: 0 var(--space-l);
 }
 
 .session-wrapper .speakers-pictures img {
@@ -178,7 +347,7 @@ export default class Talk extends Vue {
   object-fit: cover;
   height: var(--column-width);
   width: var(--column-width);
-  padding: 0 var(--space-l);
+  box-shadow: inset 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
 }
 
 .session-wrapper .speakers-pictures .avatars img {
@@ -193,7 +362,6 @@ export default class Talk extends Vue {
   grid-auto-rows: 1fr;
   grid-area: speakers-pictures;
   max-width: calc(100vw - var(--space-l) * 2);
-  padding: 0 var(--space-l);
 }
 
 .plus {
@@ -227,7 +395,7 @@ h5 {
 }
 
 .hours .hour {
-  color: var(--primary-5);
+  color: var(--primary-4);
   font-weight: var(--font-bold-roboto);
   font-size: 16px;
 }
@@ -252,6 +420,82 @@ h5 {
   font-size: 10px;
 }
 
+.pop-up-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--neutral-4);
+  font-size: 13px;
+  position: relative;
+}
+
+.pop-up-container > i {
+  cursor: pointer;
+}
+
+.pop-up-wrapper {
+  position: absolute;
+  background: var(--neutral-10);
+  box-shadow: var(--box-shadow-on-light-bck);
+  right: calc(-1 * var(--space-xs));
+  display: none;
+  user-select: none;
+  z-index: 990;
+}
+
+.pop-up-wrapper.open {
+  animation: pop-up-in 0.5s ease;
+  animation-fill-mode: forwards;
+  display: inherit;
+}
+
+.pop-up-wrapper a {
+  font-weight: normal;
+}
+
+@keyframes pop-up-in {
+  0% {
+    top: 10px;
+    opacity: 0;
+  }
+  70% {
+    top: 24px;
+    opacity: 0.9;
+  }
+  100% {
+    top: 24px;
+    opacity: 1;
+  }
+}
+
+.pop-up-wrapper ul {
+  list-style: none;
+}
+.pop-up-wrapper ul li {
+  white-space: nowrap;
+  color: var(--neutral-2);
+  font-size: 14px;
+  padding: var(--space-xs) var(--space-s);
+  border-radius: var(--border-radius-m);
+  cursor: pointer;
+  transition: var(--transition-fast) all ease;
+}
+
+.pop-up-wrapper ul li:hover {
+  background: var(--neutral-9);
+}
+
+.pop-up-wrapper ul li > span {
+  display: flex;
+  align-items: center;
+}
+
+.pop-up-wrapper ul li > span i {
+  margin-right: var(--space-xs);
+  color: var(--neutral-4);
+  font-size: 12px;
+}
+
 h2 {
   font-size: 18px;
   font-weight: var(--font-bold-roboto);
@@ -259,6 +503,7 @@ h2 {
   color: var(--primary-2);
   cursor: pointer;
   grid-area: title;
+  text-align: left;
 }
 
 .speakers-n-company {
@@ -267,6 +512,7 @@ h2 {
   font-size: 15px;
   font-weight: initial;
   grid-area: speakers-string;
+  padding-bottom: var(--space-xs);
 }
 
 h6 >>> span.speaker-name {
@@ -300,17 +546,32 @@ h6 >>> span.speaker-name {
   font-size: 12px;
 }
 
-.session-container h6 {
-  margin-bottom: var(--space-xs);
-}
-
 .more-info {
   transition: var(--transition-very-slow) all ease;
   overflow: hidden;
   grid-area: more-info;
+
+  padding-bottom: var(--space-m);
+  max-height: var(--max-height);
 }
-.open .more-info {
-  max-height: 0 !important;
+.session-container:not(.open) .more-info {
+  padding-bottom: 0;
+}
+
+.company-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: var(--space-m);
+}
+.company-container img {
+  max-height: 100px;
+}
+
+.company-container .badge {
+  margin-top: var(--space-xs);
 }
 
 @media screen and (min-width: 600px) {
@@ -318,7 +579,7 @@ h6 >>> span.speaker-name {
     --column-width: 100px;
     grid-template-columns: var(--column-width) 1fr;
     grid-template-rows: auto auto auto 1fr auto;
-    grid-gap: var(--space-xs) var(--space-l);
+    grid-gap: var(--space-xxxs) var(--space-l);
     grid-template-areas:
       "speakers-pictures time-n-session-type"
       "speakers-pictures title"
@@ -327,6 +588,7 @@ h6 >>> span.speaker-name {
   }
   .session-wrapper .speakers-pictures {
     grid-area: speakers-pictures;
+    padding: 0;
   }
 
   .session-wrapper .speakers-pictures img {
@@ -336,23 +598,23 @@ h6 >>> span.speaker-name {
   .session-wrapper .speakers-pictures .avatars {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(3, calc((var(--column-width) - 5px) / 2));
-    grid-gap: var(--space-xxs);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: var(--space-s);
     padding: 0;
   }
 
   .session-wrapper .speakers-pictures .avatars img {
-    height: calc((var(--column-width) - 5px) / 2);
-    width: calc((var(--column-width) - 5px) / 2);
+    height: calc((var(--column-width) - var(--space-s)) / 2);
+    width: 100%;
   }
 
   .plus {
     height: calc((var(--column-width) - 5px) / 2);
-    width: calc((var(--column-width) - 5px) / 2);
+    width: 100%;
   }
 
   h2 {
-    font-size: 30px;
+    font-size: 22px;
   }
 
   .speakers-n-company {
@@ -372,6 +634,21 @@ h6 >>> span.speaker-name {
 
   .location span {
     font-size: 14px;
+  }
+}
+
+.flash {
+  animation: flash-out 4s ease 1s 1;
+  animation-fill-mode: forwards;
+  background: var(--neutral-8);
+}
+
+@keyframes flash-out {
+  from {
+    background: var(--neutral-8);
+  }
+  to {
+    background: transparent;
   }
 }
 </style>

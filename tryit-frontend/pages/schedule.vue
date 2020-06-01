@@ -1,7 +1,8 @@
 <template>
   <div>
     <sticky-bar
-      :activitiesByDay="activitiesByDay"
+      v-if="getApiStatus().state === 'ok' && getActivitiesByDay().length > 0"
+      :activitiesByDay="getActivitiesByDay()"
       :activeIndexDay="activeIndexDay"
       :stickyOpen="stickyOpen"
       :stickyHeaderOffset="stickyHeaderOffset"
@@ -13,258 +14,59 @@
     ></sticky-bar>
     <div class="schedule-container">
       <h1 class="phone-padding">Programa</h1>
+      <loading-bar
+        v-if="getApiStatus().state === 'loading' || getApiStatus().state === 'not-initialized'"
+      ></loading-bar>
+      <api-error
+        v-if="['error', 'retrying'].includes(getApiStatus().state)"
+        v-on:retry="$store.dispatch('schedule/getData', 'retrying')"
+        :apiStatus="getApiStatus()"
+      ></api-error>
       <schedule-component
+        v-if="getApiStatus().state === 'ok'"
         v-on:distancesToTop="setActiveIndexDay"
         v-on:changeDay="changeDay"
-        :activitiesByDay="activitiesByDay"
+        v-on:scrollToActivity="scrollToActivity"
+        :activitiesByDay="getActivitiesByDay()"
       ></schedule-component>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component, Vue, Watch } from "nuxt-property-decorator";
 import {
   Schedule as ScheduleComponent,
   Talk,
   Badge,
+  Person,
   StickyBar,
   CheckboxInput,
-  CheckboxDetail
+  CheckboxDetail,
+  ApiError,
+  ButtonComponent,
+  LoadingAnimation,
+  LoadingBar
 } from "../components";
-import { ActivityResource, TalkResource } from "../types/api";
+import { TalkResource } from "../types/api";
 import { App } from "../utils/app";
+import { ScheduleModule } from "../store/schedule";
+import { ActivitiesByDay, ApiStatus } from "../types/components";
 
 Vue.component("ScheduleComponent", ScheduleComponent);
+Vue.component("Person", Person);
 Vue.component("StickyBar", StickyBar);
 Vue.component("CheckboxDetail", CheckboxDetail);
 Vue.component("CheckboxInput", CheckboxInput);
 Vue.component("Talk", Talk);
 Vue.component("Badge", Badge);
-
-interface ActivitiesByDay {
-  day: string;
-  activities: TalkResource[];
-}
+Vue.component("ApiError", ApiError);
+Vue.component("ButtonComponent", ButtonComponent);
+Vue.component("LoadingAnimation", LoadingAnimation);
+Vue.component("LoadingBar", LoadingBar);
 
 @Component({})
 export default class Schedule extends Vue {
-  activitiesByDay: ActivitiesByDay[] = [];
-
-  activities: TalkResource[] = [
-    {
-      id: 1,
-      title:
-        "¿Sueñan los androides con ovejas eléctricas? Cómo puedo crear mis propias inteligencias artificiales",
-      description: "",
-      speakers: [
-        {
-          name: "Victor N",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        },
-        {
-          name: "Victor Nieves",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        },
-        {
-          name: "Javi Barragán ",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        }
-      ],
-      startDate: 1582621200000,
-      endDate: 1582621201000,
-      url: "https://twitter.com/google",
-      room: "Sala principal"
-    },
-    {
-      id: 2,
-      title: "Charla interesante",
-      description:
-        "Pequeña descrición de lo que hace y de lo que no hace. Si es muy larga ponemos, labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.",
-      speakers: [
-        {
-          name: "Artur",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        },
-        {
-          name: "Arturo Vidal",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        },
-        {
-          name: "Arturo V",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        },
-        {
-          name: "Arturito",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        },
-        {
-          name: "Arturo",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        },
-        {
-          name: "R2D2 Vidal",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        },
-        {
-          name: "Artuo",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        }
-      ],
-      startDate: 1582722000000,
-      endDate: 1582722001000,
-      url: "https://twitter.com/google",
-      room: "Sala principal"
-    },
-    {
-      id: 3,
-      title: "Charla super",
-      description:
-        "Pequeña descrición de lo que hace y de lo que no hace. Si es muy larga ponemos, labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.",
-      speakers: [
-        {
-          name: "Alvaro ",
-          bio: "Biografia",
-          image: "https://www.ludoviccareme.com/files/image_211_image_fr.jpg",
-          company: {
-            name: "Google",
-            sponsorType: "platinum",
-            logo:
-              "https://storage.googleapis.com/gd-wagtail-prod-assets/images/evolving_google_identity_2x.max-4000x2000.jpegquality-90.jpg",
-            url: "https://google.com"
-          },
-          web: "https://google.com",
-          socialMedia: {
-            twitter: "https://twitter.com/google"
-          }
-        }
-      ],
-      startDate: 1582876800000,
-      endDate: 1582876801000,
-      url: "https://twitter.com/google",
-      room: "Sala principal"
-    }
-  ];
   distanceToTop!: number;
   activeIndexDay: number = -1;
   stickyHeaderOffset: string = "0px";
@@ -272,6 +74,14 @@ export default class Schedule extends Vue {
 
   stickyHeaderShowFilters: boolean = false;
   stickyHeight: string = "0px";
+
+  getActivitiesByDay(): ActivitiesByDay[] {
+    return ScheduleModule.activitiesByDay;
+  }
+
+  getApiStatus(): ApiStatus {
+    return ScheduleModule.apiStatus;
+  }
 
   setDistanceToTop() {
     const stickyHeader = document.querySelector(`.sticky-bar`);
@@ -282,19 +92,27 @@ export default class Schedule extends Vue {
   }
 
   updated() {
+    if (
+      this.getApiStatus().state !== "ok" ||
+      this.getActivitiesByDay().length === 0
+    ) {
+      return;
+    }
+
     this.setDistanceToTop();
     this.setStickyBarHeight();
   }
 
   mounted() {
-    this.activitiesByDay = this.groupByDays(
-      this.activities,
-      App.navigatorLanguage
-    );
+    this.$store.dispatch("schedule/getData");
     window.addEventListener("resize", this.setStickyBarHeight);
   }
 
   toggleFilterOptions() {
+    if (this.getApiStatus().state !== "ok") {
+      return;
+    }
+
     this.stickyHeaderShowFilters = !this.stickyHeaderShowFilters;
     if (!this.stickyOpen && this.stickyHeaderShowFilters) {
       this.stickyOpen = true;
@@ -328,63 +146,6 @@ export default class Schedule extends Vue {
     this.stickyHeaderOffset = `-${this.activeIndexDay * 30}px`;
   }
 
-  /**
-   * TODO This should be moved to the store
-   * @description It will sort and group the activities by week day
-   * @author Max
-   * @version 1
-   * @since 04/March/2020
-   * @example
-   * groupByDays([{name: "A1", startDate: 1582621200000},
-   * 				{name: "A2", startDate: 1582729200000}
-   * 				{name: "A3", startDate: 1582876800000},
-   * 				{name: "A4", startDate: 1582722000000}])
-   *
-   * It will return activitiesByDay which contains:
-   * 			[{
-   * 				day: "tuesday, February 25",
-   * 				activities: [{name: "A1", date: 1582621200000}]
-   * 			},
-   * 			{
-   * 				day: "wednesday, February 26",
-   * 				activities: [
-   *              {name: "A4", date: 1582722000000},
-   * 							{name: "A2", date: 1582729200000}
-   *              ]
-   * 			},
-   * 			{
-   * 				day: "friday, February 28",
-   * 				activities: [{name: "A3", date: 1582876800000}]
-   * 			}]
-   *
-   * NOTE: Some keys of the object in the arguments and return variables have been omitted
-   */
-  groupByDays(activities: TalkResource[], locale: string): ActivitiesByDay[] {
-    const activitiesByDay: ActivitiesByDay[] = [];
-    this.activities
-      .sort((a1, a2) => a1.startDate - a2.startDate)
-      .map(activity => {
-        const date = new Date(activity.startDate);
-        const day = date.toLocaleDateString(locale, {
-          weekday: "long",
-          month: "long",
-          day: "numeric"
-        });
-        const found: number | undefined = activitiesByDay.findIndex(
-          a => a.day === day
-        );
-        if (found === -1) {
-          activitiesByDay.push({
-            day,
-            activities: [activity]
-          });
-        } else {
-          activitiesByDay[found].activities.push(activity);
-        }
-      });
-    return activitiesByDay;
-  }
-
   changeDayFromStickyMenu(i: number) {
     if (i === 0) {
       return;
@@ -402,22 +163,31 @@ export default class Schedule extends Vue {
     this.scrollToDay();
   }
 
-  scrollToDay(activeIndexDay: number = this.activeIndexDay) {
-    const e = document.querySelector(
-      `#schedule-day-${this.activeIndexDay - 1}`
-    );
-    const scrollTo = (e as any).offsetTop + 1;
+  scrollTo(e: any, stickyBarOffset = false) {
+    // TODO Change 52 to header height
+    const scrollTo = (e as any).offsetTop + 1 - 52 - (stickyBarOffset ? 30 : 0);
     window.scrollTo({
       top: scrollTo,
       behavior: "smooth"
     });
+  }
+
+  scrollToDay(activeIndexDay: number = this.activeIndexDay) {
+    const e = document.querySelector(
+      `#schedule-day-${this.activeIndexDay - 1}`
+    );
+    this.scrollTo(e as any);
+  }
+
+  scrollToActivity(id: number) {
+    const activityContainer = document.getElementById(`activity-${id}`);
+    this.scrollTo(activityContainer as any, true);
   }
 }
 </script>
 
 <style>
 .schedule-container {
-  max-width: 1000px;
   padding: var(--space-xs) 0;
 }
 
@@ -431,12 +201,12 @@ h3.day-bar {
   align-items: center;
   cursor: pointer;
 }
-
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   .schedule-container {
-    margin: var(--space-l) auto;
+    width: 1000px;
   }
-
+}
+@media screen and (min-width: 900px) {
   h3.day-bar {
     font-size: 15px;
     margin: 0 auto;

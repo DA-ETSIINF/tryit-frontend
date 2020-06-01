@@ -9,11 +9,8 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { PersonType } from "./person"
 
-export interface OrganizerResource { 
-    name: string;
-    description: string;
-    email: string;
-    role: string;
-    image: string;
+export interface OrganizerResource extends PersonType {
+	role: string
 }

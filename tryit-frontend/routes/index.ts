@@ -8,22 +8,22 @@ export const routes: RouteConfig[] = [
 	{
 		name: "home",
 		path: "/",
-		can_be_shown: true
+		can_be_shown: true,
 	},
 	{
 		name: "ticket",
 		path: "/ticket",
-		can_be_shown: true
+		can_be_shown: true,
 	},
 	{
 		name: "Event",
 		path: "/event/:id",
-		can_be_shown: true
+		can_be_shown: true,
 	},
 	{
 		name: "volunteers",
 		path: "/volunteers",
-		can_be_shown: true
+		can_be_shown: true,
 	},
 	// {
 	// 	name: "ects",
@@ -33,18 +33,18 @@ export const routes: RouteConfig[] = [
 	{
 		name: "previous-editions",
 		path: "/previous-editions",
-		can_be_shown: false
+		can_be_shown: false,
 	},
 	{
 		name: "schedule",
 		path: "/schedule",
-		can_be_shown: true
+		can_be_shown: true,
 	},
 	{
 		name: "contact",
 		path: "/contact",
-		can_be_shown: true
-	}
+		can_be_shown: true,
+	},
 	// {
 	// 	name: "organizers",
 	// 	path: "/organizers",

@@ -15,7 +15,8 @@
 		"resolveJsonModule": true,
 		"importHelpers": true,
 		"paths": {
-			"~/*": ["./*"]
+			"~/*": ["./*"],
+			"@/*": ["./*"]
 		},
 		"types": ["@nuxt/types", "@nuxtjs/axios"],
 		"resolveJsonModule": true

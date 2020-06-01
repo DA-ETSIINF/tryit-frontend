@@ -9,10 +9,11 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { SponsorCategory } from "../api"
 
-export interface CompanyResource { 
-    name: string;
-    sponsorType: string;
-    logo: string;
-    url: string;
+export interface CompanyResource {
+	name: string
+	sponsor_type?: SponsorCategory | undefined
+	logo?: string
+	url?: string
 }
