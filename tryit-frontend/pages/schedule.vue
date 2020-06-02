@@ -19,14 +19,14 @@
       ></loading-bar>
       <api-error
         v-if="['error', 'retrying'].includes(getApiStatus().state)"
-        v-on:retry="$store.dispatch('schedule/getData', 'retrying')"
+        @retry="$store.dispatch('schedule/getData', 'retrying')"
         :apiStatus="getApiStatus()"
       ></api-error>
       <schedule-component
         v-if="getApiStatus().state === 'ok'"
-        v-on:distancesToTop="setActiveIndexDay"
-        v-on:changeDay="changeDay"
-        v-on:scrollToActivity="scrollToActivity"
+        @distancesToTop="setActiveIndexDay"
+        @changeDay="changeDay"
+        @scrollTo="scrollTo"
         :activitiesByDay="getActivitiesByDay()"
       ></schedule-component>
     </div>
@@ -164,7 +164,8 @@ export default class Schedule extends Vue {
   }
 
   scrollTo(e: any, stickyBarOffset = false) {
-    // TODO Change 52 to header height
+    // TODO Change 52 to header height and 30 to variable
+    console.log(stickyBarOffset);
     const scrollTo = (e as any).offsetTop + 1 - 52 - (stickyBarOffset ? 30 : 0);
     window.scrollTo({
       top: scrollTo,

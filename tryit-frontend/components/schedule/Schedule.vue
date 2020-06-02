@@ -12,6 +12,7 @@
             v-for="activity in day.activities"
             :key="activity.title"
             :activity="activity"
+            @scrollTo="scrollTo(...arguments)"
             :openByDefault="activitySelected === activity.id"
           ></talk>
         </div>
@@ -37,8 +38,13 @@ export default class Schedule extends Vue {
     if (this.$route.query.activity) {
       //@ts-ignore
       this.activitySelected = parseInt(this.$route.query.activity);
-      this.$emit("scrollToActivity", this.activitySelected);
+      this.$emit("scrollTo", this.activitySelected);
     }
+  }
+
+  scrollTo(e, o) {
+    console.log(o);
+    this.$emit("scrollTo", e, o);
   }
 
   emitRanges() {

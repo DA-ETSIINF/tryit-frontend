@@ -12,20 +12,20 @@
         tag="div"
         class="speakers-pictures"
         v-if="activity.speakers.some((p) => p.picture !== null)"
-        v-on:click.native="toggleActivity()"
       >
         <img
           v-if="activity.speakers.length === 1 && activity.speakers[0].picture !== null"
           :src="activity.speakers[0].picture"
           :alt="activity.speakers[0].name"
           v-lazy-load
+          @click="openSpeaker(0)"
         />
         <div
           class="avatars"
           v-if="activity.speakers.length > 1 && !activity.speakers.map((s) => s.picture).includes(null)"
         >
           <img
-            v-for="speaker in activity.speakers.slice(
+            v-for="(speaker, index) in activity.speakers.slice(
 							0,
 							nSpeakersPreview - (activity.speakers.length === nSpeakersPreview ? 0 : 1)
 						)"
@@ -33,6 +33,7 @@
             :src="speaker.picture"
             :alt="speaker.name"
             v-lazy-load
+            @click="openSpeaker(index)"
           />
           <div
             class="plus"
@@ -41,14 +42,14 @@
         </div>
       </router-link>
       <h5 class="phone-padding">
-        <span class="hours">
+        <span class="hours" @click="toggleActivity()">
           <span class="hour">{{ getHours(activity.start_date) }}</span>
           <span class="minute">:{{ getMinutes(activity.start_date) }}</span>
           <span class="separator">-</span>
           <span class="hour">{{ getHours(activity.end_date) }}</span>
           <span class="minute">:{{ getMinutes(activity.end_date) }}</span>
         </span>
-        <span class="session-type">Taller</span>
+        <span class="session-type" @click="toggleActivity()">Taller</span>
         <div class="pop-up-container" v-if="mouseHover || open || openMenu">
           <i class="fas fa-ellipsis-v" @click="toggleMenu()"></i>
           <div class="pop-up-wrapper" :class="{ open: openMenu }">
@@ -78,10 +79,14 @@
       <router-link
         :to="`/schedule${open ? '' : `?activity=${activity.id}`}`"
         tag="h2"
-        v-on:click.native="toggleActivity()"
+        @click.native="toggleActivity()"
         class="phone-padding"
       >{{ activity.title }}</router-link>
-      <h6 class="speakers-n-company phone-padding" v-html="getSpeakersAndCompanyString()"></h6>
+      <h6
+        @click="toggleActivity()"
+        class="speakers-n-company phone-padding"
+        v-html="getSpeakersAndCompanyString()"
+      ></h6>
       <div
         class="more-info phone-padding"
         :class="`more-info-${activity.id}`"
@@ -98,22 +103,24 @@
           <span>{{ activity.location }}</span>
         </span>
 
-        <person v-if="activity.speakers.length == 1" :person="activity.speakers[0]"></person>
-        <div
-          class="swiper-speakers-container speakers-detail speakers-preview"
-          :class="`swiper-speakers-container-${activity.id}`"
-          v-if="activity.speakers.length > 1"
-        >
-          <div class="swiper-wrapper">
-            <div
-              class="swiper-slide speaker"
-              v-for="speaker in activity.speakers"
-              :key="speaker.name"
-            >
-              <person :person="speaker"></person>
+        <div class="speakers-container" :id="`speakers-${activity.id}`">
+          <person v-if="activity.speakers.length == 1" :person="activity.speakers[0]"></person>
+          <div
+            class="swiper-speakers-container speakers-detail speakers-preview"
+            :class="`swiper-speakers-container-${activity.id}`"
+            v-if="activity.speakers.length > 1"
+          >
+            <div class="swiper-wrapper">
+              <div
+                class="swiper-slide speaker"
+                v-for="speaker in activity.speakers"
+                :key="speaker.name"
+              >
+                <person :person="speaker"></person>
+              </div>
             </div>
+            <div class="swiper-speakers-pagination"></div>
           </div>
-          <div class="swiper-speakers-pagination"></div>
         </div>
 
         <div class="company">
@@ -189,6 +196,24 @@ export default class Talk extends Vue {
 
     this.setCalendarUrl();
     this.setCanBeShared();
+  }
+
+  _openSpeaker(index: number) {
+    const e = document.getElementById(`speakers-${this.activity.id}`);
+    this.$emit("scrollTo", e, true);
+    if (this.activity.speakers.length > 1) {
+      this.swiper.slideTo(index);
+    }
+  }
+  openSpeaker(index: number) {
+    if (!this.open) {
+      this.toggleActivity();
+      setTimeout(() => {
+        this._openSpeaker(index);
+      }, 500);
+    } else {
+      this._openSpeaker(index);
+    }
   }
 
   onResize() {
