@@ -1,52 +1,54 @@
 <template>
   <div class="container" :class="{'vertical':vertical}">
-    <div v-if="person.image !== '' && person.image !== null" class="image-container">
-      <img :src="person.image" :alt="`Foto de ${person.name}`" />
-    </div>
-    <h4>{{person.name}}</h4>
-    <h6 v-if="person.role">{{person.role}}</h6>
-    <p>{{person.bio}}</p>
-    <div class="email">
-      <span class="username">{{email.username}}</span>
-      <span class="hide">YOU ARE SUPPOSE TO NOT SEE THIS</span>
-      <span>@{{email.domain}}</span>
-    </div>
-    <div class="social-media">
-      <a
-        v-if="person.social_media.github !== '' && person.social_media.github !== null"
-        target="_blank"
-        :href="person.social_media.github"
-      >
-        <i class="fab fa-github"></i>
-      </a>
-      <a
-        v-if="person.social_media.gitlab !== '' && person.social_media.gitlab !== null"
-        target="_blank"
-        :href="person.social_media.gitlab"
-      >
-        <i class="fab fa-gitlab"></i>
-      </a>
-      <a
-        v-if="person.social_media.twitter !== '' && person.social_media.twitter !== null"
-        target="_blank"
-        :href="person.social_media.twitter"
-      >
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a
-        v-if="person.social_media.linkedin !== '' && person.social_media.linkedin !== null"
-        target="_blank"
-        :href="person.social_media.linkedin"
-      >
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a
-        v-if="person.social_media.facebook !== '' && person.social_media.facebook !== null"
-        target="_blank"
-        :href="person.social_media.facebook"
-      >
-        <i class="fab fa-facebook"></i>
-      </a>
+    <div class="wrapper">
+      <div v-if="person.image !== '' && person.image !== null" class="image-container">
+        <img :src="person.image" :alt="`Foto de ${person.name}`" />
+      </div>
+      <h4>{{person.name}}</h4>
+      <h6 v-if="person.role">{{person.role}}</h6>
+      <p>{{person.bio}}</p>
+      <div class="email" v-if="email.username !== ''">
+        <span class="username">{{email.username}}</span>
+        <span class="hide">YOU ARE SUPPOSE TO NOT SEE THIS</span>
+        <span>@{{email.domain}}</span>
+      </div>
+      <div class="social-media">
+        <a
+          v-if="person.social_media.github !== '' && person.social_media.github !== null"
+          target="_blank"
+          :href="person.social_media.github"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          v-if="person.social_media.gitlab !== '' && person.social_media.gitlab !== null"
+          target="_blank"
+          :href="person.social_media.gitlab"
+        >
+          <i class="fab fa-gitlab"></i>
+        </a>
+        <a
+          v-if="person.social_media.twitter !== '' && person.social_media.twitter !== null"
+          target="_blank"
+          :href="person.social_media.twitter"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          v-if="person.social_media.linkedin !== '' && person.social_media.linkedin !== null"
+          target="_blank"
+          :href="person.social_media.linkedin"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          v-if="person.social_media.facebook !== '' && person.social_media.facebook !== null"
+          target="_blank"
+          :href="person.social_media.facebook"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -58,7 +60,7 @@ import { OrganizerResource, SpeakerResource } from "../types/api";
 @Component({})
 export default class Person extends Vue {
   @Prop() person!: OrganizerResource | SpeakerResource;
-  @Prop({ default: true }) vertical: boolean;
+  @Prop({ default: true }) vertical!: boolean;
 
   email!: {
     username: string;
@@ -78,6 +80,9 @@ export default class Person extends Vue {
   }
 
   setEmailByParts() {
+    if (this.person.email !== "") {
+      return;
+    }
     const parts = this.person.email.split("@");
     this.email = {
       username: parts[0]
@@ -93,21 +98,23 @@ export default class Person extends Vue {
 <style scoped>
 .container {
   --image-size: 80px;
-  margin-top: calc(var(--space-m) + var(--image-size) / 2);
+  padding-top: calc(var(--image-size) / 2);
+}
+.wrapper {
   border-radius: var(--border-radius-m);
   box-shadow: var(--box-shadow-on-light-bck-light);
   display: grid;
   background: var(--neutral-10);
   padding: 0 var(--space-s);
 }
-.container .image-container {
+.wrapper .image-container {
   position: relative;
   height: calc(var(--image-size) / 2);
   display: flex;
   justify-content: center;
 }
 
-.container > div > img {
+.wrapper > div > img {
   top: calc(var(--image-size) / -2);
   position: absolute;
   border-radius: 50%;
@@ -130,12 +137,9 @@ p {
   line-height: 23px;
 }
 
-.container.vertical h4 {
+.wrapper.vertical h4 {
   margin-top: var(--space-m);
   margin-bottom: var(--space-xs);
-  text-align: center;
-}
-.container.vertical p {
   text-align: center;
 }
 

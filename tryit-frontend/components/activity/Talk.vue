@@ -104,7 +104,9 @@
         </span>
 
         <div class="speakers-container" :id="`speakers-${activity.id}`">
-          <person v-if="activity.speakers.length == 1" :person="activity.speakers[0]"></person>
+          <div v-if="activity.speakers.length == 1" class="speaker-wrapper">
+            <person :person="activity.speakers[0]"></person>
+          </div>
           <div
             class="swiper-speakers-container speakers-detail speakers-preview"
             :class="`swiper-speakers-container-${activity.id}`"
@@ -187,7 +189,7 @@ export default class Talk extends Vue {
       this.openSwiperParams
     );
 
-    this.setMaxHeight(500);
+    this.setMaxHeight();
     window.addEventListener("resize", this.onResize);
 
     setTimeout(() => {
@@ -200,8 +202,12 @@ export default class Talk extends Vue {
 
   _openSpeaker(index: number) {
     const e = document.getElementById(`speakers-${this.activity.id}`);
+    console.log(e);
     this.$emit("scrollTo", e, true);
-    if (this.activity.speakers.length > 1) {
+    if (
+      this.activity.speakers !== undefined &&
+      this.activity.speakers.length > 1
+    ) {
       this.swiper.slideTo(index);
     }
   }
@@ -222,11 +228,9 @@ export default class Talk extends Vue {
   }
 
   setMaxHeight(offset = 0) {
-    setTimeout(() => {
-      this.moreInfoHeight = (document.querySelector(
-        `.more-info-${this.activity.id}`
-      ) as any).scrollHeight;
-    }, offset);
+    this.moreInfoHeight = (document.querySelector(
+      `.more-info-${this.activity.id}`
+    ) as any).scrollHeight;
   }
 
   getSpeakersAndCompanyString() {
@@ -262,7 +266,7 @@ export default class Talk extends Vue {
   }
 
   toggleActivity() {
-    this.setMaxHeight();
+    this.setMaxHeight(350);
     this.open = !this.open;
     this.copiedText = false;
   }
@@ -571,11 +575,14 @@ h6 >>> span.speaker-name {
   font-size: 12px;
 }
 
+.speakers-container {
+  margin-top: var(--space-m);
+}
+
 .more-info {
   transition: var(--transition-very-slow) all ease;
   overflow: hidden;
   grid-area: more-info;
-
   padding-bottom: var(--space-m);
   max-height: var(--max-height);
 }
@@ -592,7 +599,7 @@ h6 >>> span.speaker-name {
   margin-top: var(--space-m);
 }
 .company-container img {
-  max-height: 100px;
+  height: 100px;
 }
 
 .company-container .badge {
