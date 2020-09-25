@@ -165,7 +165,6 @@ export default class Schedule extends Vue {
 
   scrollTo(e: any, stickyBarOffset = false) {
     // TODO Change 52 to header height and 30 to variable
-    console.log(stickyBarOffset);
     const scrollTo = (e as any).offsetTop + 1 - 52 - (stickyBarOffset ? 30 : 0);
     window.scrollTo({
       top: scrollTo,

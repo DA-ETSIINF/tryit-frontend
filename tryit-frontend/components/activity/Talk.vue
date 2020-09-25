@@ -7,40 +7,45 @@
     @mouseleave="mouseHover = false"
   >
     <div class="session-wrapper">
-      <router-link
-        :to="`/schedule${open ? '' : `?activity=${activity.id}`}`"
-        tag="div"
-        class="speakers-pictures"
-        v-if="activity.speakers.some((p) => p.picture !== null)"
-      >
-        <img
-          v-if="activity.speakers.length === 1 && activity.speakers[0].picture !== null"
-          :src="activity.speakers[0].picture"
-          :alt="activity.speakers[0].name"
-          v-lazy-load
-          @click="openSpeaker(0)"
-        />
+      <div class="speakers-pictures" v-if="activity.speakers.some((p) => p.picture !== null)">
+        <div class="image-container">
+          <img
+            v-if="activity.speakers.length === 1 && activity.speakers[0].picture !== null"
+            :src="activity.speakers[0].picture"
+            :alt="activity.speakers[0].name"
+            v-lazy-load
+            @click="openSpeaker(0)"
+          />
+        </div>
+
         <div
           class="avatars"
-          v-if="activity.speakers.length > 1 && !activity.speakers.map((s) => s.picture).includes(null)"
+          v-if="
+						activity.speakers.length > 1 && !activity.speakers.map((s) => s.picture).includes(null)
+					"
         >
-          <img
+          <div
+            class="image-container"
             v-for="(speaker, index) in activity.speakers.slice(
 							0,
 							nSpeakersPreview - (activity.speakers.length === nSpeakersPreview ? 0 : 1)
 						)"
             :key="speaker.name"
-            :src="speaker.picture"
-            :alt="speaker.name"
-            v-lazy-load
             @click="openSpeaker(index)"
-          />
+          >
+            <img
+              :src="speaker.picture"
+              :alt="speaker.name"
+              :class="{ 'not-focused': open && activeSpeaker !== index }"
+              v-lazy-load
+            />
+          </div>
           <div
             class="plus"
             v-if="activity.speakers.length > nSpeakersPreview"
           >+{{ activity.speakers.length - nSpeakersPreview + 1 }}</div>
         </div>
-      </router-link>
+      </div>
       <h5 class="phone-padding">
         <span class="hours" @click="toggleActivity()">
           <span class="hour">{{ getHours(activity.start_date) }}</span>
@@ -90,7 +95,7 @@
       <div
         class="more-info phone-padding"
         :class="`more-info-${activity.id}`"
-        :style="{'--max-height': open ? `${moreInfoHeight}px` : 0}"
+        :style="{ '--max-height': open ? `${moreInfoHeight}px` : 0 }"
       >
         <p
           class="description"
@@ -128,12 +133,17 @@
         <div class="company">
           <div class="company-container">
             <img
-              :src="'https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg'"
+              :src="
+								'https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg'
+							"
               alt
             />
             <badge
               class="badge"
-              v-if="activity.speakers[0] !== undefined && activity.speakers[0].company.sponsor_type !== undefined"
+              v-if="
+								activity.speakers[0] !== undefined &&
+									activity.speakers[0].company.sponsor_type !== undefined
+							"
               :type="activity.speakers[0].company.sponsor_type"
             ></badge>
           </div>
@@ -144,208 +154,223 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from "nuxt-property-decorator";
-import { Route } from "vue-router";
-import { SpeakerResource, TalkResource } from "../../types/api";
-import Swiper from "swiper";
-import { SwiperOptions } from "swiper";
-import { App } from "../../utils/app";
+import { Component, Prop, Vue, Watch } from "nuxt-property-decorator"
+import { Route } from "vue-router"
+import { SpeakerResource, TalkResource } from "../../types/api"
+import Swiper from "swiper"
+import { SwiperOptions } from "swiper"
+import { App } from "../../utils/app"
 
 // TODO: CHECK IF SPEAKERS IS EMPTY
 
 @Component({})
 export default class Talk extends Vue {
-  @Prop() activity!: TalkResource;
-  @Prop() openByDefault!: boolean;
+	@Prop() activity!: TalkResource
+	@Prop() openByDefault!: boolean
 
-  open: boolean = false;
-  nSpeakersPreview: number = App.deviceWidth < 600 ? 3 : 4;
-  moreInfoHeight: number = 0;
+	open: boolean = false
+	nSpeakersPreview: number = App.deviceWidth < 600 ? 3 : 4
+	moreInfoHeight: number = 0
 
-  swiper!: Swiper;
-  openSwiperParams: SwiperOptions = {
-    slidesPerView: 1.15,
-    centeredSlides: true,
-    spaceBetween: 30,
-    grabCursor: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    }
-  };
+	swiper!: Swiper
+	openSwiperParams: SwiperOptions = {
+		slidesPerView: 2.25,
+		centeredSlides: false,
+		spaceBetween: 30,
+		grabCursor: true,
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+	}
 
-  deviceWidth!: number;
+	deviceWidth!: number
 
-  openMenu = false;
-  mouseHover = false;
+	openMenu = false
+	mouseHover = false
 
-  calendarUrl!: string;
-  canBeShared: boolean = false;
-  copiedText: boolean = false;
+	calendarUrl!: string
+	canBeShared: boolean = false
+	copiedText: boolean = false
 
-  mounted() {
-    this.swiper = new Swiper(
-      `.swiper-speakers-container-${this.activity.id}`,
-      this.openSwiperParams
-    );
+	activeSpeaker!: number | undefined
 
-    this.setMaxHeight();
-    window.addEventListener("resize", this.onResize);
+	mounted() {
+		this.swiper = new Swiper(
+			`.swiper-speakers-container-${this.activity.id}`,
+			this.openSwiperParams
+		)
 
-    setTimeout(() => {
-      this.open = this.openByDefault;
-    }, 500);
+		this.swiper.on("slideChange", () => {
+			this.activeSpeaker = this.swiper.activeIndex
+			console.log("activeSpeaker", this.activeSpeaker)
+		})
 
-    this.setCalendarUrl();
-    this.setCanBeShared();
-  }
+		this.setMaxHeight()
+		window.addEventListener("resize", this.onResize)
 
-  _openSpeaker(index: number) {
-    const e = document.getElementById(`speakers-${this.activity.id}`);
-    console.log(e);
-    this.$emit("scrollTo", e, true);
-    if (
-      this.activity.speakers !== undefined &&
-      this.activity.speakers.length > 1
-    ) {
-      this.swiper.slideTo(index);
-    }
-  }
-  openSpeaker(index: number) {
-    if (!this.open) {
-      this.toggleActivity();
-      setTimeout(() => {
-        this._openSpeaker(index);
-      }, 500);
-    } else {
-      this._openSpeaker(index);
-    }
-  }
+		setTimeout(() => {
+			this.open = this.openByDefault
+		}, 500)
 
-  onResize() {
-    this.setMaxHeight();
-    this.deviceWidth = App.deviceWidth;
-  }
+		this.setCalendarUrl()
+		this.setCanBeShared()
 
-  setMaxHeight(offset = 0) {
-    this.moreInfoHeight = (document.querySelector(
-      `.more-info-${this.activity.id}`
-    ) as any).scrollHeight;
-  }
+		this.activeSpeaker = undefined
+	}
 
-  getSpeakersAndCompanyString() {
-    const speakers = this.activity.speakers || [];
-    if (speakers.length === 0) {
-      return "";
-    }
+	_openSpeaker(index: number) {
+		const e = document.getElementById(
+			`${App.deviceHeight > 800 ? "activity-" : "speakers-"}${this.activity.id}`
+		)
+		this.$emit("scrollTo", e, true)
+		if (this.activity.speakers !== undefined && this.activity.speakers.length > 1) {
+			this.swiper.slideTo(index)
+		}
+	}
+	openSpeaker(index: number) {
+		if (!this.open) {
+			this.toggleActivity()
+		} else {
+			this.setActiveSpeakerHighlight()
+		}
+		this._openSpeaker(index)
+	}
 
-    let speakersString = speakers
-      .map(n => `<span class="speaker-name">${n.name.trim()}</span>`)
-      .join("<span>, </span>");
-    if (speakers.length > 1) {
-      const lastComma = speakersString.lastIndexOf(", </span>");
-      speakersString =
-        speakersString.substring(0, lastComma) +
-        " y " +
-        speakersString.substring(lastComma + 1);
-    }
-    const companyString =
-      this.activity.speakers !== undefined && this.activity.speakers.length > 0
-        ? this.activity.speakers[0].company.name
-        : "";
+	onResize() {
+		this.setMaxHeight()
+		this.deviceWidth = App.deviceWidth
+	}
 
-    const fullString = `
+	setMaxHeight(offset = 0) {
+		this.moreInfoHeight = (document.querySelector(
+			`.more-info-${this.activity.id}`
+		) as any).scrollHeight
+	}
+
+	getSpeakersAndCompanyString() {
+		const speakers = this.activity.speakers || []
+		if (speakers.length === 0) {
+			return ""
+		}
+
+		let speakersString = speakers
+			.map((n) => `<span class="speaker-name">${n.name.trim()}</span>`)
+			.join("<span>, </span>")
+		if (speakers.length > 1) {
+			const lastComma = speakersString.lastIndexOf(", </span>")
+			speakersString =
+				speakersString.substring(0, lastComma) + " y " + speakersString.substring(lastComma + 1)
+		}
+		const companyString =
+			this.activity.speakers !== undefined && this.activity.speakers.length > 0
+				? this.activity.speakers[0].company.name
+				: ""
+
+		const fullString = `
       <span>Por </span>
-      ${speakersString}<span>, ${companyString}</span>`;
-    return fullString;
-  }
+      ${speakersString}<span>, ${companyString}</span>`
+		return fullString
+	}
 
-  toggleMenu() {
-    this.openMenu = !this.openMenu;
-    this.copiedText = false;
-  }
+	toggleMenu() {
+		this.openMenu = !this.openMenu
+		this.copiedText = false
+	}
 
-  toggleActivity() {
-    this.setMaxHeight(350);
-    this.open = !this.open;
-    this.copiedText = false;
-  }
+	toggleActivity() {
+		this.setMaxHeight(350)
+		this.open = !this.open
+		this.copiedText = false
+		if (this.open) {
+			if (this.activeSpeaker === undefined) {
+				this.activeSpeaker = 0
+				console.log(this.activeSpeaker)
+			}
+		}
+	}
 
-  getHours(ms: number) {
-    return `0${new Date(ms).getHours()}`.substr(-2);
-  }
+	getHours(ms: number) {
+		return `0${new Date(ms).getHours()}`.substr(-2)
+	}
 
-  getMinutes(ms: number) {
-    return `0${new Date(ms).getMinutes()}`.substr(-2);
-  }
+	getMinutes(ms: number) {
+		return `0${new Date(ms).getMinutes()}`.substr(-2)
+	}
 
-  formatDate(date) {
-    const d = new Date(date);
-    function pad2(n) {
-      // always returns a string
-      return (n < 10 ? "0" : "") + n;
-    }
+	formatDate(date) {
+		const d = new Date(date)
+		function pad2(n) {
+			// always returns a string
+			return (n < 10 ? "0" : "") + n
+		}
 
-    return (
-      d.getFullYear() +
-      pad2(d.getMonth() + 1) +
-      pad2(d.getDate()) +
-      "T" +
-      pad2(d.getHours()) +
-      pad2(d.getMinutes()) +
-      pad2(d.getSeconds())
-    );
-  }
+		return (
+			d.getFullYear() +
+			pad2(d.getMonth() + 1) +
+			pad2(d.getDate()) +
+			"T" +
+			pad2(d.getHours()) +
+			pad2(d.getMinutes()) +
+			pad2(d.getSeconds())
+		)
+	}
 
-  setCalendarUrl() {
-    // https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/master/services/google.md
-    const start_date = this.formatDate(this.activity.start_date);
-    const end_date = this.formatDate(this.activity.end_date);
-    this.calendarUrl =
-      `https://calendar.google.com/calendar/render?action=TEMPLATE&` +
-      `text=TryIT! 2020 - ${this.activity.title}&` + // TODO: Change this to variable data
-      `dates=${start_date}/${end_date}&` +
-      `ctz=Europe/Madrid&` +
-      `details=${this.activity.description}&` +
-      `location=ETSIINF UPM - ${this.activity.location}&` +
-      `sprop=${document.location.origin}${window.location.pathname}?activity=${this.activity.id}`;
-  }
+	setCalendarUrl() {
+		// https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/master/services/google.md
+		const start_date = this.formatDate(this.activity.start_date)
+		const end_date = this.formatDate(this.activity.end_date)
+		this.calendarUrl =
+			`https://calendar.google.com/calendar/render?action=TEMPLATE&` +
+			`text=TryIT! 2020 - ${this.activity.title}&` + // TODO: Change this to variable data
+			`dates=${start_date}/${end_date}&` +
+			`ctz=Europe/Madrid&` +
+			`details=${this.activity.description}&` +
+			`location=ETSIINF UPM - ${this.activity.location}&` +
+			`sprop=${document.location.origin}${window.location.pathname}?activity=${this.activity.id}`
+	}
 
-  setCanBeShared() {
-    this.canBeShared = (navigator as any).share ? true : false;
-  }
+	setCanBeShared() {
+		this.canBeShared = (navigator as any).share ? true : false
+	}
 
-  share() {
-    if (this.canBeShared) {
-      this.apiShare();
-    } else {
-      this.copyLink();
-    }
-  }
+	share() {
+		if (this.canBeShared) {
+			this.apiShare()
+		} else {
+			this.copyLink()
+		}
+	}
 
-  apiShare() {
-    const url: string = this.activity.title.substring(0, 20);
-    (navigator as any)
-      .share({
-        title: "Try IT! 2020", // TODO: Change this to variable data
-        text: `Mira la charla ${url}${url.length >= 30 ? "..." : ""} `, // TODO: Change this to variable data
-        url: document.location.href
-      })
-      .then(() => console.log("Successful share"))
-      .catch(() => this.copyLink());
-  }
+	apiShare() {
+		const url: string = this.activity.title.substring(0, 20)
+		;(navigator as any)
+			.share({
+				title: "Try IT! 2020", // TODO: Change this to variable data
+				text: `Mira la charla ${url}${url.length >= 30 ? "..." : ""} `, // TODO: Change this to variable data
+				url: document.location.href,
+			})
+			.then(() => console.log("Successful share"))
+			.catch(() => this.copyLink())
+	}
 
-  copyLink() {
-    const dummy = document.createElement("input");
-    const text = `${document.location.origin}${window.location.pathname}?activity=${this.activity.id}`;
-    this.copiedText = true;
+	copyLink() {
+		const dummy = document.createElement("input")
+		const text = `${document.location.origin}${window.location.pathname}?activity=${this.activity.id}`
+		this.copiedText = true
 
-    document.body.appendChild(dummy);
-    dummy.value = text;
-    dummy.select();
-    document.execCommand("copy");
-    document.body.removeChild(dummy);
-  }
+		document.body.appendChild(dummy)
+		dummy.value = text
+		dummy.select()
+		document.execCommand("copy")
+		document.body.removeChild(dummy)
+	}
+
+	setActiveSpeakerHighlight() {
+		if (this.activeSpeaker === undefined) {
+			return
+		}
+	}
 }
 </script>
 
@@ -366,9 +391,13 @@ export default class Talk extends Vue {
   grid-template-areas: "time-n-session-type" "title" "speakers-pictures" "speakers-string" "more-info";
 }
 .session-wrapper .speakers-pictures {
-  cursor: pointer;
   margin-top: var(--space-xs);
   padding: 0 var(--space-l);
+  position: relative;
+}
+
+.session-wrapper .speakers-pictures .image-container {
+  position: relative;
 }
 
 .session-wrapper .speakers-pictures img {
@@ -377,13 +406,13 @@ export default class Talk extends Vue {
   height: var(--column-width);
   width: var(--column-width);
   box-shadow: inset 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
+  cursor: pointer;
 }
 
-.session-wrapper .speakers-pictures .avatars img {
-  height: calc((var(--column-width) - 5px));
-  width: calc((var(--column-width) - 5px));
-  padding: 0;
+.session-wrapper .speakers-pictures img.not-focused {
+  filter: brightness(45%);
 }
+
 .session-wrapper .speakers-pictures .avatars {
   display: grid;
   grid-template-columns: repeat(6, calc((var(--column-width) - 5px)));
@@ -391,6 +420,13 @@ export default class Talk extends Vue {
   grid-auto-rows: 1fr;
   grid-area: speakers-pictures;
   max-width: calc(100vw - var(--space-l) * 2);
+}
+
+.session-wrapper .speakers-pictures .avatars img {
+  height: calc((var(--column-width) - 5px));
+  width: calc((var(--column-width) - 5px));
+  padding: 0;
+  z-index: 1;
 }
 
 .plus {
@@ -576,7 +612,12 @@ h6 >>> span.speaker-name {
 }
 
 .speakers-container {
-  margin-top: var(--space-m);
+  padding-top: var(--space-m);
+}
+
+.swiper-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .more-info {

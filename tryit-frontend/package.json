@@ -17,12 +17,12 @@
 		"nuxt-fullpage.js": "0.0.3",
 		"nuxt-lazy-load": "^1.1.8",
 		"nuxt-property-decorator": "2.5.0",
-		"swiper": "^5.3.1",
+		"swiper": "^5.4.5",
 		"vuex-class": "0.3.2",
 		"vuex-module-decorators": "^0.16.1"
 	},
 	"scripts": {
-		"dev": "nuxt-ts",
+		"dev": "nuxt-ts --hostname 0.0.0.0",
 		"build": "nuxt-ts build",
 		"start": "nuxt-ts start",
 		"generate": "nuxt-ts generate"

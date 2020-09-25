@@ -105,7 +105,7 @@ export default class Person extends Vue {
   box-shadow: var(--box-shadow-on-light-bck-light);
   display: grid;
   background: var(--neutral-10);
-  padding: 0 var(--space-s);
+  padding: var(--space-s) var(--space-l);
 }
 .wrapper .image-container {
   position: relative;
@@ -129,12 +129,14 @@ h4 {
   font-weight: normal;
   font-size: 16px;
   color: var(--primary-3);
+  margin-top: var(--space-s);
 }
 
 p {
   font-size: 14px;
   color: var(--neutral-4);
   line-height: 23px;
+  margin-top: var(--space-xs);
 }
 
 .wrapper.vertical h4 {

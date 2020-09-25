@@ -100,18 +100,18 @@ export default {
 				href:
 					"https://fonts.googleapis.com/css?family=Roboto:400,500,700|Source+Sans+Pro:400,600&display=swap",
 			},
-			{
-				rel: "stylesheet",
-				href: "https://unpkg.com/swiper/css/swiper.min.css",
-			},
+			// {
+			// 	rel: "stylesheet",
+			// 	href: "https://unpkg.com/swiper/css/swiper.min.css",
+			// },
 		],
 		script: [
 			{ src: "https://kit.fontawesome.com/358fa893fd.js", body: true },
-			{ src: "https://unpkg.com/swiper/js/swiper.min.js", body: true },
+			// { src: "https://unpkg.com/swiper/swiper.min.js", body: true },
 			{ scr: "https://www.googletagmanager.com/gtag/js?id=UA-134663969-1", async: true },
 		],
 	},
-	loading: { color: "#035b9e" },
+	loading: { color: "#035b/9e" },
 	css: ["~/assets/css/main.css", "~/assets/css/fullpage.css"],
 	build: {},
 	buildModules: ["@nuxt/typescript-build"],

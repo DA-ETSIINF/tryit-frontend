@@ -43,7 +43,6 @@ export default class Schedule extends Vue {
   }
 
   scrollTo(e, o) {
-    console.log(o);
     this.$emit("scrollTo", e, o);
   }
 

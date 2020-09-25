@@ -1,5 +1,6 @@
 export class App {
 	static deviceWidth: number
+	static deviceHeight: number
 	static navigatorLanguage: string
 	static uris: any = {}
 
@@ -15,9 +16,11 @@ export class App {
 
 	private setDeviceWidth() {
 		App.deviceWidth = window.innerWidth
+		App.deviceHeight = window.innerHeight
 
 		window.addEventListener("resize", () => {
 			App.deviceWidth = window.innerWidth
+			App.deviceHeight = window.innerHeight
 		})
 	}
 
@@ -32,7 +35,7 @@ export class App {
 		const apiDomain = `${apiInfo.ip}:${apiInfo.port}`
 
 		Object.keys(apiInfo.paths).forEach(
-			path => (App.uris[path] = `${apiDomain}${apiInfo.paths[path]}`)
+			(path) => (App.uris[path] = `${apiDomain}${apiInfo.paths[path]}`)
 		)
 	}
 }
