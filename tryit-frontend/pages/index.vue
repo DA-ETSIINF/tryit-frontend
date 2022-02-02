@@ -136,7 +136,7 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
 if (process.client) {
-	require("fullpage.js/vendors/scrolloverflow")
+	import("fullpage.js/vendors/scrolloverflow")
 }
 import {
 	ButtonComponent,

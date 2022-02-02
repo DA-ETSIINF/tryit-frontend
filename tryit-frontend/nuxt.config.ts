@@ -95,8 +95,8 @@ export default {
 	},
 	loading: { color: "#035b9e" },
 	css: ["~/assets/css/main.css", "~/assets/css/fullpage.css"],
-	build: {},
-	buildModules: ["@nuxt/typescript-build"],
+	build: {transpile: ["swiper", "ssr-window", "dom7"]},
+	buildModules: ["@nuxt/typescript-build", "@nuxtjs/vuetify"],
 	modules: ["@nuxtjs/axios", "nuxt-fullpage.js"],
 	axios: {},
 	router: {
