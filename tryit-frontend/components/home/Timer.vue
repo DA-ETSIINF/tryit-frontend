@@ -1,6 +1,13 @@
 <template>
-    <p style="color: white">{{timer}}</p>
+    <div>
+        <h3 class="timer_intro"> ¿Estás listo? Te esperamos en</h3>
+        <p class="timer_class">{{timer}}</p>
+    </div>
 </template>
+
+<style lang="scss">
+    @import './Timer.scss'
+</style>
 
 <script lang="ts">
 /*import { Component, Provide, Inject, Vue } from "nuxt-property-decorator";
@@ -48,7 +55,7 @@ export default  {
             seconds = seconds % 3600;
             var mins: number = Math.floor(seconds / 60)
             seconds = Math.floor(seconds % 60);
-            return `${days}:${hours}:${mins}:${seconds}`; //.substr(11, 8);
+            return `${days} días ${hours} horas ${mins} minutos ${seconds} segundos`; //.substr(11, 8);
         }
     }
     /*mounted()   {
