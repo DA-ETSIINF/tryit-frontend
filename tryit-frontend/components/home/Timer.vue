@@ -1,5 +1,5 @@
 <template>
-    <p>{{this.secondsLeft}}</p>
+    <p>{{timer}}</p>
 </template>
 
 <script lang="ts">
@@ -28,10 +28,26 @@ export default  {
             secondsLeft :  (new Date("2022-03-14T10:00:00+01:00").getTime() - Date.now())/1000,
         }
     },
+    computed:   {
+        timer() {
+            let secs = this.secondsLeft;
+            return this.formatTime(secs)
+        }
+    },
+    methods:    {
+        formatTime(seconds) {
+            if(seconds > 0) {
+                setTimeout(() => {
+                    this.secondsLeft--;
+                }, 1000)
+            }
+            return seconds;
+        }
+    }
     /*mounted()   {
         this.secondsLeft = (new Date("2022-03-14T10:00:00+01:00").getTime() - Date.now())/1000;  
     },*/
-    watch:  {
+    /*watch:  {
         counter:    {
             handler(val)    {
                 if(val > 0) {
@@ -41,6 +57,6 @@ export default  {
                 }
             }
         }
-    }
+    }*/
 }
 </script>
