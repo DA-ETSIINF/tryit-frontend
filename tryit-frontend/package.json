@@ -15,8 +15,7 @@
 		"nuxt-property-decorator": "2.9.1",
 		"vuex-class": "0.3.2",
 		"vuex-module-decorators": "1.2.0",
-		"@nuxtjs/vuetify": "1.12.3",
-		"nuxt-fullpage.js": "0.0.3"
+		"@openafg/nuxt-fullpage": "1.0.5"
 	},
 	"scripts": {
 		"dev": "nuxt --hostname 0.0.0.0",

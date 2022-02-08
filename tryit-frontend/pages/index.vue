@@ -6,9 +6,9 @@
 					<img src="/img/welcome.jpg" alt="Try IT! congress" />
 				</div>
 				<div class="welcome-content">
-					<h1>Try IT! 2020</h1>
+					<h1>Try IT! 2022</h1>
 					<h4 style="width: initial">ETSIINF - UPM</h4>
-					<h3>16-20 MARZO</h3>
+					<h3>14-18 MARZO</h3>
 					<button-component
 						:type="'secondary-btn'"
 						:text="'Consigue tu entrada'"
@@ -127,17 +127,11 @@
 		<section class="section">
 			<Hero :data="volunteersData"></Hero>
 		</section>
-		<section class="section fp-auto-height">
-			<FooterComponent></FooterComponent>
-		</section>
 	</full-page>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
-if (process.client) {
-	import("fullpage.js/vendors/scrolloverflow")
-}
 import {
 	ButtonComponent,
 	Sponsors,
@@ -147,7 +141,6 @@ import {
 	Hero,
 	FooterComponent
 } from "../components"
-
 import { HeroType } from "../types/components"
 @Component({
 	components: {
@@ -168,9 +161,7 @@ export default class extends Vue {
 		duration: 300,
 		scrollOverflow: true
 	}
-
 	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
-
 	volunteersData: HeroType = {
 		image: "/img/volunteers.jpg",
 		name: "Volunteers",
@@ -179,7 +170,6 @@ export default class extends Vue {
 		btn: true,
 		btn_text: "Regístrate aquí"
 	}
-
 	goTo(path: string) {
 		window.location.href = path // TODO use router
 	}
@@ -193,34 +183,29 @@ export default class extends Vue {
 	align-items: center;
 	height: 100%;
 }
-
 .welcome .welcome-image {
 	background: var(--primary-3);
 	width: 100%;
 	height: 100%;
 }
-
 .welcome .welcome-image img {
 	object-fit: cover;
 	height: 100%;
 	filter: opacity(0.3);
 	width: 100%;
 }
-
 .welcome-content {
 	position: absolute;
 	background: transparent;
 	display: flex;
 	flex-direction: column;
 }
-
 .welcome-content h1 {
 	color: var(--neutral-10);
 	font-weight: var(--font-bold-roboto);
 	font-size: 40px;
 	text-align: center;
 }
-
 .welcome-content h4 {
 	font-weight: var(--font-bold-roboto);
 	color: var(--neutral-10);
@@ -229,14 +214,12 @@ export default class extends Vue {
 	text-align: center;
 	margin: var(--space-xs) 0;
 }
-
 .welcome-content h3 {
 	font-weight: var(--font-bold-roboto);
 	color: var(--neutral-10);
 	font-size: 20px;
 	text-align: center;
 }
-
 @media screen and (min-width: 700px) {
 	.welcome-content {
 		transform: translate(0, -25%);
@@ -251,32 +234,26 @@ export default class extends Vue {
 		font-size: 20px;
 	}
 }
-
 button {
 	margin-top: var(--space-l);
 	align-self: center;
 	box-shadow: none;
 	border-color: var(--primary-3);
 }
-
 button:hover {
 	background: var(--neutral-8);
 }
-
 .what-we-offer h2 {
 	margin: 0;
 }
-
 h2 {
 	text-align: center;
 	margin-top: var(--space-l);
 }
-
 .section-description {
 	text-align: center;
 	margin-top: var(--space-s);
 }
-
 .property div i {
 	width: 30px;
 	height: 30px;
@@ -289,7 +266,6 @@ h2 {
 	justify-content: center;
 	align-items: center;
 }
-
 @media screen and (max-width: 701px) {
 	.properties {
 		display: flex;
@@ -303,21 +279,18 @@ h2 {
 		transition: var(--transition-slow) all ease;
 		--distance: 20vw;
 	}
-
 	.properties .property:nth-child(2n) {
 		grid-template-areas:
 			". i title"
 			"description description description";
 		grid-template-columns: var(--distance) auto 1fr;
 	}
-
 	.properties .property:nth-child(2n + 1) {
 		grid-template-areas:
 			"title i ."
 			"description description description";
 		grid-template-columns: 1fr auto var(--distance);
 	}
-
 	.property h3 {
 		grid-area: title;
 		background: var(--neutral-8);
@@ -330,15 +303,12 @@ h2 {
 		font-weight: var(--font-bold-roboto);
 		cursor: pointer;
 	}
-
 	.property.active h3 {
 		font-size: 14px;
 	}
-
 	.properties .property:nth-child(2n + 1) h3 {
 		justify-content: flex-end;
 	}
-
 	.property .description {
 		grid-area: description;
 		max-width: 400px;
@@ -362,7 +332,6 @@ h2 {
 		position: relative;
 		cursor: pointer;
 	}
-
 	.property .icon .bck {
 		position: absolute;
 		background: var(--neutral-8);
@@ -371,7 +340,6 @@ h2 {
 		right: 0;
 		z-index: -1;
 	}
-
 	.property .icon i {
 		width: 20px;
 		height: 20px;
@@ -379,14 +347,12 @@ h2 {
 		padding: var(--space-s);
 		transition: var(--transition-slow) all ease;
 	}
-
 	.property.active .icon i {
 		width: 30px;
 		height: 30px;
 		font-size: 30px;
 		padding: var(--space-s);
 	}
-
 	.properties .property:nth-child(2n + 1) > div > div {
 		left: 0;
 	}
@@ -425,7 +391,6 @@ h2 {
 	.property .description p {
 		text-align: center;
 	}
-
 	.property .icon {
 		order: 1;
 	}
