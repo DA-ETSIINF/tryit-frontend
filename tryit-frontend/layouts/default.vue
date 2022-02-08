@@ -28,10 +28,10 @@ export default class extends Vue {
         text: "Inicio",
         url: "/"
       },
-      {
-        text: "Entrada",
-        url: "/ticket"
-      },
+      // {
+      //   text: "Entrada",
+      //   url: "/ticket"
+      // },
       // {
       //   text: "Programa",
       //   url: "/schedule"
@@ -40,10 +40,10 @@ export default class extends Vue {
       //   text: "Eventos",
       //   url: "/"
       // },
-      {
-        text: "Registro voluntarios",
-        url: "/volunteers"
-      }
+      // {
+      //   text: "Registro voluntarios",
+      //   url: "/volunteers"
+      // }
     ],
     secondary: [
       // {

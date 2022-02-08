@@ -6,15 +6,16 @@
 					<img src="/img/welcome.jpg" alt="Try IT! congress" />
 				</div>
 				<div class="welcome-content">
-					<h1>Try IT! 2022</h1>
-					<h4 style="width: initial">ETSIINF - UPM</h4>
-					<h3>14-18 MARZO</h3>
+					<h1>Try IT! X</h1>
+					<h4 style="width: initial">2022 ETSIINF - UPM</h4>
+					<h3>Del 14 al 18 de Marzo</h3>
+					</br>
 					<Timer></Timer>
-					<button-component
+					<!-- <button-component
 						:type="'secondary-btn'"
 						:text="'Consigue tu entrada'"
 						@onClick="goTo('/ticket')"
-					></button-component>
+					></button-component> -->
 				</div>
 			</div>
 		</section>
