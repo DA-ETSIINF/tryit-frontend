@@ -1,5 +1,5 @@
 <template>
-    <p>{{timer}}</p>
+    <p style="color: white">{{timer}}</p>
 </template>
 
 <script lang="ts">
@@ -41,7 +41,14 @@ export default  {
                     this.secondsLeft--;
                 }, 1000)
             }
-            return seconds;
+
+            var days: number = Math.floor(seconds / (3600 * 24));
+            seconds = seconds % (3600 * 24);
+            var hours: number = Math.floor(seconds / 3600);
+            seconds = seconds % 3600;
+            var mins: number = Math.floor(seconds / 60)
+            seconds = Math.floor(seconds % 60);
+            return `${days}:${hours}:${mins}:${seconds}`; //.substr(11, 8);
         }
     }
     /*mounted()   {
