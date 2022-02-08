@@ -9,6 +9,7 @@
 					<h1>Try IT! 2022</h1>
 					<h4 style="width: initial">ETSIINF - UPM</h4>
 					<h3>14-18 MARZO</h3>
+					<Timer></Timer>
 					<button-component
 						:type="'secondary-btn'"
 						:text="'Consigue tu entrada'"
@@ -139,7 +140,8 @@ import {
 	Map,
 	SliderEvents,
 	Hero,
-	FooterComponent
+	FooterComponent,
+	Timer
 } from "../components"
 import { HeroType } from "../types/components"
 @Component({
@@ -150,7 +152,8 @@ import { HeroType } from "../types/components"
 		Map,
 		SliderEvents,
 		Hero,
-		FooterComponent
+		FooterComponent,
+		Timer
 	}
 })
 export default class extends Vue {
