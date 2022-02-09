@@ -1,19 +1,22 @@
 <template>
-    <div class="corchete"><p>{</p><div class="grid">
-        <h3 class="timer_intro"> ¿Estás listo?</h3>
+    <div><p class="corchete">{</p><div class="grid">
+        <!--<h3 class="timer_intro"> ¿Estás listo?</h3>-->
         <div class="timer_class">
-            <div class="time">{{timer.days}}</div><p>D</p> <div class="time">{{timer.hours}}</div> <p>H</p> <div class="time">{{timer.minutes}}</div> <p>M</p> <div class="time">{{timer.seconds}}</div> <p>S</p>
+            <div class="time">{{timer.days}}</div><p>:</p> <div class="time">{{timer.hours}}</div> <p>:</p> <div class="time">{{timer.minutes}}</div> <p>:</p> <div class="time">{{timer.seconds}}</div>
         </div>
-    </div><p>}</p>
+    </div><p class="corchete">}</p>
     </div>
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
-.corchete   {
-    font-size: 20vw;
+.corchete  {
+    font-size: 15vw;
     font-family: 'Fira Code', monospace;
+    font-weight: 400;
+    color: var(--primary-7);
 }
 
 .grid   {
@@ -23,11 +26,13 @@
     height: auto;
     box-shadow: 0px 0px 15px white;
     outline: solid rgba(255,255,255,0.5);
+    background-color: rgba(20,20,20,0.3);
 }
 
 .time   {
     font-size: 10vw;
     font-family: 'Fira Code', monospace;
+    font-weight: 700;
 }
 
 .timer_intro {
@@ -45,6 +50,7 @@
     align-items: center;
     max-height: auto;
     max-width: 100%;
+    backdrop-filter: opacity(20%);
 }
 
 .timer_class *{

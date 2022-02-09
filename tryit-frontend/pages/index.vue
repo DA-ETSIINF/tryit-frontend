@@ -184,6 +184,8 @@ export default class extends Vue {
 	align-items: center;
 	height: auto;
 	width: 100%;
+	/*background-image: url("https://i.blogs.es/e1feab/google-fotos/450_1000.jpg");*/
+	backdrop-filter: blur(2px);
 }
 .welcome .welcome-container {
 	display: flex;
@@ -194,14 +196,14 @@ export default class extends Vue {
 }
 
 .welcome .welcome-image {
-	background: var(--primary-3);
+	background: rgba(0,0,0,0.8);
 	width: 100%;
 	height: 100%;
 }
 .welcome .welcome-image img {
 	object-fit: cover;
 	height: 100%;
-	filter: opacity(0.3);
+	/*filter: opacity(0.3);*/
 	width: 100%;
 }
 .welcome-content {
