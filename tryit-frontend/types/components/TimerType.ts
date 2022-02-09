@@ -1,14 +1,26 @@
 export class TimerType {
-    seconds: number = 0;
-    minutes: number = 0;
-    hours: number = 0;
-    days: number = 0;
+    seconds: string = "";
+    minutes: string = "";
+    hours: string = "";
+    days: string = "";
     constructor(seconds: number){
-        this.days = Math.floor(seconds / (3600 * 24));
+        this.days = Math.floor(seconds / (3600 * 24)).toLocaleString('en-US', {
+            minimumIntegerDigits: 2,
+            useGrouping: false
+          });
         seconds = seconds % (3600 * 24);
-        this.hours = Math.floor(seconds / 3600);
+        this.hours = Math.floor(seconds / 3600).toLocaleString('en-US', {
+            minimumIntegerDigits: 2,
+            useGrouping: false
+          });
         seconds = seconds % 3600;
-        this.minutes = Math.floor(seconds / 60)
-        this.seconds = Math.floor(seconds % 60);
+        this.minutes = Math.floor(seconds / 60).toLocaleString('en-US', {
+            minimumIntegerDigits: 2,
+            useGrouping: false
+          });
+        this.seconds = Math.floor(seconds % 60).toLocaleString('en-US', {
+            minimumIntegerDigits: 2,
+            useGrouping: false
+          });
     };
 }

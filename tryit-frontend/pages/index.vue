@@ -5,18 +5,20 @@
 				<div class="welcome-image">
 					<img src="/img/welcome.jpg" alt="Try IT! congress" />
 				</div>
+				<div class="welcome-nothing"></div>
 				<div class="welcome-content">
 					<h1>Try IT! X</h1>
 					<h4 style="width: initial">2022 ETSIINF - UPM</h4>
 					<h3>Del 14 al 18 de Marzo</h3>
 					</br>
-					<Timer></Timer>
+					<Timer class="timer"></Timer>
 					<!-- <button-component
 						:type="'secondary-btn'"
 						:text="'Consigue tu entrada'"
 						@onClick="goTo('/ticket')"
 					></button-component> -->
 				</div>
+				
 			</div>
 		</section>
 		<section class="what-we-offer section">
@@ -115,19 +117,16 @@
 				</div>
 			</div>
 		</section>
-		<section class="section" style="padding-top: var(--space-l)">
+		<!--<section class="section" style="padding-top: var(--space-l)">
 			<h2>Patrocinadores</h2>
 			<Sponsors></Sponsors>
-		</section>
+		</section>-->
 		<section class="section" v-if="false">
 			<SliderEvents></SliderEvents>
 		</section>
 		<section class="section">
 			<h2>¿Dónde estamos?</h2>
 			<Map></Map>
-		</section>
-		<section class="section">
-			<Hero :data="volunteersData"></Hero>
 		</section>
 	</full-page>
 </template>
@@ -181,11 +180,26 @@ export default class extends Vue {
 </script>
 
 <style scoped>
+.timer	{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	width: 100%;
+}
 .welcome .welcome-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
+	height: auto;
+	width: 100%;
+	
+}
+.welcome-nothing	{
+	position: relative;
+	top: 50px;
+	display: flex;
+	padding-top: 200px;
 }
 .welcome .welcome-image {
 	background: var(--primary-3);

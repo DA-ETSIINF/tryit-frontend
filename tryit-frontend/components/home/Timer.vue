@@ -1,35 +1,68 @@
 <template>
-    <div>
-        <h3 class="timer_intro"> ¿Estás listo? Te esperamos en</h3>
-        <div class="timer_class"><div>{{timer.days}}</div><p>días</p> <div>{{timer.hours}}</div> <p>horas</p> <div>{{timer.minutes}}</div> <p>minutos</p> <div>{{timer.seconds}}</div> <p>segundos</p></div>
+    <div class="corchete"><p>{</p><div class="grid">
+        <h3 class="timer_intro"> ¿Estás listo?</h3>
+        <div class="timer_class">
+            <div class="time">{{timer.days}}</div><p>D</p> <div class="time">{{timer.hours}}</div> <p>H</p> <div class="time">{{timer.minutes}}</div> <p>M</p> <div class="time">{{timer.seconds}}</div> <p>S</p>
+        </div>
+    </div><p>}</p>
     </div>
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap');
+
+.corchete   {
+    font-size: 20vw;
+    font-family: 'Fira Code', monospace;
+}
+
+.grid   {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 0px 15px white;
+    outline: solid rgba(255,255,255,0.5);
+}
+
+.time   {
+    font-size: 10vw;
+    /*font-family: 'Supermercado One', cursive;*/
+    font-family: 'Fira Code', monospace;
+}
+
 .timer_intro {
     text-align: center;
-    font-size: 2em;
+    font-size: 5vw;
     color: white;
 }
 
 .timer_class {
     display: flex;
     flex-direction: row;
-    margin: 10px;
+    flex-wrap: wrap;
+    margin: 5px;
     justify-content: center;
     align-items: center;
-    max-height: 60%;
-    max-width: 60%;
+    max-height: auto;
+    max-width: 100%;
 }
 
 .timer_class *{
     margin: auto;
-    font-size: 20px;
-    color: white;
-    text-shadow: 0 0 30px rgba(82, 78, 78, 0.75);
+    color: var(--primary-8);
     border: 50px;
     border-color: rgba(82, 78, 78, 0.75);
     padding: 10px;
+    text-align: center; 
+    
+}
+
+.timer_class p  {
+    font-size: 5vw;
+    font-family: 'Fira Code', monospace;
+
 }
 </style>
 
