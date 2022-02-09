@@ -9,7 +9,6 @@
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap');
 
 .corchete   {
@@ -28,7 +27,6 @@
 
 .time   {
     font-size: 10vw;
-    /*font-family: 'Supermercado One', cursive;*/
     font-family: 'Fira Code', monospace;
 }
 
@@ -70,14 +68,15 @@
 import {
   TimerType
 } from "../../types/components/TimerType";
-export default  {
+import Vue from "vue";
+export default  Vue.extend({
     data()  {
         return{
             secondsLeft :  (new Date("2022-03-14T10:00:00+01:00").getTime() - Date.now())/1000,
         }
     },
     computed:   {
-        timer() {
+        timer(): TimerType {
             let secs = this.secondsLeft;
             return this.formatTime(secs)
         }
@@ -96,5 +95,5 @@ export default  {
         }
     }
 
-}
+});
 </script>
