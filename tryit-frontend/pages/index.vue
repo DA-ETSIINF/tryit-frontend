@@ -209,7 +209,7 @@ export default class extends Vue {
 	background: transparent;
 	display: flex;
 	flex-direction: column;
-	padding-top: 10%;
+	padding-top: 20%;
 }
 .welcome-content h1 {
 	color: var(--neutral-10);
