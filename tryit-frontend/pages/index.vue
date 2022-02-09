@@ -9,7 +9,6 @@
 					<h1>Try IT! X</h1>
 					<h4 style="width: initial">2022 ETSIINF - UPM</h4>
 					<h3>Del 14 al 18 de Marzo</h3>
-					</br>
 					<Timer class="timer"></Timer>
 					<!-- <button-component
 						:type="'secondary-btn'"
@@ -210,7 +209,7 @@ export default class extends Vue {
 	background: transparent;
 	display: flex;
 	flex-direction: column;
-
+	padding-top: 10%;
 }
 .welcome-content h1 {
 	color: var(--neutral-10);
