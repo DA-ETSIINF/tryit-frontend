@@ -5,7 +5,6 @@
 				<div class="welcome-image">
 					<img src="/img/welcome.jpg" alt="Try IT! congress" />
 				</div>
-				<div class="welcome-nothing"></div>
 				<div class="welcome-content">
 					<h1>Try IT! X</h1>
 					<h4 style="width: initial">2022 ETSIINF - UPM</h4>
@@ -191,16 +190,10 @@ export default class extends Vue {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: auto;
+	height: 100vh;
 	width: 100%;
-	
 }
-.welcome-nothing	{
-	position: relative;
-	top: 50px;
-	display: flex;
-	padding-top: 200px;
-}
+
 .welcome .welcome-image {
 	background: var(--primary-3);
 	width: 100%;
@@ -217,6 +210,7 @@ export default class extends Vue {
 	background: transparent;
 	display: flex;
 	flex-direction: column;
+
 }
 .welcome-content h1 {
 	color: var(--neutral-10);
