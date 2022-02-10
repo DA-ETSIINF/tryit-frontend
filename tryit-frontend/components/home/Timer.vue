@@ -1,10 +1,52 @@
 <template>
-    <div><p class="corchete">{</p><div class="grid">
-        <!--<h3 class="timer_intro"> ¿Estás listo?</h3>-->
-        <div class="timer_class">
-            <div class="time">{{timer.days}}</div><p>:</p> <div class="time">{{timer.hours}}</div> <p>:</p> <div class="time">{{timer.minutes}}</div> <p>:</p> <div class="time">{{timer.seconds}}</div>
+    <div>
+        <div class="grid">
+            
+            <div class="timer_class">
+                <table>
+						
+                    <tr>
+                        <td colspan="4">
+                            <img class="tryit-logo" src="/img/imagotipo_claro_2.png"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4">
+                            <h2> { 14 a 18 de Marzo de 2022 } </h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="time">{{timer.days}}</div>
+                        </td>
+                        <td>
+                            <div class="time">{{timer.hours}}</div> 
+                        </td>
+                        <td>
+                            <div class="time">{{timer.minutes}}</div>
+                        </td>
+                        <td>
+                            <div class="time">{{timer.seconds}}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Días</p>
+                        </td>
+                        <td>
+                            <p>Horas</p>
+                        </td>
+                        <td>
+                            <p>Minutos</p>
+                        </td>
+                        <td>
+                            <p>Segundos</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div><p class="corchete">}</p>
     </div>
 </template>
 
@@ -12,11 +54,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
-.corchete  {
-    font-size: 15vw;
-    font-family: 'Fira Code', monospace;
-    font-weight: 400;
-    color: var(--primary-7);
+.tryit-logo	{
+	height: auto;
+	width: 20vw;
 }
 
 .grid   {
@@ -50,24 +90,32 @@
     align-items: center;
     max-height: auto;
     max-width: 100%;
-    backdrop-filter: opacity(20%);
 }
 
 .timer_class *{
     margin: auto;
-    color: var(--primary-8);
+    color: var(--primary-9);
     border: 50px;
     border-color: rgba(82, 78, 78, 0.75);
-    padding: 10px;
+    padding: 0.5vw;
     text-align: center; 
     
 }
 
 .timer_class p  {
-    font-size: 5vw;
+    font-size: 1.5vw;
     font-family: 'Fira Code', monospace;
+}
+
+.timer_class h2  {
+    font-size: 2.5vw;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    color: var(--primary-9);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
 
 }
+
 </style>
 
 <script lang="ts">

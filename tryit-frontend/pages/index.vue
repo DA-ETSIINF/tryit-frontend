@@ -6,9 +6,6 @@
 					<img src="/img/welcome.jpg" alt="Try IT! congress" />
 				</div>
 				<div class="welcome-content">
-					<h1>Try IT! X</h1>
-					<h4 style="width: initial">2022 ETSIINF - UPM</h4>
-					<h3>Del 14 al 18 de Marzo</h3>
 					<Timer class="timer"></Timer>
 					<!-- <button-component
 						:type="'secondary-btn'"
@@ -154,6 +151,8 @@ import { HeroType } from "../types/components"
 		Timer
 	}
 })
+
+  
 export default class extends Vue {
 	options = {
 		licenseKey: "RMPr@ZT!e1",
@@ -178,6 +177,7 @@ export default class extends Vue {
 </script>
 
 <style scoped>
+
 .timer	{
 	display: flex;
 	justify-content: center;
@@ -211,17 +211,35 @@ export default class extends Vue {
 	background: transparent;
 	display: flex;
 	flex-direction: column;
-	padding-top: 20%;
+	padding-top: 25%;
+}
+.welcome-content img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50%;  
+	height: auto;  
 }
 .welcome-content h1 {
 	color: var(--neutral-10);
+	text-shadow: 1px 1px black;
 	font-weight: var(--font-bold-roboto);
 	font-size: 40px;
 	text-align: center;
 }
+
+.welcome-content h2 {
+	color: var(--primary-7);
+	text-shadow: 1px 1px black;
+	font-weight: var(--font-bold-roboto);
+	font-size: 3em;
+	text-align: center;
+}
+
 .welcome-content h4 {
 	font-weight: var(--font-bold-roboto);
 	color: var(--neutral-10);
+	text-shadow: 1px 1px black;
 	font-size: 15px;
 	letter-spacing: 1.2px;
 	text-align: center;
@@ -229,9 +247,10 @@ export default class extends Vue {
 }
 .welcome-content h3 {
 	font-weight: var(--font-bold-roboto);
-	color: var(--neutral-10);
-	font-size: 20px;
+	color: var(--primary-6);
+	font-size: 15px;
 	text-align: center;
+	text-shadow: 1px 1px black;
 }
 @media screen and (min-width: 700px) {
 	.welcome-content {
