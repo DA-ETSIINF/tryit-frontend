@@ -18,6 +18,5 @@
 			"~/*": ["./*"]
 		},
 		"types": ["@nuxt/types", "@nuxtjs/axios"],
-		"resolveJsonModule": true
 	}
 }

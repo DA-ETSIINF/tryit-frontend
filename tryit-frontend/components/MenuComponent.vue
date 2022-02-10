@@ -9,7 +9,7 @@
       </ul>
       <ul class="secondary-options">
         <li v-for="(entry, i) in menu.secondary" :key="i" @click="$emit('toogleMenu')">
-          <nuxt-link :to="entry.url">{{entry.text}}</nuxt-link>
+          <nuxt-link class="links" :to="entry.url">{{entry.text}}</nuxt-link>
         </li>
       </ul>
     </aside>
@@ -30,6 +30,10 @@ export default class MenuComponent extends Vue {
 </script>
 
 <style scoped>
+.links  {
+  color: white;
+}
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -44,13 +48,14 @@ export default class MenuComponent extends Vue {
 }
 .menu aside {
   z-index: 1001;
-  background-color: var(--white);
+  background-color: var(--primary-6);
   width: 256px;
   padding: var(--space-s) var(--space-l);
   height: calc(100vh - 2 * var(--space-s));
   display: flex;
   flex-direction: column;
   box-shadow: var(--box-shadow-on-light-bck);
+  color: white;
 }
 
 .menu aside .logo {
@@ -80,7 +85,7 @@ export default class MenuComponent extends Vue {
   padding: var(--space-xs) 0;
 }
 .primary-options li a {
-  color: var(--neutral-6);
+  color: var(--white);
   font-family: var(--roboto);
   font-weight: var(--font-bold-roboto);
   font-size: 16px;
@@ -91,7 +96,7 @@ export default class MenuComponent extends Vue {
 }
 
 .secondary-options li a {
-  color: var(--neutral-5);
+  color: var(--white);
   font-family: var(--roboto);
   font-weight: var(--font-regular-roboto);
   font-size: 14px;

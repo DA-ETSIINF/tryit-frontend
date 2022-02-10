@@ -20,7 +20,18 @@ export default class Map extends Vue {}
 
 <style scoped>
 .map {
-	margin-top: var(--space-l);
-	height: 65%;
-}</style
->e
+	/*margin-top: var(--space-l);
+	height: 65%;*/
+    overflow:hidden;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+}
+.map iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+</style>

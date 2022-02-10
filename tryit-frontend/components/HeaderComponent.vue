@@ -34,6 +34,7 @@ header.main-header {
   box-shadow: var(--box-shadow-on-light-bck);
   z-index: 1000;
   top: 0;
+  background-color: var(--primary-6);
 }
 
 header.main-header .menu-container {
@@ -43,6 +44,7 @@ header.main-header .menu-container {
   color: var(--neutral-4);
   align-items: center;
   margin: 0 auto;
+  color: white;
 }
 
 .logo {
@@ -70,7 +72,7 @@ ul {
   }
 
   ul li a {
-    color: var(--neutral-2);
+    color: var(--white);
     font-family: var(--roboto);
     font-size: 14px;
     padding: var(--space-xs) 0;
@@ -80,7 +82,7 @@ ul {
   }
 
   ul li a:hover {
-    background: var(--neutral-9);
+    background: var(--primary-3);
   }
 }
 /* TODO 

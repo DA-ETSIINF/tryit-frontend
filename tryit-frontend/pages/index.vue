@@ -6,15 +6,14 @@
 					<img src="/img/welcome.jpg" alt="Try IT! congress" />
 				</div>
 				<div class="welcome-content">
-					<h1>Try IT! 2020</h1>
-					<h4 style="width: initial">ETSIINF - UPM</h4>
-					<h3>16-20 MARZO</h3>
-					<button-component
+					<Timer class="timer"></Timer>
+					<!-- <button-component
 						:type="'secondary-btn'"
 						:text="'Consigue tu entrada'"
 						@onClick="goTo('/ticket')"
-					></button-component>
+					></button-component> -->
 				</div>
+				
 			</div>
 		</section>
 		<section class="what-we-offer section">
@@ -113,10 +112,10 @@
 				</div>
 			</div>
 		</section>
-		<section class="section" style="padding-top: var(--space-l)">
+		<!--<section class="section" style="padding-top: var(--space-l)">
 			<h2>Patrocinadores</h2>
 			<Sponsors></Sponsors>
-		</section>
+		</section>-->
 		<section class="section" v-if="false">
 			<SliderEvents></SliderEvents>
 		</section>
@@ -124,20 +123,11 @@
 			<h2>¿Dónde estamos?</h2>
 			<Map></Map>
 		</section>
-		<section class="section">
-			<Hero :data="volunteersData"></Hero>
-		</section>
-		<section class="section fp-auto-height">
-			<FooterComponent></FooterComponent>
-		</section>
 	</full-page>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
-if (process.client) {
-	require("fullpage.js/vendors/scrolloverflow")
-}
 import {
 	ButtonComponent,
 	Sponsors,
@@ -145,9 +135,9 @@ import {
 	Map,
 	SliderEvents,
 	Hero,
-	FooterComponent
+	FooterComponent,
+	Timer
 } from "../components"
-
 import { HeroType } from "../types/components"
 @Component({
 	components: {
@@ -157,9 +147,12 @@ import { HeroType } from "../types/components"
 		Map,
 		SliderEvents,
 		Hero,
-		FooterComponent
+		FooterComponent,
+		Timer
 	}
 })
+
+  
 export default class extends Vue {
 	options = {
 		licenseKey: "RMPr@ZT!e1",
@@ -168,9 +161,7 @@ export default class extends Vue {
 		duration: 300,
 		scrollOverflow: true
 	}
-
 	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
-
 	volunteersData: HeroType = {
 		image: "/img/volunteers.jpg",
 		name: "Volunteers",
@@ -179,7 +170,6 @@ export default class extends Vue {
 		btn: true,
 		btn_text: "Regístrate aquí"
 	}
-
 	goTo(path: string) {
 		window.location.href = path // TODO use router
 	}
@@ -187,56 +177,81 @@ export default class extends Vue {
 </script>
 
 <style scoped>
+
+.timer	{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	width: 100%;
+	/*background-image: url("https://i.blogs.es/e1feab/google-fotos/450_1000.jpg");*/
+	backdrop-filter: blur(2px);
+}
 .welcome .welcome-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
+	height: 100vh;
+	width: 100%;
 }
 
 .welcome .welcome-image {
-	background: var(--primary-3);
+	background: rgba(0,0,0,0.8);
 	width: 100%;
 	height: 100%;
 }
-
 .welcome .welcome-image img {
 	object-fit: cover;
 	height: 100%;
-	filter: opacity(0.3);
+	/*filter: opacity(0.3);*/
 	width: 100%;
 }
-
 .welcome-content {
 	position: absolute;
 	background: transparent;
 	display: flex;
 	flex-direction: column;
+	padding-top: 25%;
 }
-
+.welcome-content img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50%;  
+	height: auto;  
+}
 .welcome-content h1 {
 	color: var(--neutral-10);
+	text-shadow: 1px 1px black;
 	font-weight: var(--font-bold-roboto);
 	font-size: 40px;
+	text-align: center;
+}
+
+.welcome-content h2 {
+	color: var(--primary-7);
+	text-shadow: 1px 1px black;
+	font-weight: var(--font-bold-roboto);
+	font-size: 3em;
 	text-align: center;
 }
 
 .welcome-content h4 {
 	font-weight: var(--font-bold-roboto);
 	color: var(--neutral-10);
+	text-shadow: 1px 1px black;
 	font-size: 15px;
 	letter-spacing: 1.2px;
 	text-align: center;
 	margin: var(--space-xs) 0;
 }
-
 .welcome-content h3 {
 	font-weight: var(--font-bold-roboto);
-	color: var(--neutral-10);
-	font-size: 20px;
+	color: var(--primary-6);
+	font-size: 15px;
 	text-align: center;
+	text-shadow: 1px 1px black;
 }
-
 @media screen and (min-width: 700px) {
 	.welcome-content {
 		transform: translate(0, -25%);
@@ -251,32 +266,26 @@ export default class extends Vue {
 		font-size: 20px;
 	}
 }
-
 button {
 	margin-top: var(--space-l);
 	align-self: center;
 	box-shadow: none;
 	border-color: var(--primary-3);
 }
-
 button:hover {
 	background: var(--neutral-8);
 }
-
 .what-we-offer h2 {
 	margin: 0;
 }
-
 h2 {
 	text-align: center;
 	margin-top: var(--space-l);
 }
-
 .section-description {
 	text-align: center;
 	margin-top: var(--space-s);
 }
-
 .property div i {
 	width: 30px;
 	height: 30px;
@@ -289,7 +298,6 @@ h2 {
 	justify-content: center;
 	align-items: center;
 }
-
 @media screen and (max-width: 701px) {
 	.properties {
 		display: flex;
@@ -303,21 +311,18 @@ h2 {
 		transition: var(--transition-slow) all ease;
 		--distance: 20vw;
 	}
-
 	.properties .property:nth-child(2n) {
 		grid-template-areas:
 			". i title"
 			"description description description";
 		grid-template-columns: var(--distance) auto 1fr;
 	}
-
 	.properties .property:nth-child(2n + 1) {
 		grid-template-areas:
 			"title i ."
 			"description description description";
 		grid-template-columns: 1fr auto var(--distance);
 	}
-
 	.property h3 {
 		grid-area: title;
 		background: var(--neutral-8);
@@ -330,15 +335,12 @@ h2 {
 		font-weight: var(--font-bold-roboto);
 		cursor: pointer;
 	}
-
 	.property.active h3 {
 		font-size: 14px;
 	}
-
 	.properties .property:nth-child(2n + 1) h3 {
 		justify-content: flex-end;
 	}
-
 	.property .description {
 		grid-area: description;
 		max-width: 400px;
@@ -362,7 +364,6 @@ h2 {
 		position: relative;
 		cursor: pointer;
 	}
-
 	.property .icon .bck {
 		position: absolute;
 		background: var(--neutral-8);
@@ -371,7 +372,6 @@ h2 {
 		right: 0;
 		z-index: -1;
 	}
-
 	.property .icon i {
 		width: 20px;
 		height: 20px;
@@ -379,14 +379,12 @@ h2 {
 		padding: var(--space-s);
 		transition: var(--transition-slow) all ease;
 	}
-
 	.property.active .icon i {
 		width: 30px;
 		height: 30px;
 		font-size: 30px;
 		padding: var(--space-s);
 	}
-
 	.properties .property:nth-child(2n + 1) > div > div {
 		left: 0;
 	}
@@ -425,7 +423,6 @@ h2 {
 	.property .description p {
 		text-align: center;
 	}
-
 	.property .icon {
 		order: 1;
 	}
