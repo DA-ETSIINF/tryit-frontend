@@ -1,10 +1,10 @@
 <template>
-	<full-page ref="fullpage" :options="options" id="fullpage">
-		<section class="welcome section">
+	<v-container fluid>
+		<v-card class="welcome bg">
 			<div class="welcome-container">
-				<div class="welcome-image">
+				<!--<div class="welcome-image">
 					<img src="/img/welcome.jpg" alt="Try IT! congress" />
-				</div>
+				</div>-->
 				<div class="welcome-content">
 					<Timer class="timer"></Timer>
 					<!-- <button-component
@@ -15,9 +15,9 @@
 				</div>
 				
 			</div>
-		</section>
-		<section class="what-we-offer section">
-			<h2>¿Qué ofrecemos?</h2>
+		</v-card>
+		<v-card class="justify-center">
+			<h2 align="center">¿Qué ofrecemos?</h2>
 			<p class="section-description">
 				Un congreso orientado a difundir las tendencias actuales tecnológicas.
 			</p>
@@ -111,19 +111,19 @@
 					</div>
 				</div>
 			</div>
-		</section>
-		<!--<section class="section" style="padding-top: var(--space-l)">
-			<h2>Patrocinadores</h2>
+		</v-card>
+		<!--<v-card class="section" style="padding-top: var(--space-l)">
+			<v-card-title>Patrocinadores</v-card-title>
 			<Sponsors></Sponsors>
-		</section>-->
-		<section class="section" v-if="false">
+		</v-card>-->
+		<v-card v-if="false">
 			<SliderEvents></SliderEvents>
-		</section>
-		<section class="section">
+		</v-card>
+		<v-card>
 			<h2>¿Dónde estamos?</h2>
 			<Map></Map>
-		</section>
-	</full-page>
+		</v-card>
+	</v-container>
 </template>
 
 <script lang="ts">
@@ -178,13 +178,18 @@ export default class extends Vue {
 
 <style scoped>
 
+.bg	{
+	background-image: url("/img/welcome.jpg");
+	background-size: cover;
+}
+
 .timer	{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: auto;
 	width: 100%;
-	/*background-image: url("https://i.blogs.es/e1feab/google-fotos/450_1000.jpg");*/
+	/*background-image: url("/img/welcome.jpg");*/
 	backdrop-filter: blur(2px);
 }
 .welcome .welcome-container {

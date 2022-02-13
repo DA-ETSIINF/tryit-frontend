@@ -1,4 +1,7 @@
+import colors from 'vuetify/es5/util/colors'
+
 export default {
+	target: "server",
 	env: {
 		dev: process.env.NODE_ENV !== "production",
 		api: "https://iecisamandaynotupanda.congresotryit.es"
@@ -94,15 +97,30 @@ export default {
 		]
 	},
 	loading: { color: "#035b9e" },
-	css: ["~/assets/css/main.css", "~/assets/css/fullpage.css"],
+	css: ["~/assets/css/main.css"],
 	build: {transpile: ["swiper", "ssr-window", "dom7"]},
-	buildModules: ["@nuxt/typescript-build"/*, "@nuxtjs/vuetify"*/],
-	modules: ["@nuxtjs/axios", 
-		["@openafg/nuxt-fullpage", {
-			activeSection: 0,
-      		mouseWheelSensitivity: 60,
-      		showIndicators: false	
-		}]],
+	buildModules: ["@nuxt/typescript-build", "@nuxtjs/vuetify"],
+	vuetify:	{
+		customVariables: ['~/assets/css/main.css'],
+		treeShake: true,
+		theme: {
+		  dark: false,
+		  themes: {
+			light: {
+			  primary: "#FFFFFF",
+			  accent: colors.grey.darken3,
+			  secondary: colors.yellow.darken1,
+			  info: colors.teal.lighten1,
+			  warning: colors.amber.base,
+			  error: colors.deepOrange.accent4,
+			  success: colors.green.accent3,
+			  background: colors.blueGrey.lighten4,
+			}
+		  }
+		}
+	},
+	modules: ["@nuxtjs/axios"
+		],
 	axios: {},
 	router: {
 		middleware: "routing-auth",

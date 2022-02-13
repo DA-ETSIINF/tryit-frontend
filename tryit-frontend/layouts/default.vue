@@ -1,4 +1,6 @@
 <template>
+<v-app light class="app" :style="{background: $vuetify.theme.themes.light.background}">
+      
   <div>
     <Header :menu="menu" v-on:toogleMenu="toogleOpen()"></Header>
     <Menu :isOpen="isOpen" :menu="menu" v-on:toogleMenu="toogleOpen()"></Menu>
@@ -7,6 +9,7 @@
     </main>
     <Footer></Footer>
   </div>
+  </v-app>
 </template>
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
