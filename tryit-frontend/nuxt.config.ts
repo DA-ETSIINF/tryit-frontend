@@ -4,7 +4,7 @@ export default {
 	target: "server",
 	env: {
 		dev: process.env.NODE_ENV !== "production",
-		api: "https://iecisamandaynotupanda.congresotryit.es"
+		//api: "https://iecisamandaynotupanda.congresotryit.es"
 	},
 	head: {
 		title: "Try IT!",
@@ -107,14 +107,14 @@ export default {
 		  dark: false,
 		  themes: {
 			light: {
-			  primary: "#FFFFFF",
+			  primary: colors.indigo,
 			  accent: colors.grey.darken3,
-			  secondary: colors.yellow.darken1,
+			  secondary: colors.indigo.lighten1,
 			  info: colors.teal.lighten1,
 			  warning: colors.amber.base,
 			  error: colors.deepOrange.accent4,
 			  success: colors.green.accent3,
-			  background: colors.blueGrey.lighten4,
+			  background: colors.indigo.lighten4,
 			}
 		  }
 		}

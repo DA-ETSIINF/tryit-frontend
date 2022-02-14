@@ -1,154 +1,146 @@
 <template>
-	<v-container fluid>
-		<v-card class="welcome bg">
-			<div class="welcome-container">
-				<!--<div class="welcome-image">
-					<img src="/img/welcome.jpg" alt="Try IT! congress" />
-				</div>-->
-				<div class="welcome-content">
-					<Timer class="timer"></Timer>
-					<!-- <button-component
-						:type="'secondary-btn'"
-						:text="'Consigue tu entrada'"
-						@onClick="goTo('/ticket')"
-					></button-component> -->
-				</div>
-				
+<div>
+	<v-card class="welcome bg">
+		<div class="welcome-container">
+			<!--<div class="welcome-image">
+				<img src="/img/welcome.jpg" alt="Try IT! congress" />
+			</div>-->
+			<div class="welcome-content">
+				<Timer class="timer"></Timer>
+				<!-- <button-component
+					:type="'secondary-btn'"
+					:text="'Consigue tu entrada'"
+					@onClick="goTo('/ticket')"
+				></button-component> -->
 			</div>
-		</v-card>
-		<v-card class="justify-center">
-			<h2 align="center">¿Qué ofrecemos?</h2>
-			<p class="section-description">
-				Un congreso orientado a difundir las tendencias actuales tecnológicas.
-			</p>
-			<div class="properties">
-				<div
-					class="property"
-					:class="{ active: paragraphActive === 'companies' }"
-					@click="paragraphActive = 'companies'"
-				>
-					<h3>Empresas punteras</h3>
-					<div class="description">
-						<p>
-							Como en otras ediciones, este año también contaremos con empresas líderes de la talla
-							de Google, Microsoft, IBM y muchas más.
-						</p>
-					</div>
-					<div class="icon">
-						<div class="bck"></div>
-						<i class="far fa-building"></i>
-					</div>
+			
+		</div>
+		
+	</v-card>
+	<PopupForm class="popup-button"></PopupForm>
+	<v-card>
+		<h2 align="center">¿Qué ofrecemos?</h2>
+		<p class="section-description">
+			Un congreso orientado a difundir las tendencias actuales tecnológicas.
+		</p>
+		<div class="properties">
+			<div
+				class="property"
+				:class="{ active: paragraphActive === 'companies' }"
+				@click="paragraphActive = 'companies'"
+			>
+				<h3>Empresas punteras</h3>
+				<div class="description">
+					<p>
+						Como en otras ediciones, este año también contaremos con empresas líderes de la talla
+						de Google, Microsoft, IBM y muchas más.
+					</p>
 				</div>
-				<div
-					class="property"
-					:class="{ active: paragraphActive === 'topics' }"
-					@click="paragraphActive = 'topics'"
-				>
-					<h3>Temática diversa</h3>
-					<div class="description">
-						<p>
-							Podrás asistir a charlas y talleres de programación web, Big Data, Blockchain,
-							aplicaciones móviles, VR...
-						</p>
-					</div>
-					<div class="icon">
-						<div class="bck"></div>
-						<i
-							style="padding-top: calc(var(--space-s) + 2px); padding-bottom: calc(var(--space-s) - 2px)"
-							class="fas fa-project-diagram"
-						></i>
-					</div>
-				</div>
-				<div
-					class="property"
-					:class="{ active: paragraphActive === 'talks_n_workshops' }"
-					@click="paragraphActive = 'talks_n_workshops'"
-				>
-					<h3>Ponencias y talleres</h3>
-					<div class="description">
-						<p>
-							Podrás asistir a una amplia variedad de charlas y talleres donde podrás aumentar tus
-							conocimientos
-						</p>
-					</div>
-					<div class="icon">
-						<div class="bck"></div>
-						<i class="fas fa-robot"></i>
-					</div>
-				</div>
-				<div
-					class="property"
-					:class="{ active: paragraphActive === 'free' }"
-					@click="paragraphActive = 'free'"
-				>
-					<h3>Acceso gratuito</h3>
-					<div class="description">
-						<p>
-							Try IT! lo organiza DA-ETSIINF de la UPM. Está hecho por y para estudiantes.
-							Perseguimos la formación y no el lucro.
-						</p>
-					</div>
-					<div class="icon">
-						<div class="bck"></div>
-						<i class="fas fa-dollar-sign"></i>
-					</div>
-				</div>
-				<div
-					class="property"
-					:class="{ active: paragraphActive === 'ects' }"
-					@click="paragraphActive = 'ects'"
-				>
-					<h3>Reconocimiento de ECTS</h3>
-					<div class="description">
-						<p>
-							Try IT! se incluye en el Catálogo General de Reconocimiento de Créditos de la UPM.
-							Podrás obtener hasta 2 ECTS.
-						</p>
-					</div>
-					<div class="icon">
-						<div class="bck"></div>
-						<i class="fas fa-graduation-cap"></i>
-					</div>
+				<div class="icon">
+					<div class="bck"></div>
+					<i class="far fa-building"></i>
 				</div>
 			</div>
-		</v-card>
-		<!--<v-card class="section" style="padding-top: var(--space-l)">
-			<v-card-title>Patrocinadores</v-card-title>
-			<Sponsors></Sponsors>
-		</v-card>-->
-		<v-card v-if="false">
-			<SliderEvents></SliderEvents>
-		</v-card>
-		<v-card>
-			<h2>¿Dónde estamos?</h2>
-			<Map></Map>
-		</v-card>
-	</v-container>
+			<div
+				class="property"
+				:class="{ active: paragraphActive === 'topics' }"
+				@click="paragraphActive = 'topics'"
+			>
+				<h3>Temática diversa</h3>
+				<div class="description">
+					<p>
+						Podrás asistir a charlas y talleres de programación web, Big Data, Blockchain,
+						aplicaciones móviles, VR...
+					</p>
+				</div>
+				<div class="icon">
+					<div class="bck"></div>
+					<i
+						style="padding-top: calc(var(--space-s) + 2px); padding-bottom: calc(var(--space-s) - 2px)"
+						class="fas fa-project-diagram"
+					></i>
+				</div>
+			</div>
+			<div
+				class="property"
+				:class="{ active: paragraphActive === 'talks_n_workshops' }"
+				@click="paragraphActive = 'talks_n_workshops'"
+			>
+				<h3>Ponencias y talleres</h3>
+				<div class="description">
+					<p>
+						Podrás asistir a una amplia variedad de charlas y talleres donde podrás aumentar tus
+						conocimientos
+					</p>
+				</div>
+				<div class="icon">
+					<div class="bck"></div>
+					<i class="fas fa-robot"></i>
+				</div>
+			</div>
+			<div
+				class="property"
+				:class="{ active: paragraphActive === 'free' }"
+				@click="paragraphActive = 'free'"
+			>
+				<h3>Acceso gratuito</h3>
+				<div class="description">
+					<p>
+						Try IT! lo organiza DA-ETSIINF de la UPM. Está hecho por y para estudiantes.
+						Perseguimos la formación y no el lucro.
+					</p>
+				</div>
+				<div class="icon">
+					<div class="bck"></div>
+					<i class="fas fa-dollar-sign"></i>
+				</div>
+			</div>
+			<div
+				class="property"
+				:class="{ active: paragraphActive === 'ects' }"
+				@click="paragraphActive = 'ects'"
+			>
+				<h3>Reconocimiento de ECTS</h3>
+				<div class="description">
+					<p>
+						Try IT! se incluye en el Catálogo General de Reconocimiento de Créditos de la UPM.
+						Podrás obtener hasta 2 ECTS.
+					</p>
+				</div>
+				<div class="icon">
+					<div class="bck"></div>
+					<i class="fas fa-graduation-cap"></i>
+				</div>
+			</div>
+		</div>
+	</v-card>
+	<!--<v-card class="section" style="padding-top: var(--space-l)">
+		<v-card-title>Patrocinadores</v-card-title>
+		<Sponsors></Sponsors>
+	</v-card>-->
+	<!--<v-card v-if="false">
+		<SliderEvents></SliderEvents>
+	</v-card>-->
+	<v-card>
+		<h2>¿Dónde estamos?</h2>
+		<Map></Map>
+	</v-card>
+	</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
 import {
-	ButtonComponent,
-	Sponsors,
-	Badge,
 	Map,
-	SliderEvents,
-	Hero,
-	FooterComponent,
-	Timer
+	Timer,
+	PopupForm
 } from "../components"
 import { HeroType } from "../types/components"
 @Component({
 	components: {
-		ButtonComponent,
-		Sponsors,
-		Badge,
 		Map,
-		SliderEvents,
-		Hero,
-		FooterComponent,
-		Timer
+		Timer,
+		PopupForm
 	}
 })
 
@@ -183,11 +175,16 @@ export default class extends Vue {
 	background-size: cover;
 }
 
+.popup-button	{
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
 .timer	{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: auto;
+	height: 30vh;
 	width: 100%;
 	/*background-image: url("/img/welcome.jpg");*/
 	backdrop-filter: blur(2px);
