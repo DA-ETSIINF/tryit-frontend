@@ -10,7 +10,6 @@
           color="primary"
           dark
           block
-          large
           height=30vh
           v-bind="attrs"
           v-on="on"

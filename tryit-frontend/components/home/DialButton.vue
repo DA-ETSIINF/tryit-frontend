@@ -16,6 +16,7 @@
             color="secondary"
             dark
             fab
+            x-large
         >
             <v-icon v-if="showIcons">
             mdi-close
