@@ -1,7 +1,7 @@
 <template>
-<div>
+<v-card>
 	<v-card class="welcome bg">
-		<div class="welcome-container">
+		<div class="welcome-card">
 			<!--<div class="welcome-image">
 				<img src="/img/welcome.jpg" alt="Try IT! congress" />
 			</div>-->
@@ -17,7 +17,10 @@
 		</div>
 		
 	</v-card>
-	<PopupForm class="popup-button"></PopupForm>
+	<!--<PopupForm class="popup-button"></PopupForm>-->
+	<v-card>
+		<PopupForm></PopupForm>
+	</v-card>
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
 		<p class="section-description">
@@ -125,7 +128,7 @@
 		<h2>¿Dónde estamos?</h2>
 		<Map></Map>
 	</v-card>
-	</div>
+	</v-card>
 </template>
 
 <script lang="ts">
@@ -133,18 +136,19 @@ import { Component, Vue } from "nuxt-property-decorator"
 import {
 	Map,
 	Timer,
-	PopupForm
+	PopupForm,
+	DialButton
 } from "../components"
 import { HeroType } from "../types/components"
 @Component({
 	components: {
 		Map,
 		Timer,
-		PopupForm
+		PopupForm,
+		DialButton
 	}
 })
 
-  
 export default class extends Vue {
 	options = {
 		licenseKey: "RMPr@ZT!e1",
@@ -165,6 +169,9 @@ export default class extends Vue {
 	goTo(path: string) {
 		window.location.href = path // TODO use router
 	}
+	toogleOpen() {
+    	this.$nuxt.$emit("toggleTicketForm")
+ 	}
 }
 </script>
 
@@ -189,7 +196,7 @@ export default class extends Vue {
 	/*background-image: url("/img/welcome.jpg");*/
 	backdrop-filter: blur(2px);
 }
-.welcome .welcome-container {
+.welcome .welcome-card {
 	display: flex;
 	justify-content: center;
 	align-items: center;

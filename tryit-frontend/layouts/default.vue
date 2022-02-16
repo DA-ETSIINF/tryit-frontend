@@ -22,17 +22,13 @@
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
         <v-spacer></v-spacer>
         <v-app-bar-title class="white--text">TRY IT! 2022</v-app-bar-title>
-
         <v-spacer></v-spacer>
-
-        
       </v-app-bar>
-      
-      
-    
       <main>
         <v-container app class="container" fluid>
+          
         <nuxt />
+        <DialButton class="dbut"></DialButton>
         </v-container>
       </main>
       <v-footer color="indigo lighten-1">
@@ -51,69 +47,20 @@
           <v-icon>mdi-twitter</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
-      </v-footer>
-      <!--<Footer></Footer>-->
-    
-    
+      </v-footer>    
   </v-app>
 </template>
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 import * as Components from "../components";
-import { MenuType } from "../types/components";
 
 @Component({
   components: {
-    Menu: Components.MenuComponent,
+    DialButton: Components.DialButton
   }
 })
 export default class extends Vue {
-  isOpen: boolean = false;
-  menu: MenuType = {
-    primary: [
-      {
-        text: "Inicio",
-        url: "/"
-      },
-      // {
-      //   text: "Entrada",
-      //   url: "/ticket"
-      // },
-      // {
-      //   text: "Programa",
-      //   url: "/schedule"
-      // },
-      // {
-      //   text: "Eventos",
-      //   url: "/"
-      // },
-      // {
-      //   text: "Registro voluntarios",
-      //   url: "/volunteers"
-      // }
-    ],
-    secondary: [
-      // {
-      //   text: "ECTS obtenidos",
-      //   url: "/ects"
-      // },
-      // {
-      //   text: "Ediciones anteriores",
-      //   url: "/last-editions"
-      // },
-      // {
-      //   text: "Organizadores",
-      //   url: "/organizers"
-      // },
-      {
-        text: "Contacto",
-        url: "/contact"
-      }
-    ]
-  };
-  toogleOpen() {
-    this.isOpen = !this.isOpen;
-  }
+  isFormVisible: boolean =  false
 }
 </script>
 

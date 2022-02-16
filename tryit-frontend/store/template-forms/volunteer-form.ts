@@ -72,7 +72,7 @@ export const volunteerForm: FormType = {
 						text: "Tengo un dispositivo android",
 						details: [
 							"Necesitamos validar las entradas de los asistentes con una app que funciona en android",
-							"Si rellenas esta casilla, es posible que debas instalarte una app para el checkeo de las entradas"
+							"Si rellenas esta casilla, es posible que debas instalarte una  para el checkeo de las entradas"
 						],
 						checked: false,
 						htmlId: "android",

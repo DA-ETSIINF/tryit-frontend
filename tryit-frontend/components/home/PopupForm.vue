@@ -1,18 +1,20 @@
 <template>
-  <v-row justify="center">
+  <!--<v-row justify="center">-->
     <v-dialog
-      v-model="dialog"
+      v-model="isVisible"
       persistent
       max-width="600px"
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="primary"
-          x-large
-          block
           dark
+          block
+          large
+          height=30vh
           v-bind="attrs"
           v-on="on"
+          @click="hideDialog"
         >
         CONSIGUE TU ENTRADA PULSANDO AQUÍ
         </v-btn>
@@ -85,21 +87,21 @@
           <v-btn
             color="blue darken-1"
             text
-            @click="dialog = false"
+            @click="hideDialog"
           >
             Close
           </v-btn>
           <v-btn
             color="blue darken-1"
             text
-            @click="dialog = false"
+            @click="hideDialog"
           >
             Save
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-row>
+  <!--</v-row>-->
 </template>
 
 <script>
@@ -107,9 +109,24 @@
 export default {
     data()  {
         return{
-            dialog: false,
-            emailRules: [ v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido' ]
+          isVisible: false,
+          emailRules: [ v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido' ]
         }
+    },
+    computed:   {
+      changeVisibility()  {
+        this.isVisible = this.$store.state.isTicketFormVisible
+      }
+    },
+    methods: {
+      hideDialog()  {
+        this.isVisible = false
+      }
+    },
+    created() {
+      this.$nuxt.$on("toggleTicketForm", () => {
+        this.isVisible = !this.isVisible
+      })
     }
   }
 </script>
