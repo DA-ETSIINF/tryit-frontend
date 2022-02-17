@@ -16,13 +16,12 @@
             color="secondary"
             dark
             fab
-            x-large
         >
             <v-icon v-if="showIcons">
             mdi-close
             </v-icon>
             <v-icon v-else>
-            mdi-account-circle
+            mdi-plus
             </v-icon>
         </v-btn>
         </template>
@@ -30,10 +29,19 @@
         fab
         dark
         small
-        color="green"
-        @click="hideDialog"
+        color="blue-grey darken-3"
+        @click="hideTicketForm"
         >
         <v-icon>mdi-form-select</v-icon>
+        </v-btn>
+        <v-btn
+        fab
+        dark
+        small
+        color="blue-grey darken-3"
+        @click="hideTimeline"
+        >
+        <v-icon>mdi-timeline</v-icon>
         </v-btn>
     </v-speed-dial>
 </template>
@@ -53,8 +61,11 @@ export default {
         }
     },
     methods:    {
-        hideDialog()    {
+        hideTicketForm()    {
             this.$nuxt.$emit("toggleTicketForm")
+        },
+        hideTimeline()    {
+            this.$nuxt.$emit("toggleTimeline")
         }
     }
 }

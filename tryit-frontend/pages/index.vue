@@ -20,7 +20,9 @@
 	<!--<PopupForm class="popup-button"></PopupForm>-->
 	<v-card>
 		<PopupForm></PopupForm>
+		
 	</v-card>
+	<v-card><Timeline></Timeline></v-card>
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
 		<p class="section-description">
@@ -137,15 +139,16 @@ import {
 	Map,
 	Timer,
 	PopupForm,
-	DialButton
+	DialButton,
+	Timeline
 } from "../components"
-import { HeroType } from "../types/components"
 @Component({
 	components: {
 		Map,
 		Timer,
 		PopupForm,
-		DialButton
+		DialButton,
+		Timeline
 	}
 })
 
@@ -158,14 +161,6 @@ export default class extends Vue {
 		scrollOverflow: true
 	}
 	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
-	volunteersData: HeroType = {
-		image: "/img/volunteers.jpg",
-		name: "Volunteers",
-		title: "¿Quieres ser voluntario?",
-		description: "Podrás conseguir hasta 1 ECTS",
-		btn: true,
-		btn_text: "Regístrate aquí"
-	}
 	goTo(path: string) {
 		window.location.href = path // TODO use router
 	}

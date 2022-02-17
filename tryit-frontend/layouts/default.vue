@@ -42,7 +42,7 @@
         <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/">
           <v-icon>mdi-github</v-icon>
         </v-btn>
-        <p class="white--text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contacto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <p class="white--text">&nbsp;&nbsp;Contacto&nbsp;&nbsp;</p>
         <v-btn fab target="_blank" href="https://twitter.com/tryit_upm">
           <v-icon>mdi-twitter</v-icon>
         </v-btn>

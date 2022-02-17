@@ -1,10 +1,3 @@
-export { default as Contact } from "./contact.vue"
-export { default as ECTS } from "./ects.vue"
-export { default as Event } from "./event.vue"
 export { default as Home } from "./index.vue"
 export { default as NotFound } from "./not-found.vue"
-export { default as Organizers } from "./organizers.vue"
-export { default as PreviousEditions } from "./previous-editions.vue"
-export { default as Schedule } from "./schedule.vue"
-export { default as Ticket } from "./ticket.vue"
-export { default as Volunteers } from "./volunteers.vue"
+
