@@ -1,0 +1,54 @@
+[
+
+    {
+    
+        "event": 
+    
+    {
+    
+        "id": 812,
+        "name": "Awesome name",
+        "description": "Awesome description",
+        "eventtype": "talk"
+    
+    },
+    "url": "https://www.ted.com/talks/captain_america_TED_talk",
+    "video": "https://www.youtube.com/watch?v=ANOTHERONE",
+    "start_date": 1581089789382,
+    "end_date": 1581089789382,
+    "slide": "https://slide_url.com",
+    "room": "dark room",
+    "speakers": 
+    [
+    
+    {
+    
+        "name": "Victor Nieves",
+        "bio": "No one knows where he was born",
+        "image": "https://www.images.com/victor",
+        "web": "https://www.personalweb.com/",
+        "organization": 
+    
+    {
+    
+        "name": "Iron man",
+        "description": "Best superhero ever",
+        "email": "contact@ironman.com",
+        "role": "It is the boss",
+        "image": "https://www.image.com/"
+    
+    },
+    "social_media": 
+    
+                    {
+                        "twitter": "https://twitter.com/IronMan",
+                        "facebook": "https://facebook.com/IronMan",
+                        "linkedin": "https://linkedin.com/IronMan",
+                        "github": "https://github.com/IronMan",
+                        "gitlab": "https://gitlab.com/IronMan"
+                    }
+                }
+            ]
+        }
+    
+    ]

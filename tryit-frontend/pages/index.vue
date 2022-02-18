@@ -119,13 +119,6 @@
 			</div>
 		</div>
 	</v-card>
-	<!--<v-card class="section" style="padding-top: var(--space-l)">
-		<v-card-title>Patrocinadores</v-card-title>
-		<Sponsors></Sponsors>
-	</v-card>-->
-	<!--<v-card v-if="false">
-		<SliderEvents></SliderEvents>
-	</v-card>-->
 	<v-card>
 		<h2>¿Dónde estamos?</h2>
 		<Map></Map>
