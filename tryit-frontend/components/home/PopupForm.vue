@@ -111,11 +111,11 @@ export default {
           emailRules: [ v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido' ]
         }
     },
-    computed:   {
+    /*computed:   {
       changeVisibility()  {
         this.isVisible = this.$store.state.isTicketFormVisible
       }
-    },
+    },*/
     methods: {
       hideDialog()  {
         this.isVisible = false

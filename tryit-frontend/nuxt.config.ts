@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-	target: "server",
+	target: "static",
 	env: {
 		dev: process.env.NODE_ENV !== "production",
 		api: "https://congresotryit.es"

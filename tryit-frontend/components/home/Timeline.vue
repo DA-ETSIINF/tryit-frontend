@@ -30,8 +30,7 @@
                 fill-dot
             >
                 <v-card
-                    :color="black"
-                    class="white--text"
+                    class="black--text"
                 >
                     {{post.end_date}}
                 </v-card>
@@ -53,9 +52,9 @@
 <script>
 import $http from 'http'
 export default {
+    props: ['posts'],
     data()  {
         return{
-          posts: [],
           isVisible: false,
           year: 2022,
           emailRules: [ v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido' ],
@@ -91,13 +90,13 @@ export default {
           },]
         }
     },
-    async fetch() {
+    /*async fetch() {
       //const posts = await $http.$get(`${process.env.api}/${year}/talks`).json()
       this.posts = await this.$axios.$get(`http://192.168.1.14:3000/test.json`).then(res => res)
       console.log("Data loaded")
       //return { posts }
 
-      /*posts.forEach(post => {
+      posts.forEach(post => {
         let formattedPost = {
           event: post.event,
           url: post.url,
@@ -109,8 +108,8 @@ export default {
         }
         formattedPosts.push(formattedPost)
       });
-  */
-    },
+  
+    },*/
     methods: {
       hideDialog()  {
         this.isVisible = false
