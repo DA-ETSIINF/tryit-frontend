@@ -22,7 +22,7 @@
 		<PopupForm></PopupForm>
 		
 	</v-card>
-	<v-card><Timeline></Timeline></v-card>
+	<v-card><Timeline :posts="posts"></Timeline></v-card>
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
 		<p class="section-description">
@@ -135,7 +135,8 @@ import {
 	DialButton,
 	Timeline
 } from "../components"
-import { Context } from '@nuxt/types'
+//import { Context } from '@nuxt/types'
+
 @Component({
 	components: {
 		Map,
@@ -145,15 +146,10 @@ import { Context } from '@nuxt/types'
 		Timeline
 	},
 	//Hay que conseguir que asyncData detecte l variable posts declarada en la clase de abajo
-	/*async asyncData({params, $axios, ctx: Context}) {
-      //const posts = await $http.$get(`${process.env.api}/${year}/talks`).json()
-      posts = await this.$axios.$get(`http://192.168.1.14:3000/test.json`).then(res => res)
-      console.log("Data loaded")
-      return { posts }
-	}*/
 })
 
 export default class extends Vue {
+
 	options = {
 		licenseKey: "RMPr@ZT!e1",
 		dir: "v",
@@ -161,7 +157,18 @@ export default class extends Vue {
 		duration: 300,
 		scrollOverflow: true
 	}
-	posts?: Array<object> = []
+	//posts?: Array<object> = []
+	/*data()	{
+		return	{
+			posts:[] 
+		}
+	}*/
+	async asyncData({$axios/*, ctx: Context*/}) {
+      //const posts = await $http.$get(`${process.env.api}/${year}/talks`).json()
+      const posts = await $axios.$get(`http://192.168.1.14:3000/test.json`).then(res => res)
+      console.log("Data loaded")
+      return { posts }
+	}
 	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
 	goTo(path: string) {
 		window.location.href = path // TODO use router

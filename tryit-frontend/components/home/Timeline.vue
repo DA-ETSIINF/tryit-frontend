@@ -32,7 +32,7 @@
                 <v-card
                     class="black--text"
                 >
-                    {{post.end_date}}
+                    {{post.event.name}}
                 </v-card>
             </v-timeline-item>
             
@@ -50,14 +50,11 @@
 </template>
 
 <script>
-import $http from 'http'
 export default {
     props: ['posts'],
     data()  {
         return{
           isVisible: false,
-          year: 2022,
-          emailRules: [ v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido' ],
           items:    [{
               id: 1,
               color: "primary",
@@ -90,26 +87,6 @@ export default {
           },]
         }
     },
-    /*async fetch() {
-      //const posts = await $http.$get(`${process.env.api}/${year}/talks`).json()
-      this.posts = await this.$axios.$get(`http://192.168.1.14:3000/test.json`).then(res => res)
-      console.log("Data loaded")
-      //return { posts }
-
-      posts.forEach(post => {
-        let formattedPost = {
-          event: post.event,
-          url: post.url,
-          video: post.video,
-          start: post.start_date,
-          end: post.end_date,
-          slide: post.slide,
-          room: post.room
-        }
-        formattedPosts.push(formattedPost)
-      });
-  
-    },*/
     methods: {
       hideDialog()  {
         this.isVisible = false
