@@ -24,15 +24,21 @@
             hide-on-leave
             >
             <v-timeline-item
-                v-for="post in posts"
-                :key="post.start_date"
+                v-for="(post,index) in posts"
+                :key="post.event.id"
                 small
                 fill-dot
             >
                 <v-card
-                    class="black--text"
+                    color="indigo accent-2"
                 >
-                    {{post.event.name}}
+                    <v-card-title class="white--text">{{post.event.name}}</v-card-title>
+                    <v-card-subtitle class="white--text">{{post.event.eventtype}} located at {{post.room}}</v-card-subtitle>
+                    <v-card-text class="white black--text" v-show="show.includes(index)">{{post.event.description}}</v-card-text>
+                    <v-card-actions>
+                      <v-btn @click="showInfo(index)">VER INFO</v-btn>
+                    </v-card-actions>
+                    <v-card-text>Oradores: {{getNames(post)}}</v-card-text>
                 </v-card>
             </v-timeline-item>
             
@@ -51,51 +57,40 @@
 
 <script>
 export default {
-    props: ['posts'],
-    data()  {
-        return{
-          isVisible: false,
-          items:    [{
-              id: 1,
-              color: "primary",
-              icon: "mdi-user",
-              text: "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae."
-          },
-          {
-              id: 2,
-              color: "primary",
-              icon: "mdi-user",
-              text: "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae."
-          },
-          {
-              id: 3,
-              color: "primary",
-              icon: "mdi-user",
-              text: "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae."
-          },
-          {
-              id: 4,
-              color: "primary",
-              icon: "mdi-user",
-              text: "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae."
-          },
-          {
-              id: 5,
-              color: "primary",
-              icon: "mdi-user",
-              text: "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae."
-          },]
-        }
+  props: ['posts'],
+  data()  {
+      return{
+        isVisible: false,
+        show: []
+      }
+  },
+  methods: {
+    hideDialog()  {
+      this.isVisible = false
     },
-    methods: {
-      hideDialog()  {
-        this.isVisible = false
+    showInfo(index) {
+      if(this.show.includes(index)) {
+        this.show = this.show.filter(item => item !== index)
+      }
+      else  {
+        this.show.push(index)
       }
     },
-    created() {
-      this.$nuxt.$on("toggleTimeline", () => {
-        this.isVisible = !this.isVisible
-      })
+    getNames(post)  {
+      var names = ""
+      post.speakers.forEach(function(i, index, speakers)  {
+        names += i.name
+        if(index != speakers.length - 1)  {
+          names += ", "
+        }
+      });
+      return names
     }
+  },
+  created() {
+    this.$nuxt.$on("toggleTimeline", () => {
+      this.isVisible = !this.isVisible
+    })
   }
+}
 </script>

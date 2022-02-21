@@ -166,7 +166,6 @@ export default class extends Vue {
 	async asyncData({$axios/*, ctx: Context*/}) {
       //const posts = await $http.$get(`${process.env.api}/${year}/talks`).json()
       const posts = await $axios.$get(`http://192.168.1.14:3000/test.json`).then(res => res)
-      console.log("Data loaded")
       return { posts }
 	}
 	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
