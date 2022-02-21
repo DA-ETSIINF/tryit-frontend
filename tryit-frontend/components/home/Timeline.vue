@@ -38,7 +38,7 @@
                     <v-card-actions>
                       <v-btn @click="showInfo(index)">VER INFO</v-btn>
                     </v-card-actions>
-                    <v-card-text>Oradores: {{getNames(post)}}</v-card-text>
+                    <v-card-text class="white--text">Oradores: {{getNames(post)}}</v-card-text>
                 </v-card>
             </v-timeline-item>
             
