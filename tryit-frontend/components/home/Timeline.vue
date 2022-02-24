@@ -24,21 +24,22 @@
             hide-on-leave
             >
             <v-timeline-item
-                v-for="(post,index) in posts"
-                :key="post.event.id"
+                v-for="(post) in posts"
+                :key="post.id"
                 small
                 fill-dot
             >
                 <v-card
                     color="indigo accent-2"
                 >
-                    <v-card-title class="white--text">{{post.event.name}}</v-card-title>
-                    <v-card-subtitle class="white--text">{{post.event.eventtype}} located at {{post.room}}</v-card-subtitle>
-                    <v-card-text class="white black--text" v-show="show.includes(index)">{{post.event.description}}</v-card-text>
-                    <v-card-actions>
+                    <v-card-title class="white--text">{{post.name}}</v-card-title>
+                    <v-card-subtitle>{{getDayFromStr(post.start_date)}} de {{getMonFromStr(post.start_date)}}</v-card-subtitle>
+                    <v-card-subtitle class="white--text">{{post.type}} en la sala {{post.room}}</v-card-subtitle>
+                    <!--<v-card-text class="white black--text" v-show="show.includes(index)">{{post.event.description}}</v-card-text>-->
+                    <!--<v-card-actions>
                       <v-btn @click="showInfo(index)">VER INFO</v-btn>
-                    </v-card-actions>
-                    <v-card-text class="white--text">Oradores: {{getNames(post)}}</v-card-text>
+                    </v-card-actions>-->
+                    <!--<v-card-text class="white--text">Oradores: {{getNames(post)}}</v-card-text>-->
                 </v-card>
             </v-timeline-item>
             
@@ -76,16 +77,51 @@ export default {
         this.show.push(index)
       }
     },
-    getNames(post)  {
-      var names = ""
-      post.speakers.forEach(function(i, index, speakers)  {
-        names += i.name
-        if(index != speakers.length - 1)  {
-          names += ", "
-        }
-      });
-      return names
-    }
+    getYearFromStr(dateString) {
+      return new Date(dateString).getFullYear()
+    },
+    getMonFromStr(dateString) {
+      const month = new Date(dateString).getMonth()
+      switch(month) {
+        case 0:
+          return "enero"
+        case 1:
+          return "febrero"
+        case 2:
+          return "marzo"
+        case 3:
+          return "abril"
+        case 4:
+          return "mayo"
+        case 5:
+          return "junio"
+        case 6:
+          return "julio"
+        case 7:
+          return "agosto"
+        case 8:
+          return "septiembre"
+        case 9:
+          return "octubre"
+        case 10:
+          return "noviembre"
+        case 11:
+          return "diciembre"
+
+      }
+    },
+    getDayFromStr(dateString) {
+      return new Date(dateString).getDay()
+    },
+    getHoursFromStr(dateString) {
+      return new Date(dateString).getHours()
+    },
+    getMinsFromStr(dateString) {
+      return new Date(dateString).getMinutes()
+    },
+    getSecsFromStr(dateString) {
+      return new Date(dateString).getSeconds()
+    },
   },
   created() {
     this.$nuxt.$on("toggleTimeline", () => {
