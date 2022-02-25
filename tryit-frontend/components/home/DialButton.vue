@@ -25,24 +25,33 @@
             </v-icon>
         </v-btn>
         </template>
-        <v-btn
-        fab
-        dark
-        small
-        color="blue-grey darken-3"
-        @click="hideTicketForm"
-        >
-        <v-icon>mdi-form-select</v-icon>
-        </v-btn>
-        <v-btn
-        fab
-        dark
-        small
-        color="blue-grey darken-3"
-        @click="hideTimeline"
-        >
-        <v-icon>mdi-timeline</v-icon>
-        </v-btn>
+        <v-tooltip left :disabled="tooltips[0]" v-model="tooltips[0]">
+            <v-btn
+            slot="activator"
+            fab
+            dark
+            small
+            color="blue-grey darken-3"
+            @click="showTicketForm"
+            >
+            <v-icon>mdi-form-select</v-icon>
+            </v-btn>
+            <span>CONSIGUE TU ENTRADA</span>
+        </v-tooltip>
+        
+        <v-tooltip left :disabled="tooltips[1]" v-model="tooltips[1]">
+            <v-btn
+            slot="activator"
+            fab
+            dark
+            small
+            color="blue-grey darken-3"
+            @click="showTimeline"
+            >
+            <v-icon>mdi-timeline</v-icon>
+            </v-btn>
+            <span>INFORMACIÓN Y HORARIOS DE EVENTOS</span>
+        </v-tooltip>
     </v-speed-dial>
 </template>
 
@@ -57,14 +66,17 @@ export default {
             left:false,
             direction:"top",
             hover:false,
-            transition:"slide-y-reverse-transition"
+            transition:"fade-transition", //if we want to use slide-y-reverse-transition, we need to add a watcher and use timeouts, because tooltip wont align properly
+            tooltips: [
+                true, true
+            ]
         }
     },
     methods:    {
-        hideTicketForm()    {
+        showTicketForm()    {
             this.$nuxt.$emit("toggleTicketForm")
         },
-        hideTimeline()    {
+        showTimeline()    {
             this.$nuxt.$emit("toggleTimeline")
         }
     }
