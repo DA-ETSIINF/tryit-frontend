@@ -163,8 +163,10 @@ export default class extends Vue {
 		}
 	}*/
 	async asyncData({$axios/*, ctx: Context*/}) {
-      //const posts = await $http.$get(`${process.env.api}/${year}/talks`).json()
-      const posts = await $axios.$get(`http://192.168.1.23:3000/test.json`).then(res => res)
+    //   const posts = await $http.$get(`http://127.0.0.1:8000/2022/talks`).json()
+    //   const posts = await $axios.$get(`http://192.168.1.23:3000/test.json`).then(res => res)
+      const posts = await $axios.$get(`http://127.0.0.1:8000/api/editions/2022/schedule`)
+	  
       return { posts }
 	}
 	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
