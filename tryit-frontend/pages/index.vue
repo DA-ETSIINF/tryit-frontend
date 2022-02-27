@@ -91,7 +91,7 @@
 				<h3>Acceso gratuito</h3>
 				<div class="description">
 					<p>
-						Try IT! lo organiza DA-ETSIINF de la UPM. Está hecho por y para estudiantes.
+						Try IT! lo organiza DA-ETSIINF en colaboración con ACM-UPM y la ETSI Informáticos. Está hecho por y para estudiantes.
 						Perseguimos la formación y no el lucro.
 					</p>
 				</div>

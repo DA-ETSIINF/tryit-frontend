@@ -18,37 +18,67 @@
         </v-btn>
       </template>
       
-        <v-timeline>
-            <v-slide-x-reverse-transition
-            group
-            hide-on-leave
+      <v-card>
+        <v-toolbar
+          color="cyan"
+          dark
+          flat
+        >
+          <v-toolbar-title>Schedule</v-toolbar-title>
+
+          <v-spacer></v-spacer>
+
+          <template v-slot:extension>
+            <v-tabs
+              v-model="tab"
+              align-with-title
             >
-            <v-timeline-item
-                v-for="(post) in posts"
-                :key="post.id"
-                small
-                fill-dot
+              <v-tabs-slider color="yellow"></v-tabs-slider>
+
+              <v-tab
+                v-for="post in posts"
+                :key="post.day"
+              >
+                {{ post.day }}
+              </v-tab>
+            </v-tabs>
+          </template>
+        </v-toolbar>
+
+        <v-tabs-items v-model="tab">
+          <v-tab-item
+          >
+            <v-timeline
+              v-for="(post) in posts"
+              :key="post.day"
             >
-                <v-card
-                    color="indigo accent-2"
+              <v-slide-x-reverse-transition
+              group
+              hide-on-leave
+              >
+                
+                <v-timeline-item
+                    v-for="(event) in post.events"
+                    :key="event.start_date"
+                    small
+                    fill-dot
                 >
-                    <v-card-title class="white--text">{{ post.name }}</v-card-title>
-                    <v-card-subtitle class="white--text">{{ getDayFromStr(post.start_date) }} de {{ getMonFromStr(post.start_date) }} 
-                      <br/> 
-                      {{ getHoursFromStr(post.start_date) }}:{{ getMinsFromStr(post.start_date) }} - {{ getHoursFromStr(post.end_date) }}:{{ getMinsFromStr(post.end_date) }}
-                      </v-card-subtitle>
-                    <!--<v-card-text class="white--text">{{ getHoursFromStr(post.start_date) }}:{{ getMinsFromStr(post.start_date) }} - {{ getHoursFromStr(post.end_date) }}:{{ getMinsFromStr(post.end_date) }}</v-card-text>-->
-                    <v-card-text class="white--text">{{ post.type }} en la sala {{ post.room }}</v-card-text>
-                    <!--<v-card-text class="white black--text" v-show="show.includes(index)">{{post.event.description}}</v-card-text>-->
-                    <!--<v-card-actions>
-                      <v-btn @click="showInfo(index)">VER INFO</v-btn>
-                    </v-card-actions>-->
-                    <!--<v-card-text class="white--text">Oradores: {{getNames(post)}}</v-card-text>-->
-                </v-card>
-            </v-timeline-item>
-            
-            </v-slide-x-reverse-transition>
-        </v-timeline>
+                    <v-card
+                        color="indigo accent-2"
+                    >
+                        <v-card-title class="white--text">{{ event.name }}</v-card-title>
+                        <v-card-subtitle class="white--text">{{ event.start_date }}</v-card-subtitle>
+                    </v-card>
+                </v-timeline-item>
+              
+              </v-slide-x-reverse-transition>
+            </v-timeline>
+          </v-tab-item>
+        </v-tabs-items>
+      </v-card>
+
+
+        
         <v-btn 
             block 
             color="secondary" 
@@ -61,6 +91,7 @@
 </template>
 
 <script>
+
 export default {
   props: ["posts"],
   data()  {
@@ -141,4 +172,30 @@ export default {
     })
   }
 }
+
+//  <v-timeline-item
+//                 v-for="(post) in posts.events"
+//                 :key="post.id"
+//                 small
+//                 fill-dot
+//             >
+//                 <v-card
+//                     color="indigo accent-2"
+//                 >
+//                     <v-card-title class="white--text">{{ post.name }}</v-card-title>
+//                     <v-card-subtitle class="white--text">{{ getDayFromStr(post.start_date) }} de {{ getMonFromStr(post.start_date) }} 
+//                       <br/> 
+//                       {{ getHoursFromStr(post.start_date) }}:{{ getMinsFromStr(post.start_date) }} - {{ getHoursFromStr(post.end_date) }}:{{ getMinsFromStr(post.end_date) }}
+//                       </v-card-subtitle>
+//                     <!--<v-card-text class="white--text">{{ getHoursFromStr(post.start_date) }}:{{ getMinsFromStr(post.start_date) }} - {{ getHoursFromStr(post.end_date) }}:{{ getMinsFromStr(post.end_date) }}</v-card-text>-->
+//                     <v-card-text class="white--text">{{ post.type }} en la sala {{ post.room }}</v-card-text>
+//                     <!--<v-card-text class="white black--text" v-show="show.includes(index)">{{post.event.description}}</v-card-text>-->
+//                     <!--<v-card-actions>
+//                       <v-btn @click="showInfo(index)">VER INFO</v-btn>
+//                     </v-card-actions>-->
+//                     <!--<v-card-text class="white--text">Oradores: {{getNames(post)}}</v-card-text>-->
+//                 </v-card>
+//             </v-timeline-item>
+
 </script>
+
