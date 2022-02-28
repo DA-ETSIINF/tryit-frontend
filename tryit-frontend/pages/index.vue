@@ -166,7 +166,45 @@ export default class extends Vue {
     //   const posts = await $http.$get(`http://127.0.0.1:8000/2022/talks`).json()
     //   const posts = await $axios.$get(`http://192.168.1.23:3000/test.json`).then(res => res)
       const posts = await $axios.$get(`http://127.0.0.1:8000/api/editions/2022/schedule`)
-	  
+	// @info This is the modification of the obtained /schedule/ endpoint to include colors and icons
+	//   https://materialdesignicons.com/
+	  for (const post of posts) {
+		  for (const ev of post.events) {
+			  switch (ev.type) {
+				  case "TK":
+					//   Ponencia
+					ev['color'] = 'blue darken-1'
+					ev['icon'] = 'mdi-account-voice'
+					break;
+				  case "WS":
+					//   Taller
+					ev['color'] = 'grey darken-3'
+					ev['icon'] = 'mdi-hammer-wrench'
+					break;
+				  case "LT":
+					//   Lightning Talk
+					ev['color'] = 'blue lighten-2'
+					ev['icon'] = 'mdi-timer-outline'
+					break;
+				  case "SP":
+					//   Especial
+					ev['color'] = 'green lighten-1'
+					ev['icon'] = 'mdi-alien'
+					break;
+				  case "TO":
+					//   Torneo
+					ev['color'] = 'purple darken-1'
+					ev['icon'] = 'mdi-bullseye-arrow'
+					break;
+				  default:
+					// Unknown Type
+					ev['color'] = 'red darken-1'
+					ev['icon'] = 'mdi-alert'
+					break;
+			  }
+		  }
+	  }
+
       return { posts }
 	}
 	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
