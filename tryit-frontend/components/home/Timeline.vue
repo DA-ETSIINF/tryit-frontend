@@ -54,6 +54,7 @@
               <v-tab
                 v-for="post in posts"
                 :key="post.day"
+                @click="deleteShow()"
               >
                 {{ post.day }}
               </v-tab>
@@ -63,7 +64,7 @@
 
         <v-tabs-items v-model="tab">
           <v-tab-item
-            v-for="post in posts"
+            v-for="(post) in posts"
             :key="post.day"
           >
 
@@ -77,7 +78,7 @@
                 <!-- @info event.color & event.icon are to be determined depending on the type of event, for example a Talk, a Tournament or a Workshop -->
                 <!-- @info It should be written on the settings of the frontend, it makes no sense to store this information on the database -->
                 <v-timeline-item
-                    v-for="(event) in posts[tab].events"
+                    v-for="(event, index) in posts[tab].events"
                     :key="event.id"
                     :color="event.color"
                     :icon="event.icon"
@@ -89,7 +90,28 @@
                     >
                         <v-card-title class="white--text">{{ event.name }}</v-card-title>
                         <v-card-subtitle class="white--text"> {{ dateToStr(event.start_date) }} - {{ dateToStr(event.end_date) }}</v-card-subtitle>
-                        <v-card-subtitle class="white--text"> {{ event.desc }}</v-card-subtitle>
+                        <v-card-text class="white--text">{{ event.desc }}</v-card-text>
+                        <v-card-actions>
+                          <v-dialog
+                            v-model="show[index]"
+                            max-width="600px"
+                          >
+                            <template v-slot:activator="{ on, attrs }">
+                              <v-btn
+                                color="secondary"
+                                dark
+                                v-bind="attrs"
+                                v-on="on"
+                                @click="showInfo(index)"
+                              >
+                              INFORMACIÓN Y HORARIOS DE LOS EVENTOS
+                              </v-btn>
+                            </template>
+                            <v-card>
+                              <v-img id="rounded-img" src="https://picsum.photos/id/11/500/300"></v-img>
+                            </v-card>
+                          </v-dialog>
+                        </v-card-actions>
                     </v-card>
                 </v-timeline-item>
               
@@ -127,13 +149,25 @@ export default {
     hideDialog()  {
       this.isVisible = false
     },
-    showInfo(index) {
+    /*showInfo(index) {
       if(this.show.includes(index)) {
         this.show = this.show.filter(item => item !== index)
       }
       else  {
         this.show.push(index)
       }
+    },*/
+    showInfo(index) {
+      if(index >= this.show.length) {
+        this.show.length = index + 1
+        this.show[index] = true
+      }
+      else  {
+        this.show[index] = true
+      }
+    },
+    deleteShow()  {
+      this.show = this.show.splice(0, this.show.length)
     },
     dateToStr(dateString) {
       
@@ -141,60 +175,6 @@ export default {
       const newDate = new Date(Date.parse(dateString.slice(0, -1)))
       return `${newDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} ${newDate.toLocaleTimeString('es-ES')}`
     },
-
-    // getYearFromStr(dateString) {
-    //   return new Date(dateString).getFullYear()
-    // },
-    // getMonFromStr(dateString) {
-    //   const month = new Date(dateString).getMonth()
-    //   switch(month) {
-    //     case 0:
-    //       return "enero"
-    //     case 1:
-    //       return "febrero"
-    //     case 2:
-    //       return "marzo"
-    //     case 3:
-    //       return "abril"
-    //     case 4:
-    //       return "mayo"
-    //     case 5:
-    //       return "junio"
-    //     case 6:
-    //       return "julio"
-    //     case 7:
-    //       return "agosto"
-    //     case 8:
-    //       return "septiembre"
-    //     case 9:
-    //       return "octubre"
-    //     case 10:
-    //       return "noviembre"
-    //     case 11:
-    //       return "diciembre"
-
-    //   }
-    // },
-    // getDayFromStr(dateString) {
-    //   return new Date(dateString).getDay()
-    // },
-    // getHoursFromStr(dateString) {
-    //   const hours = new Date(dateString).getHours()
-    //   if(hours < 10) {
-    //     return ("0" + hours)
-    //   }
-    //   return hours
-    // },
-    // getMinsFromStr(dateString) {
-    //   const mins = new Date(dateString).getMinutes()
-    //   if(mins < 10) {
-    //     return ("0" + mins)
-    //   }
-    //   return mins
-    // },
-    // getSecsFromStr(dateString) {
-    //   return new Date(dateString).getSeconds()
-    // },
   },
   created() {
     this.$nuxt.$on("toggleTimeline", () => {
@@ -203,29 +183,10 @@ export default {
   }
 }
 
-//  <v-timeline-item
-//                 v-for="(post) in posts.events"
-//                 :key="post.id"
-//                 small
-//                 fill-dot
-//             >
-//                 <v-card
-//                     color="indigo accent-2"
-//                 >
-//                     <v-card-title class="white--text">{{ post.name }}</v-card-title>
-//                     <v-card-subtitle class="white--text">{{ getDayFromStr(post.start_date) }} de {{ getMonFromStr(post.start_date) }} 
-//                       <br/> 
-//                       {{ getHoursFromStr(post.start_date) }}:{{ getMinsFromStr(post.start_date) }} - {{ getHoursFromStr(post.end_date) }}:{{ getMinsFromStr(post.end_date) }}
-//                       </v-card-subtitle>
-//                     <!--<v-card-text class="white--text">{{ getHoursFromStr(post.start_date) }}:{{ getMinsFromStr(post.start_date) }} - {{ getHoursFromStr(post.end_date) }}:{{ getMinsFromStr(post.end_date) }}</v-card-text>-->
-//                     <v-card-text class="white--text">{{ post.type }} en la sala {{ post.room }}</v-card-text>
-//                     <!--<v-card-text class="white black--text" v-show="show.includes(index)">{{post.event.description}}</v-card-text>-->
-//                     <!--<v-card-actions>
-//                       <v-btn @click="showInfo(index)">VER INFO</v-btn>
-//                     </v-card-actions>-->
-//                     <!--<v-card-text class="white--text">Oradores: {{getNames(post)}}</v-card-text>-->
-//                 </v-card>
-//             </v-timeline-item>
-
 </script>
 
+<style scoped>
+#rounded-img  {
+    border-radius: 50%; 
+}
+</style>
