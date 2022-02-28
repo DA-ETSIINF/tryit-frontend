@@ -47,10 +47,11 @@
 
         <v-tabs-items v-model="tab">
           <v-tab-item
+            v-for="post in posts"
+            :key="post.day"
           >
+
             <v-timeline
-              v-for="(post) in posts"
-              :key="post.day"
             >
               <v-slide-x-reverse-transition
               group
@@ -58,8 +59,8 @@
               >
                 
                 <v-timeline-item
-                    v-for="(event) in post.events"
-                    :key="event.start_date"
+                    v-for="(event) in posts[tab].events"
+                    :key="event.id"
                     small
                     fill-dot
                 >
@@ -96,6 +97,7 @@ export default {
   props: ["posts"],
   data()  {
       return{
+        tab: 0,
         isVisible: false,
         show: []
       }
