@@ -94,22 +94,118 @@
                         <v-card-actions>
                           <v-dialog
                             v-model="show[index]"
-                            max-width="600px"
+                            max-width="30%"
                           >
                             <template v-slot:activator="{ on, attrs }">
-                              <v-btn
-                                color="secondary"
-                                dark
-                                v-bind="attrs"
-                                v-on="on"
-                                @click="showInfo(index)"
+                              <v-row
+                                align="center"
+                                justify="space-around"
                               >
-                              INFORMACIÓN Y HORARIOS DE LOS EVENTOS
-                              </v-btn>
+                                <v-btn
+                                  dark
+                                  rounded
+                                  v-bind="attrs"
+                                  large
+                                  color="secondary"
+                                  v-on="on"
+                                  @click="showInfo(index)"
+                                >
+                                  <v-icon 
+                                    left
+                                    dark
+                                    x-large
+                                    color="white"
+                                    class="mx-3"
+                                  >
+                                    <!-- mdi-information-outline -->
+                                    mdi-information
+                                  </v-icon>
+
+                                  INFORMACIÓN
+                                </v-btn>
+                              </v-row>
                             </template>
-                            <v-card>
-                              <v-img id="rounded-img" src="https://picsum.photos/id/11/500/300"></v-img>
+
+                            <v-card
+                              class="mx-auto"
+                            >
+                              <!-- @info Sample Speaker, should be retrieved via API -->
+                              <v-img
+                                src="https://isetta.io/images/interviews/casey-muratori.jpg"
+                                id="event-img"
+                              >
+                              </v-img>
+
+                              <v-card-title>
+                                {{ event.name }}
+                              </v-card-title>
+
+                              <v-card-subtitle>
+                                {{ event.brief }} - NOMBRE_PONENTE
+                              </v-card-subtitle>
+
+                              <v-card-actions
+                                  v-if="event.desc"
+                              >
+                                <v-btn
+                                  color="orange lighten-2"
+                                  text
+                                >
+                                  Sobre la Actividad
+                                </v-btn>
+
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                  icon
+                                  @click="show_desc = !show_desc"
+                                >
+                                  <v-icon>{{ show_desc ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                                </v-btn>
+                              </v-card-actions>
+
+                              <v-expand-transition>
+                                <div v-show="show_desc">
+                                  <v-divider></v-divider>
+
+                                  <v-card-text>
+                                    {{ event.desc }}
+                                  </v-card-text>
+                                </div>
+                              </v-expand-transition>
+
+                              <v-card-actions
+                                v-if="event.start_date"
+                              >
+                                <v-btn
+                                  color="orange lighten-2"
+                                  text
+                                >
+                                  Horarios
+                                </v-btn>
+
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                  icon
+                                  @click="show_time = !show_time"
+                                >
+                                  <v-icon>{{ show_time ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                                </v-btn>
+                              </v-card-actions>
+
+                              <v-expand-transition>
+                                <div v-show="show_time">
+                                  <v-divider></v-divider>
+
+                                  <v-card-text>
+                                    La actividad comienza el {{ dateToStr(event.start_date) }} y termina el {{ dateToStr(event.end_date) }}
+                                  </v-card-text>
+                                </div>
+                              </v-expand-transition>
+
                             </v-card>
+                          
                           </v-dialog>
                         </v-card-actions>
                     </v-card>
@@ -141,6 +237,8 @@ export default {
   data()  {
       return{
         tab: 0,
+        show_desc: true,
+        show_time: true,
         isVisible: false,
         show: []
       }
@@ -173,7 +271,12 @@ export default {
       
       // 2022-02-20T19:00:00Z
       const newDate = new Date(Date.parse(dateString.slice(0, -1)))
-      return `${newDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} ${newDate.toLocaleTimeString('es-ES')}`
+      var dateString = newDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+      dateString = dateString[0].toUpperCase() + dateString.substring(1) // First Letter in Mayus
+      var timeString = newDate.toLocaleTimeString('es-ES')
+      timeString = timeString[0].toUpperCase() + timeString.substring(1) // First Letter in Mayus
+
+      return `${dateString} ${timeString}`
     },
   },
   created() {
@@ -186,7 +289,14 @@ export default {
 </script>
 
 <style scoped>
-#rounded-img  {
-    border-radius: 50%; 
+
+#event-img  {
+    max-width: auto;
+    max-height: 100%;
+    /* border-radius: 50%;  */
+}
+
+.text-right-margin {
+  margin-right: 5%;
 }
 </style>
