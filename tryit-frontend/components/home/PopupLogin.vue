@@ -4,7 +4,7 @@
       v-model="isVisible"
       max-width="600px"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template v-slot:activator="{ on, attrs}">
         <v-btn
           color="primary"
           dark
@@ -30,7 +30,7 @@
                 md="4"
               >
                 <v-text-field
-                  v-model="username"
+                  v-model="loginInfo.username"
                   label="Username*"
                   required
                 ></v-text-field>
@@ -41,7 +41,7 @@
                 md="4"
               >
                 <v-text-field
-                  v-model="password"
+                  v-model="loginInfo.password"
                   label="Contraseña*"
                   required
                 ></v-text-field>
@@ -80,8 +80,10 @@ export default {
     data()  {
         return{
           isVisible: false,
-          username: '',
-          password: ''
+          loginInfo: {
+            username: '',
+            password: ''
+          }
         }
     },
     /*computed:   {
@@ -95,14 +97,23 @@ export default {
       },
       doLogin() {
         var login = false
-        axios.post("http://127.0.0.1:8000/api/users/login/", { "username": username, "password": password}) 
-        if (login) {
+        var data = this.loginInfo
+        axios.post("http://localhost:8000/api/users/login/", data).then((response) => {
+          console.log(response);
+          var token = response.data.access_token
+          console.log(token)
+          localStorage.setItem('user-token', token) // store the token in localstorage
+          login = true
           this.hideDialog()
-        }
+        })
+        .catch(err => {
+          localStorage.removeItem('user-token') // if the request fails, remove any possible user token if possible
+          login = false
+        })
       }
     },
     created() {
-      this.$nuxt.$on("toggleTicketForm", () => {
+      this.$nuxt.$on("toggleLoginForm", () => {
         this.isVisible = !this.isVisible
       })
     }
