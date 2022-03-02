@@ -22,6 +22,11 @@
 		<PopupForm></PopupForm>
 		
 	</v-card>
+
+	<v-card>
+		<PopupLogin></PopupLogin>
+		
+	</v-card>
 	<v-card><Timeline :posts="posts"></Timeline></v-card>
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
@@ -132,6 +137,7 @@ import {
 	Map,
 	Timer,
 	PopupForm,
+	PopupLogin,
 	DialButton,
 	Timeline
 } from "../components"
@@ -142,6 +148,7 @@ import {
 		Map,
 		Timer,
 		PopupForm,
+		PopupLogin,
 		DialButton,
 		Timeline
 	},
@@ -222,7 +229,7 @@ export default class extends Vue {
 		window.location.href = path // TODO use router
 	}
 	toogleOpen() {
-    	this.$nuxt.$emit("toggleTicketForm")
+    	this.$nuxt.$emit("toggleTicketForm") 
  	}
 }
 </script>
