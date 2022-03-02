@@ -21,26 +21,11 @@
             mdi-close
             </v-icon>
             <v-icon v-else>
-            mdi-format-list-bulleted-square
+            mdi-plus
             </v-icon>
         </v-btn>
         </template>
-
         <v-tooltip left :disabled="tooltips[0]" v-model="tooltips[0]">
-            <v-btn
-            slot="activator"
-            fab
-            dark
-            small
-            color="blue-grey darken-3"
-            @click="showLoginForm"
-            >
-            <v-icon>mdi-qrcode</v-icon>
-            </v-btn>
-            <span>REGISTRO ASISTENCIA</span>
-        </v-tooltip>
-
-        <v-tooltip left :disabled="tooltips[1]" v-model="tooltips[1]">
             <v-btn
             slot="activator"
             fab
@@ -54,7 +39,7 @@
             <span>CONSIGUE TU ENTRADA</span>
         </v-tooltip>
         
-        <v-tooltip left :disabled="tooltips[2]" v-model="tooltips[2]">
+        <v-tooltip left :disabled="tooltips[1]" v-model="tooltips[1]">
             <v-btn
             slot="activator"
             fab
@@ -83,7 +68,7 @@ export default {
             hover:false,
             transition:"fade-transition", //if we want to use slide-y-reverse-transition, we need to add a watcher and use timeouts, because tooltip wont align properly
             tooltips: [
-                true,true,true
+                true, true
             ]
         }
     },
@@ -93,9 +78,6 @@ export default {
         },
         showTimeline()    {
             this.$nuxt.$emit("toggleTimeline")
-        },
-        showLoginForm()     {
-            this.$nuxt.$emit("toggleLoginForm")
         }
     }
 }

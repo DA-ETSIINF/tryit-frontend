@@ -22,12 +22,11 @@
 		<PopupForm></PopupForm>
 		
 	</v-card>
-	<!--
+
 	<v-card>
 		<PopupLogin></PopupLogin>
 		
 	</v-card>
-	-->
 	<v-card><Timeline :posts="posts"></Timeline></v-card>
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>

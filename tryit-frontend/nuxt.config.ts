@@ -6,7 +6,6 @@ export default {
 		dev: process.env.NODE_ENV !== "production",
 		api: "https://congresotryit.es"
 	},
-	
 	head: {
 		title: "Try IT!",
 		meta: [
