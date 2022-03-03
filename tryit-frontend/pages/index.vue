@@ -18,17 +18,11 @@
 		
 	</v-card>
 	<!--<PopupForm class="popup-button"></PopupForm>-->
-	<v-card>
-		<PopupForm></PopupForm>
-		
-	</v-card>
-	<!--
-	<v-card>
-		<PopupLogin></PopupLogin>
-		
-	</v-card>
-	-->
-	<v-card><Timeline :posts="posts"></Timeline></v-card>
+	
+	<PopupForm></PopupForm>
+	<PopupLogin></PopupLogin>
+	<Timeline :posts="posts"></Timeline>
+	
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
 		<p class="section-description">
@@ -229,9 +223,12 @@ export default class extends Vue {
 	goTo(path: string) {
 		window.location.href = path // TODO use router
 	}
-	toogleOpen() {
+	toggleTicket() {
     	this.$nuxt.$emit("toggleTicketForm") 
  	}
+	toggleLogin()	{
+		this.$nuxt.$emit("toggleLoginForm")
+	}
 }
 </script>
 

@@ -1,10 +1,10 @@
 <template>
   <!--<v-row justify="center">-->
     <v-dialog
-      v-model="isVisible"
+      v-model="isLoginVisible"
       max-width="600px"
     >
-      <template v-slot:activator="{ on, attrs}">
+      <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="primary"
           dark
@@ -12,7 +12,6 @@
           height=30vh
           v-bind="attrs"
           v-on="on"
-          @click="hideDialog"
         >
         LOGIN
         </v-btn>
@@ -79,21 +78,16 @@ import axios from "axios"
 export default {
     data()  {
         return{
-          isVisible: false,
+          isLoginVisible: false,
           loginInfo: {
             username: '',
             password: ''
           }
         }
     },
-    /*computed:   {
-      changeVisibility()  {
-        this.isVisible = this.$store.state.isTicketFormVisible
-      }
-    },*/
     methods: {
       hideDialog()  {
-        this.isVisible = false
+        this.isLoginVisible = false
       },
       doLogin() {
         var login = false
@@ -114,7 +108,7 @@ export default {
     },
     created() {
       this.$nuxt.$on("toggleLoginForm", () => {
-        this.isVisible = !this.isVisible
+        this.isLoginVisible = !this.isLoginVisible
       })
     }
   }
