@@ -32,6 +32,7 @@
                 <v-text-field
                   label="Nombre*"
                   :rules="nameRules"
+                  v-model="person_name"
                   required
                 ></v-text-field>
               </v-col>
@@ -43,6 +44,7 @@
                 <v-text-field
                   label="Apellidos*"
                   :rules="surnameRules"
+                  v-model="person_last_name"
                   required
                 ></v-text-field>
               </v-col>
@@ -51,6 +53,7 @@
                   label="Email*"
                   required
                   :rules="emailRules"
+                  v-model="person_mail"
                 ></v-text-field>
               </v-col>
               <v-col 
@@ -60,6 +63,7 @@
                 <v-text-field
                   label="NIF/DNI*"
                   :rules="dniRules"
+                  v-model="person_nif"
                   required
                 ></v-text-field>
               </v-col>
@@ -71,6 +75,7 @@
                 <v-text-field
                   label="Teléfono de contacto*"
                   :rules="phoneRules"
+                  v-model="person_phone"
                   required
                 ></v-text-field>
               </v-col>
@@ -102,7 +107,7 @@
                   required
                 ></v-autocomplete>
                 <v-autocomplete
-                  v-model="selectedGrade"
+                  v-model="selectedDegree"
                   v-if="isStudent"
                   :items="grades"
                   label="Grados"
@@ -146,7 +151,12 @@ export default {
           schools: [],
           selectedSchool: "",
           grades: [],
-          selectedGrade: ""
+          selectedDegree: "",
+          person_name: "",
+          person_last_name: "",
+          person_mail: "",
+          person_nif: "",
+          person_phone: ""
         }
     },
     computed: {
@@ -218,7 +228,38 @@ export default {
       },
       validateAndPost() {
         if(this.$refs.form.validate())  {
-          this.hideDialog() //here goes axios.post
+          
+          // person = models.Person()
+          // attendee.id = person
+          // attendee.degree = models.Degree.objects.get(degree=data["degree"])
+          // attendee.year = data['year']
+
+          var is_upm = false
+
+          if( this.selectedUniv == "Universidad Politécnica de Madrid" ) {
+            console.log( this.selectedUniv )
+            is_upm = true
+            // console.log( this.universityNames[this.selectedUniv] )
+          }
+
+          var data = {
+            "name": this.person_name,
+            "lastname": this.person_last_name,
+            "nif": this.person_nif,
+            "email": this.person_mail,
+            "phone": this.person_phone,
+            "degree": this.selectedDegree,
+            "is_upm_student": is_upm,
+            "year": "2022"
+          }
+
+          // Axios
+          this.$axios.post("http://127.0.0.1:8000/api/editions/2022/create_ticket/", data).then((response) => {
+            console.log(response)
+            this.hideDialog()
+          })
+
+          this.hideDialog()
         }
       }
     },
