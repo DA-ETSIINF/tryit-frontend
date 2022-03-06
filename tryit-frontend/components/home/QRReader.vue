@@ -1,0 +1,213 @@
+<template>
+  <v-dialog
+      v-model="isQRVisible"
+      max-width="600px"
+    >
+    <template v-slot:activator="{ on, attrs }">
+      <v-btn
+        color="primary"
+        dark
+        block
+        height=30vh
+        v-bind="attrs"
+        v-on="on"
+      >
+      QR
+      </v-btn>
+    </template>
+    <v-card v-if="isLogged">
+      <div id="QRButton">
+        <button v-on:click="isHidden = !isHidden"> Escanear QR </button>  
+        <div v-if="isHidden">
+          <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
+            <div v-if="validationSuccess" class="validation-success">
+              Formato de ticket valido, esperando confirmación...
+            </div>
+            <div v-if="validationFailure" class="validation-failure">
+              Formato de ticket inválido, esperando confirmación...
+            </div>
+            <div v-if="validationPending" class="validation-pending">
+              Validando ticket...
+            </div>
+            <button @click="switchCamera">
+              <img src='../../assets/camera-switch.svg' alt="switch camera">
+            </button>
+            
+          </qrcode-stream>
+        </div>
+      </div>
+    </v-card>
+    <v-card v-else>
+      <div>
+          
+      </div>
+    </v-card>
+  </v-dialog>
+</template>
+
+<script>
+
+import axios from "axios"
+
+export default {
+
+  data () {
+    return {
+      isQRVisible: false,
+      isHidden: false,
+      isValid: undefined,
+      camera: 'auto',
+      result: null,
+      noRearCamera: false,
+      noFrontCamera: false
+    }
+  },
+
+  computed: {
+    validationPending () {
+      return this.isValid === undefined
+        && this.camera === 'off'
+    },
+
+    validationSuccess () {
+      return this.isValid === true
+    },
+
+    validationFailure () {
+      return this.isValid === false
+    }
+  },
+
+  methods: {
+
+    hideDialog()  {
+        this.isQRVisible = false
+      },
+
+
+
+    async onInit (promise) {
+      try {
+        await promise
+      } catch (error) {
+        const triedFrontCamera = this.camera === 'front'
+        const triedRearCamera = this.camera === 'rear'
+
+        const cameraMissingError = error.name === 'OverconstrainedError'
+
+        if (triedRearCamera && cameraMissingError) {
+          this.noRearCamera = true
+        }
+
+        if (triedFrontCamera && cameraMissingError) {
+          this.noFrontCamera = true
+        }
+        console.error(error)
+      }
+      this.resetValidationState()
+    },
+
+    resetValidationState () {
+      this.isValid = undefined
+    },
+
+    isLogged(){
+      const token = localStorage.getItem('user-token')
+
+      const data = null
+      console.log(token)
+      const config = {
+        headers: {
+          Authorization: "Token " + token,
+        }
+      }
+      console.log(config.headers.Authentication)
+      axios.get("http://localhost:8000/api/users/auth/", config).then((response) => {
+        let result = response.data.user == "asistencia"
+        console.log(result)
+        return result
+      })
+    },
+
+
+
+    switchCamera () {
+      switch (this.camera) {
+        case 'front':
+          this.camera = 'rear'
+          break
+        case 'rear':
+          this.camera = 'front'
+          break
+      }
+    },
+
+    async onDecode (content) {
+      this.result = content
+      this.turnCameraOff()
+      // pretend it's taking really long
+      await this.timeout(100)
+      console.log(this.result)
+      this.isValid  = content.search({"id": "[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[con89ab][0-9a-f]{3}-[0-9a-f]{12}"} > -1)? true : false
+      // some more delay, so users have time to read the message
+      if (this.isValid) {
+        //this.isHidden = !this.isHidden;
+        // hacer post con el ticket 
+        var data = JSON.parse(content)
+        axios.post("http://localhost:8000/api/editions/2022/validate_ticket/", data).then((response) => {
+          console.log(response)
+        })
+      }
+      await this.timeout(1000)
+      
+      this.turnCameraOn()
+    },
+
+    turnCameraOn () {
+      this.camera = 'auto'
+    },
+
+    turnCameraOff () {
+      this.camera = 'off'
+    },
+
+    timeout (ms) {
+      return new Promise(resolve => {
+        window.setTimeout(resolve, ms)
+      })
+    },
+    created() {
+      this.$nuxt.$on("toggleQRReader", () => {
+        console.log("holaaaa")
+        this.isQRVisible = !this.isQRVisible
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.validation-success,
+.validation-failure,
+.validation-pending {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255, 255, 255, .8);
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding: 10px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.validation-success {
+  color: green;
+}
+.validation-failure {
+  color: red;
+}
+</style>

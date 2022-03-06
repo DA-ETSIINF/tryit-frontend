@@ -21,6 +21,8 @@
 	
 	<PopupForm></PopupForm>
 	<PopupLogin></PopupLogin>
+	<QRReader></QRReader>
+
 	<Timeline :posts="posts"></Timeline>
 	
 	<v-card>
@@ -134,7 +136,8 @@ import {
 	PopupForm,
 	PopupLogin,
 	DialButton,
-	Timeline
+	Timeline,
+	QRReader,
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -145,7 +148,8 @@ import {
 		PopupForm,
 		PopupLogin,
 		DialButton,
-		Timeline
+		Timeline,
+		QRReader,
 	},
 })
 
@@ -227,7 +231,12 @@ export default class extends Vue {
     	this.$nuxt.$emit("toggleTicketForm") 
  	}
 	toggleLogin()	{
+		console.log("hola3")
 		this.$nuxt.$emit("toggleLoginForm")
+	}
+	toggleQRReader()	{
+		console.log("hola2")
+		this.$nuxt.$emit("toggleQRReader")
 	}
 }
 </script>

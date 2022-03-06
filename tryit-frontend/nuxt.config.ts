@@ -92,6 +92,8 @@ export default {
 			{ scr: "https://www.googletagmanager.com/gtag/js?id=UA-134663969-1", async: true }
 		]
 	},
+	plugins: [{ src: '@/plugins/QRReader.js', mode: 'client' }],
+
 	loading: { color: "#035b9e" },
 	css: ["~/assets/css/main.css"],
 	build: {transpile: ["ssr-window", "dom7"]},

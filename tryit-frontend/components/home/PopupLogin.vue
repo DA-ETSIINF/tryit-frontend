@@ -42,6 +42,7 @@
                 <v-text-field
                   v-model="loginInfo.password"
                   label="Contraseña*"
+                  input type="password"
                   required
                 ></v-text-field>
               </v-col>
@@ -99,13 +100,25 @@ export default {
           localStorage.setItem('user-token', token) // store the token in localstorage
           login = true
           this.hideDialog()
+          this.showQRReader()
         })
         .catch(err => {
           localStorage.removeItem('user-token') // if the request fails, remove any possible user token if possible
           login = false
         })
-      }
+      },
+      showQRReader()  {
+          this.$nuxt.$emit("toggleQRReader")
+      },
+      showLoginForm() {
+            this.$nuxt.$emit("toggleLoginForm")
+      },
+
+      
     },
+
+    
+
     created() {
       this.$nuxt.$on("toggleLoginForm", () => {
         this.isLoginVisible = !this.isLoginVisible
