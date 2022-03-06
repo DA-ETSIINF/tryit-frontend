@@ -17,30 +17,33 @@
         CONSIGUE TU ENTRADA PULSANDO AQUÍ
         </v-btn>
       </template>
-      <v-card>
-        <v-card-title>
+        <v-card>
+          <v-form
+            ref="form"
+          >
+
           <span class="text-h5">User Profile</span>
-        </v-card-title>
-        <v-card-text>
-          <v-container>
             <v-row>
               <v-col
                 cols="12"
-                sm="6"
+                sm="4"
                 md="4"
               >
                 <v-text-field
                   label="Nombre*"
+                  :rules="nameRules"
                   required
                 ></v-text-field>
               </v-col>
               <v-col
                 cols="12"
-                sm="6"
-                md="4"
+                sm="8"
+                md="8"
               >
                 <v-text-field
                   label="Apellidos*"
+                  :rules="surnameRules"
+                  required
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
@@ -50,54 +53,82 @@
                   :rules="emailRules"
                 ></v-text-field>
               </v-col>
-              <v-col cols="12">
+              <v-col 
+                cols="12"
+                sm="4"
+                md="4">
                 <v-text-field
                   label="NIF/DNI*"
+                  :rules="dniRules"
                   required
                 ></v-text-field>
               </v-col>
               <v-col
                 cols="12"
-                sm="6"
-                md="4"
+                sm="8"
+                md="8"
               >
                 <v-text-field
                   label="Teléfono de contacto*"
+                  :rules="phoneRules"
                   required
                 ></v-text-field>
               </v-col>
+            </v-row>
+            <v-row>
               <v-col
                 cols="12"
-                sm="6"
               >
+                <v-checkbox
+                  v-model="isStudent"
+                  label="Soy estudiante universitario">
+                </v-checkbox>
                 <v-autocomplete
-                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                  label="Grado"
-                  multiple
+                  v-model="selectedUniv"
+                  v-if="isStudent"
+                  :items="universityNames"
+                  v-on:change="getSchools"
+                  label="Universidad"
+                  :rules="universityRules"
+                  required
+                ></v-autocomplete>
+                <v-autocomplete
+                  v-model="selectedSchool"
+                  v-if="isStudent"
+                  :items="schools"
+                  v-on:change="getGrades"
+                  label="Escuela"
+                  :rules="schoolRules"
+                  required
+                ></v-autocomplete>
+                <v-autocomplete
+                  v-model="selectedGrade"
+                  v-if="isStudent"
+                  :items="grades"
+                  label="Grados"
+                  :rules="degreeRules"
+                  required
                 ></v-autocomplete>
               </v-col>
             </v-row>
-          </v-container>
-          <small>*indicates required field</small>
-        </v-card-text>
-        <v-card-actions>
+          <small>*Este símbolo indica campo obligatorio</small>
           <v-spacer></v-spacer>
           <v-btn
             color="blue darken-1"
             text
             @click="hideDialog"
           >
-            Close
+            Cerrar
           </v-btn>
           <v-btn
             color="blue darken-1"
             text
-            @click="hideDialog"
+            @click="validateAndPost"
           >
-            Save
+            Conseguir entrada
           </v-btn>
-        </v-card-actions>
-      </v-card>
+        </v-form>
+        </v-card>
     </v-dialog>
   <!--</v-row>-->
 </template>
@@ -108,8 +139,60 @@ export default {
     data()  {
         return{
           isVisible: false,
-          emailRules: [ v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido' ]
+          isStudent: false,
+          universities: [],
+          universityNames: [],
+          selectedUniv: "",
+          schools: [],
+          selectedSchool: "",
+          grades: [],
+          selectedGrade: ""
         }
+    },
+    computed: {
+      emailRules () { 
+        return [
+            v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido',
+            v => !!v || 'Introduzca su email'
+          ]},
+          nameRules () { 
+            return [
+            v => !!v || 'Introduzca su nombre',
+            v => (v && v.length <= 25) || 'El nombre debe tener menos de 25 caracteres'
+          ]},
+          surnameRules () { 
+            return [
+            v => !!v || 'Introduzca sus apellidos',
+            v => (v && v.length <= 50) || 'Los apellidos deben estar compuestos por menos de 50 caracteres'
+          ]},
+          dniRules () { 
+            return [
+            v => !!v || 'Introduzca su DNI/NIF/NIE',
+            v => (v && v.length <= 10) || 'Su DNI/NIF/NIE debe tener 10 o menos caracteres'
+          ]},
+          phoneRules () { 
+            return [
+            v => !!v || 'Introduzca su número de teléfono',
+            v => !v || /\+{0,1}[0-9]{9,12}/.test(v) || 'Su número de teléfono debe contener entre 9 y 12 dígitos' 
+          ]},
+          universityRules () { 
+            return  [
+            v => !!v || 'Introduzca su universidad'
+          ]},
+          schoolRules () { 
+            return  [
+            v => !!v || 'Introduzca su escuela'
+          ]},
+          degreeRules () { 
+            return  [
+            v => !!v || 'Introduzca su grado'
+          ]},
+    },
+    async fetch() {
+      this.universities = await this.$axios.$get(`http://127.0.0.1:8000/api/degrees/universities`)
+      for(const university in this.universities)  {
+        this.universityNames.push(university)
+      }
     },
     /*computed:   {
       changeVisibility()  {
@@ -119,6 +202,24 @@ export default {
     methods: {
       hideDialog()  {
         this.isVisible = false
+      },
+      getSchools()  {
+        this.schools = this.universities[this.selectedUniv]
+      },
+      async getGrades() {
+        const gradesInfo = await this.$axios.get("http://127.0.0.1:8000/api/degrees", {
+          params: { school: this.selectedSchool }
+        })
+        for(let i = 0; i < gradesInfo.data.length; ++i) {
+          this.grades.push(gradesInfo.data[i].degree)
+          console.log(gradesInfo.data[i].degree)
+        }
+        console.log(this.grades)
+      },
+      validateAndPost() {
+        if(this.$refs.form.validate())  {
+          this.hideDialog() //here goes axios.post
+        }
       }
     },
     created() {
