@@ -105,14 +105,14 @@ export default {
 		  dark: false,
 		  themes: {
 			light: {
-			  primary: colors.indigo,
-			  accent: colors.grey.darken3,
-			  secondary: colors.indigo.darken4,
-			  info: colors.teal.lighten1,
-			  warning: colors.amber.base,
-			  error: colors.deepOrange.accent4,
-			  success: colors.green.accent3,
-			  background: colors.indigo.lighten4,
+			  primary: "#35b7ea",
+			  accent: "#3062ac",
+			  secondary: "#3062ac",
+			  info: "#35b7ea",
+			  warning: "#35b7ea",
+			  error: "#35b7ea",
+			  success: "#35b7ea",
+			  background: "#35b7ea",
 			}
 		  }
 		}

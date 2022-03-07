@@ -4,7 +4,7 @@
       v-model="isLoginVisible"
       max-width="600px"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <!-- <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="primary"
           dark
@@ -15,10 +15,10 @@
         >
         LOGIN
         </v-btn>
-      </template>
+      </template> -->
       <v-card>
         <v-card-title>
-          <span class="text-h5">User Profile</span>
+          <span class="text-h5">Login</span>
         </v-card-title>
         <v-card-text>
           <v-container>
