@@ -21,7 +21,7 @@
             <v-form
               ref="form"
             >
-            <span class="text-h5">Formulario Entrada TryIt</span>
+            <span class="text-h5">Formulario Entrada TryIT!</span>
               <v-row>
                 <v-col cols="4">
                   <v-text-field
