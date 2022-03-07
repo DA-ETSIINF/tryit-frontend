@@ -8,7 +8,7 @@
         elevate-on-scroll
         fixed
         src="/img/Imagotipo_PNG_Blanco_2.png"
-        color="indigo lighten-1"
+        color= "primary"
         >
         <!-- <v-img contain src="/img/Logotipo_PNG_Blanco_2.png"></v-img> -->
         <template v-slot:img="{ props }">
@@ -36,13 +36,13 @@
         <DialButton class="dbut"></DialButton>
         </v-container>
       </main>
-      <v-footer color="indigo lighten-1">
+      <v-footer color="secondary">
         <v-spacer></v-spacer>
         <v-btn>&copy; {{ new Date().getFullYear() }}</v-btn>
         <v-spacer></v-spacer>
       </v-footer>
       
-      <v-footer color="indigo lighten-1">
+      <v-footer color="secondary">
         <v-spacer></v-spacer>
         <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/">
           <v-icon>mdi-github</v-icon>

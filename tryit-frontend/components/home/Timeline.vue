@@ -7,7 +7,7 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="secondary"
+          color="#00598a"
           dark
           block
           height=30vh
@@ -103,7 +103,7 @@
                     fill-dot
                 >
                     <v-card
-                        color="indigo accent-2"
+                        color="blue"
                     >
                         <v-card-title class="white--text">{{ event.name }}</v-card-title>
                         <v-card-subtitle class="white--text"> {{ dateToStr(event.start_date) }} - {{ dateToStr(event.end_date) }}</v-card-subtitle>
@@ -238,7 +238,7 @@
         
         <v-btn 
             block 
-            color="secondary" 
+            color="#0991db" 
             @click="hideDialog"
             >CERRAR
         </v-btn>
