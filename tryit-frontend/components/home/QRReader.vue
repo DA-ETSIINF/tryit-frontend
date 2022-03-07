@@ -24,7 +24,7 @@
               Formato de ticket valido, esperando confirmación...
             </div>
             <div v-if="validationFailure" class="validation-failure">
-              Formato de ticket inválido, esperando confirmación...
+              Formato de ticket inválido
             </div>
             <div v-if="validationPending" class="validation-pending">
               Validando ticket...
@@ -148,12 +148,19 @@ export default {
       // pretend it's taking really long
       await this.timeout(100)
       console.log(this.result)
-      this.isValid  = content.search({"id": "[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[con89ab][0-9a-f]{3}-[0-9a-f]{12}"} > -1)? true : false
+      try{
+        var data = JSON.parse(content)
+        this.isValid = true
+      }
+      catch(e){
+        this.isValid = false
+      }
       // some more delay, so users have time to read the message
       if (this.isValid) {
         //this.isHidden = !this.isHidden;
         // hacer post con el ticket 
-        var data = JSON.parse(content)
+        
+
         axios.post("http://localhost:8000/api/editions/2022/validate_ticket/", data).then((response) => {
           console.log(response)
         })
