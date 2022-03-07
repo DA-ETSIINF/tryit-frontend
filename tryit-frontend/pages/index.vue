@@ -19,15 +19,9 @@
 	</v-card>
 	<!--<PopupForm class="popup-button"></PopupForm>-->
 	
-	<PopupForm></PopupForm>
-	<PopupLogin></PopupLogin>
-<<<<<<< HEAD
-	<!-- <QRReader></QRReader> -->
-
-	<Timeline :posts="posts"></Timeline>
-=======
-	<Timeline></Timeline>
->>>>>>> 28bf525b58fab746cce5711970e44c2430c0aeeb
+	<PopupForm />
+	<PopupLogin />
+	<Timeline />
 	
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>

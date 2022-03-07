@@ -16,9 +16,9 @@
         LOGIN
         </v-btn>
       </template>-->
-      <QRReader v-if="$store.getters.getAdmin"></QRReader>
+      <QRReader v-if="$store.getters.getAdmin" />
       <v-alert v-else-if="$store.getters.getLogged" type="error">Este usuario no tiene los permisos necesarios</v-alert>
-      <v-card v-if="!$store.getters.getLogged">
+      <v-card v-else>
         <v-card-title>
           <span class="text-h5">Login</span>
         </v-card-title>
