@@ -17,117 +17,99 @@
         CONSIGUE TU ENTRADA PULSANDO AQUÍ
         </v-btn>
       </template>
-        <v-card>
-          <v-form
-            ref="form"
-          >
-
-          <span class="text-h5">User Profile</span>
-            <v-row>
-              <v-col
-                cols="12"
-                sm="4"
-                md="4"
-              >
-                <v-text-field
-                  label="Nombre*"
-                  :rules="nameRules"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="8"
-                md="8"
-              >
-                <v-text-field
-                  label="Apellidos*"
-                  :rules="surnameRules"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  label="Email*"
-                  required
-                  :rules="emailRules"
-                ></v-text-field>
-              </v-col>
-              <v-col 
-                cols="12"
-                sm="4"
-                md="4">
-                <v-text-field
-                  label="NIF/DNI*"
-                  :rules="dniRules"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="8"
-                md="8"
-              >
-                <v-text-field
-                  label="Teléfono de contacto*"
-                  :rules="phoneRules"
-                  required
-                ></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col
-                cols="12"
-              >
-                <v-checkbox
-                  v-model="isStudent"
-                  label="Soy estudiante universitario">
-                </v-checkbox>
-                <v-autocomplete
-                  v-model="selectedUniv"
-                  v-if="isStudent"
-                  :items="universityNames"
-                  v-on:change="getSchools"
-                  label="Universidad"
-                  :rules="universityRules"
-                  required
-                ></v-autocomplete>
-                <v-autocomplete
-                  v-model="selectedSchool"
-                  v-if="isStudent"
-                  :items="schools"
-                  v-on:change="getGrades"
-                  label="Escuela"
-                  :rules="schoolRules"
-                  required
-                ></v-autocomplete>
-                <v-autocomplete
-                  v-model="selectedGrade"
-                  v-if="isStudent"
-                  :items="grades"
-                  label="Grados"
-                  :rules="degreeRules"
-                  required
-                ></v-autocomplete>
-              </v-col>
-            </v-row>
-          <small>*Este símbolo indica campo obligatorio</small>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="blue darken-1"
-            text
-            @click="hideDialog"
-          >
-            Cerrar
-          </v-btn>
-          <v-btn
-            color="blue darken-1"
-            text
-            @click="validateAndPost"
-          >
-            Conseguir entrada
-          </v-btn>
-        </v-form>
+          <v-card class="pa-5">
+            <v-form
+              ref="form"
+            >
+            <span class="text-h5">Formulario Entrada TryIt</span>
+              <v-row>
+                <v-col cols="4">
+                  <v-text-field
+                    label="Nombre*"
+                    :rules="nameRules"
+                    required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="8">
+                  <v-text-field
+                    label="Apellidos*"
+                    :rules="surnameRules"
+                    required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
+                    label="Email*"
+                    required
+                    :rules="emailRules"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="4">
+                  <v-text-field
+                    label="NIF/DNI*"
+                    :rules="dniRules"
+                    required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="8">
+                  <v-text-field
+                    label="Teléfono de contacto*"
+                    :rules="phoneRules"
+                    required
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12">
+                  <v-checkbox
+                    v-model="isStudent"
+                    label="Soy estudiante universitario">
+                  </v-checkbox>
+                  <v-autocomplete
+                    v-model="selectedUniv"
+                    v-if="isStudent"
+                    :items="universityNames"
+                    v-on:change="getSchools"
+                    label="Universidad"
+                    :rules="universityRules"
+                    required
+                  ></v-autocomplete>
+                  <v-autocomplete
+                    v-model="selectedSchool"
+                    v-if="isStudent"
+                    :items="schools"
+                    v-on:change="getGrades"
+                    label="Escuela"
+                    :rules="schoolRules"
+                    required
+                  ></v-autocomplete>
+                  <v-autocomplete
+                    v-model="selectedGrade"
+                    v-if="isStudent"
+                    :items="grades"
+                    label="Grados"
+                    :rules="degreeRules"
+                    required
+                  ></v-autocomplete>
+                </v-col>
+              </v-row>
+            <small>*Este símbolo indica campo obligatorio</small>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="blue darken-1"
+              text
+              @click="hideDialog"
+            >
+              Cerrar
+            </v-btn>
+            <v-btn
+              color="blue darken-1"
+              text
+              @click="validateAndPost"
+            >
+              Conseguir entrada
+            </v-btn>
+          </v-form>
         </v-card>
     </v-dialog>
   <!--</v-row>-->

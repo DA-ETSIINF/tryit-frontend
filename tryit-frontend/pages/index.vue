@@ -21,7 +21,7 @@
 	
 	<PopupForm></PopupForm>
 	<PopupLogin></PopupLogin>
-	<Timeline :posts="posts"></Timeline>
+	<Timeline></Timeline>
 	
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
@@ -158,67 +158,7 @@ export default class extends Vue {
 		duration: 300,
 		scrollOverflow: true
 	}
-	//posts?: Array<object> = []
-	/*data()	{
-		return	{
-			posts:[] 
-		}
-	}*/
-	async asyncData({$axios/*, ctx: Context*/}) {
-    //   const posts = await $http.$get(`http://127.0.0.1:8000/2022/talks`).json()
-    //   const posts = await $axios.$get(`http://192.168.1.23:3000/test.json`).then(res => res)
-      const posts = await $axios.$get(`http://127.0.0.1:8000/api/editions/2022/schedule`)
-	// @info This is the modification of the obtained /schedule/ endpoint to include colors and icons
-	//   https://materialdesignicons.com/
-	  for (const post of posts) {
-		  for (const ev of post.events) {
-			  switch (ev.type) {
-				  case "TK":
-					//   Ponencia
-					ev['brief'] = 'Ponencia' //  - ¿Quieres aprender algo nuevo? ¡TryIT!
-					ev['color'] = 'blue darken-1'
-					ev['icon'] = 'mdi-account-voice'
-					break;
-				  case "WS":
-					//   Taller
-					ev['brief'] = 'Taller' //  - ¿Quieres mejorar tus habilidades técnicas? ¡TryIT!
-					ev['color'] = 'grey darken-3'
-					ev['icon'] = 'mdi-hammer-wrench'
-					break;
-				  case "LT":
-					//   Lightning Talk
-					ev['brief'] = 'Lightning Talk' //  - ¿Cómo? ¿Que no es posible aprender algo en 30 minutos? ¡TryIT!
-					ev['color'] = 'blue lighten-2'
-					ev['icon'] = 'mdi-timer-outline'
-					break;
-				  case "SP":
-					//   Especial
-					ev['brief'] = 'Especial' //  - Solo nuestros señores reptilianos saben que ocurrirá aquí...
-					ev['color'] = 'green lighten-1'
-					ev['icon'] = 'mdi-alien'
-					break;
-				  case "TO":
-					//   Torneo
-					ev['brief'] = 'Concurso' //  - ¡Donde el TryHardeo tiene premio!
-					ev['color'] = 'purple darken-1'
-					ev['icon'] = 'mdi-bullseye-arrow'
-					break;
-				  default:
-					// Unknown Type
-					// @info Easter Eggs de Halo por si alguien en un futuro está mirando esto y lo está pasando mal
-					// - @PrinceKiwii
-					ev['title'] = "ERROR: Wake up, Chief. I need you."
-					ev['desc'] = "ERROR: Don't make a girl a promise... if you know you can't keep it. "
-					ev['brief'] = "ERROR: It's been an honor serving with you, John."
-					ev['color'] = 'red darken-1'
-					ev['icon'] = 'mdi-alert'
-					break;
-			  }
-		  }
-	  }
-
-      return { posts }
-	}
+	
 	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
 	goTo(path: string) {
 		window.location.href = path // TODO use router

@@ -18,7 +18,26 @@
         INFORMACIÓN Y HORARIOS DE LOS EVENTOS
         </v-btn>
       </template>
-      
+      <v-alert
+        v-if="$fetchState.error"
+        type="error"
+      >
+        <v-row>
+          <v-col cols="8">
+            <strong>ERROR:</strong>No fue posible cargar los eventos.
+          </v-col>
+          <v-col cols="4">
+            <v-btn @click="$fetch">
+              REINTENTAR
+            </v-btn>
+            <v-btn 
+              color="secondary" 
+              @click="hideDialog"
+                >SALIR
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-alert>
       <v-card>
         <!-- @TODO change so that color isn't hardcoded -->
         <v-toolbar
@@ -26,6 +45,7 @@
           dark
           flat
         >
+        <v-btn @click="hideDialog"><v-icon>mdi-close</v-icon></v-btn>
           <!-- @Todo Center text -->
           <v-toolbar-title>
             Horarios del Evento
@@ -48,9 +68,7 @@
               dark
             >
         <!-- @TODO change so that color isn't hardcoded -->
-
               <v-tabs-slider color="yellow"></v-tabs-slider>
-
               <v-tab
                 v-for="post in posts"
                 :key="post.day"
@@ -71,8 +89,8 @@
             <v-timeline
             >
               <v-slide-x-reverse-transition
-              group
-              hide-on-leave
+                group
+                hide-on-leave
               >
                 
                 <!-- @info event.color & event.icon are to be determined depending on the type of event, for example a Talk, a Tournament or a Workshop -->
@@ -233,15 +251,66 @@
 <script>
 
 export default {
-  props: ["posts"],
   data()  {
       return{
         tab: 0,
         show_desc: true,
         show_time: true,
         isVisible: false,
-        show: []
+        show: [],
+        posts: []
       }
+  },
+  async fetch() {
+      this.posts = await this.$axios.$get(`http://127.0.0.1:8000/api/editions/2022/schedule`)
+    // @info This is the modification of the obtained /schedule/ endpoint to include colors and icons
+    //   https://materialdesignicons.com/
+      for (const post of this.posts) {
+        for (const ev of post.events) {
+          switch (ev.type) {
+            case "TK":
+            //   Ponencia
+            ev['brief'] = 'Ponencia' //  - ¿Quieres aprender algo nuevo? ¡TryIT!
+            ev['color'] = 'blue darken-1'
+            ev['icon'] = 'mdi-account-voice'
+            break;
+            case "WS":
+            //   Taller
+            ev['brief'] = 'Taller' //  - ¿Quieres mejorar tus habilidades técnicas? ¡TryIT!
+            ev['color'] = 'grey darken-3'
+            ev['icon'] = 'mdi-hammer-wrench'
+            break;
+            case "LT":
+            //   Lightning Talk
+            ev['brief'] = 'Lightning Talk' //  - ¿Cómo? ¿Que no es posible aprender algo en 30 minutos? ¡TryIT!
+            ev['color'] = 'blue lighten-2'
+            ev['icon'] = 'mdi-timer-outline'
+            break;
+            case "SP":
+            //   Especial
+            ev['brief'] = 'Especial' //  - Solo nuestros señores reptilianos saben que ocurrirá aquí...
+            ev['color'] = 'green lighten-1'
+            ev['icon'] = 'mdi-alien'
+            break;
+            case "TO":
+            //   Torneo
+            ev['brief'] = 'Concurso' //  - ¡Donde el TryHardeo tiene premio!
+            ev['color'] = 'purple darken-1'
+            ev['icon'] = 'mdi-bullseye-arrow'
+            break;
+            default:
+            // Unknown Type
+            // @info Easter Eggs de Halo por si alguien en un futuro está mirando esto y lo está pasando mal
+            // - @PrinceKiwii
+            ev['title'] = "ERROR: Wake up, Chief. I need you."
+            ev['desc'] = "ERROR: Don't make a girl a promise... if you know you can't keep it. "
+            ev['brief'] = "ERROR: It's been an honor serving with you, John."
+            ev['color'] = 'red darken-1'
+            ev['icon'] = 'mdi-alert'
+            break;
+          }
+        }
+      }    
   },
   methods: {
     hideDialog()  {
