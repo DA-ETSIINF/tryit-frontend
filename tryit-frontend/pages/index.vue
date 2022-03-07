@@ -21,13 +21,7 @@
 	
 	<PopupForm></PopupForm>
 	<PopupLogin></PopupLogin>
-<<<<<<< HEAD
-	<QRReader></QRReader>
-
-	<Timeline :posts="posts"></Timeline>
-=======
 	<Timeline></Timeline>
->>>>>>> origin/fetch-hook
 	
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
