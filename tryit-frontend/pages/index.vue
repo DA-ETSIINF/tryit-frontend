@@ -21,7 +21,7 @@
 	
 	<PopupForm></PopupForm>
 	<PopupLogin></PopupLogin>
-	<QRReader></QRReader>
+	<!-- <QRReader></QRReader> -->
 
 	<Timeline :posts="posts"></Timeline>
 	

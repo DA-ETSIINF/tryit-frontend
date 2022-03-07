@@ -1,9 +1,6 @@
 <template>
-  <v-dialog
-      v-model="isQRVisible"
-      max-width="600px"
-    >
-    <template v-slot:activator="{ on, attrs }">
+
+    <!-- <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="primary"
         dark
@@ -14,7 +11,7 @@
       >
       QR
       </v-btn>
-    </template>
+    </template> -->
     <v-card>
       <div id="QRButton">
         <button v-on:click="isHidden = !isHidden"> Escanear QR </button>  
@@ -38,7 +35,6 @@
         </div>
       </div>
     </v-card>
-  </v-dialog>
 </template>
 
 <script>

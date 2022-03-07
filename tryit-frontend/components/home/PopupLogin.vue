@@ -16,10 +16,13 @@
         LOGIN
         </v-btn>
       </template>
-      <v-card>
+      <QRReader v-if="$store.getters.getAdmin"></QRReader>
+      <v-alert v-else-if="$store.getters.getLogged" type="error">Este usuario no tiene los permisos necesarios</v-alert>
+      <v-card v-if="!$store.getters.getLogged">
         <v-card-title>
           <span class="text-h5">User Profile</span>
         </v-card-title>
+
         <v-card-text>
           <v-container>
             <v-row>
@@ -75,61 +78,71 @@
 <script>
 
 import axios from "axios"
+import QRReader from "./QRReader"
 
 export default {
-    data()  {
-        return{
-          isLoginVisible: false,
-          loginInfo: {
-            username: '',
-            password: ''
-          }
+  components: {
+    QRReader
+  },
+  data()  {
+      return{
+        isLoginVisible: false,
+        loginInfo: {
+          username: '',
+          password: ''
         }
+      }
+  },
+  methods: {
+    hideDialog()  {
+      this.isLoginVisible = false
     },
-    methods: {
-      hideDialog()  {
-        this.isLoginVisible = false
-      },
-      doLogin() {
-        var data = this.loginInfo
-        axios.post("http://localhost:8000/api/users/login/", data).then((response) => {
-          console.log(response);
-          var token = response.data.access_token
-          //console.log(token)
-          //localStorage.setItem('user-token', token) // store the token in localstorage
-          this.$store.commit("login/login", token)
-          this.hideDialog()
-          if(this.$store.state.isLogged)  {
-            this.showQRReader()
-          }
-      })
-        .catch(err => {
-          this.$store.commit("login/logout") // if the request fails, remove any possible user token if possible
-        })
-        const userToken = this.$store.getters.getToken
+    async doLogin() {
+      var data = this.loginInfo
+      try {
+        const res = await axios.post("http://localhost:8000/api/users/login/", data)
+        //console.log(response);
+        var token = res.data.access_token
+        //console.log(token)
+        //localStorage.setItem('user-token', token) // store the token in localstorage
+        this.$store.commit("login", token)
 
-        console.log(userToken)
-        console.log(this.$store.getters.getLogged)
-        const config = {
-          headers: {
-            Authorization: "Token " + userToken,
-          }
+      }
+      catch(err) {
+        //console.log(err)
+        this.$store.commit("logout") // if the request fails, remove any possible user token if possible
+        return;
+      }
+      const userToken = this.$store.getters.getToken
+      //console.log("asdasd "+userToken)
+      //console.log(this.$store.state.isLogged)
+      const config = {
+        headers: {
+          Authorization: "Token " + userToken,
         }
-        console.log(config.headers.Authentication)
-        axios.get("http://localhost:8000/api/users/auth/", config).then((response) => {
-          let result = response.data.user == "tryit_user"
-          console.log(result)
-          result ? this.$store.commit("login/giveAdminAccess") : this.$store.commit("login/revokeAdminAccess")
-        })
-      },
-      showQRReader()  {
-        if(this.$store.state.isAdmin) {
-          this.$nuxt.$emit("toggleQRReader")
-        }
-      },
-      showLoginForm() {
-            this.$nuxt.$emit("toggleLoginForm")
-      },
+      }
+      console.log(config.headers.Authorization)
+      
+        const res = await axios.get("http://localhost:8000/api/users/auth/", config)
+        let result = res.data.user == "tryit_user"
+        //console.log(result)
+        result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
+                  // this.hideDialog()
+
+        if(this.$store.getters.getLogged)  {
+          this.showQRReader()
+          console.log("ahbaskfhubafubalfiuhsalfiuhbfliuhfliu")
+        }    
+    },
+    showQRReader()  {
+      if(this.$store.getters.getAdmin) {
+        this.$nuxt.$emit("toggleQRReader")
+        console.log("cago en todo")
+      }
+    },
+    showLoginForm() {
+          this.$nuxt.$emit("toggleLoginForm")
+    },
 
       
     },
@@ -140,6 +153,6 @@ export default {
       this.$nuxt.$on("toggleLoginForm", () => {
         this.isLoginVisible = !this.isLoginVisible
       })
-    }
+    },
   }
 </script>
