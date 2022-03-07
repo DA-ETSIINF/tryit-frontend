@@ -7,21 +7,26 @@
         app
         elevate-on-scroll
         fixed
-        color="indigo lighten-1"
-        
-        fade-img-on-scroll
-        shrink-on-scroll
-        src="/img/welcome.jpg"
+        src="/img/Imagotipo_PNG_Blanco_2.png"
+        color= "primary"
         >
+        <!-- <v-img contain src="/img/Logotipo_PNG_Blanco_2.png"></v-img> -->
         <template v-slot:img="{ props }">
+          <v-img
+            v-bind="props"
+            contain
+          ></v-img>
+        </template>
+
+        <!-- <template v-slot:img="{ props }">
           <v-img
             v-bind="props"
             gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
           ></v-img>
-        </template>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        </template> -->
+        <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
         <v-spacer></v-spacer>
-        <v-app-bar-title class="white--text">TRY IT! 2022</v-app-bar-title>
+        <!-- <v-app-bar-title class="white--text">TRY IT! 2022</v-app-bar-title> -->
         <v-spacer></v-spacer>
       </v-app-bar>
       <main>
@@ -31,13 +36,13 @@
         <DialButton class="dbut"></DialButton>
         </v-container>
       </main>
-      <v-footer color="indigo lighten-1">
+      <v-footer color="secondary">
         <v-spacer></v-spacer>
         <v-btn>&copy; {{ new Date().getFullYear() }}</v-btn>
         <v-spacer></v-spacer>
       </v-footer>
       
-      <v-footer color="indigo lighten-1">
+      <v-footer color="secondary">
         <v-spacer></v-spacer>
         <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/">
           <v-icon>mdi-github</v-icon>

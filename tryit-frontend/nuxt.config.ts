@@ -41,7 +41,7 @@ export default {
 			{
 				hid: "theme-color",
 				name: "theme-color",
-				content: "#035b9e"
+				content: "#35b7ea"
 			},
 			{
 				hid: "keywords",
@@ -94,7 +94,8 @@ export default {
 	},
 	plugins: [{ src: '@/plugins/QRReader.js', mode: 'client' }],
 
-	loading: { color: "#035b9e" },
+	//TODO: change colors so they aren't hardcoded
+	loading: { color: "#35b7ea" },
 	css: ["~/assets/css/main.css"],
 	build: {transpile: ["ssr-window", "dom7"]},
 	buildModules: ["@nuxt/typescript-build", "@nuxtjs/vuetify"],
@@ -105,14 +106,14 @@ export default {
 		  dark: false,
 		  themes: {
 			light: {
-			  primary: colors.indigo,
-			  accent: colors.grey.darken3,
-			  secondary: colors.indigo.darken4,
-			  info: colors.teal.lighten1,
-			  warning: colors.amber.base,
-			  error: colors.deepOrange.accent4,
-			  success: colors.green.accent3,
-			  background: colors.indigo.lighten4,
+			  primary: "#1C8DD4",
+			  accent: "#35b7ea",
+			  secondary: "#2982ba",
+			  info: "#35b7ea",
+			  warning: "#35b7ea",
+			  error: "#35b7ea",
+			  success: "#35b7ea",
+			  background: "#2982ba",
 			}
 		  }
 		}
