@@ -13,7 +13,6 @@
           height=30vh
           v-bind="attrs"
           v-on="on"
-          @click="hideDialog"
         >
         INFORMACIÓN Y HORARIOS DE LOS EVENTOS
         </v-btn>

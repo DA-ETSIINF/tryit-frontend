@@ -91,24 +91,41 @@ export default {
         this.isLoginVisible = false
       },
       doLogin() {
-        var login = false
         var data = this.loginInfo
         axios.post("http://localhost:8000/api/users/login/", data).then((response) => {
           console.log(response);
           var token = response.data.access_token
-          console.log(token)
-          localStorage.setItem('user-token', token) // store the token in localstorage
-          login = true
+          //console.log(token)
+          //localStorage.setItem('user-token', token) // store the token in localstorage
+          this.$store.commit("login/login", token)
           this.hideDialog()
-          this.showQRReader()
-        })
+          if(this.$store.state.isLogged)  {
+            this.showQRReader()
+          }
+      })
         .catch(err => {
-          localStorage.removeItem('user-token') // if the request fails, remove any possible user token if possible
-          login = false
+          this.$store.commit("login/logout") // if the request fails, remove any possible user token if possible
+        })
+        const userToken = this.$store.getters.getToken
+
+        console.log(userToken)
+        console.log(this.$store.getters.getLogged)
+        const config = {
+          headers: {
+            Authorization: "Token " + userToken,
+          }
+        }
+        console.log(config.headers.Authentication)
+        axios.get("http://localhost:8000/api/users/auth/", config).then((response) => {
+          let result = response.data.user == "tryit_user"
+          console.log(result)
+          result ? this.$store.commit("login/giveAdminAccess") : this.$store.commit("login/revokeAdminAccess")
         })
       },
       showQRReader()  {
+        if(this.$store.state.isAdmin) {
           this.$nuxt.$emit("toggleQRReader")
+        }
       },
       showLoginForm() {
             this.$nuxt.$emit("toggleLoginForm")

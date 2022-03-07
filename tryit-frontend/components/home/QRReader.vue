@@ -15,7 +15,7 @@
       QR
       </v-btn>
     </template>
-    <v-card v-if="isLogged">
+    <v-card>
       <div id="QRButton">
         <button v-on:click="isHidden = !isHidden"> Escanear QR </button>  
         <div v-if="isHidden">
@@ -30,16 +30,12 @@
               Validando ticket...
             </div>
             <button @click="switchCamera">
-              <img src='../../assets/camera-switch.svg' alt="switch camera">
+              <!-- <img src='../../assets/camera-switch.svg' alt="switch camera"> -->
+              <v-icon>mdi-camera</v-icon>
             </button>
             
           </qrcode-stream>
         </div>
-      </div>
-    </v-card>
-    <v-card v-else>
-      <div>
-          
       </div>
     </v-card>
   </v-dialog>
@@ -75,7 +71,26 @@ export default {
 
     validationFailure () {
       return this.isValid === false
-    }
+    },
+
+    // isLogged(){
+    //   const token = localStorage.getItem('user-token')
+    //   const token = this.$store.state.userToken
+
+    //   const data = null
+    //   console.log(token)
+    //   const config = {
+    //     headers: {
+    //       Authorization: "Token " + token,
+    //     }
+    //   }
+    //   console.log(config.headers.Authentication)
+    //   axios.get("http://localhost:8000/api/users/auth/", config).then((response) => {
+    //     let result = response.data.user == "asistencia"
+    //     console.log(result)
+    //     return true
+    //   })
+    // },
   },
 
   methods: {
@@ -110,26 +125,6 @@ export default {
     resetValidationState () {
       this.isValid = undefined
     },
-
-    isLogged(){
-      const token = localStorage.getItem('user-token')
-
-      const data = null
-      console.log(token)
-      const config = {
-        headers: {
-          Authorization: "Token " + token,
-        }
-      }
-      console.log(config.headers.Authentication)
-      axios.get("http://localhost:8000/api/users/auth/", config).then((response) => {
-        let result = response.data.user == "asistencia"
-        console.log(result)
-        return result
-      })
-    },
-
-
 
     switchCamera () {
       switch (this.camera) {

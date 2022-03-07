@@ -12,7 +12,6 @@
           height=30vh
           v-bind="attrs"
           v-on="on"
-          @click="hideDialog"
         >
         CONSIGUE TU ENTRADA PULSANDO AQUÍ
         </v-btn>
