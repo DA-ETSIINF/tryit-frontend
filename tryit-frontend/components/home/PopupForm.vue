@@ -24,6 +24,7 @@
               <v-row>
                 <v-col cols="4">
                   <v-text-field
+                    v-model= person_name
                     label="Nombre*"
                     :rules="nameRules"
                     required
@@ -31,6 +32,7 @@
                 </v-col>
                 <v-col cols="8">
                   <v-text-field
+                    v-model= person_last_name
                     label="Apellidos*"
                     :rules="surnameRules"
                     required
@@ -38,6 +40,7 @@
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
+                    v-model= person_mail
                     label="Email*"
                     required
                     :rules="emailRules"
@@ -45,6 +48,7 @@
                 </v-col>
                 <v-col cols="4">
                   <v-text-field
+                    v-model= person_nif
                     label="NIF/DNI*"
                     :rules="dniRules"
                     required
@@ -52,6 +56,7 @@
                 </v-col>
                 <v-col cols="8">
                   <v-text-field
+                    v-model= person_phone
                     label="Teléfono de contacto*"
                     :rules="phoneRules"
                     required
@@ -83,7 +88,7 @@
                     required
                   ></v-autocomplete>
                   <v-autocomplete
-                    v-model="selectedGrade"
+                    v-model="selectedDegree"
                     v-if="isStudent"
                     :items="grades"
                     label="Grados"

@@ -19,10 +19,11 @@
 	</v-card>
 	<!--<PopupForm class="popup-button"></PopupForm>-->
 	
-	<PopupForm />
-	<PopupLogin />
-	<Timeline />
-	
+	<PopupForm></PopupForm>
+	<PopupLogin></PopupLogin>
+	<Timeline></Timeline>
+	<QRReader></QRReader>
+
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
 		<p class="section-description">
