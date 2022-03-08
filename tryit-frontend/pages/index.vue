@@ -174,6 +174,7 @@ export default class extends Vue {
 		console.log("hola2")
 		this.$nuxt.$emit("toggleQRReader")
 	}
+	
 }
 </script>
 

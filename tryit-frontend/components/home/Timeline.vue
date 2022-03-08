@@ -179,7 +179,7 @@
                               </v-card-title>
 
                               <v-card-subtitle>
-                                {{ event.brief }} - NOMBRE_PONENTE
+                                {{ event.brief }} - {{ event.speaker}}
                               </v-card-subtitle>
 
                               <v-card-actions
@@ -327,15 +327,7 @@ export default {
     hideDialog()  {
       this.isVisible = false
     },
-    /*showInfo(index) {
-      if(this.show.includes(index)) {
-        this.show = this.show.filter(item => item !== index)
-      }
-      else  {
-        this.show.push(index)
-      }
-    },*/
-    showInfo(index) {
+    async showInfo(index) {
       if(index >= this.show.length) {
         this.show.length = index + 1
         this.show[index] = true
@@ -343,6 +335,7 @@ export default {
       else  {
         this.show[index] = true
       }
+
     },
     deleteShow()  {
       this.show = this.show.splice(0, this.show.length)

@@ -1,5 +1,5 @@
 <template>
-
+    
     <!-- <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="primary"
@@ -12,7 +12,36 @@
       QR
       </v-btn>
     </template> -->
+    
+    
     <v-card>
+      <v-alert
+      v-model="good_alert"
+      type="success"
+      close-text="Cerrar"
+      color="green"
+      dismissible
+    >
+      ¡Entrada Escaneada adecuadamente!
+    </v-alert>
+    <v-alert
+      v-model="user_already_exists_alert"
+      type="error"
+      close-text="Cerrar"
+      color="red"
+      dismissible
+    >
+      ¡Entrada ya escaneada con anterioridad! No puedes escanear múltiples veces la misma entrada. Si has cometido algún error, contacta a tu Delegación de Centro.
+    </v-alert>
+    <v-alert
+      v-model="error_alert"
+      type="error"
+      close-text="Cerrar"
+      color="red"
+      dismissible
+    >
+      Error al escanear la entrada. Habla con la Delegación de Alumnos de Centro.
+    </v-alert>
       <div id="QRButton">
         <button v-on:click="isHidden = !isHidden"> Escanear QR </button>  
         <div v-if="isHidden">
@@ -51,7 +80,10 @@ export default {
       camera: 'auto',
       result: null,
       noRearCamera: false,
-      noFrontCamera: false
+      noFrontCamera: false,
+      good_alert: false,
+      error_alert: false,
+      user_already_exists_alert: false // Specific alert that occurs if user already has a ticket
     }
   },
 

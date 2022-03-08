@@ -67,7 +67,7 @@
             </v-btn>
             <span>INFORMACIÓN Y HORARIOS DE EVENTOS</span>
         </v-tooltip>
-        <v-tooltip left :disabled="tooltips[2]" v-model="tooltips[2]">
+        <v-tooltip left :disabled="tooltips[3]" v-model="tooltips[3]">
             <v-btn
             slot="activator"
             fab
@@ -96,7 +96,7 @@ export default {
             hover:false,
             transition:"fade-transition", //if we want to use slide-y-reverse-transition, we need to add a watcher and use timeouts, because tooltip wont align properly
             tooltips: [
-                true,true,true
+                true,true,true,true
             ]
         }
     },

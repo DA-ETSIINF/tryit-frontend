@@ -162,7 +162,7 @@ export default class extends Vue {
       this.$nuxt.$emit("toggleLoginForm")
   }
   launchQRReader()    {
-      this.$nuxt.$emit("toggleQRReader")
+      this.$nuxt.$emit("toggleLoginForm")
   }
   launchLogout() {
     this.$store.commit("logout")
