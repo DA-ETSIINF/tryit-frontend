@@ -50,7 +50,12 @@
       Error al escanear la entrada. Habla con la Delegación de Alumnos de Centro.
     </v-alert>
       <div id="QRButton">
-        <button v-on:click="isHidden = !isHidden"> Escanear QR </button>  
+        <v-btn 
+          color="secondary" 
+          block 
+          @click="isHidden = !isHidden"
+        > Escanear QR 
+        </v-btn>  
         <div v-if="isHidden">
           <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
             <div v-if="validationSuccess" class="validation-success">
@@ -62,13 +67,26 @@
             <div v-if="validationPending" class="validation-pending">
               Validando ticket...
             </div>
-            <button @click="switchCamera">
+            <v-btn 
+              color="accent"
+              block 
+              @click="switchCamera"
+            >
               <!-- <img src='../../assets/camera-switch.svg' alt="switch camera"> -->
               <v-icon>mdi-camera</v-icon>
-            </button>
+            </v-btn>
             
           </qrcode-stream>
+
         </div>
+        <v-btn 
+          color="orange darken-3" 
+          dark 
+          block 
+          @click="hideDialog"
+        >
+          SALIR
+        </v-btn>
       </div>
     </v-card>
   </v-dialog>

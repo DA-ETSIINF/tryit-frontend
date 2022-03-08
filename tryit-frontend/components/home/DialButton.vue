@@ -76,7 +76,7 @@
             color="blue-grey darken-3"
             @click="showQRForm"
             >
-            <v-icon>mdi-qr</v-icon>
+            <v-icon>mdi-qrcode-scan</v-icon>
             </v-btn>
             <span>SCAN QR</span>
         </v-tooltip>
