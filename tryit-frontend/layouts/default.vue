@@ -17,7 +17,6 @@
             contain
           ></v-img>
         </template>
-
         <!-- <template v-slot:img="{ props }">
           <v-img
             v-bind="props"
@@ -25,9 +24,92 @@
           ></v-img>
         </template> -->
         <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
-        <v-spacer></v-spacer>
-        <!-- <v-app-bar-title class="white--text">TRY IT! 2022</v-app-bar-title> -->
-        <v-spacer></v-spacer>
+        <!-- <v-spacer></v-spacer> -->
+        <template 
+          v-slot:extension
+        >
+          <v-tabs
+            fixed-tabs
+            optional
+            class="mt-15"
+            background-color="primary"
+            hide-slider
+            dark
+          >
+            <v-tab
+              @click="launchTicket()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-ticket-confirmation
+              </v-icon>
+
+              ENTRADAS
+            </v-tab>
+            <v-tab
+              @click="launchTimeline()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-calendar
+              </v-icon>
+
+              HORARIOS
+            </v-tab>
+            <v-tab
+              v-if="!checkLogin()"
+              @click="launchLogin()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-login
+              </v-icon>
+
+              ¿Eres Voluntario?
+            </v-tab>
+            <v-tab
+              v-else
+              @click="launchLogout()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-logout
+              </v-icon>
+
+              LOGOUT
+            </v-tab>
+            <v-tab
+              v-if="checkLogin()"
+              @click="launchQRReader()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-qrcode-scan
+              </v-icon>
+              Escanear Entradas
+            </v-tab>
+          </v-tabs>
+        </template>
       </v-app-bar>
       <main>
         <v-container app class="container" fluid>
@@ -61,11 +143,34 @@ import * as Components from "../components";
 
 @Component({
   components: {
-    DialButton: Components.DialButton
+    DialButton: Components.DialButton,
+    PopupTicket: Components.PopupTicket,
+		PopupLogin: Components.PopupLogin,
+    Timeline: Components.Timeline,
+		QRReader: Components.QRReader,
   }
 })
+
 export default class extends Vue {
-  isFormVisible: boolean =  false
+  launchTicket()    {
+      this.$nuxt.$emit("toggleTicketForm")
+  }
+  launchTimeline()    {
+      this.$nuxt.$emit("toggleTimeline")
+  }
+  launchLogin()     {
+      this.$nuxt.$emit("toggleLoginForm")
+  }
+  launchQRReader()    {
+      this.$nuxt.$emit("toggleQRReader")
+  }
+  launchLogout() {
+    this.$store.commit("logout")
+    this.$store.commit("revokeAdminAccess")
+  }
+  checkLogin() { // @info Returns TRUE iff user is currently logged in and is admin
+    return this.$store.getters.getLogged && this.$store.getters.getAdmin
+  }
 }
 </script>
 

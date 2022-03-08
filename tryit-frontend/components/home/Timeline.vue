@@ -5,7 +5,7 @@
       max-width="600px"
       fullscreen
     >
-      <template v-slot:activator="{ on, attrs }">
+      <!-- <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="#00598a"
           dark
@@ -16,7 +16,7 @@
         >
         INFORMACIÓN Y HORARIOS DE LOS EVENTOS
         </v-btn>
-      </template>
+      </template> -->
       <v-alert
         v-if="$fetchState.error"
         type="error"
@@ -38,36 +38,57 @@
         </v-row>
       </v-alert>
       <v-card>
-        <!-- @TODO change so that color isn't hardcoded -->
         <v-toolbar
-          color="blue"
+          color="primary"
           dark
           flat
         >
-        <v-btn @click="hideDialog"><v-icon>mdi-close</v-icon></v-btn>
+          <!-- If loading, creates a circular progress bar that constantly spins
+               else, it renders the congress' logo -->
+          <v-progress-circular
+            v-if="$fetchState.pending"
+            :width="3"
+            color="teal lighten-4"
+            indeterminate
+          ></v-progress-circular>
+          <v-avatar
+            v-else
+            >
+            <v-img src="/img/Logotipo_PNG_Blanco_2.png"></v-img>
+          </v-avatar>
           <!-- @Todo Center text -->
+          <v-spacer></v-spacer>
           <v-toolbar-title>
             Horarios del Evento
-            <!-- <v-avatar>
-              <v-img src="/img/imagotipo_claro_2.png"></v-img>
-            </v-avatar> -->
 
           </v-toolbar-title>
-
           <v-spacer></v-spacer>
+
+          <v-btn 
+            fab
+            color="orange darken-3"
+            small
+            @click="hideDialog"
+          >
+            <v-icon
+              medium
+            >mdi-close</v-icon>
+          </v-btn>
 
           <template v-slot:extension>
             <v-tabs
               v-model="tab"
+              grow
               align-with-title
               next-icon="mdi-arrow-right-bold-box-outline"
               prev-icon="mdi-arrow-left-bold-box-outline"
               show-arrows
               center-active
+              centered
+              slider-color="yellow"
               dark
             >
         <!-- @TODO change so that color isn't hardcoded -->
-              <v-tabs-slider color="yellow"></v-tabs-slider>
               <v-tab
                 v-for="post in posts"
                 :key="post.day"
@@ -111,7 +132,7 @@
                         <v-card-actions>
                           <v-dialog
                             v-model="show[index]"
-                            max-width="30%"
+                            max-width="60%"
                           >
                             <template v-slot:activator="{ on, attrs }">
                               <v-row
@@ -234,15 +255,6 @@
         </v-tabs-items>
       </v-card>
 
-
-        
-        <v-btn 
-            block 
-            color="#0991db" 
-            @click="hideDialog"
-            >CERRAR
-        </v-btn>
-      
     </v-dialog>
   <!--</v-row>-->
 </template>

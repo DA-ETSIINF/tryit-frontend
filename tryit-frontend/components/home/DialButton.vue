@@ -63,9 +63,22 @@
             color="blue-grey darken-3"
             @click="showTimeline"
             >
-            <v-icon>mdi-timeline</v-icon>
+            <v-icon>mdi-calendar</v-icon>
             </v-btn>
             <span>INFORMACIÓN Y HORARIOS DE EVENTOS</span>
+        </v-tooltip>
+        <v-tooltip left :disabled="tooltips[2]" v-model="tooltips[2]">
+            <v-btn
+            slot="activator"
+            fab
+            dark
+            small
+            color="blue-grey darken-3"
+            @click="showQRForm"
+            >
+            <v-icon>mdi-qr</v-icon>
+            </v-btn>
+            <span>SCAN QR</span>
         </v-tooltip>
     </v-speed-dial>
 </template>
@@ -96,6 +109,9 @@ export default {
         },
         showLoginForm()     {
             this.$nuxt.$emit("toggleLoginForm")
+        },
+        showQRForm()     {
+            this.$nuxt.$emit("toggleQRReader")
         }
     }
 }

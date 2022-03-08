@@ -7,19 +7,16 @@
 			</div>-->
 			<div class="welcome-content">
 				<Timer class="timer"></Timer>
-				<!-- <button-component
-					:type="'secondary-btn'"
-					:text="'Consigue tu entrada'"
-					@onClick="goTo('/ticket')"
-				></button-component> -->
 			</div>
 			
 		</div>
 		
 	</v-card>
-	<!--<PopupForm class="popup-button"></PopupForm>-->
+	<!--<PopupTicket class="popup-button"></PopupTicket>-->
 	
-	<PopupForm></PopupForm>
+	<!-- Menú de acciones posibles -->
+	<!-- Si no ponemos esto luego no se pueden abrir -->
+	<PopupTicket></PopupTicket>
 	<PopupLogin></PopupLogin>
 	<Timeline></Timeline>
 	<QRReader></QRReader>
@@ -132,7 +129,7 @@ import { Component, Vue } from "nuxt-property-decorator"
 import {
 	Map,
 	Timer,
-	PopupForm,
+	PopupTicket,
 	PopupLogin,
 	DialButton,
 	Timeline,
@@ -144,7 +141,7 @@ import {
 	components: {
 		Map,
 		Timer,
-		PopupForm,
+		PopupTicket,
 		PopupLogin,
 		DialButton,
 		Timeline,

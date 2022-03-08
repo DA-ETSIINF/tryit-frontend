@@ -55,6 +55,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
+          
           <v-btn
             color="blue darken-1"
             text
@@ -124,20 +125,18 @@ export default {
       console.log(config.headers.Authorization)
       
         const res = await axios.get("http://localhost:8000/api/users/auth/", config)
-        let result = res.data.user == "tryit_user"
+        let result = res.data.user == "asistencia"
         //console.log(result)
         result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
                   // this.hideDialog()
 
         if(this.$store.getters.getLogged)  {
           this.showQRReader()
-          console.log("ahbaskfhubafubalfiuhsalfiuhbfliuhfliu")
         }    
     },
     showQRReader()  {
       if(this.$store.getters.getAdmin) {
         this.$nuxt.$emit("toggleQRReader")
-        console.log("cago en todo")
       }
     },
     showLoginForm() {
@@ -145,14 +144,11 @@ export default {
     },
 
       
-    },
-
-    
-
-    created() {
-      this.$nuxt.$on("toggleLoginForm", () => {
-        this.isLoginVisible = !this.isLoginVisible
-      })
-    },
-  }
+  },
+  created() {
+    this.$nuxt.$on("toggleLoginForm", () => {
+      this.isLoginVisible = !this.isLoginVisible
+    })
+  },
+}
 </script>
