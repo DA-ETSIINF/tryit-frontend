@@ -4,46 +4,51 @@
             
             <div class="timer_class">
                 <table>
-						
-                    <tr>
-                        <td colspan="4">
-                            <img class="tryit-logo" src="/img/imagotipo_claro_2.png"/>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <td colspan="4">
+                                <img class="tryit-logo" src="/img/imagotipo_claro_2.png"/>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td colspan="4">
-                            <h2> { 14 a 18 de Marzo de 2022 } </h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="time">{{timer.days}}</div>
-                        </td>
-                        <td>
-                            <div class="time">{{timer.hours}}</div> 
-                        </td>
-                        <td>
-                            <div class="time">{{timer.minutes}}</div>
-                        </td>
-                        <td>
-                            <div class="time">{{timer.seconds}}</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Días</p>
-                        </td>
-                        <td>
-                            <p>Horas</p>
-                        </td>
-                        <td>
-                            <p>Minutos</p>
-                        </td>
-                        <td>
-                            <p>Segundos</p>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td colspan="4">
+                                <h2> { 14 a 18 de Marzo de 2022 } </h2>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="time">{{timer.days}}</div>
+                            </td>
+                            <td>
+                                <div class="time">{{timer.hours}}</div> 
+                            </td>
+                            <td>
+                                <div class="time">{{timer.minutes}}</div>
+                            </td>
+                            <td>
+                                <div class="time">{{timer.seconds}}</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <p>Días</p>
+                            </td>
+                            <td>
+                                <p>Horas</p>
+                            </td>
+                            <td>
+                                <p>Minutos</p>
+                            </td>
+                            <td>
+                                <p>Segundos</p>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

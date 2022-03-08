@@ -4,72 +4,30 @@
       v-model="isLoginVisible"
       max-width="600px"
     >
-      <!-- <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          block
-          height=30vh
-          v-bind="attrs"
-          v-on="on"
-        >
-        LOGIN
-        </v-btn>
-      </template>-->
-      <QRReader v-if="$store.getters.getAdmin" />
-      <v-alert v-else-if="$store.getters.getLogged" type="error">Este usuario no tiene los permisos necesarios</v-alert>
-      <v-card v-else>
-        <v-card-title>
-          <span class="text-h5">Login</span>
-        </v-card-title>
-
-        <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col
-                cols="12"
-                sm="6"
-                md="4"
-              >
-                <v-text-field
-                  v-model="loginInfo.username"
-                  label="Username*"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-                md="4"
-              >
-                <v-text-field
-                  v-model="loginInfo.password"
-                  label="Contraseña*"
-                  input type="password"
-                  required
-                ></v-text-field>
-              </v-col>
-            </v-row>
-          </v-container>
-          <small>*indicates required field</small>
-        </v-card-text>
+      <Login />
+      <v-card>
         <v-card-actions>
           <v-spacer></v-spacer>
-          
           <v-btn
-            color="blue darken-1"
-            text
-            @click="hideDialog"
-          >
-            Close
-          </v-btn>
-          <v-btn
-            color="blue darken-1"
-            text
-            @click="doLogin"
-          >
-            Submit
-          </v-btn>
+              dark
+              rounded
+              x-large
+              color="orange darken-3"
+              @click="hideDialog"
+            >
+              <v-icon 
+                left
+                dark
+                x-large
+                color="white"
+                class="mx-3"
+              >
+                <!-- mdi-information-outline -->
+                mdi-close
+              </v-icon>
+
+              Cerrar
+            </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -79,11 +37,11 @@
 <script>
 
 import axios from "axios"
-import QRReader from "./QRReader"
+import Login from "./Login"
 
 export default {
   components: {
-    QRReader
+    Login
   },
   data()  {
       return{
@@ -125,25 +83,23 @@ export default {
       console.log(config.headers.Authorization)
       
         const res = await axios.get("http://localhost:8000/api/users/auth/", config)
-        let result = res.data.user == "asistencia"
-        //console.log(result)
+        let result = res.data.user == "admin"
+        console.log(result)
         result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
                   // this.hideDialog()
-
-        if(this.$store.getters.getLogged)  {
-          this.showQRReader()
-        }    
+        //console.log(this.$store.getters.getAdmin)
+        // if(this.$store.getters.getLogged)  {
+        //   this.showQRReader()
+        // }    
     },
-    showQRReader()  {
-      if(this.$store.getters.getAdmin) {
-        this.$nuxt.$emit("toggleQRReader")
-      }
-    },
-    showLoginForm() {
-          this.$nuxt.$emit("toggleLoginForm")
-    },
-
-      
+    // showQRReader()  {
+    //   if(this.$store.getters.getAdmin) {
+    //     this.$nuxt.$emit("toggleQRReader")
+    //   }
+    // },
+    // showLoginForm() {
+    //       this.$nuxt.$emit("toggleLoginForm")
+    // },
   },
   created() {
     this.$nuxt.$on("toggleLoginForm", () => {

@@ -1,5 +1,8 @@
 <template>
-    
+  <v-dialog
+    v-model="isQRVisible"
+    max-width="600px"
+  > 
     <!-- <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="primary"
@@ -12,9 +15,13 @@
       QR
       </v-btn>
     </template> -->
-    
-    
-    <v-card>
+    <!-- <v-card>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</v-card> -->
+    <Login v-if="!$store.getters.getLogged"/>
+    <v-alert v-else-if="!$store.getters.getAdmin" type="error">Este usuario no posee permisos de administrador
+      <v-btn @click="launchLogout">Cerrar sesión</v-btn>      
+    </v-alert>
+
+    <v-card v-else>
       <v-alert
       v-model="good_alert"
       type="success"
@@ -64,14 +71,18 @@
         </div>
       </div>
     </v-card>
+  </v-dialog>
 </template>
 
 <script>
 
 import axios from "axios"
+import Login from "./Login"
 
 export default {
-
+  components: {
+    Login
+  },
   data () {
     return {
       isQRVisible: false,
@@ -125,9 +136,12 @@ export default {
 
     hideDialog()  {
         this.isQRVisible = false
-      },
+    },
 
-
+    launchLogout() {
+      this.$store.commit("logout")
+      this.$store.commit("revokeAdminAccess")
+    },
 
     async onInit (promise) {
       try {
@@ -206,12 +220,11 @@ export default {
         window.setTimeout(resolve, ms)
       })
     },
-    created() {
-      this.$nuxt.$on("toggleQRReader", () => {
-        console.log("holaaaa")
-        this.isQRVisible = !this.isQRVisible
-      })
-    }
+  },
+  created() {
+    this.$nuxt.$on("toggleQRReader", () => {
+      this.isQRVisible = !this.isQRVisible
+    })
   }
 }
 </script>
