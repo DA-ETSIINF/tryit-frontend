@@ -93,7 +93,7 @@ export default {
             console.log(config.headers.Authorization)
             
             const res = await axios.get("http://localhost:8000/api/users/auth/", config)
-            let result = res.data.user == "admin"
+            let result = res.data.user == "asistencia"
             console.log(result)
             result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
         },

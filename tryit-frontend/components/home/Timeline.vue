@@ -107,6 +107,7 @@
           >
 
             <v-timeline
+              
             >
               <v-slide-x-reverse-transition
                 group
@@ -120,15 +121,36 @@
                     :key="event.id"
                     :color="event.color"
                     :icon="event.icon"
-                    small
+                    large
                     fill-dot
                 >
-                    <v-card
-                        color="blue"
-                    >
-                        <v-card-title class="white--text">{{ event.name }}</v-card-title>
-                        <v-card-subtitle class="white--text"> {{ dateToStr(event.start_date) }} - {{ dateToStr(event.end_date) }}</v-card-subtitle>
-                        <v-card-text class="white--text">{{ event.desc }}</v-card-text>
+                    <template v-slot:opposite>
+                      <span
+                        :class="`headline font-weight-bold ${event.color}--text`"
+                      >
+                      De {{ dateToTimeStr(event.start_date) }} a {{ dateToTimeStr(event.end_date) }}
+                      </span>
+                    </template>
+                      <v-card
+                        color="primary"
+                        class="elevation-2"
+                      >
+                        <v-img
+                          max-height="2vh"
+                          src="/img/tryit_background1.png"
+                        >
+
+                        </v-img>
+                        <v-card-title class="text-h4 white--text">
+                          {{ event.name }}
+                        </v-card-title>
+                        <!-- <v-card-subtitle class="white--text"> {{ dateToStr(event.start_date) }} - {{ dateToStr(event.end_date) }}</v-card-subtitle> -->
+                        <v-card-subtitle class="text-h6 white--text"> {{ getSubtitle(event) }} </v-card-subtitle>
+                        <v-card-text >
+                          <p class="white--text"> {{ event.desc }} </p>
+                          
+                        </v-card-text>
+
                         <v-card-actions>
                           <v-dialog
                             v-model="show[index]"
@@ -154,8 +176,7 @@
                                     x-large
                                     color="white"
                                     class="mx-3"
-                                  >
-                                    <!-- mdi-information-outline -->
+                                  > 
                                     mdi-information
                                   </v-icon>
 
@@ -166,57 +187,35 @@
 
                             <v-card
                               class="mx-auto"
-                            >
-                              <!-- @info Sample Speaker, should be retrieved via API -->
+                            > 
+                              <!-- @info Poster del evento: puede ser tanto una imagen propia (prioritario) como un enlace -->
                               <v-img
-                                src="https://isetta.io/images/interviews/casey-muratori.jpg"
+                                v-if="event.poster_img"
+                                :src="event.poster_img"
                                 id="event-img"
-                              >
-                              </v-img>
-
+                              />
+                              <v-img
+                                v-else
+                                :src="event.poster_link"
+                                id="event-img"
+                              />
                               <v-card-title>
                                 {{ event.name }}
                               </v-card-title>
 
                               <v-card-subtitle>
-                                {{ event.brief }} - {{ event.speaker}}
+                                {{ getSubtitle(event) }}
                               </v-card-subtitle>
 
-                              <v-card-actions
-                                  v-if="event.desc"
-                              >
-                                <v-btn
-                                  color="orange lighten-2"
-                                  text
-                                >
-                                  Sobre la Actividad
-                                </v-btn>
+                              <!-- @info Cada acción está compuesta de un v-card-actions y un v-expand-transition -->
 
-                                <v-spacer></v-spacer>
-
-                                <v-btn
-                                  icon
-                                  @click="show_desc = !show_desc"
-                                >
-                                  <v-icon>{{ show_desc ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-                                </v-btn>
-                              </v-card-actions>
-
-                              <v-expand-transition>
-                                <div v-show="show_desc">
-                                  <v-divider></v-divider>
-
-                                  <v-card-text>
-                                    {{ event.desc }}
-                                  </v-card-text>
-                                </div>
-                              </v-expand-transition>
+                              <!-- Horarios -->
 
                               <v-card-actions
                                 v-if="event.start_date"
                               >
                                 <v-btn
-                                  color="orange lighten-2"
+                                  color="primary"
                                   text
                                 >
                                   Horarios
@@ -242,11 +241,148 @@
                                 </div>
                               </v-expand-transition>
 
+                              <!-- Descripcion -->
+
+                              <v-card-actions
+                                  v-if="event.desc"
+                              >
+                                <v-btn
+                                  color="primary"
+                                  text
+                                >
+                                  Sobre la Actividad
+                                </v-btn>
+
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                  icon
+                                  @click="show_desc = !show_desc"
+                                >
+                                  <v-icon>{{ show_desc ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                                </v-btn>
+                              </v-card-actions>
+                              <v-expand-transition>
+                                <div v-show="show_desc">
+                                  <v-divider></v-divider>
+
+                                  <v-card-text>
+                                    {{ event.desc }}
+                                  </v-card-text>
+                                </div>
+                              </v-expand-transition>
+
+                              <!-- Ponentes -->
+
+                              <v-card-actions
+                                v-if="event.speakers"
+                              >
+                                <v-btn
+                                  color="primary"
+                                  text
+                                >
+                                  Ponente/s
+                                </v-btn>
+
+                                <v-spacer></v-spacer>
+
+                                <v-btn
+                                  icon
+                                  @click="show_speakers = !show_speakers"
+                                >
+                                  <v-icon>{{ show_speakers ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                                </v-btn>
+                              </v-card-actions>
+
+                              <v-expand-transition>
+                                <div v-show="show_speakers">
+                                  <v-divider></v-divider>
+
+                                  <template>
+                                    <v-tabs
+                                      v-model="speaker_tab"
+                                      grow
+                                      center-active
+                                      centered
+                                      slider-color="secondary"
+                                      light
+                                    >
+                                <!-- @TODO change so that color isn't hardcoded -->
+                                      <v-tab
+                                        v-for="speaker in event.speakers"
+                                        :key="speaker.id"
+                                      >
+                                        {{ getSpeakerName(speaker) }}
+                                      </v-tab>
+                                    </v-tabs>
+                                  </template>
+
+                                  <v-tabs-items v-model="speaker_tab">
+                                    <v-tab-item
+                                      v-for="speaker in event.speakers"
+                                      :key="speaker.id"
+                                    >
+                                      <v-card
+                                        class="mx-auto"
+                                      > 
+                                        <v-row justify="center">
+                                          <v-avatar
+                                            v-if="speaker.pic_img"
+                                            rounded
+                                            size="200"
+                                          >
+                                            <img
+                                              :src="speaker.pic_img"
+                                              alt="Speaker"
+                                            >
+                                          </v-avatar>
+                                          <v-avatar
+                                            v-else
+                                            rounded
+                                            size="200"
+                                          >
+                                            <img
+                                              :src="speaker.pic_link"
+                                              alt="Speaker"
+                                            >
+                                          </v-avatar>
+                                        </v-row>
+                                        <v-row justify="space-around">
+                                          <v-card-title
+                                            class="text-center"
+                                          >
+                                            {{ getSpeakerName(speaker) }}
+                                          </v-card-title>
+                                        </v-row>
+                                        <v-row justify="space-around">
+                                          <v-card-text
+                                            class="text-center"
+                                          >
+                                            {{ speaker.bio }}
+                                          </v-card-text>
+                                        </v-row>
+                                      </v-card>
+                                    </v-tab-item>
+                                  </v-tabs-items>
+
+                                </div>
+                              </v-expand-transition>
+
                             </v-card>
                           
                           </v-dialog>
                         </v-card-actions>
+
                     </v-card>
+
+                    <!-- <v-card
+                        color="primary"
+                        class="elevation-2"
+                    >
+                        <v-card-title class="text-h4 white--text">{{ event.name }}</v-card-title>
+                        <v-card-text class="white--text">{{ event.desc }}</v-card-text>
+                        
+                    </v-card> -->
                 </v-timeline-item>
               
               </v-slide-x-reverse-transition>
@@ -265,8 +401,10 @@ export default {
   data()  {
       return{
         tab: 0,
+        speaker_tab: 0,
         show_desc: true,
         show_time: true,
+        show_speakers: true,
         isVisible: false,
         show: [],
         posts: []
@@ -278,46 +416,53 @@ export default {
     //   https://materialdesignicons.com/
       for (const post of this.posts) {
         for (const ev of post.events) {
+          const room_res = await this.$axios.get(`http://127.0.0.1:8000/api/rooms`, { params: {id: ev['room']}})
+          ev['room_name'] = room_res.data[0].name
           switch (ev.type) {
             case "TK":
-            //   Ponencia
-            ev['brief'] = 'Ponencia' //  - ¿Quieres aprender algo nuevo? ¡TryIT!
-            ev['color'] = 'blue darken-1'
-            ev['icon'] = 'mdi-account-voice'
+              //   Ponencia
+              ev['brief'] = 'Ponencia' //  - ¿Quieres aprender algo nuevo? ¡TryIT!
+              // ev['color'] = 'blue darken-1'
+              ev['color'] = 'blue'
+              ev['icon'] = 'mdi-account-voice'
             break;
             case "WS":
-            //   Taller
-            ev['brief'] = 'Taller' //  - ¿Quieres mejorar tus habilidades técnicas? ¡TryIT!
-            ev['color'] = 'grey darken-3'
-            ev['icon'] = 'mdi-hammer-wrench'
+              //   Taller
+              ev['brief'] = 'Taller' //  - ¿Quieres mejorar tus habilidades técnicas? ¡TryIT!
+              // ev['color'] = 'grey darken-3'
+              ev['color'] = 'grey'
+              ev['icon'] = 'mdi-hammer-wrench'
             break;
             case "LT":
-            //   Lightning Talk
-            ev['brief'] = 'Lightning Talk' //  - ¿Cómo? ¿Que no es posible aprender algo en 30 minutos? ¡TryIT!
-            ev['color'] = 'blue lighten-2'
-            ev['icon'] = 'mdi-timer-outline'
+              //   Lightning Talk
+              ev['brief'] = 'Lightning Talk' //  - ¿Cómo? ¿Que no es posible aprender algo en 30 minutos? ¡TryIT!
+              // ev['color'] = 'blue lighten-2'
+              ev['color'] = 'amber'
+              ev['icon'] = 'mdi-timer-outline'
             break;
             case "SP":
-            //   Especial
-            ev['brief'] = 'Especial' //  - Solo nuestros señores reptilianos saben que ocurrirá aquí...
-            ev['color'] = 'green lighten-1'
-            ev['icon'] = 'mdi-alien'
+              //   Especial
+              ev['brief'] = 'Especial' //  - Solo nuestros señores reptilianos saben que ocurrirá aquí...
+              // ev['color'] = 'green lighten-1'
+              ev['color'] = 'green'
+              ev['icon'] = 'mdi-alien'
             break;
             case "TO":
-            //   Torneo
-            ev['brief'] = 'Concurso' //  - ¡Donde el TryHardeo tiene premio!
-            ev['color'] = 'purple darken-1'
-            ev['icon'] = 'mdi-bullseye-arrow'
+              //   Torneo
+              ev['brief'] = 'Concurso' //  - ¡Donde el TryHardeo tiene premio!
+              // ev['color'] = 'purple darken-1'
+              ev['color'] = 'purple'
+              ev['icon'] = 'mdi-bullseye-arrow'
             break;
             default:
-            // Unknown Type
-            // @info Easter Eggs de Halo por si alguien en un futuro está mirando esto y lo está pasando mal
-            // - @PrinceKiwii
-            ev['title'] = "ERROR: Wake up, Chief. I need you."
-            ev['desc'] = "ERROR: Don't make a girl a promise... if you know you can't keep it. "
-            ev['brief'] = "ERROR: It's been an honor serving with you, John."
-            ev['color'] = 'red darken-1'
-            ev['icon'] = 'mdi-alert'
+              // Unknown Type
+              // @info Easter Eggs de Halo por si alguien en un futuro está mirando esto y lo está pasando mal
+              // - @PrinceKiwii
+              ev['title'] = "ERROR: Wake up, Chief. I need you."
+              ev['desc'] = "ERROR: Don't make a girl a promise... if you know you can't keep it. "
+              ev['brief'] = "ERROR: It's been an honor serving with you, John."
+              ev['color'] = 'red'
+              ev['icon'] = 'mdi-alert'
             break;
           }
         }
@@ -351,6 +496,38 @@ export default {
 
       return `${dateString} ${timeString}`
     },
+    dateToTimeStr(dateString) {
+      
+      // 2022-02-20T19:00:00Z
+      const newDate = new Date(Date.parse(dateString.slice(0, -1)))
+      var timeString = newDate.toLocaleTimeString('es-ES')
+      timeString = timeString[0].toUpperCase() + timeString.substring(1) // First Letter in Mayus
+
+      return `${timeString}`
+    },
+    getSubtitle(event) {
+        var txt = "" + event.brief
+
+        if(event['speakers'].length != 0) {
+          txt += " de "
+          for (const sp of event['speakers']) {
+            
+            txt += this.getSpeakerName(sp) + ", "
+          }
+  
+          txt = txt.slice(0, -2) // Borramos las ultimas 2 comas
+        }
+
+        txt += " en " + event['room_name']
+
+        return txt
+
+    },
+    getSpeakerName(speaker) {
+      var txt = speaker['first_name'] + " " + speaker['surname_1']
+      if (speaker['surname_2']) txt += " " + speaker["surname_2"]
+      return txt
+    }
   },
   created() {
     this.$nuxt.$on("toggleTimeline", () => {
