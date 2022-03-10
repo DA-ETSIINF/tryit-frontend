@@ -79,16 +79,33 @@
           </qrcode-stream>
 
         </div>
-        <v-btn 
-          color="orange darken-3" 
-          dark 
-          block 
-          @click="hideDialog"
-        >
-          SALIR
-        </v-btn>
       </div>
     </v-card>
+    <v-card>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+              dark
+              rounded
+              x-large
+              color="close"
+              @click="hideDialog"
+            >
+              <v-icon 
+                left
+                dark
+                x-large
+                color="white"
+                class="mx-3"
+              >
+                <!-- mdi-information-outline -->
+                mdi-close
+              </v-icon>
+
+              Cerrar
+            </v-btn>
+        </v-card-actions>
+      </v-card>
   </v-dialog>
 </template>
 

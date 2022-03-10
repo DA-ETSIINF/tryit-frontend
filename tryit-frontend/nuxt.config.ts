@@ -109,10 +109,12 @@ export default {
 			  primary: "#1C8DD4",
 			  accent: "#35b7ea",
 			  secondary: "#2982ba",
-			  info: "#35b7ea",
-			  warning: "#35b7ea",
-			  error: "#35b7ea",
-			  success: "#35b7ea",
+			  info: colors.teal.lighten1,
+			  warning: colors.orange.darken3,
+			  close: colors.orange.darken3,
+			  accept: colors.blue.darken1,
+			  error: colors.deepOrange.accent4,
+			  success: colors.green.darken4,
 			  background: "#2982ba",
 			}
 		  }

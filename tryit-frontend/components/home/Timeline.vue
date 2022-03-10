@@ -66,7 +66,7 @@
 
           <v-btn 
             fab
-            color="orange darken-3"
+            color="close"
             small
             @click="hideDialog"
           >
@@ -508,7 +508,7 @@ export default {
     getSubtitle(event) {
         var txt = "" + event.brief
 
-        if(event['speakers'].length != 0) {
+        /*if(event['speakers'].length != 0) {
           txt += " de "
           for (const sp of event['speakers']) {
             
@@ -518,7 +518,7 @@ export default {
           txt = txt.slice(0, -2) // Borramos las ultimas 2 comas
         }
 
-        txt += " en " + event['room_name']
+        txt += " en " + event['room_name']*/
 
         return txt
 

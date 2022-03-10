@@ -12,7 +12,7 @@
               dark
               rounded
               x-large
-              color="orange darken-3"
+              color="close"
               @click="hideDialog"
             >
               <v-icon 

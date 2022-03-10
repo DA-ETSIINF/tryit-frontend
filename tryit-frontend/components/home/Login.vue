@@ -38,7 +38,7 @@
         <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-                color="blue darken-1"
+                color="accept"
                 rounded
                 x-large
                 dark
