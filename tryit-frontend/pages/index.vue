@@ -16,10 +16,11 @@
 	
 	<!-- Menú de acciones posibles -->
 	<!-- Si no ponemos esto luego no se pueden abrir -->
-	<PopupTicket></PopupTicket>
-	<PopupLogin></PopupLogin>
-	<Timeline></Timeline>
-	<QRReader></QRReader>
+	<PopupTicket />
+	<PopupLogin />
+	<Timeline />
+	<QRReader />
+	<PopupLottery />
 
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
@@ -134,6 +135,7 @@ import {
 	DialButton,
 	Timeline,
 	QRReader,
+	PopupLottery
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -146,6 +148,7 @@ import {
 		DialButton,
 		Timeline,
 		QRReader,
+		PopupLottery
 	},
 })
 
@@ -167,11 +170,9 @@ export default class extends Vue {
     	this.$nuxt.$emit("toggleTicketForm") 
  	}
 	toggleLogin()	{
-		console.log("hola3")
 		this.$nuxt.$emit("toggleLoginForm")
 	}
 	toggleQRReader()	{
-		console.log("hola2")
 		this.$nuxt.$emit("toggleQRReader")
 	}
 	

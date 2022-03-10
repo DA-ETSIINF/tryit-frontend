@@ -80,6 +80,19 @@
             </v-btn>
             <span>SCAN QR</span>
         </v-tooltip>
+        <v-tooltip left :disabled="tooltips[4]" v-model="tooltips[4]">
+            <v-btn
+            slot="activator"
+            fab
+            dark
+            small
+            color="blue-grey darken-3"
+            @click="showLottery"
+            >
+            <v-icon>mdi-clover</v-icon>
+            </v-btn>
+            <span>SORTEOS</span>
+        </v-tooltip>
     </v-speed-dial>
 </template>
 
@@ -96,7 +109,7 @@ export default {
             hover:false,
             transition:"fade-transition", //if we want to use slide-y-reverse-transition, we need to add a watcher and use timeouts, because tooltip wont align properly
             tooltips: [
-                true,true,true,true
+                true,true,true,true,true
             ]
         }
     },
@@ -112,6 +125,9 @@ export default {
         },
         showQRForm()     {
             this.$nuxt.$emit("toggleQRReader")
+        },
+        showLottery()   {
+            this.$nuxt.$emit("toggleLottery")
         }
     }
 }
