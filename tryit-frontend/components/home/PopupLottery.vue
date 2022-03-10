@@ -80,8 +80,7 @@ export default {
         }
     },
     async fetch() {
-        this.attendees = await this.$axios.$get(`http://localhost:8000/api/attendees`)
-        console.log(this.attendees[0])
+        this.attendees = await this.$axios.$get(process.env.api + `/api/attendees`)
     },
     methods: {
         hideDialog()  {
