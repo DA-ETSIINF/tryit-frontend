@@ -58,7 +58,6 @@ export default {
 
     data()  {
         return{
-            isLoginVisible: false,
             loginInfo: {
             username: '',
             password: ''

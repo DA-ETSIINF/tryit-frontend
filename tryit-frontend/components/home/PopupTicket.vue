@@ -100,7 +100,7 @@
                   <v-autocomplete
                     v-model="selectedUniv"
                     v-if="isStudent"
-                    :items="universityNames"
+                    :items="universities"
                     v-on:change="getSchools"
                     label="Universidad"
                     :rules="universityRules"
@@ -118,7 +118,7 @@
                   <v-autocomplete
                     v-model="selectedDegree"
                     v-if="isStudent"
-                    :items="grades"
+                    :items="filteredDegrees"
                     label="Titulación"
                     :rules="degreeRules"
                     required
@@ -185,11 +185,11 @@ export default {
           isVisible: false,
           isStudent: false,
           universities: [],
-          universityNames: [],
           selectedUniv: "",
           schools: [],
           selectedSchool: "",
-          grades: [],
+          degrees: [],
+          filteredDegrees: [],
           selectedDegree: "",
           person_name: "",
           person_last_name: "",
@@ -229,22 +229,25 @@ export default {
           ]},
           universityRules () { 
             return  [
-            v => !!v || 'Introduzca su universidad'
+            v => !!v || 'Seleccione su universidad'
           ]},
           schoolRules () { 
             return  [
-            v => !!v || 'Introduzca su escuela'
+            v => !!v || 'Seleccione su escuela'
           ]},
           degreeRules () { 
             return  [
-            v => !!v || 'Introduzca su grado'
+            v => !!v || 'Seleccione su grado'
           ]},
     },
     async fetch() {
-      this.universities = await this.$axios.$get(`http://127.0.0.1:8000/api/degrees/universities`)
-      for(const university in this.universities)  {
-        this.universityNames.push(university)
-      }
+      this.degrees = await this.$axios.$get(process.env.api + `/api/degrees`)
+        for(let i = 0; i < this.degrees.length; ++i) {
+          this.universities.push(this.degrees[i].university)
+          console.log(this.degrees[i])
+          //console.log(degree.university)
+
+        }
     },
     /*computed:   {
       changeVisibility()  {
@@ -256,17 +259,22 @@ export default {
         this.isVisible = false
       },
       getSchools()  {
-        this.schools = this.universities[this.selectedUniv]
-      },
-      async getDegrees() {
-        const gradesInfo = await this.$axios.get("http://127.0.0.1:8000/api/degrees", {
-          params: { school: this.selectedSchool }
+        this.schools = []
+        this.degrees.map(degree => {
+          if(degree.university === this.selectedUniv) {
+            this.schools.push(degree.school)
+          }
         })
-        for(let i = 0; i < gradesInfo.data.length; ++i) {
-          this.grades.push(gradesInfo.data[i].degree)
-          console.log(gradesInfo.data[i].degree)
-        }
-        console.log(this.grades)
+
+      },
+      getDegrees() {
+        this.filteredDegrees = []
+        this.degrees.map(degree =>  {
+          if(degree.school === this.selectedSchool)  {
+            this.filteredDegrees.push(degree.degree)
+          }
+        })
+        //console.log(this.filteredDegrees)
       },
       async validateAndPost() {
         if(this.$refs.form.validate())  {

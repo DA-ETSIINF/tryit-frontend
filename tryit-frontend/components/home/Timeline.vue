@@ -411,12 +411,12 @@ export default {
       }
   },
   async fetch() {
-      this.posts = await this.$axios.$get(`http://127.0.0.1:8000/api/editions/2022/schedule`)
+      this.posts = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
     // @info This is the modification of the obtained /schedule/ endpoint to include colors and icons
     //   https://materialdesignicons.com/
       for (const post of this.posts) {
         for (const ev of post.events) {
-          const room_res = await this.$axios.get(`http://127.0.0.1:8000/api/rooms`, { params: {id: ev['room']}})
+          const room_res = await this.$axios.get(process.env.api + `/api/rooms`, { params: {id: ev['room']}})
           ev['room_name'] = room_res.data[0].name
           switch (ev.type) {
             case "TK":
@@ -508,7 +508,7 @@ export default {
     getSubtitle(event) {
         var txt = "" + event.brief
 
-        /*if(event['speakers'].length != 0) {
+        if(event['speakers'].length != 0) {
           txt += " de "
           for (const sp of event['speakers']) {
             
@@ -518,7 +518,7 @@ export default {
           txt = txt.slice(0, -2) // Borramos las ultimas 2 comas
         }
 
-        txt += " en " + event['room_name']*/
+        txt += " en " + event['room_name']
 
         return txt
 
