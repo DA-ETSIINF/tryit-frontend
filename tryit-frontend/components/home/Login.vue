@@ -89,11 +89,10 @@ export default {
                 Authorization: "Token " + userToken,
                 }
             }
-            console.log(config.headers.Authorization)
+            (config.headers.Authorization)
             
             const res = await axios.get("http://localhost:8000/api/users/auth/", config)
             let result = res.data.user == "asistencia"
-            console.log(result)
             result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
         },
     },

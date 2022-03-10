@@ -146,25 +146,6 @@ export default {
     validationFailure () {
       return this.isValid === false
     },
-
-    // isLogged(){
-    //   const token = localStorage.getItem('user-token')
-    //   const token = this.$store.state.userToken
-
-    //   const data = null
-    //   console.log(token)
-    //   const config = {
-    //     headers: {
-    //       Authorization: "Token " + token,
-    //     }
-    //   }
-    //   console.log(config.headers.Authentication)
-    //   axios.get("http://localhost:8000/api/users/auth/", config).then((response) => {
-    //     let result = response.data.user == "asistencia"
-    //     console.log(result)
-    //     return true
-    //   })
-    // },
   },
 
   methods: {
@@ -219,7 +200,6 @@ export default {
       this.turnCameraOff()
       // pretend it's taking really long
       await this.timeout(100)
-      console.log(this.result)
       try{
         var data = JSON.parse(content)
         this.isValid = true
@@ -233,9 +213,7 @@ export default {
         // hacer post con el ticket 
         
 
-        axios.post("http://localhost:8000/api/editions/2022/validate_ticket/", data).then((response) => {
-          console.log(response)
-        })
+        axios.post("http://localhost:8000/api/editions/2022/validate_ticket/", data)
       }
       await this.timeout(1000)
       

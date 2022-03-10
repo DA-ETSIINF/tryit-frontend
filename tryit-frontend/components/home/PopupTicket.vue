@@ -244,9 +244,6 @@ export default {
       this.degrees = await this.$axios.$get(process.env.api + `/api/degrees`)
         for(let i = 0; i < this.degrees.length; ++i) {
           this.universities.push(this.degrees[i].university)
-          console.log(this.degrees[i])
-          //console.log(degree.university)
-
         }
     },
     /*computed:   {
@@ -274,7 +271,6 @@ export default {
             this.filteredDegrees.push(degree.degree)
           }
         })
-        //console.log(this.filteredDegrees)
       },
       async validateAndPost() {
         if(this.$refs.form.validate())  {
@@ -306,7 +302,7 @@ export default {
             // Else
           } catch (error) {
             
-            console.log(error.response.status)
+            // console.log(error.response.status)
             if (error.response.status == 409)  {
               this.user_already_exists_alert = true
             } else {
