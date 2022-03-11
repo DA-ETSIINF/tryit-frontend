@@ -407,7 +407,10 @@ export default {
         show_speakers: true,
         isVisible: false,
         show: [],
-        posts: []
+        posts: [],
+        num : 0, 
+        console: () => console,
+
       }
   },
   async fetch() {
@@ -502,6 +505,7 @@ export default {
       const newDate = new Date(Date.parse(dateString.slice(0, -1)))
       var timeString = newDate.toLocaleTimeString('es-ES')
       timeString = timeString[0].toUpperCase() + timeString.substring(1) // First Letter in Mayus
+      timeString = timeString.substring(0, 5)
 
       return `${timeString}`
     },
