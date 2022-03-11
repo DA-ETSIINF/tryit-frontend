@@ -33,6 +33,25 @@
     >
       ¡Ya te has registrado! No puedes generar una nueva entrada. Si has cometido algún error, contacta a tu Delegación de Centro.
     </v-alert>
+
+    <v-alert
+      v-model="must_accept_privacy_terms_alert"
+      type="error"
+      close-text="Cerrar"
+      color="red"
+      dismissible
+    >
+      Para poder registrarte, necesitas aceptar la política de privacidad y protección de datos. La puedes consultar 
+      
+      <v-btn
+        depressed
+        color="primary"
+        @click="togglePrivacyPolicyVisibility()"
+        plain
+      >
+        aquí. 
+      </v-btn>
+    </v-alert>
     <v-alert
       v-model="error_alert"
       type="error"
@@ -124,6 +143,27 @@
                 ></v-autocomplete>
               </v-col>
             </v-row>
+
+          <!-- LOPD -->
+          <v-checkbox v-model="acceptsPrivacyPolicy">
+            <template v-slot:label>
+              <div>
+                Acepto la
+
+                <v-btn
+                  depressed
+                  color="primary"
+                  @click="togglePrivacyPolicyVisibility()"
+                  plain
+                >
+                  Política de Privacidad y Protección de Datos
+                </v-btn>
+
+                al registrarme para el Congreso TryIT!
+              </div>
+            </template>
+          </v-checkbox>
+
           <small>*Este símbolo indica campo obligatorio</small>
           <v-spacer></v-spacer>
           <v-row
@@ -172,6 +212,77 @@
         </v-form>
       </v-card>
       </v-card>
+
+      <!-- LOPD -->
+
+      <template>
+        <v-dialog
+          v-model="isPrivacyPolicyVisible"
+          max-width="600px"
+        >
+          <v-card>
+            <v-card-title>
+              Aviso de Política de Privacidad y Protección de Datos
+            </v-card-title>
+            <v-spacer/>
+            <v-card-subtitle>
+              Estimado/a Participante: 
+            </v-card-subtitle>
+            <v-card-text>
+              Al registrarse para este evento, se considera que consiente y manifiesta haber sido informada/o de que sus datos personales serán tratados por
+              Delegación de Alumnos ETSIINF UPM , que serán responsables de dicho tratamiento conforme a las obligaciones derivadas del cumplimiento del
+              Reglamento (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos
+              digitales. La finalidad de este tratamiento es la de proveerle de una entrada gratuita al evento y habilitar su participación en el mismo;
+              y en el caso de que sea estudiante de una institución educativa que valore la participación en el Congreso TryIT!, acreditar su participación
+              de cara a dicha institución, proporcionándo a las autoridades competentes de la misma los datos que sean necesarios para su acreditación. 
+              Tiene derecho a acceder, rectificar y suprimir los datos en cualquier momento escribiendo un correo a tryit.da@fi.upm.es .
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                rounded
+                x-large
+                dark
+                color="accept"
+                @click="privacyAndCloseWindow(true)"
+              >
+                <v-icon 
+                  left
+                  x-large
+                  color="white"
+                  class="mx-3"
+                >
+                  <!-- mdi-information-outline -->
+                  mdi-check
+                </v-icon>
+                Aceptar Politica
+              </v-btn>
+              <v-btn
+                  dark
+                  rounded
+                  x-large
+                  color="orange darken-3"
+                  @click="privacyAndCloseWindow(false)"
+                >
+                  <v-icon 
+                    left
+                    dark
+                    x-large
+                    color="white"
+                    class="mx-3"
+                  >
+                    <!-- mdi-information-outline -->
+                    mdi-close
+                  </v-icon>
+                  Cerrar
+                </v-btn>
+                
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      <!--</v-row>-->
+    </template>
+
     </v-dialog>
 </template>
 
@@ -182,6 +293,9 @@ export default {
         return{
           isVisible: false,
           isStudent: false,
+          isPrivacyPolicyVisible: false,
+          acceptsPrivacyPolicy: false,
+          must_accept_privacy_terms_alert: false, // Alert that pops up when a user tries to create a ticket without accepting the privacy terms
           universities: [],
           selectedUniv: "",
           schools: [],
@@ -253,6 +367,14 @@ export default {
       hideDialog()  {
         this.isVisible = false
       },
+      togglePrivacyPolicyVisibility() {
+        this.isPrivacyPolicyVisible = !this.isPrivacyPolicyVisible
+      },
+      privacyAndCloseWindow(did_accept_policy) {
+        this.acceptsPrivacyPolicy = did_accept_policy  // true if accepted false if not
+        this.must_accept_privacy_terms_alert = !did_accept_policy
+        this.togglePrivacyPolicyVisibility()
+      },
       getSchools()  {
         this.schools = []
         this.degrees.map(degree => {
@@ -274,7 +396,11 @@ export default {
         if(this.$refs.form.validate())  {
           
           var is_upm = false
+          if (this.acceptsPrivacyPolicy != true) {
 
+            this.must_accept_privacy_terms_alert = true
+            return
+          }
           if( this.selectedUniv == "Universidad Politécnica de Madrid" ) {
             is_upm = true
           }
@@ -289,7 +415,7 @@ export default {
             "is_upm_student": is_upm,
             "year": "2022" // @TODO This is hardcoded and should be changed.
           }
-
+          
           try {
             const res = await this.$axios.post("http://127.0.0.1:8000/api/editions/2022/create_ticket/", data)
           

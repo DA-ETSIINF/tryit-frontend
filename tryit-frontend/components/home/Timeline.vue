@@ -409,7 +409,6 @@ export default {
         show: [],
         posts: [],
         num : 0, 
-        console: () => console,
 
       }
   },
