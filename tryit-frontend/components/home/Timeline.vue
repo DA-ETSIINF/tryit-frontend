@@ -141,15 +141,15 @@
                         >
 
                         </v-img>
-                        <v-card-title class="responsive-txt-body-1 white--text">
+                        <v-card-title class="responsive-txt-body-1 white--text text-left">
                           {{ event.name }}
                         </v-card-title>
                         <v-spacer/>
                         <!-- <v-card-subtitle class="white--text"> {{ dateToStr(event.start_date) }} - {{ dateToStr(event.end_date) }}</v-card-subtitle> -->
-                        <v-card-title class="responsive-txt-subtitle-1 white--text"> {{ getSubtitle(event) }} </v-card-title>
+                        <v-card-title class="responsive-txt-subtitle-1 white--text text-left"> {{ getSubtitle(event) }} </v-card-title>
                         <v-spacer/>
                         <v-card-text >
-                          <p class="white--text responsive-txt-subtitle-2"> {{ event.desc }} </p>
+                          <p class="white--text responsive-txt-subtitle-2 text-left"> {{ event.desc }} </p>
                           
                         </v-card-text>
 
@@ -544,6 +544,11 @@ export default {
 </script>
 
 <style scoped>
+
+.v-card__text, .v-card__title {
+	word-break: normal; /* maybe !important  */
+  }
+  
 
 #event-img  {
     max-width: auto;
