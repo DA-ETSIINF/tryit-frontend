@@ -83,7 +83,6 @@ export default {
                 Authorization: "Token " + userToken,
                 }
             }
-            (config.headers.Authorization)
             
             const res = await axios.get("http://localhost:8000/api/users/auth/", config)
             let result = res.data.user == "asistencia"

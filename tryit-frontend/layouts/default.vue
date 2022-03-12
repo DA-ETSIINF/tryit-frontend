@@ -65,6 +65,34 @@
               HORARIOS
             </v-tab>
             <v-tab
+              v-if="checkLogin()"
+              @click="launchQRReader()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-qrcode-scan
+              </v-icon>
+              Escanear Entradas
+            </v-tab>
+            <v-tab
+              v-if="checkLogin()"
+              @click="launchLottery()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-clover
+              </v-icon>
+              Sorteo
+            </v-tab>
+            <v-tab
               v-if="!checkLogin()"
               @click="launchLogin()"
             >
@@ -77,7 +105,7 @@
                 mdi-login
               </v-icon>
 
-              ¿Eres Voluntario?
+              Iniciar Sesión
             </v-tab>
             <v-tab
               v-else
@@ -93,20 +121,6 @@
               </v-icon>
 
               LOGOUT
-            </v-tab>
-            <v-tab
-              v-if="checkLogin()"
-              @click="launchQRReader()"
-            >
-              <v-icon 
-                left
-                dark
-                color="white"
-                class="mx-3"
-              >
-                mdi-qrcode-scan
-              </v-icon>
-              Escanear Entradas
             </v-tab>
           </v-tabs>
         </template>
@@ -163,6 +177,9 @@ export default class extends Vue {
   }
   launchQRReader()    {
       this.$nuxt.$emit("toggleQRReader")
+  }
+  launchLottery()   {
+      this.$nuxt.$emit("toggleLottery")
   }
   launchLogout() {
     this.$store.commit("logout")

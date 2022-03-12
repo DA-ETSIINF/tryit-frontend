@@ -126,7 +126,7 @@
                 >
                     <template v-slot:opposite>
                       <span
-                        :class="`headline font-weight-bold ${event.color}--text`"
+                        :class="`headline font-weight-bold ${event.color}--text text-h4`"
                       >
                       De {{ dateToTimeStr(event.start_date) }} a {{ dateToTimeStr(event.end_date) }}
                       </span>
@@ -141,13 +141,15 @@
                         >
 
                         </v-img>
-                        <v-card-title class="text-h4 white--text">
+                        <v-card-title class="responsive-txt-h3 white--text">
                           {{ event.name }}
                         </v-card-title>
+                        <v-spacer/>
                         <!-- <v-card-subtitle class="white--text"> {{ dateToStr(event.start_date) }} - {{ dateToStr(event.end_date) }}</v-card-subtitle> -->
-                        <v-card-subtitle class="text-h6 white--text"> {{ getSubtitle(event) }} </v-card-subtitle>
+                        <v-card-subtitle class="responsive-txt-h5 white--text"> {{ getSubtitle(event) }} </v-card-subtitle>
+                        <v-spacer/>
                         <v-card-text >
-                          <p class="white--text"> {{ event.desc }} </p>
+                          <p class="white--text responsive-txt-h6"> {{ event.desc }} </p>
                           
                         </v-card-text>
 
@@ -552,4 +554,39 @@ export default {
 .text-right-margin {
   margin-right: 5%;
 }
+
+.responsive-txt {
+  font-size: 8vw
+}
+
+.responsive-txt-h1 {
+  font-size: 6.5vw
+}
+
+.responsive-txt-h2 {
+  font-size: 5.5vw
+}
+
+.responsive-txt-h3 {
+  font-size: 4.5vw
+}
+
+.responsive-txt-h4 {
+  font-size: 4vw
+}
+
+.responsive-txt-h5 {
+  font-size: 3.5vw
+}
+
+.responsive-txt-h6 {
+  font-size: 3vw
+}
+
+.responsive-txt-p {
+  font-size: 2vw
+}
+
+
+
 </style>

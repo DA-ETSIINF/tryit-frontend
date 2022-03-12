@@ -3,19 +3,6 @@
     v-model="isQRVisible"
     max-width="600px"
   > 
-    <!-- <template v-slot:activator="{ on, attrs }">
-      <v-btn
-        color="primary"
-        dark
-        block
-        height=30vh
-        v-bind="attrs"
-        v-on="on"
-      >
-      QR
-      </v-btn>
-    </template> -->
-    <!-- <v-card>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</v-card> -->
     <Login v-if="!$store.getters.getLogged"/>
     <v-alert v-else-if="!$store.getters.getAdmin" type="error">Este usuario no posee permisos de administrador
       <v-btn @click="launchLogout">Cerrar sesión</v-btn>      
@@ -121,7 +108,7 @@ export default {
   data () {
     return {
       isQRVisible: false,
-      isHidden: false,
+      isHidden: true,
       isValid: undefined,
       camera: 'auto',
       result: null,
