@@ -149,7 +149,7 @@
                         <v-card-subtitle class="responsive-txt-h5 white--text"> {{ getSubtitle(event) }} </v-card-subtitle>
                         <v-spacer/>
                         <v-card-text >
-                          <p class="white--text responsive-txt-h6"> {{ event.desc }} </p>
+                          <p class="white--text responsive-txt-subtitle-1"> {{ event.desc }} </p>
                           
                         </v-card-text>
 
