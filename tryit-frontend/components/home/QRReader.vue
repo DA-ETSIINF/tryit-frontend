@@ -200,7 +200,7 @@ export default {
         // hacer post con el ticket 
         
 
-        axios.post("http://localhost:8000/api/editions/2022/validate_ticket/", data)
+        axios.post(process.env.api + "/api/editions/2022/validate_ticket/", data)
       }
       await this.timeout(1000)
       

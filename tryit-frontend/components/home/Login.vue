@@ -68,7 +68,7 @@ export default {
         async doLogin() {
             var data = this.loginInfo
             try {
-                const res = await axios.post("http://localhost:8000/api/users/login/", data)
+                const res = await axios.post(process.env.api + "/api/users/login/", data)
                 var token = res.data.access_token
                 this.$store.commit("login", token)
 
@@ -84,7 +84,7 @@ export default {
                 }
             }
             
-            const res = await axios.get("http://localhost:8000/api/users/auth/", config)
+            const res = await axios.get(process.env.api + "/api/users/auth/", config)
             let result = res.data.user == "asistencia"
             result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
         },

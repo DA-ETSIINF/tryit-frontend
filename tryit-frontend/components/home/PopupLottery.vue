@@ -1,12 +1,15 @@
 <template>
+    
     <v-dialog
       v-model="isVisible"
       max-width="600px"
     >
+    
         <Login v-if="!$store.getters.getLogged"/>
         <v-alert v-else-if="!$store.getters.getAdmin" type="error">Este usuario no posee permisos de administrador
             <v-btn @click="launchLogout">Cerrar sesión</v-btn>      
         </v-alert>
+        <v-alert v-if="this.isWinner" type="success">El ganador es {{winner}}</v-alert>
         <v-card v-else color="primary">
             <v-card-title class="white--text">
                 Sorteos TryIT!
@@ -79,7 +82,7 @@
                                 mdi-medal
                             </v-icon>
                         </v-avatar>
-                        <h5 class="mx-5"> GANADOR AQUI </h5>
+                        <h5 class="mx-5"> {{winner}} </h5>
                     <v-spacer></v-spacer>
                 </v-row>
             </v-container>
@@ -126,6 +129,7 @@
             </v-card-actions>
         </v-card>
     </v-dialog>
+    
 </template>
 
 <script>
@@ -138,6 +142,7 @@ export default {
     data()  {
         return{
           isVisible: false,
+          isWinner: false,
           awards: [], // List of all awards available
           awardIds: [], // IDS of all awards
           awardNames: [], // string names of all awards
@@ -158,6 +163,7 @@ export default {
 
     },
     methods: {
+        
         hideDialog()  {
             this.isVisible = false
         },
@@ -188,9 +194,11 @@ export default {
                 })
 
                 this.winner = res.data
+                this.isWinner = true
 
             } catch (error) {
                 this.winner = "Juan"
+                this.isWinner = false
             }
         }
     },

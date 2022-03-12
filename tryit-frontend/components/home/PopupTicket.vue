@@ -417,7 +417,7 @@ export default {
           }
           
           try {
-            const res = await this.$axios.post("http://127.0.0.1:8000/api/editions/2022/create_ticket/", data)
+            const res = await this.$axios.post(process.env.api + "/api/editions/2022/create_ticket/", data)
           
             if (res.status == 200 ) {
               // Everything went fine with the request

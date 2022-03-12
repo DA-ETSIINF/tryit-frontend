@@ -4,7 +4,7 @@ export default {
 	target: "server",
 	env: {
 		dev: process.env.NODE_ENV !== "production",
-		api: "http://localhost:8000"
+		api: "https://api.congresotryit.es"
 	},
 	
 	head: {
