@@ -141,15 +141,15 @@
                         >
 
                         </v-img>
-                        <v-card-title class="responsive-txt-h3 white--text">
+                        <v-card-title class="responsive-txt-body-1 white--text">
                           {{ event.name }}
                         </v-card-title>
                         <v-spacer/>
                         <!-- <v-card-subtitle class="white--text"> {{ dateToStr(event.start_date) }} - {{ dateToStr(event.end_date) }}</v-card-subtitle> -->
-                        <v-card-subtitle class="responsive-txt-h5 white--text"> {{ getSubtitle(event) }} </v-card-subtitle>
+                        <v-card-title class="responsive-txt-subtitle-1 white--text"> {{ getSubtitle(event) }} </v-card-title>
                         <v-spacer/>
                         <v-card-text >
-                          <p class="white--text responsive-txt-subtitle-1"> {{ event.desc }} </p>
+                          <p class="white--text responsive-txt-subtitle-2"> {{ event.desc }} </p>
                           
                         </v-card-text>
 
