@@ -191,7 +191,7 @@ export default {
     async onInit (promise) {
       const d = new Date();
       //let today = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
-      let today = "2022-03-17" //for testing
+      let today = "2022-03-14" //for testing
       //console.log(today)
       this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
         for ( var post of this.days) {
@@ -260,7 +260,7 @@ export default {
       // some more delay, so users have time to read the message
       if (this.isValid) {
         if(event_selected){
-          this.isValid = false
+          
           //this.isHidden = !this.isHidden;
           // hacer post con el ticket 
           const response = await axios.post(process.env.api + "/api/editions/2022/validate_ticket/", data)
