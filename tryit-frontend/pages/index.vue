@@ -122,7 +122,20 @@
 		<h2>¿Dónde estamos?</h2>
 		<Map></Map>
 	</v-card>
+	<v-container fluid>
+	<v-layout justify-center align-center>
+		<v-flex shrink>
+		<v-img 
+		src= "/img/patrocinadores22.png"
+		max-height="1080"
+		max-width="1920"
+		></v-img>
+		</v-flex>
+	</v-layout>
+	</v-container>
 	</v-card>
+	
+	
 </template>
 
 <script lang="ts">
