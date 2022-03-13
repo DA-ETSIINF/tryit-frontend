@@ -16,7 +16,7 @@
       color="green"
       dismissible
     >
-      ¡Entrada Escaneada adecuadamente!
+      ¡Entrada validada adecuadamente!
     </v-alert>
     <v-alert
       v-model="user_already_exists_alert"
@@ -25,7 +25,7 @@
       color="red"
       dismissible
     >
-      ¡Entrada ya escaneada con anterioridad! No puedes escanear múltiples veces la misma entrada. Si has cometido algún error, contacta a tu Delegación de Centro.
+      ¡Entrada ya escaneada con anterioridad! No puedes escanear múltiples veces la misma entrada para el mismo evento.
     </v-alert>
     <v-alert
       v-model="error_alert"
@@ -36,6 +36,33 @@
     >
       Error al escanear la entrada. Habla con la Delegación de Alumnos de Centro.
     </v-alert>
+      <v-row 
+        align="center"
+        justify="space-around"
+        class="mt-5"
+      >
+        <v-col
+            cols="12"
+            sm="6"
+        >
+            Selección de Eventos:
+        </v-col>
+        <v-col
+            cols="12"
+            sm="6"
+        >
+        <v-autocomplete
+          v-model="eventValue"
+          :items="eventNames"
+          append-outer-icon="mdi-calendar"
+          label="Eventos"
+          hint="Elige el evento para el que vas a registrar la asistencia"
+          persistent-hint
+          auto-select-first
+        >
+        </v-autocomplete>
+       </v-col>
+      </v-row>
       <div id="QRButton">
         <v-btn 
           color="secondary" 
@@ -107,6 +134,10 @@ export default {
   },
   data () {
     return {
+      eventValue: [], // Event to be registered
+      events: [], // List of all events available
+      eventIds: [], // IDS of all events available
+      eventNames:[],
       isQRVisible: false,
       isHidden: true,
       isValid: undefined,
@@ -147,6 +178,19 @@ export default {
     },
 
     async onInit (promise) {
+      const d = new Date();
+      //let today = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
+      let today = "2022-03-17" //for testing
+      //console.log(today)
+      this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
+        for ( var post of this.days) {
+          for(var ev of post.events){
+            if(post.day == today){
+              this.eventNames.push(ev.name)
+              this.eventIds.push(ev.id)
+            }
+          }
+        }
       try {
         await promise
       } catch (error) {
@@ -186,9 +230,13 @@ export default {
       this.result = content
       this.turnCameraOff()
       // pretend it's taking really long
-      await this.timeout(100)
+      await this.timeout(1000)
       try{
-        var data = JSON.parse(content)
+        var id = JSON.parse(content).id
+        var data = {
+            "id": id,
+            "event": this.eventValue,
+          }
         this.isValid = true
       }
       catch(e){
@@ -198,9 +246,23 @@ export default {
       if (this.isValid) {
         //this.isHidden = !this.isHidden;
         // hacer post con el ticket 
-        
+        const response = await axios.post(process.env.api + "/api/editions/2022/validate_ticket/", data)
+        if(response.status == 200){ //Everything went well
+          //close previous alert
+          this.good_alert = false;
+          this.good_alert = true;
+        }
+        if(response.status == 201){ //User already exists
+        //close previous alert
+          this.user_already_exists_alert = false;
+          this.user_already_exists_alert = true;
+        }
+        if(response.status == 400 || response.status == 500){ //Error
+          //close previous alert
+          this.error_alert = false;
+          this.error_alert = true;
+        }
 
-        axios.post(process.env.api + "/api/editions/2022/validate_ticket/", data)
       }
       await this.timeout(1000)
       

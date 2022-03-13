@@ -421,7 +421,7 @@ export default {
       for (const post of this.posts) {
         for (const ev of post.events) {
           const room_res = await this.$axios.get(process.env.api + `/api/rooms`, { params: {id: ev['room']}})
-          ev['room_name'] = room_res.data[0].name
+          ev['room_name'] = room_res.data.room_name
           switch (ev.type) {
             case "TK":
               //   Ponencia
