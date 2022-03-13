@@ -80,19 +80,7 @@
             </v-btn>
             <span>SCAN QR</span>
         </v-tooltip>
-        <v-tooltip left :disabled="tooltips[4]" v-model="tooltips[4]">
-            <v-btn
-            slot="activator"
-            fab
-            dark
-            small
-            color="blue-grey darken-3"
-            @click="showLottery"
-            >
-            <v-icon>mdi-clover</v-icon>
-            </v-btn>
-            <span>SORTEOS</span>
-        </v-tooltip>
+        
     </v-speed-dial>
 </template>
 
