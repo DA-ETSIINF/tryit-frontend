@@ -59,6 +59,7 @@
           hint="Elige el evento para el que vas a registrar la asistencia"
           persistent-hint
           auto-select-first
+          required
         >
         </v-autocomplete>
        </v-col>
@@ -270,7 +271,7 @@ export default {
     },
 
     turnCameraOn () {
-      this.camera = 'auto'
+      this.camera = 'rear'
     },
 
     turnCameraOff () {
