@@ -66,7 +66,7 @@
                 <v-row>
                     <v-checkbox 
                         v-model="isGlobalRaffle"
-                        label="¿Tener en cuenta todos los eventos anteriores?"
+                        label="Sorteo global. Tiene en cuenta todos los eventos anteriores"
                         >
                     </v-checkbox>
                 </v-row>
@@ -188,12 +188,12 @@ export default {
             }
 
             try {
-                var res = await this.$axios.$post(process.env.api + `/api/editions/2022/prizes/`, {
+                const res = await this.$axios.$post(process.env.api + `/api/editions/2022/prizes/`, {
                     is_global: this.isGlobalRaffle,
                     awards: selectedIds
                 })
-
-                this.winner = res.data
+                console.log(res)
+                this.winner = res.winner.name + " " +  res.winner.surname_1 + " " + res.winner.surname_2
                 console.log(this.winner)
                 this.isWinner = true
 

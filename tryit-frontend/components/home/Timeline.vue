@@ -323,27 +323,19 @@
                                         class="mx-auto"
                                       > 
                                         <v-row justify="center">
-                                          <v-avatar
-                                          
+                                          <v-flex shrink>
+                                            <v-img 
                                             v-if="speaker.pic_img"
-                                            rounded
-                                            size="200"
-                                          >
-                                            <img
-                                              :src="speaker.pic_img"
-                                              alt="Speaker"
-                                            >
-                                          </v-avatar>
-                                          <v-avatar
-                                            v-else
-                                            rounded
-                                            size="200"
-                                          >
-                                            <img
+                                            src= "speaker.pic_img"
+                                            alt="Speaker"
+                                            ></v-img>
+                                          
+                                            <v-img
+                                              v-else
                                               :src="speaker.pic_link"
                                               alt="Speaker"
-                                            >
-                                          </v-avatar>
+                                            ></v-img>
+                                          </v-flex>
                                         </v-row>
                                         <v-row justify="space-around">
                                           <v-card-title
@@ -456,7 +448,7 @@ export default {
             case "TO":
               //   Torneo
               ev['brief'] = 'Concurso' //  - ¡Donde el TryHardeo tiene premio!
-              // ev['color'] = 'purple darken-1'
+              // ev['color'] = 'pule darken-1'
               ev['color'] = 'purple'
               ev['icon'] = 'mdi-bullseye-arrow'
             break;
