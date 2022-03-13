@@ -36,6 +36,15 @@
     >
       Error al escanear la entrada. Habla con la Delegación de Alumnos de Centro.
     </v-alert>
+    <v-alert
+      v-model="no_event_alert"
+      type="error"
+      close-text="Cerrar"
+      color="yellow"
+      dismissible
+    >
+      ¡Debes seleccionar un evento antes de escanear una entrada!
+    </v-alert>
       <v-row 
         align="center"
         justify="space-around"
@@ -148,7 +157,8 @@ export default {
       noFrontCamera: false,
       good_alert: false,
       error_alert: false,
-      user_already_exists_alert: false // Specific alert that occurs if user already has a ticket
+      user_already_exists_alert: false, // Specific alert that occurs if user already has a ticket
+      no_event_alert: false,
     }
   },
 
@@ -233,6 +243,10 @@ export default {
       // pretend it's taking really long
       await this.timeout(1000)
       try{
+        var event_selected = false
+        if(this.eventValue.length != 0){
+          event_selected = true
+        }
         var id = JSON.parse(content).id
         var data = {
             "id": id,
@@ -245,25 +259,36 @@ export default {
       }
       // some more delay, so users have time to read the message
       if (this.isValid) {
-        //this.isHidden = !this.isHidden;
-        // hacer post con el ticket 
-        const response = await axios.post(process.env.api + "/api/editions/2022/validate_ticket/", data)
-        if(response.status == 200){ //Everything went well
-          //close previous alert
-          this.good_alert = false;
-          this.good_alert = true;
+        if(event_selected){
+          this.isValid = false
+          //this.isHidden = !this.isHidden;
+          // hacer post con el ticket 
+          const response = await axios.post(process.env.api + "/api/editions/2022/validate_ticket/", data)
+          if(response.status == 200){ //Everything went well
+            this.good_alert = true;
+            this.user_already_exists_alert = false;
+            this.error_alert = false;
+            this.no_event_alert = false;
+          }
+          if(response.status == 201){ //User already exists
+            this.user_already_exists_alert = true;
+            this.error_alert = false;
+            this.good_alert = false;
+            this.no_event_alert = false;
+          }
+          if(response.status == 400 || response.status == 500){ //Error
+            this.error_alert = true;
+            this.user_already_exists_alert = false;
+            this.good_alert = false;
+            this.no_event_alert = false;
+          }
         }
-        if(response.status == 201){ //User already exists
-        //close previous alert
+        else{
           this.user_already_exists_alert = false;
-          this.user_already_exists_alert = true;
-        }
-        if(response.status == 400 || response.status == 500){ //Error
-          //close previous alert
           this.error_alert = false;
-          this.error_alert = true;
+          this.good_alert = false;
+          this.no_event_alert = true;
         }
-
       }
       await this.timeout(1000)
       
@@ -271,7 +296,7 @@ export default {
     },
 
     turnCameraOn () {
-      this.camera = 'rear'
+      this.camera = 'auto'
     },
 
     turnCameraOff () {
