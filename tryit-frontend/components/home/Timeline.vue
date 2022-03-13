@@ -326,7 +326,7 @@
                                           <v-flex shrink>
                                             <v-img 
                                             v-if="speaker.pic_img"
-                                            src= "speaker.pic_img"
+                                            :src= "speaker.pic_img"
                                             alt="Speaker"
                                             ></v-img>
                                           
