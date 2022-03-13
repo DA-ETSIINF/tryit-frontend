@@ -222,10 +222,10 @@ export default {
                     is_global: this.isGlobalRaffle,
                     awards: selectedIds
                 })
-                console.log(res)
+                //console.log(res)
                 this.winner = res.winner.name + " " +  res.winner.surname_1 + " " + res.winner.surname_2
                 this.winner_info = this.winner + " con NIF: " + res.winner.nif
-                console.log(this.winner)
+                //console.log(this.winner)
                 this.isWinner = true
 
             } catch (error) {
