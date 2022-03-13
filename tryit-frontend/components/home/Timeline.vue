@@ -146,12 +146,7 @@
                         </v-card-title>
                         <v-spacer/>
                         <!-- <v-card-subtitle class="white--text"> {{ dateToStr(event.start_date) }} - {{ dateToStr(event.end_date) }}</v-card-subtitle> -->
-                        <v-card-title class="responsive-txt-subtitle-1 white--text text-left"> {{ getSubtitle(event) }} </v-card-title>
-                        <v-spacer/>
-                        <v-card-text >
-                          <p class="white--text responsive-txt-subtitle-2 text-left"> {{ event.desc }} </p>
-                          
-                        </v-card-text>
+                        <v-card-subtitle class="responsive-txt-subtitle-2 white--text text-left"> {{ getSubtitle(event) }} </v-card-subtitle>
 
                         <v-card-actions>
                           <v-dialog
@@ -418,10 +413,16 @@ export default {
       this.posts = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
     // @info This is the modification of the obtained /schedule/ endpoint to include colors and icons
     //   https://materialdesignicons.com/
+      const room_res = await this.$axios.get(process.env.api + `/api/rooms`)
       for (const post of this.posts) {
         for (const ev of post.events) {
-          const room_res = await this.$axios.get(process.env.api + `/api/rooms`, { params: {id: ev['room']}})
-          ev['room_name'] = room_res.data[0].name
+          var id = ev['room']
+          for(const room of room_res.data){ //Grab room name
+            if(room['id'] == id){
+              ev['room_name'] = room['name']
+            }
+          }
+          //ev['room_name'] = room_res.data.room_name
           switch (ev.type) {
             case "TK":
               //   Ponencia

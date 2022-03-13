@@ -155,9 +155,9 @@ export default {
     async fetch() {
         this.awards = await this.$axios.$get(process.env.api + `/api/awards`)
         for ( var aw of this.awards) {
-            console.log(aw)
+            //console.log(aw)
             this.awardNames.push(aw.item_name)
-            console.log(aw.item_name)
+            //console.log(aw.item_name)
             this.awardIds.push(aw.id)
         }
 
