@@ -324,6 +324,7 @@
                                       > 
                                         <v-row justify="center">
                                           <v-avatar
+                                          
                                             v-if="speaker.pic_img"
                                             rounded
                                             size="200"
@@ -528,6 +529,9 @@ export default {
 
         return txt
 
+    },
+    log(speaker){
+      console.log(speaker)
     },
     getSpeakerName(speaker) {
       var txt = speaker['first_name'] + " " + speaker['surname_1']

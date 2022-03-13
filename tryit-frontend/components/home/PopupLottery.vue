@@ -194,10 +194,11 @@ export default {
                 })
 
                 this.winner = res.data
+                console.log(this.winner)
                 this.isWinner = true
 
             } catch (error) {
-                this.winner = "Juan"
+                this.winner = "Error al realizar el sorteo"
                 this.isWinner = false
             }
         }
