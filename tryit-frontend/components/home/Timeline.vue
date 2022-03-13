@@ -151,7 +151,7 @@
                         <v-card-actions>
                           <v-dialog
                             v-model="show[index]"
-                            max-width="60%"
+                            max-width="80%"
                           >
                             <template v-slot:activator="{ on, attrs }">
                               <v-row
@@ -160,7 +160,7 @@
                               >
                                 <v-btn
                                   dark
-                                  rounded
+                                  icon
                                   v-bind="attrs"
                                   large
                                   color="secondary"
@@ -176,8 +176,6 @@
                                   > 
                                     mdi-information
                                   </v-icon>
-
-                                  INFORMACIÓN
                                 </v-btn>
                               </v-row>
                             </template>
@@ -324,10 +322,10 @@
                                       > 
                                         <v-row justify="center">
                                           <v-avatar
-                                          
                                             v-if="speaker.pic_img"
+                                            height="50%"
+                                            width=auto
                                             rounded
-                                            size="200"
                                           >
                                             <img
                                               :src="speaker.pic_img"
@@ -336,8 +334,9 @@
                                           </v-avatar>
                                           <v-avatar
                                             v-else
+                                            height="50%"
+                                            width=auto
                                             rounded
-                                            size="200"
                                           >
                                             <img
                                               :src="speaker.pic_link"
@@ -352,6 +351,33 @@
                                             {{ getSpeakerName(speaker) }}
                                           </v-card-title>
                                         </v-row>
+                                        <v-row justify="center">
+                                          <v-btn class="mx-4" dark icon v-bind="attrs" large color="secondary" v-on="on" 
+                                            @click="showInfo(index)">
+                                            <v-icon left dark x-large color="grey" class="mx-3">
+                                            mdi-github 
+                                            </v-icon>
+                                          </v-btn>
+                                          <v-btn  class="mx-4" dark icon v-bind="attrs" large color="secondary" v-on="on" 
+                                            @click="showInfo(index)">
+                                            <v-icon  left dark x-large color="grey" class="mx-3">
+                                            mdi-twitter 
+                                            </v-icon>
+                                          </v-btn>
+                                          <v-btn class="mx-4" dark icon v-bind="attrs" large color="secondary" v-on="on" 
+                                            @click="showInfo(index)">
+                                            <v-icon left dark x-large color="grey" class="mx-3">
+                                            mdi-linkedin
+                                            </v-icon>
+                                          </v-btn>
+                                          <v-btn class="mx-4" dark icon v-bind="attrs" large color="secondary" v-on="on" 
+                                            @click="showInfo(index)">
+                                            <v-icon left dark x-large color="grey" class="mx-3">
+                                            mdi-web 
+                                            </v-icon>
+                                          </v-btn>
+                                        </v-row>
+
                                         <v-row justify="space-around">
                                           <v-card-text
                                             class="text-center"
@@ -417,6 +443,7 @@ export default {
       const room_res = await this.$axios.get(process.env.api + `/api/rooms`)
       for (const post of this.posts) {
         for (const ev of post.events) {
+          console.log(ev['speaker'])
           var id = ev['room']
           for(const room of room_res.data){ //Grab room name
             if(room['id'] == id){
@@ -456,7 +483,7 @@ export default {
             case "TO":
               //   Torneo
               ev['brief'] = 'Concurso' //  - ¡Donde el TryHardeo tiene premio!
-              // ev['color'] = 'purple darken-1'
+              // ev['color'] = 'pule darken-1'
               ev['color'] = 'purple'
               ev['icon'] = 'mdi-bullseye-arrow'
             break;
@@ -597,6 +624,11 @@ export default {
   font-size: 2vw
 }
 
+.v-tab {
+    letter-spacing: normal !important;
+    display: flex !important;
+    margin: 0px 0px;
+}
 
 
 </style>

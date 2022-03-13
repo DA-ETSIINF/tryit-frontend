@@ -9,7 +9,16 @@
         <v-alert v-else-if="!$store.getters.getAdmin" type="error">Este usuario no posee permisos de administrador
             <v-btn @click="launchLogout">Cerrar sesión</v-btn>      
         </v-alert>
-        <v-alert v-if="this.isWinner" type="success">El ganador es {{winner}}</v-alert>
+        <v-alert
+            v-model="show_info_alert"
+            type="info"
+            close-text="Cerrar"
+            color="info"
+            dismissible
+            >
+            El ganador es {{winner_info}}
+        </v-alert>
+        <v-alert v-if="this.isWinner" type="success" dismissible>El ganador es {{winner}}</v-alert>
         <v-card v-else color="primary">
             <v-card-title class="white--text">
                 Sorteos TryIT!
@@ -66,7 +75,7 @@
                 <v-row>
                     <v-checkbox 
                         v-model="isGlobalRaffle"
-                        label="¿Tener en cuenta todos los eventos anteriores?"
+                        label="Sorteo global. Tiene en cuenta todos los eventos anteriores"
                         >
                     </v-checkbox>
                 </v-row>
@@ -88,6 +97,25 @@
             </v-container>
             <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+              v-if="winner"
+              rounded
+              x-large
+              dark
+              color="info"
+              @click="showInfo()"
+            >
+              <v-icon 
+                left
+                x-large
+                color="white"
+                class="mx-3"
+              >
+                <!-- mdi-information-outline -->
+                mdi-information-outline
+              </v-icon>
+              Información ganador
+            </v-btn>
             <v-btn
               rounded
               x-large
@@ -149,7 +177,9 @@ export default {
           awardValues: [], // List of selected awards for a particular raffle
           isGlobalRaffle: false, // If true, it will take into account attendance to ALL events, 
                                 // meaning the more events someone has gone to, the more likely they are to win.
-          winner: {}
+          winner: {},
+          winner_info: "",
+          show_info_alert: false,
         }
     },
     async fetch() {
@@ -188,19 +218,24 @@ export default {
             }
 
             try {
-                var res = await this.$axios.$post(process.env.api + `/api/editions/2022/prizes/`, {
+                const res = await this.$axios.$post(process.env.api + `/api/editions/2022/prizes/`, {
                     is_global: this.isGlobalRaffle,
                     awards: selectedIds
                 })
-
-                this.winner = res.data
-                console.log(this.winner)
+                //console.log(res)
+                this.winner = res.winner.name + " " +  res.winner.surname_1 + " " + res.winner.surname_2
+                this.winner_info = this.winner + " con NIF: " + res.winner.nif
+                //console.log(this.winner)
                 this.isWinner = true
 
             } catch (error) {
+                console.log(error)
                 this.winner = "Error al realizar el sorteo"
                 this.isWinner = false
             }
+        },
+        showInfo(){
+            this.show_info_alert = true
         }
     },
     created() {
