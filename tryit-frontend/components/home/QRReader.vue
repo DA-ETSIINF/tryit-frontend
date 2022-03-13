@@ -108,6 +108,26 @@
     <v-card>
         <v-card-actions>
           <v-spacer></v-spacer>
+          <!--<v-btn
+              dark
+              rounded
+              x-large
+              color="info"
+              @click="showNoAttendees()"
+            >
+              <v-icon 
+                left
+                dark
+                x-large
+                color="white"
+                class="mx-3"
+              >
+                mdi-information-outline 
+                mdi-counter
+              </v-icon>
+
+              Número de asistentes
+            </v-btn>-->
           <v-btn
               dark
               rounded
@@ -178,7 +198,12 @@ export default {
   },
 
   methods: {
-
+    async showNoAttendees(){
+      const res = await this.$axios.$post(process.env.api + `/api/attendances/num_attendees/`, {
+          event: this.eventValue
+      })
+    },
+    
     hideDialog()  {
         this.isQRVisible = false
     },
@@ -190,8 +215,9 @@ export default {
 
     async onInit (promise) {
       const d = new Date();
-      //let today = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
-      let today = "2022-03-14" //for testing
+      let today = d.getFullYear() + "-0" + (d.getMonth()+1) + "-" + d.getDate()
+      console.log(today)
+      //let today = "2022-03-14" //for testing
       //console.log(today)
       this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
         for ( var post of this.days) {
@@ -294,7 +320,7 @@ export default {
       
       this.turnCameraOn()
     },
-
+    
     turnCameraOn () {
       this.camera = 'auto'
     },
