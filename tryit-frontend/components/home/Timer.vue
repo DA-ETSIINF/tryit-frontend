@@ -14,6 +14,7 @@
                         <tr>
                             <td colspan="4">
                                 <h2> { 14 a 18 de Marzo de 2022 } </h2>
+                                <h2> { ¡Ha comenzado el X aniversario! } </h2>
                             </td>
                         </tr>
                     </thead>
@@ -131,7 +132,7 @@ import Vue from "vue";
 export default  Vue.extend({
     data()  {
         return{
-            secondsLeft :  (new Date("2022-03-14T10:00:00+01:00").getTime() - Date.now())/1000,
+            secondsLeft : 0 //(new Date("2022-03-14T10:00:00+01:00").getTime() - Date.now())/1000,
         }
     },
     computed:   {

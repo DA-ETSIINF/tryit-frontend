@@ -18,6 +18,15 @@
             >
             El ganador es {{winner_info}}
         </v-alert>
+        <v-alert
+            v-model="no_event_alert"
+            type="error"
+            close-text="Cerrar"
+            color="yellow"
+            dismissible
+            >
+            ¡Debes seleccionar un evento antes de escanear una entrada!
+        </v-alert>
         <v-alert v-if="this.isWinner" type="success" dismissible>El ganador es {{winner}}</v-alert>
         <v-card v-else color="primary">
             <v-card-title class="white--text">
@@ -37,7 +46,35 @@
             </v-list> -->
 
         </v-card>
+        
         <v-card>
+             <v-row 
+                align="center"
+                justify="space-around"
+                class="mt-5"
+            >
+                <v-col
+                    cols="12"
+                    sm="6"
+                >
+                    Selección de Eventos:
+                </v-col>
+                <v-col
+                    cols="12"
+                    sm="6"
+                >
+                <v-autocomplete
+                    v-model="eventValue"
+                    :items="eventNames"
+                    append-outer-icon="mdi-calendar"
+                    label="Eventos"
+                    hint="Elige el evento para el que vas a realizar el sorteo"
+                    persistent-hint
+                    auto-select-first
+                    >
+                </v-autocomplete>
+                </v-col>
+            </v-row>
             <v-container fluid>
                 <v-row 
                     align="center"
@@ -169,6 +206,10 @@ export default {
     },
     data()  {
         return{
+          eventValue: [], // Event to be registered
+          events: [], // List of all events available
+          eventIds: [], // IDS of all events available
+          eventNames:[],
           isVisible: false,
           isWinner: false,
           awards: [], // List of all awards available
@@ -177,12 +218,27 @@ export default {
           awardValues: [], // List of selected awards for a particular raffle
           isGlobalRaffle: false, // If true, it will take into account attendance to ALL events, 
                                 // meaning the more events someone has gone to, the more likely they are to win.
+          no_event_alert: false,
           winner: {},
           winner_info: "",
           show_info_alert: false,
         }
     },
     async fetch() {
+        const d = new Date();
+        let today = d.getFullYear() + "-0" + (d.getMonth()+1) + "-" + d.getDate()
+        //let today = "2022-03-16" //for testing
+        console.log(today)
+        this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
+        for ( var post of this.days) {
+            for(var ev of post.events){
+                if(post.day == today){
+                    this.eventNames.push(ev.name)
+                    this.eventIds.push(ev.id)
+                }
+            }
+        }
+        console.log(this.days)
         this.awards = await this.$axios.$get(process.env.api + `/api/awards`)
         for ( var aw of this.awards) {
             //console.log(aw)
@@ -202,7 +258,7 @@ export default {
             this.$store.commit("revokeAdminAccess")
         },
         async doLottery() {
-            
+
             let selectedIds = []
 
             for (const aw of this.awardValues) {
@@ -220,7 +276,8 @@ export default {
             try {
                 const res = await this.$axios.$post(process.env.api + `/api/editions/2022/prizes/`, {
                     is_global: this.isGlobalRaffle,
-                    awards: selectedIds
+                    awards: selectedIds,
+                    event: this.eventValue,
                 })
                 //console.log(res)
                 this.winner = res.winner.name + " " +  res.winner.surname_1 + " " + res.winner.surname_2

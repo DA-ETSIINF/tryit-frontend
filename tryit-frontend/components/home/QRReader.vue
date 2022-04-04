@@ -216,18 +216,18 @@ export default {
     async onInit (promise) {
       const d = new Date();
       let today = d.getFullYear() + "-0" + (d.getMonth()+1) + "-" + d.getDate()
+      
+      //let today = "2022-03-16" //for testing
       console.log(today)
-      //let today = "2022-03-14" //for testing
-      //console.log(today)
       this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
-        for ( var post of this.days) {
-          for(var ev of post.events){
-            if(post.day == today){
-              this.eventNames.push(ev.name)
-              this.eventIds.push(ev.id)
-            }
+      for ( var post of this.days) {
+        for(var ev of post.events){
+          if(post.day == today){
+            this.eventNames.push(ev.name)
+            this.eventIds.push(ev.id)
           }
         }
+      }
       try {
         await promise
       } catch (error) {
@@ -267,7 +267,7 @@ export default {
       this.result = content
       this.turnCameraOff()
       // pretend it's taking really long
-      await this.timeout(1000)
+      await this.timeout(500)
       try{
         var event_selected = false
         if(this.eventValue.length != 0){
@@ -316,7 +316,7 @@ export default {
           this.no_event_alert = true;
         }
       }
-      await this.timeout(1000)
+      await this.timeout(300)
       
       this.turnCameraOn()
     },
