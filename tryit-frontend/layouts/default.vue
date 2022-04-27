@@ -37,6 +37,21 @@
             dark
           >
             <v-tab
+              @click="launchViewEcts()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-cash-multiple
+              </v-icon>
+
+              CONSULTA CRÉDITOS
+            </v-tab>
+
+            <v-tab
               @click="launchTicket()"
             >
               <v-icon 
@@ -166,6 +181,9 @@ import * as Components from "../components";
 })
 
 export default class extends Vue {
+  launchViewEcts()    {
+      this.$nuxt.$emit("toggleViewEcts")
+  }
   launchTicket()    {
       this.$nuxt.$emit("toggleTicketForm")
   }

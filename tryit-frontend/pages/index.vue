@@ -16,6 +16,7 @@
 	
 	<!-- Menú de acciones posibles -->
 	<!-- Si no ponemos esto luego no se pueden abrir -->
+	<ViewEcts />
 	<PopupTicket />
 	<PopupLogin />
 	<Timeline />
@@ -148,7 +149,8 @@ import {
 	DialButton,
 	Timeline,
 	QRReader,
-	PopupLottery
+	ViewEcts,
+	PopupLottery,
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -156,6 +158,7 @@ import {
 	components: {
 		Map,
 		Timer,
+		ViewEcts,
 		PopupTicket,
 		PopupLogin,
 		DialButton,
@@ -179,6 +182,9 @@ export default class extends Vue {
 	goTo(path: string) {
 		window.location.href = path // TODO use router
 	}
+	toggleViewEcts()    {
+      	this.$nuxt.$emit("toggleViewEcts")
+  	}
 	toggleTicket() {
     	this.$nuxt.$emit("toggleTicketForm") 
  	}
