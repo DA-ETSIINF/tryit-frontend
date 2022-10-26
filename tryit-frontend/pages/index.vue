@@ -1,14 +1,32 @@
 <template>
 <v-card>
 	<v-card class="welcome bg">
-		<div class="welcome-card">
-			<!--<div class="welcome-image">
+		<!---<div class="welcome-card">
+			<div class="welcome-image">
 				<img src="/img/welcome.jpg" alt="Try IT! congress" />
-			</div>-->
+			</div>
 			<div class="welcome-content">
 				<Timer class="timer"></Timer>
 			</div>
 			
+		</div>-->
+		<div class = "welcome-slider">
+			<div class="slider" id="slider">
+				<div class="slider-section">
+					<img src="/img/welcome.jpg" alt="" class="slider-image">
+				</div>
+				<div class="slider-section">
+					<img src="/img/volunteers.jpg" alt="" class="slider-image">
+				</div>
+				<div class="slider-section">
+					<img src="/img/patrocinadores22.png" alt="" class="slider-image">
+				</div>
+				<div class="slider-section">
+					<img src="/img/welcome.jpg" alt="" class="slider-image">
+				</div>
+			</div>
+			<div class="slider-button slider_button_right" id="button-right">&#62</div>
+			<div class="slider-button slider_button_left" id="button-left">&#60</div>
 		</div>
 		
 	</v-card>
@@ -119,10 +137,11 @@
 			</div>
 		</div>
 	</v-card>
-	<v-card>
+	<!--Aquí iba el mapa enorme de la localización de la escuela-->
+	<!--<v-card>
 		<h2>¿Dónde estamos?</h2>
 		<Map></Map>
-	</v-card>
+	</v-card>-->
 	<v-container fluid>
 	<v-layout justify-center align-center>
 		<v-flex shrink>
@@ -197,11 +216,39 @@ export default class extends Vue {
 	
 }
 </script>
+<script>
+const slider = document.querySelector("#slider");
+let sliderSection = document.querySelectorAll(".slider-section");
+let sliderSectionLast = sliderSection[sliderSection.length -1];
+
+const button_left = document.querySelector("#button-left");
+const button_right = document.querySelector("#button-right");
+
+slider.insertAdjacentElement('afterbegin', sliderSectionLast);
+
+
+function moveRight() {
+	let sliderSectionFirst = document.querySelectorAll(".slider-section")[0];
+	slider.style.marginLeft = "-200%";
+	slider.style.transition = "all 0.5s";
+	setTimeout(function(){
+		slider.style.transition = "none";
+		slider.insertAdjacentElement('beforeend', sliderSectionFirst);
+		slider.style.marginLeft = "-100%";
+	}, 500);
+}
+
+button-right.addEventListener('click', function(){
+	moveRight();
+});
+
+</script>
 
 <style scoped>
 
 .bg	{
-	background-image: url("/img/welcome.jpg");
+	
+	/*background-image: url("/img/welcome.jpg");*/ /*Muestra la misma imagen de fondo*/
 	background-size: cover;
 }
 
@@ -210,8 +257,8 @@ export default class extends Vue {
 	padding-top: 0;
 }
 
-.timer	{
-	display: flex;
+.timer	{ /*Cuenta atrás el congreso*/
+	display: none; /*Cambie de flex a none*/
 	justify-content: center;
 	align-items: center;
 	height: 30vh;
@@ -219,7 +266,60 @@ export default class extends Vue {
 	/*background-image: url("/img/welcome.jpg");*/
 	backdrop-filter: blur(2px);
 }
-.welcome .welcome-card {
+/*MODIFICACIÓN: HACER UN SLIDER DE IMÁGENES*/
+.welcome .welcome-slider {
+	width: 100%;
+	/*max-width: 900px;*/
+	height: 100vh;
+	margin: auto;
+	/*overflow: hidden;*/
+	position: relative;
+}
+.welcome .slider {
+	display: flex;
+	width: 400%;
+	height: 400px;
+	margin-left: -100%;
+	
+}
+.welcome .slider-section {
+
+}
+.welcome .slider-image {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover; /*Iguala imagenes de distinto tamaño*/
+}
+
+.welcome .slider-button {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background-color: aliceblue;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 30px;
+	font-weight: bold;
+	font-family: monospace;
+	text-align: center;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.welcome .slider-button:hover {
+	background: #fff;
+}
+
+.welcome .slider_button_right{
+	right: 10px;
+}
+.welcome .slider_button_left{
+	left: 10px;
+}
+
+/*FIN DE LA MODIFICACIÓN*/
+
+.welcome .welcome-card { /*Esto es la foto borrosa, el contador*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -227,12 +327,13 @@ export default class extends Vue {
 	width: 100%;
 }
 
-.welcome .welcome-image {
+.welcome .welcome-image { /*No se que es*/
 	background: rgba(0,0,0,0.8);
 	width: 100%;
 	height: 100%;
 }
-.welcome .welcome-image img {
+.welcome .welcome-image img { /*No se que es*/
+	
 	object-fit: cover;
 	height: 100%;
 	/*filter: opacity(0.3);*/
@@ -246,7 +347,7 @@ export default class extends Vue {
 	padding-top: 25%;
 }
 .welcome-content img {
-	display: block;
+	display: none; /*Cambiado de block a none*/
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 50%;  
