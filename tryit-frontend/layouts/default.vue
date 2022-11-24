@@ -211,6 +211,8 @@ export default class extends Vue {
 
 <style scoped>
 
+.app{
+}
 .container {
   display: flex;
   flex-direction: column;

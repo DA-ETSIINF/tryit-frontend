@@ -8,8 +8,8 @@
 			<div class="welcome-content">
 				<Timer class="timer"></Timer>
 			</div>
-			
-		</div>-->
+	
+		</div>
 		<div class = "welcome-slider">
 			<div class="slider" id="slider">
 				<div class="slider-section">
@@ -27,6 +27,9 @@
 			</div>
 			<div class="slider-button slider_button_right" id="button-right">&#62</div>
 			<div class="slider-button slider_button_left" id="button-left">&#60</div>
+		</div>-->
+		<div>
+			<Slider class="slider"></Slider>
 		</div>
 		
 	</v-card>
@@ -159,6 +162,7 @@
 </template>
 
 <script lang="ts">
+
 import { Component, Vue } from "nuxt-property-decorator"
 import {
 	Map,
@@ -170,6 +174,7 @@ import {
 	QRReader,
 	ViewEcts,
 	PopupLottery,
+	Slider
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -183,7 +188,8 @@ import {
 		DialButton,
 		Timeline,
 		QRReader,
-		PopupLottery
+		PopupLottery,
+		Slider,
 	},
 })
 
@@ -216,7 +222,7 @@ export default class extends Vue {
 	
 }
 </script>
-<script>
+<!--<script>
 const slider = document.querySelector("#slider");
 let sliderSection = document.querySelectorAll(".slider-section");
 let sliderSectionLast = sliderSection[sliderSection.length -1];
@@ -242,7 +248,7 @@ button-right.addEventListener('click', function(){
 	moveRight();
 });
 
-</script>
+</script>-->
 
 <style scoped>
 
@@ -280,6 +286,9 @@ button-right.addEventListener('click', function(){
 	width: 400%;
 	height: 400px;
 	margin-left: -100%;
+	border-style: solid;
+	border-color: rgb(0, 0, 0);
+	border-width: 20px;
 	
 }
 .welcome .slider-section {
