@@ -1,6 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+	server: {
+		port: 8050
+	},
 	target: "server",
 	env: {
 		dev: process.env.NODE_ENV !== "production",
@@ -17,7 +20,7 @@ export default {
 				hid: "description",
 				name: "description",
 				content:
-					"Página oficial del Congreso TryIt. Organizado por Delegación de Alumnos de la ETSIINF. Este año se celebra la edición 2020. Charlas, talleres, actividades... Y mucho más. Además, es una actividad acreditable para alumnos de la ETSIINF"
+					"Página oficial del Congreso TryIt. Organizado por Delegación de Alumnos de la ETSIINF. Este año se celebra la edición 2023. Charlas, talleres, actividades... Y mucho más. Además, es una actividad acreditable para alumnos de la ETSIINF"
 			},
 			{
 				hid: "geo.position",
