@@ -13,8 +13,7 @@
 
                         <tr>
                             <td colspan="4">
-                                <h2> { 14 a 18 de Marzo de 2022 } </h2>
-                                <h2> { ¡Ha comenzado el X aniversario! } </h2>
+                                <h2>  ¿Cuánto queda para el TryIT 2023?  </h2>
                             </td>
                         </tr>
                     </thead>
@@ -48,7 +47,11 @@
                             <td>
                                 <p>Segundos</p>
                             </td>
+                            
                         </tr>
+                        <td colspan="4">
+                        <h2>  13 a 17 de Marzo de 2023  </h2>
+                        </td>
                     </tfoot>
                 </table>
             </div>
@@ -132,7 +135,7 @@ import Vue from "vue";
 export default  Vue.extend({
     data()  {
         return{
-            secondsLeft : 0 //(new Date("2022-03-14T10:00:00+01:00").getTime() - Date.now())/1000,
+            secondsLeft : (new Date("2023-03-13T10:00:00+01:00").getTime() - Date.now())/1000,
         }
     },
     computed:   {

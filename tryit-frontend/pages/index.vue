@@ -201,7 +201,7 @@ export default class extends Vue {
 <style scoped>
 
 .bg	{
-	background-image: url("/img/welcome.jpg");
+	background-image: url("/img/spot.jpg");
 	background-size: cover;
 }
 

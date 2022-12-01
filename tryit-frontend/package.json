@@ -17,7 +17,7 @@
 		"vuex-module-decorators": "1.2.0"
 	},
 	"scripts": {
-		"dev": "nuxt --hostname 0.0.0.0",
+		"dev": "nuxt --hostname localhost",
 		"build": "nuxt build",
 		"start": "nuxt start",
 		"generate": "nuxt generate"
