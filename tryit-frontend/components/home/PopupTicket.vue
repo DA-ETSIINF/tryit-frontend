@@ -287,14 +287,49 @@
       
         </v-dialog>
     </div>
-    <div v-else>
+    <div v-else >
+    <template>  
       <v-dialog
         v-model="isVisible"
+        max-width="610px"
       >    
-      <v-card>
-            <v-card-title>Lo sentimos, aún las entradas no se encuentran disponibles</v-card-title>
-          </v-card>
-    </v-dialog>
+      <v-card >
+          <v-card-title>Las entradas estarán disponibles unas semanas antes del evento.</v-card-title>
+            <v-card-text>¡Síguenos en nuestras redes sociales para enterarte de cuándo estarán disponibles!</v-card-text>
+            <v-container>
+              <v-card-actions >
+                <v-row>
+                    <v-col>
+                      <v-btn
+                            color="primary"
+                            small
+                            outlined
+                            :style="{left: '50%', transform:'translateX(-50%)'}"
+                            href="https://www.instagram.com/tryit_upm/?hl=es"
+                            target="_blank"
+                        >
+                            Instagram
+                        </v-btn>
+                      </v-col>
+                    <v-col>
+                          <v-btn
+                              color="primary"
+                              small
+                              outlined
+                              :style="{left: '50%', transform:'translateX(-50%)'}"
+                              href="https://www.twitter.com/tryit_upm/?hl=es"
+                              target="_blank"
+                            >
+                              Twitter
+                          </v-btn>
+                    </v-col>
+                      
+                </v-row>
+              </v-card-actions>
+            </v-container>
+        </v-card>
+      </v-dialog>
+    </template>
     </div>
   </div>
 </template>
