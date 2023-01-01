@@ -1,268 +1,202 @@
 <template>
-  <v-dialog
-    v-model="isVisible"
-    max-width="600px"
-  >
-    <!-- <template v-slot:activator="{ on, attrs }">
-      <v-btn
-        color="primary"
-        dark
-        block
-        height=30vh
-        v-bind="attrs"
-        v-on="on"
+  <div>
+    <div v-if="isTicketFormVisible">
+      <v-dialog
+        v-model="isVisible"
+        max-width="600px"
       >
-      CONSIGUE TU ENTRADA PULSANDO AQUÍ
-      </v-btn>
-    </template> -->
-    <v-alert
-      v-model="good_alert"
-      type="success"
-      close-text="Cerrar"
-      color="green"
-      dismissible
-    >
-      ¡Entrada generada adecuadamente!
-    </v-alert>
-    <v-alert
-      v-model="user_already_exists_alert"
-      type="error"
-      close-text="Cerrar"
-      color="red"
-      dismissible
-    >
-      ¡Ya te has registrado! No puedes generar una nueva entrada. Si has cometido algún error, contacta a tu Delegación de Centro.
-    </v-alert>
-
-    <v-alert
-      v-model="must_accept_privacy_terms_alert"
-      type="error"
-      close-text="Cerrar"
-      color="red"
-      dismissible
-    >
-      Para poder registrarte, necesitas aceptar la política de privacidad y protección de datos. La puedes consultar 
-      
-      <v-btn
-        depressed
-        color="primary"
-        @click="togglePrivacyPolicyVisibility()"
-        plain
-      >
-        aquí. 
-      </v-btn>
-    </v-alert>
-    <v-alert
-      v-model="error_alert"
-      type="error"
-      close-text="Cerrar"
-      color="red"
-      dismissible
-    >
-      Error al generar la entrada. Habla con la Delegación de Alumnos de Centro.
-    </v-alert>
-    <v-card color="primary">
-        <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Obtén tu entrada!</v-card-title>
-        <v-card class="pa-5">  
-          <v-form
-            ref="form"
+        <!-- <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            color="primary"
+            dark
+            block
+            height=30vh
+            v-bind="attrs"
+            v-on="on"
           >
-            <v-row>
-              <v-col cols="4">
-                <v-text-field
-                  v-model="person_name"
-                  label="Nombre*"
-                  :rules="nameRules"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="8">
-                <v-text-field
-                  v-model="person_last_name"
-                  label="Apellidos*"
-                  :rules="surnameRules"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="person_mail"
-                  label="Email*"
-                  required
-                  :rules="emailRules"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="4">
-                <v-text-field
-                  v-model="person_nif"
-                  label="NIF/DNI*"
-                  :rules="dniRules"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="8">
-                <v-text-field
-                  v-model="person_phone"
-                  label="Teléfono de contacto*"
-                  :rules="phoneRules"
-                  required
-                ></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12">
-                <v-checkbox
-                  v-model="isStudent"
-                  label="Soy estudiante y mi universidad reconoce el TryIT! como actividad acreditable.">
-                </v-checkbox>
-                <v-autocomplete
-                  v-model="selectedUniv"
-                  v-if="isStudent"
-                  :items="universities"
-                  v-on:change="getSchools"
-                  label="Universidad"
-                  :rules="universityRules"
-                  required
-                ></v-autocomplete>
-                <v-autocomplete
-                  v-model="selectedSchool"
-                  v-if="isStudent"
-                  :items="schools"
-                  v-on:change="getDegrees"
-                  label="Centro"
-                  :rules="schoolRules"
-                  required
-                ></v-autocomplete>
-                <v-autocomplete
-                  v-model="selectedDegree"
-                  v-if="isStudent"
-                  :items="filteredDegrees"
-                  label="Titulación"
-                  :rules="degreeRules"
-                  required
-                ></v-autocomplete>
-              </v-col>
-            </v-row>
-
-          <!-- LOPD -->
-          <v-checkbox v-model="acceptsPrivacyPolicy">
-            <template v-slot:label>
-              <div>
-                Acepto la
-
-                <v-btn
-                  depressed
-                  color="primary"
-                  @click="togglePrivacyPolicyVisibility()"
-                  plain
-                >
-                  Política de Privacidad y Protección de Datos
-                </v-btn>
-
-                al registrarme para el Congreso TryIT!
-              </div>
-            </template>
-          </v-checkbox>
-
-          <small>*Este símbolo indica campo obligatorio</small>
-          <v-spacer></v-spacer>
-          <v-row
-            align="center"
-            justify="space-around"
-            class="mt-5"
-          >
-            <v-btn
-              rounded
-              x-large
-              dark
-              color="accept"
-              @click="validateAndPost"
-            >
-              <v-icon 
-                left
-                x-large
-                color="white"
-                class="mx-3"
-              >
-                <!-- mdi-information-outline -->
-                mdi-check
-              </v-icon>
-              Conseguir entrada
-            </v-btn>
-            <v-btn
-              dark
-              rounded
-              x-large
-              color="close"
-              @click="hideDialog"
-            >
-              <v-icon 
-                left
-                dark
-                x-large
-                color="white"
-                class="mx-3"
-              >
-                <!-- mdi-information-outline -->
-                mdi-close
-              </v-icon>
-              Cerrar
-            </v-btn>
-          </v-row>
-        </v-form>
-      </v-card>
-      </v-card>
-
-      <!-- LOPD -->
-
-      <template>
-        <v-dialog
-          v-model="isPrivacyPolicyVisible"
-          max-width="600px"
+          CONSIGUE TU ENTRADA PULSANDO AQUÍ
+          </v-btn>
+        </template> -->
+        <v-alert
+          v-model="good_alert"
+          type="success"
+          close-text="Cerrar"
+          color="green"
+          dismissible
         >
-          <v-card>
-            <v-card-title>
-              Aviso de Política de Privacidad y Protección de Datos
-            </v-card-title>
-            <v-spacer/>
-            <v-card-subtitle>
-              Estimado/a Participante: 
-            </v-card-subtitle>
-            <v-card-text>
-              Al registrarse para este evento, se considera que consiente y manifiesta haber sido informada/o de que sus datos personales serán tratados por
-              Delegación de Alumnos ETSIINF UPM , que serán responsables de dicho tratamiento conforme a las obligaciones derivadas del cumplimiento del
-              Reglamento (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos
-              digitales. La finalidad de este tratamiento es la de proveerle de una entrada gratuita al evento y habilitar su participación en el mismo;
-              y en el caso de que sea estudiante de una institución educativa que valore la participación en el Congreso TryIT!, acreditar su participación
-              de cara a dicha institución, proporcionándo a las autoridades competentes de la misma los datos que sean necesarios para su acreditación. 
-              Tiene derecho a acceder, rectificar y suprimir los datos en cualquier momento escribiendo un correo a tryit.da@fi.upm.es .
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                rounded
-                x-large
-                dark
-                color="accept"
-                @click="privacyAndCloseWindow(true)"
+          ¡Entrada generada adecuadamente!
+        </v-alert>
+        <v-alert
+          v-model="user_already_exists_alert"
+          type="error"
+          close-text="Cerrar"
+          color="red"
+          dismissible
+        >
+          ¡Ya te has registrado! No puedes generar una nueva entrada. Si has cometido algún error, contacta a tu Delegación de Centro.
+        </v-alert>
+      
+        <v-alert
+          v-model="must_accept_privacy_terms_alert"
+          type="error"
+          close-text="Cerrar"
+          color="red"
+          dismissible
+        >
+          Para poder registrarte, necesitas aceptar la política de privacidad y protección de datos. La puedes consultar 
+          
+          <v-btn
+            depressed
+            color="primary"
+            @click="togglePrivacyPolicyVisibility()"
+            plain
+          >
+            aquí. 
+          </v-btn>
+        </v-alert>
+        <v-alert
+          v-model="error_alert"
+          type="error"
+          close-text="Cerrar"
+          color="red"
+          dismissible
+        >
+          Error al generar la entrada. Habla con la Delegación de Alumnos de Centro.
+        </v-alert> 
+        <v-card color="primary">
+            <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Obtén tu entrada!</v-card-title>
+            <v-card class="pa-5">  
+              <v-form
+                ref="form"
               >
-                <v-icon 
-                  left
+                <v-row>
+                  <v-col cols="4">
+                    <v-text-field
+                      v-model="person_name"
+                      label="Nombre*"
+                      :rules="nameRules"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="8">
+                    <v-text-field
+                      v-model="person_last_name"
+                      label="Apellidos*"
+                      :rules="surnameRules"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="person_mail"
+                      label="Email*"
+                      required
+                      :rules="emailRules"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="4">
+                    <v-text-field
+                      v-model="person_nif"
+                      label="NIF/DNI*"
+                      :rules="dniRules"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="8">
+                    <v-text-field
+                      v-model="person_phone"
+                      label="Teléfono de contacto*"
+                      :rules="phoneRules"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col cols="12">
+                    <v-checkbox
+                      v-model="isStudent"
+                      label="Soy estudiante y mi universidad reconoce el TryIT! como actividad acreditable.">
+                    </v-checkbox>
+                    <v-autocomplete
+                      v-model="selectedUniv"
+                      v-if="isStudent"
+                      :items="universities"
+                      v-on:change="getSchools"
+                      label="Universidad"
+                      :rules="universityRules"
+                      required
+                    ></v-autocomplete>
+                    <v-autocomplete
+                      v-model="selectedSchool"
+                      v-if="isStudent"
+                      :items="schools"
+                      v-on:change="getDegrees"
+                      label="Centro"
+                      :rules="schoolRules"
+                      required
+                    ></v-autocomplete>
+                    <v-autocomplete
+                      v-model="selectedDegree"
+                      v-if="isStudent"
+                      :items="filteredDegrees"
+                      label="Titulación"
+                      :rules="degreeRules"
+                      required
+                    ></v-autocomplete>
+                  </v-col>
+                </v-row>
+      
+              <!-- LOPD -->
+              <v-checkbox v-model="acceptsPrivacyPolicy">
+                <template v-slot:label>
+                  <div>
+                    Acepto la
+      
+                    <v-btn
+                      depressed
+                      color="primary"
+                      @click="togglePrivacyPolicyVisibility()"
+                      plain
+                    >
+                      Política de Privacidad y Protección de Datos
+                    </v-btn>
+      
+                    al registrarme para el Congreso TryIT!
+                  </div>
+                </template>
+              </v-checkbox>
+      
+              <small>*Este símbolo indica campo obligatorio</small>
+              <v-spacer></v-spacer>
+              <v-row
+                align="center"
+                justify="space-around"
+                class="mt-5"
+              >
+                <v-btn
+                  rounded
                   x-large
-                  color="white"
-                  class="mx-3"
+                  dark
+                  color="accept"
+                  @click="validateAndPost"
                 >
-                  <!-- mdi-information-outline -->
-                  mdi-check
-                </v-icon>
-                Aceptar Politica
-              </v-btn>
-              <v-btn
+                  <v-icon 
+                    left
+                    x-large
+                    color="white"
+                    class="mx-3"
+                  >
+                    <!-- mdi-information-outline -->
+                    mdi-check
+                  </v-icon>
+                  Conseguir entrada
+                </v-btn>
+                <v-btn
                   dark
                   rounded
                   x-large
-                  color="orange darken-3"
-                  @click="privacyAndCloseWindow(false)"
+                  color="close"
+                  @click="hideDialog"
                 >
                   <v-icon 
                     left
@@ -276,14 +210,128 @@
                   </v-icon>
                   Cerrar
                 </v-btn>
-                
-            </v-card-actions>
+              </v-row>
+            </v-form>
           </v-card>
+          </v-card>
+      
+          <!-- LOPD -->
+      
+          <template>
+            <v-dialog
+              v-model="isPrivacyPolicyVisible"
+              max-width="600px"
+            >
+              <v-card>
+                <v-card-title>
+                  Aviso de Política de Privacidad y Protección de Datos
+                </v-card-title>
+                <v-spacer/>
+                <v-card-subtitle>
+                  Estimado/a Participante: 
+                </v-card-subtitle>
+                <v-card-text>
+                  Al registrarse para este evento, se considera que consiente y manifiesta haber sido informada/o de que sus datos personales serán tratados por
+                  Delegación de Alumnos ETSIINF UPM , que serán responsables de dicho tratamiento conforme a las obligaciones derivadas del cumplimiento del
+                  Reglamento (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos
+                  digitales. La finalidad de este tratamiento es la de proveerle de una entrada gratuita al evento y habilitar su participación en el mismo;
+                  y en el caso de que sea estudiante de una institución educativa que valore la participación en el Congreso TryIT!, acreditar su participación
+                  de cara a dicha institución, proporcionándo a las autoridades competentes de la misma los datos que sean necesarios para su acreditación. 
+                  Tiene derecho a acceder, rectificar y suprimir los datos en cualquier momento escribiendo un correo a tryit.da@fi.upm.es .
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    rounded
+                    x-large
+                    dark
+                    color="accept"
+                    @click="privacyAndCloseWindow(true)"
+                  >
+                    <v-icon 
+                      left
+                      x-large
+                      color="white"
+                      class="mx-3"
+                    >
+                      <!-- mdi-information-outline -->
+                      mdi-check
+                    </v-icon>
+                    Aceptar Politica
+                  </v-btn>
+                  <v-btn
+                      dark
+                      rounded
+                      x-large
+                      color="orange darken-3"
+                      @click="privacyAndCloseWindow(false)"
+                    >
+                      <v-icon 
+                        left
+                        dark
+                        x-large
+                        color="white"
+                        class="mx-3"
+                      >
+                        <!-- mdi-information-outline -->
+                        mdi-close
+                      </v-icon>
+                      Cerrar
+                    </v-btn>
+                    
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          <!--</v-row>-->
+        </template>
+      
         </v-dialog>
-      <!--</v-row>-->
+    </div>
+    <div v-else >
+    <template>  
+      <v-dialog
+        v-model="isVisible"
+        max-width="610px"
+      >    
+      <v-card >
+          <v-card-title>Las entradas estarán disponibles unas semanas antes del evento.</v-card-title>
+            <v-card-text>¡Síguenos en nuestras redes sociales para enterarte de cuándo estarán disponibles!</v-card-text>
+            <v-container>
+              <v-card-actions >
+                <v-row>
+                    <v-col>
+                      <v-btn
+                            color="primary"
+                            small
+                            outlined
+                            :style="{left: '50%', transform:'translateX(-50%)'}"
+                            href="https://www.instagram.com/tryit_upm/?hl=es"
+                            target="_blank"
+                        >
+                            Instagram
+                        </v-btn>
+                      </v-col>
+                    <v-col>
+                          <v-btn
+                              color="primary"
+                              small
+                              outlined
+                              :style="{left: '50%', transform:'translateX(-50%)'}"
+                              href="https://www.twitter.com/tryit_upm/?hl=es"
+                              target="_blank"
+                            >
+                              Twitter
+                          </v-btn>
+                    </v-col>
+                      
+                </v-row>
+              </v-card-actions>
+            </v-container>
+        </v-card>
+      </v-dialog>
     </template>
-
-    </v-dialog>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -296,6 +344,7 @@ export default {
           isPrivacyPolicyVisible: false,
           acceptsPrivacyPolicy: false,
           must_accept_privacy_terms_alert: false, // Alert that pops up when a user tries to create a ticket without accepting the privacy terms
+          isTicketFormVisible: false,
           universities: [],
           selectedUniv: "",
           schools: [],
