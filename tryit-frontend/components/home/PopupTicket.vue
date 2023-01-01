@@ -308,6 +308,15 @@
                             href="https://www.instagram.com/tryit_upm/?hl=es"
                             target="_blank"
                         >
+                            <v-icon 
+                              dark
+                              dense
+                              color="primary"
+                              left
+                            >
+                              <!-- mdi-information-outline -->
+                              mdi-instagram
+                            </v-icon>
                             Instagram
                         </v-btn>
                       </v-col>
@@ -320,6 +329,15 @@
                               href="https://www.twitter.com/tryit_upm/?hl=es"
                               target="_blank"
                             >
+                            <v-icon 
+                              dark
+                              dense
+                              color="primary"
+                              left
+                            >
+                              <!-- mdi-information-outline -->
+                              mdi-twitter
+                            </v-icon>
                               Twitter
                           </v-btn>
                     </v-col>
