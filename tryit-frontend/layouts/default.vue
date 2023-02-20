@@ -155,12 +155,19 @@
       
       <v-footer color="secondary">
         <v-spacer></v-spacer>
-        <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/">
-          <v-icon>mdi-github</v-icon>
-        </v-btn>
         <p class="white--text">&nbsp;&nbsp;Contacto&nbsp;&nbsp;</p>
+        <v-spacer></v-spacer>
+      </v-footer>    
+      <v-footer color="secondary">
+        <v-spacer></v-spacer>
         <v-btn fab target="_blank" href="https://twitter.com/tryit_upm">
           <v-icon>mdi-twitter</v-icon>
+        </v-btn>
+        <v-btn fab target="_blank" href="mailto:tryit.da@fi.upm.es">
+          <v-icon>mdi-email</v-icon>
+        </v-btn>
+        <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/">
+          <v-icon>mdi-github</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
       </v-footer>    
@@ -176,11 +183,16 @@ import * as Components from "../components";
     PopupTicket: Components.PopupTicket,
 		PopupLogin: Components.PopupLogin,
     Timeline: Components.Timeline,
-		QRReader: Components.QRReader,
+		QRReader: Components.QRReader
   }
 })
 
 export default class extends Vue {
+  
+
+  components: {
+    SafeMail
+  }
   launchViewEcts()    {
       this.$nuxt.$emit("toggleViewEcts")
   }

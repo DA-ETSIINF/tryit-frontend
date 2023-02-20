@@ -26,19 +26,6 @@
         </v-btn>
         </template>
 
-        <v-tooltip left :disabled="tooltips[0]" v-model="tooltips[0]">
-            <v-btn
-            slot="activator"
-            fab
-            dark
-            small
-            color="blue-grey darken-3"
-            @click="showLoginForm"
-            >
-            <v-icon>mdi-qrcode</v-icon>
-            </v-btn>
-            <span>REGISTRO ASISTENCIA</span>
-        </v-tooltip>
 
         <v-tooltip left :disabled="tooltips[1]" v-model="tooltips[1]">
             <v-btn
