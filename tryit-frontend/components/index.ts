@@ -7,4 +7,4 @@ export { default as DialButton } from "./home/DialButton.vue"
 export { default as Timeline } from "./home/Timeline.vue"
 export { default as QRReader } from "./home/QRReader.vue"
 export { default as PopupLottery } from "./home/PopupLottery.vue"
-
+export { default as ContactForm } from "./home/ContactForm.vue"

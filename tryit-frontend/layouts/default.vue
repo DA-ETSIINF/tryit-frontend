@@ -137,6 +137,20 @@
 
               LOGOUT
             </v-tab>
+            <v-tab
+              @click="launchContactForm()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-account
+              </v-icon>
+
+              CONTACTA
+            </v-tab>
           </v-tabs>
         </template>
       </v-app-bar>
@@ -177,6 +191,7 @@ import * as Components from "../components";
 		PopupLogin: Components.PopupLogin,
     Timeline: Components.Timeline,
 		QRReader: Components.QRReader,
+    ContactForm: Components.ContactForm,
   }
 })
 
@@ -205,6 +220,9 @@ export default class extends Vue {
   }
   checkLogin() { // @info Returns TRUE iff user is currently logged in and is admin
     return this.$store.getters.getLogged && this.$store.getters.getAdmin
+  }
+  launchContactForm() {
+    this.$nuxt.$emit("toggleContactForm")
   }
 }
 </script>
