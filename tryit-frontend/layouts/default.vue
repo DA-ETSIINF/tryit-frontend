@@ -189,10 +189,6 @@ import * as Components from "../components";
 
 export default class extends Vue {
   
-
-  components: {
-    SafeMail
-  }
   launchViewEcts()    {
       this.$nuxt.$emit("toggleViewEcts")
   }

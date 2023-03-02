@@ -3,7 +3,7 @@
     <div v-if="isTicketFormVisible">
       <v-dialog
         v-model="isVisible"
-        max-width="600px"
+        max-width="800px"
       >
         <!-- <template v-slot:activator="{ on, attrs }">
           <v-btn
@@ -24,7 +24,7 @@
           color="green"
           dismissible
         >
-          ¡Entrada generada adecuadamente!
+          ¡Te has registrado correctamente! Mira tu email para confirmarlo.
         </v-alert>
         <v-alert
           v-model="user_already_exists_alert"
@@ -61,7 +61,7 @@
           color="red"
           dismissible
         >
-          Error al generar la entrada. Habla con la Delegación de Alumnos de Centro.
+          Error al registrarte. Habla con la Delegación de Alumnos de Centro.
         </v-alert> 
         <v-card color="primary">
             <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Obtén tu entrada!</v-card-title>
@@ -70,7 +70,7 @@
                 ref="form"
               >
                 <v-row>
-                  <v-col cols="4">
+                  <v-col cols="5">
                     <v-text-field
                       v-model="person_name"
                       label="Nombre*"
@@ -78,7 +78,7 @@
                       required
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="8">
+                  <v-col cols="7">
                     <v-text-field
                       v-model="person_last_name"
                       label="Apellidos*"
@@ -86,15 +86,23 @@
                       required
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12">
+                  <v-col cols="5">
                     <v-text-field
                       v-model="person_mail"
                       label="Email*"
                       required
-                      :rules="emailRules"
+                      :rules="isStudent ? studentEmailRules : normalEmailRules"
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="4">
+                  <v-col cols="7">
+                    <v-text-field
+                      v-model="person_mail2"
+                      label="Vuelve a escribir tu mail*"
+                      required
+                      :rules="confirmEmailRules"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="5">
                     <v-text-field
                       v-model="person_nif"
                       label="NIF/DNI*"
@@ -102,11 +110,29 @@
                       required
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="8">
+                  <v-col cols="7">
                     <v-text-field
                       v-model="person_phone"
                       label="Teléfono de contacto*"
                       :rules="phoneRules"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="5">
+                    <v-text-field
+                      v-model="pass1"
+                      label="Contraseña*"
+                      :rules="passRules"
+                      input type="password"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="7">
+                    <v-text-field
+                      v-model="pass2"
+                      label="Repite tu contraseña*"
+                      :rules="confirmRules"
+                      input type="password"
                       required
                     ></v-text-field>
                   </v-col>
@@ -362,7 +388,7 @@ export default {
           isPrivacyPolicyVisible: false,
           acceptsPrivacyPolicy: false,
           must_accept_privacy_terms_alert: false, // Alert that pops up when a user tries to create a ticket without accepting the privacy terms
-          isTicketFormVisible: false,
+          isTicketFormVisible: true,
           universities: [],
           selectedUniv: "",
           schools: [],
@@ -373,18 +399,31 @@ export default {
           person_name: "",
           person_last_name: "",
           person_mail: "",
+          person_mail2: "",
           person_nif: "",
           person_phone: "",
           good_alert: false,
           error_alert: false,
-          user_already_exists_alert: false // Specific alert that occurs if user already has a ticket
+          user_already_exists_alert: false, // Specific alert that occurs if user already has a ticket
+          pass1: "",
+          pass2: "",
         }
     },
     computed: {
-      emailRules () { 
-        return [
+          normalEmailRules () { 
+          return [
             v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido',
             v => !!v || 'Introduzca su email'
+          ]},
+          studentEmailRules () { 
+          return [
+            v => !v || /^\w+([.-]?\w+)*@alumnos\.upm\.es$/.test(v) || 'Introduce tu mail institucional (@alumnos.upm.es)',
+            v => !!v || 'Introduzca su email'
+          ]},
+          confirmEmailRules () {
+          return [
+            v => !!v || "Confirme su email",
+            v => v === this.person_mail || "Los dos emails no coinciden"
           ]},
           nameRules () { 
             return [
@@ -417,6 +456,16 @@ export default {
           degreeRules () { 
             return  [
             v => !!v || 'Seleccione su grado'
+          ]},
+          passRules () {
+          return [
+            v => !!v || 'Introduzca una contraseña',
+            v => !v || /.{8,}/.test(v) || "La contraseña debe tener al menos 8 dígitos"
+          ]},
+          confirmRules () {
+          return [
+            v => !!v || "Confirme su contraseña",
+            v => v === this.pass1 || "Las contraseñas no coinciden"
           ]},
     },
     async fetch() {
@@ -477,14 +526,15 @@ export default {
             "lastname": this.person_last_name,
             "nif": this.person_nif,
             "email": this.person_mail,
+            "password": this.pass1,
             "phone": this.person_phone,
             "degree": this.selectedDegree,
             "is_upm_student": is_upm,
-            "year": "2022" // @TODO This is hardcoded and should be changed.
+            "year": "2023" // @TODO This is hardcoded and should be changed.
           }
           
           try {
-            const res = await this.$axios.post(process.env.api + "/api/editions/2022/create_ticket/", data)
+            const res = await this.$axios.post(process.env.api + "/api/editions/2023/create_ticket/", data)
           
             if (res.status == 200 ) {
               // Everything went fine with the request
