@@ -1,7 +1,25 @@
 <template>
       <v-alert v-if="$store.getters.getAdmin" type="success">Este usuario es administrador</v-alert>
       <v-alert v-else-if="$store.getters.getLogged" type="warning">Este usuario no tiene permisos de administrador</v-alert>
+       <v-alert
+            v-else-if="not_activated"
+            type="error"
+            close-text="Cerrar"
+            color="error"
+            dismissible
+            >
+            ¡No has activado tu email! Si quieres que te enviemos otro correo, pulsa 
+            <v-btn
+            depressed
+            color="primary"
+            @click="sendActivationEmail()"
+            plain
+          >
+            aquí. 
+          </v-btn>
+        </v-alert>
       <v-card v-else>
+       
         <v-card-title class="text-h5 white--text primary">
             Iniciar sesión
         </v-card-title>
@@ -58,6 +76,7 @@ export default {
 
     data()  {
         return{
+            not_activated: false,
             loginInfo: {
             username: '',
             password: ''
@@ -65,18 +84,33 @@ export default {
         }
     },
     methods: {
+        async sendActivationEmail() {
+            //TODO: Hacer petición a api de mandar nuevo email.
+        },
         async doLogin() {
             var data = this.loginInfo
-            try {
-                const res = await axios.post(process.env.api + "/api/users/login/", data)
-                var token = res.data.access_token
-                this.$store.commit("login", token)
-
-            }
-            catch(err) {
-                this.$store.commit("logout") // if the request fails, remove any possible user token if possible
+            var error = false
+            var error2 = false
+            //const xd = this
+            const res = await axios.post(process.env.api + "/api/users/login/", data).catch(function (error){
+                if (error.response && error.response.status == 406) {
+                    error2 = true
+                    return;
+                }
+                error = true
+            });
+            if(error2){
+                this.not_activated = true
                 return;
             }
+            if(error ){
+                this.$store.commit("logout"); // if the request fails, remove any possible user token if possible
+                return;
+            }
+            var token = res.data.access_token
+            this.$store.commit("login", token)
+
+            
             const userToken = this.$store.getters.getToken
             const config = {
                 headers: {
@@ -84,7 +118,7 @@ export default {
                 }
             }
             
-            const res = await axios.get(process.env.api + "/api/users/auth/", config)
+            res = await axios.get(process.env.api + "/api/users/auth/", config)
             let result = res.data.user == "asistencia"
             result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
         },

@@ -64,7 +64,7 @@
           Error al registrarte. Habla con la Delegación de Alumnos de Centro.
         </v-alert> 
         <v-card color="primary">
-            <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Obtén tu entrada!</v-card-title>
+            <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Regístrate y obtén tu entrada!</v-card-title>
             <v-card class="pa-5">  
               <v-form
                 ref="form"
