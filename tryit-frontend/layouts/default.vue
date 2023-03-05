@@ -80,7 +80,7 @@
               HORARIOS
             </v-tab>
             <v-tab
-              v-if="checkLogin()"
+              v-if="checkAdmin()"
               @click="launchQRReader()"
             >
               <v-icon 
@@ -94,7 +94,7 @@
               Escanear Entradas
             </v-tab>
             <v-tab
-              v-if="checkLogin()"
+              v-if="checkAdmin()"
               @click="launchLottery()"
             >
               <v-icon 
@@ -212,6 +212,8 @@ export default class extends Vue {
     this.$store.commit("revokeAdminAccess")
   }
   checkLogin() { // @info Returns TRUE iff user is currently logged in and is admin
+    return this.$store.getters.getLogged}
+  checkAdmin() { // @info Returns TRUE iff user is currently logged in and is admin
     return this.$store.getters.getLogged && this.$store.getters.getAdmin
   }
 }

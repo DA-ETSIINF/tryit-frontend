@@ -88,22 +88,6 @@
                   </v-col>
                   <v-col cols="5">
                     <v-text-field
-                      v-model="person_mail"
-                      label="Email*"
-                      required
-                      :rules="isStudent ? studentEmailRules : normalEmailRules"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="7">
-                    <v-text-field
-                      v-model="person_mail2"
-                      label="Vuelve a escribir tu mail*"
-                      required
-                      :rules="confirmEmailRules"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="5">
-                    <v-text-field
                       v-model="person_nif"
                       label="NIF/DNI*"
                       :rules="dniRules"
@@ -118,6 +102,23 @@
                       required
                     ></v-text-field>
                   </v-col>
+                  <v-col cols="5">
+                    <v-text-field
+                      v-model="person_mail"
+                      label="Email*"
+                      required
+                      :rules="isStudent ? studentEmailRules : normalEmailRules"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="7">
+                    <v-text-field
+                      v-model="person_mail2"
+                      label="Vuelve a escribir tu mail*"
+                      required
+                      :rules="confirmEmailRules"
+                    ></v-text-field>
+                  </v-col>
+                  
                   <v-col cols="5">
                     <v-text-field
                       v-model="pass1"

@@ -49,5 +49,11 @@ export const routes: RouteConfig[] = [
 		name: "organizers",
 		path: "/organizers",
 		can_be_shown: true
+	},
+	{
+		name: "activation-success",
+		path: "/activated",
+		can_be_shown: true
 	}
+
 ]
