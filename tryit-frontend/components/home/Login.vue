@@ -1,23 +1,42 @@
 <template>
       <v-alert v-if="$store.getters.getAdmin" type="success">Este usuario es administrador</v-alert>
       <v-alert v-else-if="$store.getters.getLogged" type="warning">Este usuario no tiene permisos de administrador</v-alert>
-       <v-alert
-            v-else-if="not_activated"
-            type="error"
-            close-text="Cerrar"
-            color="error"
-            dismissible
-            >
-            ¡No has activado tu email! Si quieres que te enviemos otro correo, pulsa 
-            <v-btn
-            depressed
-            color="primary"
-            @click="sendActivationEmail()"
-            plain
-          >
-            aquí. 
-          </v-btn>
-        </v-alert>
+      <v-alert
+        v-else-if="not_activated"
+        type="error"
+        close-text="Cerrar"
+        color="error"
+        dismissible
+        >
+        ¡No has activado tu email! Si quieres que te enviemos otro correo, pulsa 
+        <v-btn
+        depressed
+        color="primary"
+        @click="sendActivationEmail()"
+        plain
+        >
+        aquí. 
+        </v-btn>
+      </v-alert>
+      <v-alert
+        v-else-if="confirmation_email_sent_ok"
+        type="success"
+        close-text="Cerrar"
+        color="green"
+        dismissible
+        >
+            ¡Correo de activación enviado! Revisa tu bandeja de entrada.
+      </v-alert>
+      <v-alert
+        v-else-if="confirmation_email_sent_error"
+        type="error"
+        close-text="Cerrar"
+        color="red"
+        dismissible
+        >
+            ¡Error al enviar el correo de activación! Inténtalo de nuevo más tarde.
+      </v-alert>
+
       <v-card v-else>
        
         <v-card-title class="text-h5 white--text primary">
@@ -77,6 +96,8 @@ export default {
     data()  {
         return{
             not_activated: false,
+            confirmation_email_sent_ok: false,
+            confirmation_email_sent_error: false,
             loginInfo: {
             username: '',
             password: ''
@@ -85,7 +106,19 @@ export default {
     },
     methods: {
         async sendActivationEmail() {
-            //TODO: Hacer petición a api de mandar nuevo email.
+            var username = this.loginInfo["username"];
+            var data = {
+                "username": username
+            };
+            try{
+                const res = await axios.post(process.env.api + "/api/users/resend_activation_email/", data)
+                this.not_activated = false
+                this.confirmation_email_sent_ok = true
+            }
+            catch(error){
+                this.not_activated = false
+                this.confirmation_email_sent_error = true
+            };
         },
         async doLogin() {
             var data = this.loginInfo
@@ -117,9 +150,9 @@ export default {
                 Authorization: "Token " + userToken,
                 }
             }
-            
-            res = await axios.get(process.env.api + "/api/users/auth/", config)
-            let result = res.data.user == "asistencia"
+            //since res is const(ant) we can't modify it, so we need to create a new variable
+            const res2 = await axios.get(process.env.api + "/api/users/auth/", config)
+            let result = res2.data.user == "asistencia"
             result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
         },
     },
