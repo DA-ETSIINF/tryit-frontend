@@ -1,7 +1,8 @@
 export const state = () => ({
     isLogged: false,
     isAdmin: false,
-    userToken: ""
+    isStudent: false,
+    userToken: "",
 })
 
 export const mutations = {

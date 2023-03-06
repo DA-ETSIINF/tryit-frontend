@@ -22,6 +22,7 @@
 	<Timeline />
 	<QRReader />
 	<PopupLottery />
+	<EventsViewer />
 
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
@@ -151,6 +152,7 @@ import {
 	QRReader,
 	ViewEcts,
 	PopupLottery,
+	EventsViewer,
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -164,7 +166,8 @@ import {
 		DialButton,
 		Timeline,
 		QRReader,
-		PopupLottery
+		PopupLottery,
+		EventsViewer,
 	},
 })
 
@@ -193,6 +196,9 @@ export default class extends Vue {
 	}
 	toggleQRReader()	{
 		this.$nuxt.$emit("toggleQRReader")
+	}
+	toggleEvViewer()	{
+		this.$nuxt.$emit("toggleEvViewer")
 	}
 	
 }

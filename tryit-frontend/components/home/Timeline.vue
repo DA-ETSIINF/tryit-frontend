@@ -443,7 +443,7 @@ export default {
       const room_res = await this.$axios.get(process.env.api + `/api/rooms`)
       for (const post of this.posts) {
         for (const ev of post.events) {
-          console.log(ev['speaker'])
+          //console.log(ev['speaker'])
           var id = ev['room']
           for(const room of room_res.data){ //Grab room name
             if(room['id'] == id){
@@ -561,8 +561,7 @@ export default {
       console.log(speaker)
     },
     getSpeakerName(speaker) {
-      var txt = speaker['first_name'] + " " + speaker['surname_1']
-      if (speaker['surname_2']) txt += " " + speaker["surname_2"]
+      var txt = speaker['first_name'] + " " + speaker['surname']
       return txt
     }
   },

@@ -161,7 +161,7 @@ export default {
                 this.credits = "Te corresponden " + res.ects + " ECTS"
 
             } catch (error) {
-                console.log(error)
+                //console.log(error)
                 this.nif_404_alert = true
             }
         },

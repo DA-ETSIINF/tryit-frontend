@@ -7,8 +7,9 @@ export default {
 	target: "server",
 	env: {
 		dev: process.env.NODE_ENV !== "production",
-		api: "https://api.congresotryit.es"
-		//api: "https://127.0.0.1:3001"
+		//api: "https://api.congresotryit.es"
+		api: "http://127.0.0.1:8000",
+		edition: 2023
 	},
 	
 	head: {
