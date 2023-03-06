@@ -36,6 +36,7 @@
             hide-slider
             dark
           >
+          <!--
             <v-tab
               @click="launchViewEcts()"
             >
@@ -50,8 +51,24 @@
 
               CONSULTA CRÉDITOS
             </v-tab>
-
+            -->
             <v-tab
+              v-if="checkLogin()"
+              @click="launchEvViewer()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-view-list
+              </v-icon>
+
+              Mis charlas
+            </v-tab>
+            <v-tab
+              v-if="!checkLogin()"
               @click="launchTicket()"
             >
               <v-icon 
@@ -107,6 +124,7 @@
               </v-icon>
               Sorteo
             </v-tab>
+            
             <v-tab
               v-if="!checkLogin()"
               @click="launchLogin()"
@@ -183,7 +201,8 @@ import * as Components from "../components";
     PopupTicket: Components.PopupTicket,
 		PopupLogin: Components.PopupLogin,
     Timeline: Components.Timeline,
-		QRReader: Components.QRReader
+		QRReader: Components.QRReader,
+    EventsViwer: Components.EventsViewer,
   }
 })
 
@@ -206,6 +225,9 @@ export default class extends Vue {
   }
   launchLottery()   {
       this.$nuxt.$emit("toggleLottery")
+  }
+  launchEvViewer()   {
+      this.$nuxt.$emit("toggleEvViewer")
   }
   launchLogout() {
     this.$store.commit("logout")

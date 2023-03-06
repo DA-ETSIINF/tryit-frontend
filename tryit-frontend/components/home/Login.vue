@@ -153,7 +153,7 @@ export default {
             //since res is const(ant) we can't modify it, so we need to create a new variable
             const res2 = await axios.get(process.env.api + "/api/users/auth/", config)
             let result = res2.data.user == "asistencia"
-            result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
+                result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
         },
     },
 }
