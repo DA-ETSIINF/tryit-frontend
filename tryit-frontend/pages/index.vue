@@ -134,6 +134,9 @@
 		</v-flex>
 	</v-layout>
 	</v-container>
+		<v-card>
+			<History />
+		</v-card>
 	</v-card>
 	
 	
@@ -151,6 +154,7 @@ import {
 	QRReader,
 	ViewEcts,
 	PopupLottery,
+	History
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -164,7 +168,8 @@ import {
 		DialButton,
 		Timeline,
 		QRReader,
-		PopupLottery
+		PopupLottery,
+		History
 	},
 })
 
