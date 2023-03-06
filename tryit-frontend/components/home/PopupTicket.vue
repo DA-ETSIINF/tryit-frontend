@@ -43,7 +43,7 @@
           color="red"
           dismissible
         >
-          Para poder registrarte, necesitas aceptar la política de privacidad y protección de datos. La puedes consultar 
+          Para poder registrarte, necesitas aceptar la política de privacidad y protección de datos, y la cesión de los derechos de imagen. Las puedes consultar 
           
           <v-btn
             depressed
@@ -178,17 +178,15 @@
                 <template v-slot:label>
                   <div>
                     Acepto la
-      
                     <v-btn
                       depressed
                       color="primary"
                       @click="togglePrivacyPolicyVisibility()"
                       plain
                     >
-                      Política de Privacidad y Protección de Datos
+                      Política de Privacidad y Protección de Datos y la Cesión de derechos de Imágen.
                     </v-btn>
-      
-                    al registrarme para el Congreso TryIT!
+    
                   </div>
                 </template>
               </v-checkbox>
@@ -258,13 +256,24 @@
                   Estimado/a Participante: 
                 </v-card-subtitle>
                 <v-card-text>
-                  Al registrarse para este evento, se considera que consiente y manifiesta haber sido informada/o de que sus datos personales serán tratados por
-                  Delegación de Alumnos ETSIINF UPM , que serán responsables de dicho tratamiento conforme a las obligaciones derivadas del cumplimiento del
-                  Reglamento (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos
-                  digitales. La finalidad de este tratamiento es la de proveerle de una entrada gratuita al evento y habilitar su participación en el mismo;
-                  y en el caso de que sea estudiante de una institución educativa que valore la participación en el Congreso TryIT!, acreditar su participación
-                  de cara a dicha institución, proporcionándo a las autoridades competentes de la misma los datos que sean necesarios para su acreditación. 
-                  Tiene derecho a acceder, rectificar y suprimir los datos en cualquier momento escribiendo un correo a tryit.da@fi.upm.es .
+                  Al registrarse para este evento, acepta la  
+                  <v-btn
+                  depressed
+                  color="primary"
+                  href="http://api.congresotryit.es/api/editions/get_privacy"
+                  target="_blank"
+                  plain
+                  >Politica de protección de datos 
+                </v-btn>
+                y la 
+                  <v-btn
+                  depressed
+                  color="primary"
+                  href="http://api.congresotryit.es/api/editions/get_image_rights"
+                  target="_blank"
+                  plain
+                  >Cesión de derechos de imágen.
+                </v-btn>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -509,6 +518,12 @@ export default {
             this.filteredDegrees.push(degree.degree)
           }
         })
+      },
+      async getPrivacyPDF() {
+        const res = await this.$axios.post(process.env.api + "/api/editions/get_privacy", data)
+      },
+      async getImagePDF() {
+        const res = await this.$axios.post(process.env.api + "/api/editions/get_image_rights", data)
       },
       async validateAndPost() {
         if(this.$refs.form.validate())  {
