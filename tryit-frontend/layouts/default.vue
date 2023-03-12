@@ -208,6 +208,7 @@ import * as Components from "../components";
 
 export default class extends Vue {
   
+
   launchViewEcts()    {
       this.$nuxt.$emit("toggleViewEcts")
   }

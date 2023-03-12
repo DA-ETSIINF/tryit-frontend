@@ -437,7 +437,7 @@ export default {
       }
   },
   async fetch() {
-      this.posts = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
+      this.posts = await this.$axios.$get(process.env.api + `/api/editions/2023/schedule`)
     // @info This is the modification of the obtained /schedule/ endpoint to include colors and icons
     //   https://materialdesignicons.com/
       const room_res = await this.$axios.get(process.env.api + `/api/rooms`)

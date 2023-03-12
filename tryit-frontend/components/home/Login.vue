@@ -36,9 +36,17 @@
         >
             ¡Error al enviar el correo de activación! Inténtalo de nuevo más tarde.
       </v-alert>
-
+      
       <v-card v-else>
-       
+       <v-alert
+        v-model="login_error"
+        type="error"
+        close-text="Cerrar"
+        color="red"
+        dismissible
+        >
+        Error al iniciar sesión. Asegúrate de que has escrito tu correo y tu contraseña correctamente.
+      </v-alert>
         <v-card-title class="text-h5 white--text primary">
             Iniciar sesión
         </v-card-title>
@@ -52,7 +60,7 @@
                 >
                     <v-text-field
                         v-model="loginInfo.username"
-                        label="Usuario*"
+                        label="Correo*"
                         required
                     ></v-text-field>
                 </v-col>
@@ -98,6 +106,7 @@ export default {
             not_activated: false,
             confirmation_email_sent_ok: false,
             confirmation_email_sent_error: false,
+            login_error: false,
             loginInfo: {
             username: '',
             password: ''
@@ -122,7 +131,7 @@ export default {
         },
         async doLogin() {
             var data = this.loginInfo
-            var error = false
+            var error1 = false
             var error2 = false
             //const xd = this
             const res = await axios.post(process.env.api + "/api/users/login/", data).catch(function (error){
@@ -130,13 +139,14 @@ export default {
                     error2 = true
                     return;
                 }
-                error = true
+                error1 = true
             });
             if(error2){
                 this.not_activated = true
                 return;
             }
-            if(error ){
+            if(error1){
+                this.login_error = true
                 this.$store.commit("logout"); // if the request fails, remove any possible user token if possible
                 return;
             }
