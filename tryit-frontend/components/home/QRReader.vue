@@ -45,6 +45,16 @@
     >
       ¡Debes seleccionar un evento antes de escanear una entrada!
     </v-alert>
+    <v-alert
+      v-model="overlap_alert"
+      type="error"
+      close-text="Cerrar"
+      color="yellow"
+      dismissible
+    >
+    ¡Ya te has registrado a un evento que se solapa con este! No puedes asistir a dos eventos a la vez... >:(
+    </v-alert>
+    <v-alert
       <v-row 
         align="center"
         justify="space-around"
@@ -177,6 +187,7 @@ export default {
       noFrontCamera: false,
       good_alert: false,
       error_alert: false,
+      overlap_alert: false,
       user_already_exists_alert: false, // Specific alert that occurs if user already has a ticket
       no_event_alert: false,
     }
@@ -217,7 +228,7 @@ export default {
       const d = new Date();
       let today = d.getFullYear() + "-0" + (d.getMonth()+1) + "-" + d.getDate()
       
-      //let today = "2022-03-16" //for testing
+      //let today = "2023-03-13" //for testing
       console.log(today)
       this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
       for (var post of this.days) {
