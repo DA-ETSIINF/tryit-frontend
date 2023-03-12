@@ -1,6 +1,7 @@
 <template>
       <v-alert v-if="$store.getters.getAdmin" type="success">Este usuario es administrador</v-alert>
-      <v-alert v-else-if="$store.getters.getLogged" type="warning">Este usuario no tiene permisos de administrador</v-alert>
+      <v-alert v-else-if="$store.getters.getLogged && $store.getters.getScanner" type="success">Te has identificado correctamente. Puedes escanear.</v-alert>
+      <v-alert v-else-if="$store.getters.getLogged" type="success">¡Te has identificado correctamente!</v-alert>
       <v-alert
         v-else-if="not_activated"
         type="error"
@@ -162,8 +163,10 @@ export default {
             }
             //since res is const(ant) we can't modify it, so we need to create a new variable
             const res2 = await axios.get(process.env.api + "/api/users/auth/", config)
-            let result = res2.data.user == "asistencia"
-                result ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
+            let isAdmin = res2.data.isadmin == "True"
+                isAdmin ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
+            let isScanner = res2.data.isscanner == "True"
+                isScanner ? this.$store.commit("giveScanAccess") : this.$store.commit("revokeScanAccess")
         },
     },
 }

@@ -142,7 +142,7 @@
 		<v-flex shrink>
 		<v-img 
 		src= "/img/patrocinadores23.png"
-		max-height="1080"
+			max-height="1080"
 		max-width="1920"
 		></v-img>
 		</v-flex>

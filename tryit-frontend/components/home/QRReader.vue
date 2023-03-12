@@ -4,7 +4,7 @@
     max-width="600px"
   > 
     <Login v-if="!$store.getters.getLogged"/>
-    <v-alert v-else-if="!$store.getters.getAdmin" type="error">Este usuario no posee permisos de administrador
+    <v-alert v-else-if="!$store.getters.getScanner && !$store.getters.getAdmin" type="error">Este usuario no posee permisos de administrador
       <v-btn @click="launchLogout">Cerrar sesión</v-btn>      
     </v-alert>
 
@@ -220,7 +220,7 @@ export default {
       //let today = "2022-03-16" //for testing
       console.log(today)
       this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
-      for ( var post of this.days) {
+      for (var post of this.days) {
         for(var ev of post.events){
           if(post.day == today){
             this.eventNames.push(ev.name)
