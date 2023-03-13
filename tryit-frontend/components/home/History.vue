@@ -14,7 +14,7 @@
           -->
           <v-carousel
             cycle
-            interval="5250"
+            interval="6250"
             hide-delimiters
             progress
             delimiter-icon="mdi-square"
@@ -35,6 +35,9 @@
             </v-carousel-item>
             <v-carousel-item class="main" v-for="(obj, i) in TryITs" :key="i">
               <v-img
+                v-if="
+                  TryITs[i].displayLogo == null || TryITs[i].displayLogo == true
+                "
                 :src="TryITs[i].image"
                 height="100%"
                 cover
@@ -47,6 +50,16 @@
                   {{ obj.year }}
                 </div>
               </v-img>
+
+              <v-img
+                v-else
+                :src="TryITs[i].image"
+                height="100%"
+                cover
+                @click="TryITs[i].active = true"
+              >
+              </v-img>
+
               <v-dialog
                 v-model="TryITs[i].active"
                 transition="scale-transition"
@@ -55,6 +68,34 @@
               >
                 <v-card class="content-display">
                   <v-img
+                    v-if="
+                      !TryITs[i].topImage == null || !TryITs[i].topImage == ''
+                    "
+                    class="text-white"
+                    height="300"
+                    :src="TryITs[i].topImage"
+                    scale-down
+                  >
+                    <v-toolbar
+                      class="align-top"
+                      color="rgba(0, 0, 0, 0.3)"
+                      theme="dark"
+                      flat
+                      rounded="1"
+                      collapse
+                    >
+                      <!-- template v-slot:prepend -->
+                      <v-btn icon dark @click="obj.active = false">
+                        <v-icon size="180%">mdi-close</v-icon>
+                      </v-btn>
+                      <!-- /template -->
+                    </v-toolbar>
+                    <v-card-title class="title"
+                      >Try IT! {{ TryITs[i].year }}</v-card-title
+                    >
+                  </v-img>
+                  <v-img
+                    v-else
                     class="text-white"
                     height="300"
                     :src="TryITs[i].image"
@@ -79,21 +120,36 @@
                     >
                   </v-img>
 
-                  <!-- Este apaño de "left" está hecho para centrar el texto sin importar la proporción del mismo (razón por la que uso porcentajes en la mayor parte de las propiedades "size", "width", etc.). -->>
+                  <!-- Este apaño de "left" está hecho para centrar el texto sin importar la proporción del mismo (razón por la que uso porcentajes en la mayor parte de las propiedades "size", "width", etc.). -->
                   <div
                     v-for="(ent, j) in TryITs[i].body"
                     :key="j"
                     style="width: 75%; position: relative; left: 11%"
                   >
+                  
                     <v-card-title
                       v-if="!ent.subtitle == '' || !ent.subtitle == null"
                       class="subtitle pt-4"
                     >
                       {{ ent.subtitle }}
                     </v-card-title>
-                    <v-card-text class="description">
+                    <v-card-text
+                      v-if="!ent.link == null || !ent.link == ''"
+                      class="reference"
+                    >
+                      <a :href="ent.link">{{ ent.pgrph }}</a>
+                    </v-card-text>
+                    <v-card-text v-else class="description">
                       {{ ent.pgrph }}
                     </v-card-text>
+                    <v-container v-if="!ent.img == '' || !ent.img == null" fluid>
+                    <v-img
+                      :src="ent.img"
+                      aspect-ratio="2"
+                      cover
+                      class="bg-grey-lighten-2 sample_img"
+                    ></v-img>
+                  </v-container>
                   </div>
                 </v-card>
               </v-dialog>
@@ -155,7 +211,7 @@
   display: block;
   font-family: "Lovelo";
   flex: none;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 1.25rem;
   font-weight: 500;
   hyphens: auto;
@@ -181,15 +237,27 @@
   line-height: 19px;
   text-align: center;
 }
-
+.reference {
+  font-family: "NowRegular";
+  font-size: 17px;
+  line-height: 19px;
+  text-align: center;
+  cursor: pointer;
+}
+.sample_img {
+  max-height: 50%;
+  max-width: 50%;
+  position: relative;
+  left: 25%;
+}
 .v-card .v-card-text {
   line-height: 0.25rem;
 }
 </style>
 
 <script>
-// Importar axios para poder llamar al objeto de la api.
-import axios from "axios";
+// import axios from "axios";
+import datos from "..\\..\\assets\\data\\history.json";
 
 export default {
   // Variables y objetos
@@ -202,6 +270,10 @@ export default {
 
   // Métodos del componente
   methods: {
+    sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    },
+
     /**
      * Función para cambiar un boolean a falso.
      *
@@ -216,12 +288,16 @@ export default {
      */
     async fetchData() {
       try {
-        const res = await axios.get("http://localhost:5000/data/history"); // FIXME: Cambiar esta dirección, esta era para "testing".
-        this.TryITs = res.data.tryits;
+        //const res = await axios.get("http://localhost:5000/data/history");
+        this.TryITs = datos.tryits;
       } catch (err) {
         console.error(err);
       } finally {
         this.loading = this.TryITs.length == 0 ? true : false; // Finalmente ya se puede quitar el loading placeholder si se ha cargado el componente correctamente.
+        //  if (!this.loading) {
+        //     this.sleep();
+        //     this.fetchData();
+        //  }
       }
     },
   },

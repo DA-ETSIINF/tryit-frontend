@@ -1,117 +1,164 @@
 {
-    "tryits":
-        [
-            {
-              "year": "2015",
-              "active": false,
-              "body": [
-                {
-                  "subtitle": "título",
-                  "pgrph": "Ea fugiat consequat adipisicing do nulla nulla cupidatat consectetur nisi labore ut amet ullamco ad excepteur adipisicing fugiat nostrud aute enim pariatur incididunt deserunt anim laborum laborum est nulla excepteur elit ut et ullamco dolor sit ea reprehenderit ipsum officia ad sint magna irure enim sint laborum laboris sunt ex ut exercitation duis esse eu in nulla dolor cupidatat qui ad esse occaecat tempor consectetur ipsum cupidatat aliquip ea sunt elit labore incididunt anim velit sit non sit esse ex cillum velit reprehenderit velit ut qui cillum pariatur cupidatat quis minim in dolore magna incididunt ullamco exercitation elit aliquip duis"
-                },
-                {
-                  "subtitle": "otro",
-                  "pgrph": "adadade fsf ada efde"
-                },
-                {
-                  "subtitle": "extra",
-                  "pgrph": "ad eddf addfe aa"
-                }
-              ],
-              "image": "https://www.xtrafondos.com/descargar.php?id=6383&resolucion=1280x720"
-            },
-            {
-              "year": "2016",
-              "active": false,
-              "body": [
-                {
-                  "subtitle": "nulo",
-                  "pgrph": "aasdnje f ewk.\n kefef flfknal"
-                },
-                {
-                  "subtitle": "más",
-                  "pgrph": "adsd ads ada"
-                }
-              ],
-              "image": "https://images6.alphacoders.com/568/568500.jpg"
-            },
-            {
-              "year": "2017",
-              "active": false,
-              "body": [
-                {
-                  "subtitle": "gcgpdl",
-                  "pgrph": "aasdnje f ewk kefef flfknal"
-                },
-                {
-                  "subtitle": null,
-                  "pgrph": "aasdnje f ewk kefef flfknal"
-                }
-              ],
-              "image": "https://t3.ftcdn.net/jpg/05/29/37/22/360_F_529372232_2Z75XLUgwHQQmtsgeWwGdpdCx4inCPbP.jpg"
-            },
-            {
-              "year": "2018",
-              "active": false,
-              "body": [
-                {
-                  "subtitle": "abc",
-                  "pgrph": "aasdnje f ewk kefef flfknal."
-                },
-                {
-                  "subtitle": null,
-                  "pgrph": "afd sfsqefe fsr rwfwqfff."
-                },
-                {
-                  "subtitle": "cde",
-                  "pgrph": "qemjwe imfie oqm"
-                }
-              ],
-              "image": "https://i.pinimg.com/originals/81/25/6a/81256a00f5306f375fb29619931929dc.jpg"
-            },
-            {
-              "year": "2019",
-              "active": false,
-              "body": [
-                {
-                  "subtitle": "genericTittle",
-                  "pgrph": "aasdnje f ewk kefef flfknal"
-                }
-              ],
-              "image": "https://d500.epimg.net/cincodias/imagenes/2019/12/24/lifestyle/1577177486_105469_1577177536_noticia_normal.jpg"
-            },
-            {
-              "year": "2020",
-              "active": false,
-              "body": [
-                {
-                  "subtitle": "genericTittle",
-                  "pgrph": "aasdnje f ewk kefef flfknal"
-                }
-              ],
-              "image": "https://images2.alphacoders.com/120/thumb-1920-1209425.png"
-            },
-            {
-              "year": "2021",
-              "active": false,
-              "body": [
-                {
-                  "subtitle": "genericTittle",
-                  "pgrph": "aasdnje f ewk kefef flfknal"
-                }
-              ],
-              "image": "https://p4.wallpaperbetter.com/wallpaper/286/711/657/lake-landscape-mountain-mountains-wallpaper-preview.jpg"
-            },
-            {
-              "year": "2022",
-              "active": false,
-              "body": [
-                {
-                  "subtitle": "genericTittle",
-                  "pgrph": "aasdnje f ewk kefef flfknal"
-                }
-              ],
-              "image": "https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwzOTU0NTB8fGVufDB8fHx8&w=1000&q=80"
-            }
-          ]
+  "tryits":
+      [
+          {
+            "year": "2016",
+            "active": false,
+            "displayLogo": false,
+            "topImage": "/img/historico/2016/qr.png",
+            "body": [
+              {
+                "subtitle": "Resumen",
+                "pgrph": "En la edición de 2016 se contó con múltiples charlas y actividades útiles para los alumnos. Desde modelos de riesgo en infraestructuras críticas, ciberseguridad, big-data e inteligencia artificial hasta microservicios... ¡Y mucho más!",
+                "img": "/img/historico/2016/events.jfif"
+              },
+              {
+                "subtitle": "¡Patrocinadores de la edición 2016!",
+                "pgrph": ""
+              },
+              {
+                "pgrph": "Deloitte",
+                "link": "https://www2.deloitte.com/es/es.html"
+              },
+              {
+                "pgrph": "Everis",
+                "link": "https://es.nttdata.com/"
+              },
+              {
+                "pgrph": "Accenture",
+                "link": "https://www.accenture.com/es-es"
+              },
+              {
+                "pgrph": "Stratio",
+                "link": "https://www.stratio.com/home"
+              },
+              {
+                "pgrph": "Paradigma",
+                "link": "https://www.paradigmadigital.com/"
+              }
+            ],
+            "image": "/img/historico/2016/febrero-irene.png"
+          },
+          {
+            "year": "2017",
+            "active": false,
+            "displayLogo": true,
+            "topImage": "/img/historico/2017/top.jfif",
+            "body": [
+              {
+                "subtitle": "¿Qué fue la V edición del TryIT!?:",
+                "pgrph": "El Congreso TryIT! de 2017 fue un evento enfocado en la tecnología y la innovación. Durante el congreso, se llevaron a cabo diversas actividades y conferencias que abarcaron temas como la inteligencia artificial, el Internet de las cosas y la realidad virtual."
+              },
+              {
+                "subtitle": null,
+                "pgrph": "Los asistentes al congreso pudieron participar en talleres y charlas impartidas por expertos en tecnología de renombre. Además, hubo una zona de exhibición donde se mostraron las últimas innovaciones en tecnología."
+              },
+              {
+                "subtitle": "¡Competiciones y actividades!",
+                "pgrph": "Uno de los aspectos más destacados del Congreso TryIT! de 2017 fue la competición de proyectos tecnológicos, donde estudiantes y profesionales presentaron sus ideas más innovadoras. También se entregaron premios a los mejores proyectos y se celebró una ceremonia de clausura en la que se destacaron los logros del evento."
+              },
+              {
+              "subtitle": "Conclusión:",
+              "pgrph": "En resumen, el Congreso TryIT! de 2017 fue un evento lleno de actividades interesantes y relevantes en el campo de la tecnología y la innovación, que reunió a expertos y entusiastas de todo el mundo para intercambiar ideas y aprender de las últimas tendencias en el mundo digital.",
+              "img":"/img/historico/2017/expo1.jfif"
+              }
+            ],
+            "image": "/img/historico/2017/expo3.jfif"
+          },
+          {
+            "year": "2018",
+            "active": false,
+            "displayLogo": false,
+            "topImage": "/img/historico/2018/sample.jfif",
+            "body": [
+              {
+                "subtitle": "¡¡¡TryIT! edición de 2018!!!",
+                "pgrph": "La VI edición del TryIT! fue un evento dedicado a la tecnología y la innovación que tuvo lugar en el mes de marzo. Durante el congreso se llevaron a cabo diversas actividades que incluyeron talleres, conferencias y demostraciones tecnológicas."
+              },
+              {
+                "subtitle":   "Actividades destacadas:",
+                "pgrph": "Uno de los aspectos más destacados del evento fue la celebración de un hackathon, una maratón de programación donde los participantes tuvieron que crear soluciones tecnológicas innovadoras en un tiempo limitado. Además, se presentaron ponencias y charlas sobre temas como la inteligencia artificial, la realidad virtual y aumentada, y la ciberseguridad.",
+                "img":"/img/historico/2018/expo1.jfif"
+              },
+              {
+                "pgrph": "También se contó con una zona de exhibición donde empresas y organizaciones mostraron sus últimos avances tecnológicos. Los asistentes tuvieron la oportunidad de interactuar con robots, drones y otras tecnologías innovadoras."
+              },
+              {
+                "pgrph": "Otro aspecto destacado del evento fue la participación de estudiantes de la UPM, quienes presentaron sus proyectos y soluciones tecnológicas en una competición especial. También hubo una ceremonia de clausura donde se entregaron premios a los mejores proyectos y se destacaron los logros del congreso.",
+                "img": "/img/historico/2018/expo.png"
+              },
+              {
+                "subtitle": "¿Entonces qué fue el TryIT! de 2018?",
+                "pgrph": "Fue un evento lleno de actividades innovadoras y relevantes en el campo de la tecnología, que reunió a expertos, empresas y estudiantes para intercambiar ideas, mostrar los últimos avances en el mundo digital y ayudar a conectar a dichos estudiantes con el mundo empresarial y laboral.",
+                "img": "/img/historico/2018/banner.jfif"
+              }
+            ],
+            "image": "/img/historico/2018/TryIT2018.png"
+          },
+          {
+            "year": "2019",
+            "active": false,
+            "topImage": "/img/historico/2019/top(1).jfif",
+            "body": [
+              {
+                "subtitle": "VII edición del TryIT!:",
+                "pgrph": "Fue un evento dedicado a la tecnología y la innovación. Durante el congreso se llevaron a cabo diversas actividades que incluyeron talleres, conferencias y demostraciones tecnológicas."
+              },
+              {
+                "subtitle": "¡Eventos y más!",
+                "pgrph": "Una de las actividades más destacadas del evento fue la participación de reconocidos expertos en tecnología, quienes impartieron charlas y conferencias sobre temas como la inteligencia artificial, el Internet de las cosas, la ciberseguridad y la industria 4.0. Además, hubo talleres prácticos donde los asistentes pudieron aprender sobre el desarrollo de aplicaciones móviles, la programación en Python y otros temas relacionados con la tecnología.",
+                "img": "/img/historico/2019/expo.jfif"
+              },
+              {
+                "pgrph": "El Congreso TryIT! de 2019 también contó con una zona de exposición donde empresas y organizaciones presentaron sus últimos avances tecnológicos. Los asistentes tuvieron la oportunidad de interactuar con robots, drones y otras tecnologías innovadoras."
+              },
+              {
+                "pgrph": "Otro aspecto destacado del evento fue la celebración de una competición de proyectos tecnológicos, donde estudiantes y profesionales presentaron sus soluciones innovadoras en diferentes áreas, como la salud, el medio ambiente y la educación. También hubo una ceremonia de clausura donde se entregaron premios a los mejores proyectos y se destacaron los logros del congreso."
+              }
+            ],
+            "image": "/img/historico/2019/TryIT2019.jfif"
+          },
+          {
+            "year": "2021",
+            "active": false,
+            "topImage": "",
+            "body": [
+              {
+                "subtitle": "¡Ahora también con edición telemática!",
+                "pgrph": "El Congreso TryIT! de 2021 fue un evento dedicado a la tecnología y la innovación que se llevó a cabo de forma completamente virtual. A pesar de las limitaciones impuestas por la pandemia, el evento contó con una amplia variedad de actividades."
+              },
+              {
+                "subtitle": "Actividades:",
+                "pgrph": "Durante el congreso se llevaron a cabo diferentes tipos de actividades, como conferencias, talleres, presentaciones y mesas redondas, abarcando temas como la inteligencia artificial, la tecnología blockchain, la ciberseguridad y la sostenibilidad. Las actividades fueron impartidas por expertos de renombre en cada una de las áreas."
+              },
+              {
+                "pgrph": "Además, el Congreso TryIT! de la UPM de 2021 contó con una zona de exhibición virtual donde las empresas y organizaciones presentaron sus últimos avances tecnológicos.",
+                "img": "/img/historico/2021/expo.jfif"
+              }
+            ],
+            "image": "/img/historico/2021/programa.jfif"
+          },
+          {
+            "year": "2022",
+            "active": false,
+            "topImage": "/img/historico/2022/perrituuuBailando.jfif",
+            "body": [
+              {
+                "subtitle": "¡La X edición del congreso favorito de los alumnos de la UPM!",
+                "pgrph": "El Congreso TryIT! de 2022 fue un evento enfocado en la tecnología y la innovación. Durante el congreso, se llevaron a cabo diversas actividades, conferencias y talleres que abarcaron temas como la inteligencia artificial, la protección de datos, la ciberseguridad y muchos otros relacionados con la tecnología y el mundo laboral.",
+                "img": "/img/historico/2022/events.jfif"
+              },
+              {
+                "subtitle": "Actividades y eventos:",
+                "pgrph": "En esta edición del congreso se destacarón múltiples eventos y ponencias. Entre lo más relevante se encuentran las exposiciones de ponentes de lo más relevantes y con mucha experiencia en el ámbito de la informática y las tecnologías. ¡Además se pudo interactuar con uno de los \"invitados especiales\"!:",
+                "img": "/img/historico/2022/perrituuu.jfif"
+              },
+              {
+                "pgrph": "¡Conoce a SPoC!",
+                "link": "https://twitter.com/SPoCDog"
+              }
+            ],
+            "image": "/img/historico/2022/TryIT2022.jfif"
+          }
+        ]
 }
