@@ -54,7 +54,6 @@
     >
     ¡Ya te has registrado a un evento que se solapa con este! No puedes asistir a dos eventos a la vez... >:(
     </v-alert>
-    <v-alert
       <v-row 
         align="center"
         justify="space-around"
@@ -230,7 +229,7 @@ export default {
       
       //let today = "2023-03-13" //for testing
       console.log(today)
-      this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
+      this.days = await this.$axios.$get(process.env.api + `/api/editions/2023/schedule`)
       for (var post of this.days) {
         for(var ev of post.events){
           if(post.day == today){
@@ -306,6 +305,7 @@ export default {
             this.user_already_exists_alert = false;
             this.error_alert = false;
             this.no_event_alert = false;
+            this.$nuxt.$emit("logged")
           }
           if(response.status == 201){ //User already exists
             this.user_already_exists_alert = true;

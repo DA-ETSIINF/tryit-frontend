@@ -59,7 +59,6 @@
                 <v-text-field
                   v-model="nif"
                   label="NIF*"
-                  :rules="nameRules"
                   required
                 ></v-text-field>
                 </v-form>
