@@ -43,12 +43,13 @@
                 cover
                 @click="TryITs[i].active = true"
               >
-                <div class="logo">
-                  <v-img src="/img/imagotipo_claro_2.png"></v-img>
-                </div>
-                <div class="year">
+                <v-container fluid class="logo">
+                  <v-img src="/img/imagotipo_claro_2.png">
+                </v-img>
+              </v-container>
+                <v-container fluid class="year">
                   {{ obj.year }}
-                </div>
+                </v-container>
               </v-img>
 
               <v-img
@@ -189,12 +190,14 @@
   grid-area: logo;
   width: auto;
   height: auto;
+  max-height: 50%;
   margin-left: 10%;
   margin-right: 10%;
 }
 .year {
   grid-area: year;
   font-family: Verdana, Geneva, sans-serif;
+  min-height: 50%;
   font-size: 270%;
   letter-spacing: -0.6px;
   word-spacing: 0px;
