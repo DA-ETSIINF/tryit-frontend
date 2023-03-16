@@ -235,7 +235,7 @@
   justify-content: center;
 }
 .description {
-  font-family: "NowRegular";
+  /*font-family: "NowRegular";*/
   font-size: 17px;
   line-height: 19px;
   text-align: center;
