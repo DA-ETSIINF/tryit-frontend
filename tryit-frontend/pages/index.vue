@@ -121,7 +121,7 @@
 		</div>
 	</v-card>
 	<v-container fluid>
-	<v-layout justify-center align-center>
+	<!-- <v-layout justify-center align-center>
 		<v-flex shrink>
 		<a href="https://t.co/QVQgoLoL91">
 		<v-img 
@@ -131,7 +131,7 @@
 		></v-img>
 		</a>
 		</v-flex>
-	</v-layout>
+	</v-layout> -->
 	</v-container>
 	<v-card>
 		<h2>¿Dónde estamos?</h2>
