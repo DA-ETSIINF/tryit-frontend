@@ -124,6 +124,12 @@
 		<Map></Map>
 	</v-card>
 	<v-container fluid>
+		<v-card>
+			<h2>Ediciones anteriores</h2>
+			<History />
+		</v-card>
+	</v-container>
+	<v-container fluid>
 	<v-layout justify-center align-center>
 		<v-flex shrink>
 		<v-img 
@@ -134,9 +140,6 @@
 		</v-flex>
 	</v-layout>
 	</v-container>
-		<v-card>
-			<History />
-		</v-card>
 	</v-card>
 	
 	

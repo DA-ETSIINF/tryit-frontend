@@ -260,7 +260,7 @@
 
 <script>
 // import axios from "axios";
-import datos from "..\\..\\assets\\data\\history.json";
+import datos from "../../assets/data/history.json";
 
 export default {
   // Variables y objetos
