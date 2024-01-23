@@ -77,7 +77,7 @@
               },
               {
                 "subtitle":   "Actividades destacadas:",
-                "pgrph": "Uno de los aspectos más destacados del evento fue la celebración de un hackathon, una maratón de programación donde los participantes tuvieron que crear soluciones tecnológicas innovadoras en un tiempo limitado. Además, se presentaron ponencias y charlas sobre temas como la inteligencia artificial, la realidad virtual y aumentada, y la ciberseguridad.",
+                "pgrph": "Uno de los aspectos más destacados del evento fue la celebración de un hackathon, una maratón de programación donde los participantes tuvieron que crear soluciones tecnológicas innovadoras en un tiempo limitado. Además, se presentaron ponencias y charlas sobre temas como la inteligencia artificial, la realidad virtual y aumentada al igual que sobre la ciberseguridad.",
                 "img":"/img/historico/2018/expo1.jfif"
               },
               {
@@ -150,7 +150,7 @@
               },
               {
                 "subtitle": "Actividades y eventos:",
-                "pgrph": "En esta edición del congreso se destacarón múltiples eventos y ponencias. Entre lo más relevante se encuentran las exposiciones de ponentes de lo más relevantes y con mucha experiencia en el ámbito de la informática y las tecnologías. ¡Además se pudo interactuar con uno de los \"invitados especiales\"!:",
+                "pgrph": "En esta edición del congreso se destacaron múltiples eventos y ponencias. Entre lo más relevante se encuentran las exposiciones de ponentes de lo más relevantes y con mucha experiencia en el ámbito de la informática y las tecnologías. ¡Además se pudo interactuar con uno de los \"invitados especiales\"!:",
                 "img": "/img/historico/2022/perrituuu.jfif"
               },
               {
@@ -159,6 +159,24 @@
               }
             ],
             "image": "/img/historico/2022/TryIT2022.jfif"
+          },
+          {
+            "year": "2023",
+            "active": false,
+            "topImage": "/img/historico/2023/ayudantes.jpg",
+            "body": [
+              {
+                "subtitle": "¡La mayor edición del TryIt! hasta entonces!",
+                "pgrph": "El Congreso TryIT! de 2023 fue un evento enfocado en la tecnología y la innovación, pero también en el futuro laboral de los alumnos de la UPM y lo que les espera en el futuro. El evento estuvo formado por una variedad de actividades, conferencias, charlas y talleres que abarcaron temas desde los nuevos desarollos de la inteligencia artificial hasta el mundo de la ciberseguridad y lo que le espera a los alumnos que se quieren dedicar a eso.",
+                "img": "/img/historico/2023/pres_innovacion.jpg"
+              },
+              {
+                "subtitle": "Actividades y eventos:",
+                "pgrph": "Los asistentes al TryIt! del 2023 pudieron formar parte de múltiples actividades y eventos, como por ejemplo un escape room organizado por los alumnos, dar una vuelta en globo por el campus o participar en el Hunt, nuestra propia versión de un Hackaton!",
+                "img": "/img/historico/2023/alumnos.jpg"
+              }
+            ],
+            "image": "/img/historico/2023/pres_inteum.jpg"
           }
         ]
 }
