@@ -7,8 +7,9 @@ export default {
 	target: "server",
 	env: {
 		dev: process.env.NODE_ENV !== "production",
-		api: "https://api.congresotryit.es"
-		//api: "https://127.0.0.1:3001"
+		//api: "https://api.congresotryit.es",
+		api: "http://127.0.0.1:8000",
+		edition: 2023
 	},
 	
 	head: {
@@ -20,7 +21,7 @@ export default {
 				hid: "description",
 				name: "description",
 				content:
-					"Página oficial del Congreso TryIt. Organizado por Delegación de Alumnos de la ETSIINF. Este año se celebra la edición 2023. Charlas, talleres, actividades... Y mucho más. Además, es una actividad acreditable para alumnos de la ETSIINF"
+					"Página oficial del Congreso TryIt. Organizado por Delegación de Alumnos de la ETSIINF. Este año se celebra la edición 2023. Charlas, talleres, actividades... Y mucho más. Además, es una actividad acreditable para alumnos de la UPM"
 			},
 			{
 				hid: "geo.position",
@@ -69,7 +70,7 @@ export default {
 				name: "DC.description",
 				lang: "es",
 				content:
-					"Página oficial del Congreso TryIt. Organizado por Delegación de Alumnos de la ETSIINF. Este año se celebra la edición 2020. Charlas, talleres, actividades... Y mucho más. Además, es una actividad acreditable para alumnos de la ETSIINF"
+					"Página oficial del Congreso TryIt. Organizado por Delegación de Alumnos de la ETSIINF. Este año se celebra la edición 2020. Charlas, talleres, actividades... Y mucho más. Además, es una actividad acreditable para alumnos de la UPM"
 			},
 			{
 				hid: "DC.language",

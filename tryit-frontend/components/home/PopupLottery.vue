@@ -228,7 +228,7 @@ export default {
         const d = new Date();
         let today = d.getFullYear() + "-0" + (d.getMonth()+1) + "-" + d.getDate()
         //let today = "2022-03-16" //for testing
-        console.log(today)
+        //console.log(today)
         this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
         for ( var post of this.days) {
             for(var ev of post.events){
@@ -238,7 +238,7 @@ export default {
                 }
             }
         }
-        console.log(this.days)
+        //console.log(this.days)
         this.awards = await this.$axios.$get(process.env.api + `/api/awards`)
         for ( var aw of this.awards) {
             //console.log(aw)
@@ -280,13 +280,13 @@ export default {
                     event: this.eventValue,
                 })
                 //console.log(res)
-                this.winner = res.winner.name + " " +  res.winner.surname_1 + " " + res.winner.surname_2
+                this.winner = res.winner.name + " " +  res.winner.surname
                 this.winner_info = this.winner + " con NIF: " + res.winner.nif
                 //console.log(this.winner)
                 this.isWinner = true
 
             } catch (error) {
-                console.log(error)
+                //console.log(error)
                 this.winner = "Error al realizar el sorteo"
                 this.isWinner = false
             }

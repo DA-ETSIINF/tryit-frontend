@@ -22,6 +22,7 @@
 	<Timeline />
 	<QRReader />
 	<PopupLottery />
+	<EventsViewer />
 
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
@@ -119,6 +120,19 @@
 			</div>
 		</div>
 	</v-card>
+	<v-container fluid>
+	<!-- <v-layout justify-center align-center>
+		<v-flex shrink>
+		<a href="https://t.co/QVQgoLoL91">
+		<v-img 
+		src= "/img/agonia.jpeg"
+		max-height="1080"
+		max-width="1920"
+		></v-img>
+		</a>
+		</v-flex>
+	</v-layout> -->
+	</v-container>
 	<v-card>
 		<h2>¿Dónde estamos?</h2>
 		<Map></Map>
@@ -133,8 +147,8 @@
 	<v-layout justify-center align-center>
 		<v-flex shrink>
 		<v-img 
-		src= "/img/patrocinadores22.png"
-		max-height="1080"
+		src= "/img/patrocinadores23.png"
+			max-height="1080"
 		max-width="1920"
 		></v-img>
 		</v-flex>
@@ -157,7 +171,11 @@ import {
 	QRReader,
 	ViewEcts,
 	PopupLottery,
+<<<<<<< HEAD
 	History
+=======
+	EventsViewer,
+>>>>>>> production
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -172,7 +190,11 @@ import {
 		Timeline,
 		QRReader,
 		PopupLottery,
+<<<<<<< HEAD
 		History
+=======
+		EventsViewer,
+>>>>>>> production
 	},
 })
 
@@ -201,6 +223,9 @@ export default class extends Vue {
 	}
 	toggleQRReader()	{
 		this.$nuxt.$emit("toggleQRReader")
+	}
+	toggleEvViewer()	{
+		this.$nuxt.$emit("toggleEvViewer")
 	}
 	
 }

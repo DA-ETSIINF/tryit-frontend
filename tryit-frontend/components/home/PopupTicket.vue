@@ -3,7 +3,7 @@
     <div v-if="isTicketFormVisible">
       <v-dialog
         v-model="isVisible"
-        max-width="600px"
+        max-width="800px"
       >
         <!-- <template v-slot:activator="{ on, attrs }">
           <v-btn
@@ -24,7 +24,7 @@
           color="green"
           dismissible
         >
-          ¡Entrada generada adecuadamente!
+          ¡Te has registrado correctamente! Mira tu email para confirmarlo.
         </v-alert>
         <v-alert
           v-model="user_already_exists_alert"
@@ -43,7 +43,7 @@
           color="red"
           dismissible
         >
-          Para poder registrarte, necesitas aceptar la política de privacidad y protección de datos. La puedes consultar 
+          Para poder registrarte, necesitas aceptar la política de privacidad y protección de datos, y la cesión de los derechos de imagen. Las puedes consultar 
           
           <v-btn
             depressed
@@ -61,16 +61,16 @@
           color="red"
           dismissible
         >
-          Error al generar la entrada. Habla con la Delegación de Alumnos de Centro.
+          Error al registrarte. Habla con la Delegación de Alumnos de Centro.
         </v-alert> 
         <v-card color="primary">
-            <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Obtén tu entrada!</v-card-title>
+            <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Regístrate y obtén tu entrada!</v-card-title>
             <v-card class="pa-5">  
               <v-form
                 ref="form"
               >
                 <v-row>
-                  <v-col cols="4">
+                  <v-col cols="5">
                     <v-text-field
                       v-model="person_name"
                       label="Nombre*"
@@ -78,7 +78,7 @@
                       required
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="8">
+                  <v-col cols="7">
                     <v-text-field
                       v-model="person_last_name"
                       label="Apellidos*"
@@ -86,15 +86,7 @@
                       required
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12">
-                    <v-text-field
-                      v-model="person_mail"
-                      label="Email*"
-                      required
-                      :rules="emailRules"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="4">
+                  <v-col cols="5">
                     <v-text-field
                       v-model="person_nif"
                       label="NIF/DNI*"
@@ -102,11 +94,46 @@
                       required
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="8">
+                  <v-col cols="7">
                     <v-text-field
                       v-model="person_phone"
                       label="Teléfono de contacto*"
                       :rules="phoneRules"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="5">
+                    <v-text-field
+                      v-model="person_mail"
+                      label="Email*"
+                      required
+                      :rules="isStudent ? studentEmailRules : normalEmailRules"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="7">
+                    <v-text-field
+                      v-model="person_mail2"
+                      label="Vuelve a escribir tu mail*"
+                      required
+                      :rules="confirmEmailRules"
+                    ></v-text-field>
+                  </v-col>
+                  
+                  <v-col cols="5">
+                    <v-text-field
+                      v-model="pass1"
+                      label="Contraseña*"
+                      :rules="passRules"
+                      input type="password"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="7">
+                    <v-text-field
+                      v-model="pass2"
+                      label="Repite tu contraseña*"
+                      :rules="confirmRules"
+                      input type="password"
                       required
                     ></v-text-field>
                   </v-col>
@@ -151,17 +178,15 @@
                 <template v-slot:label>
                   <div>
                     Acepto la
-      
                     <v-btn
                       depressed
                       color="primary"
                       @click="togglePrivacyPolicyVisibility()"
                       plain
                     >
-                      Política de Privacidad y Protección de Datos
+                      Política de Privacidad y Protección de Datos y la Cesión de derechos de Imágen.
                     </v-btn>
-      
-                    al registrarme para el Congreso TryIT!
+    
                   </div>
                 </template>
               </v-checkbox>
@@ -231,13 +256,24 @@
                   Estimado/a Participante: 
                 </v-card-subtitle>
                 <v-card-text>
-                  Al registrarse para este evento, se considera que consiente y manifiesta haber sido informada/o de que sus datos personales serán tratados por
-                  Delegación de Alumnos ETSIINF UPM , que serán responsables de dicho tratamiento conforme a las obligaciones derivadas del cumplimiento del
-                  Reglamento (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos
-                  digitales. La finalidad de este tratamiento es la de proveerle de una entrada gratuita al evento y habilitar su participación en el mismo;
-                  y en el caso de que sea estudiante de una institución educativa que valore la participación en el Congreso TryIT!, acreditar su participación
-                  de cara a dicha institución, proporcionándo a las autoridades competentes de la misma los datos que sean necesarios para su acreditación. 
-                  Tiene derecho a acceder, rectificar y suprimir los datos en cualquier momento escribiendo un correo a tryit.da@fi.upm.es .
+                  Al registrarse para este evento, acepta la  
+                  <v-btn
+                  depressed
+                  color="primary"
+                  href="http://api.congresotryit.es/api/editions/get_privacy"
+                  target="_blank"
+                  plain
+                  >Politica de protección de datos 
+                </v-btn>
+                y la 
+                  <v-btn
+                  depressed
+                  color="primary"
+                  href="http://api.congresotryit.es/api/editions/get_image_rights"
+                  target="_blank"
+                  plain
+                  >Cesión de derechos de imágen.
+                </v-btn>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -373,18 +409,31 @@ export default {
           person_name: "",
           person_last_name: "",
           person_mail: "",
+          person_mail2: "",
           person_nif: "",
           person_phone: "",
           good_alert: false,
           error_alert: false,
-          user_already_exists_alert: false // Specific alert that occurs if user already has a ticket
+          user_already_exists_alert: false, // Specific alert that occurs if user already has a ticket
+          pass1: "",
+          pass2: "",
         }
     },
     computed: {
-      emailRules () { 
-        return [
+          normalEmailRules () { 
+          return [
             v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/.test(v) || 'Introduzca un email válido',
             v => !!v || 'Introduzca su email'
+          ]},
+          studentEmailRules () { 
+          return [
+            v => !v || /^\w+([.-]?\w+)*@alumnos\.upm\.es$/.test(v) || 'Introduce tu mail institucional (@alumnos.upm.es)',
+            v => !!v || 'Introduzca su email'
+          ]},
+          confirmEmailRules () {
+          return [
+            v => !!v || "Confirme su email",
+            v => v === this.person_mail || "Los dos emails no coinciden"
           ]},
           nameRules () { 
             return [
@@ -399,7 +448,8 @@ export default {
           dniRules () { 
             return [
             v => !!v || 'Introduzca su DNI/NIF/NIE',
-            v => (v && v.length <= 10) || 'Su DNI/NIF/NIE debe tener 10 o menos caracteres'
+            v =>  /^[A-Z0-9]+$/.test(v) || 'Su DNI/NIF/NIE debe contener únicamente mayúsculas y números',
+            v => this.validarIdentificacion(v),
           ]},
           phoneRules () { 
             return [
@@ -417,6 +467,16 @@ export default {
           degreeRules () { 
             return  [
             v => !!v || 'Seleccione su grado'
+          ]},
+          passRules () {
+          return [
+            v => !!v || 'Introduzca una contraseña',
+            v => !v || /.{8,}/.test(v) || "La contraseña debe tener al menos 8 dígitos"
+          ]},
+          confirmRules () {
+          return [
+            v => !!v || "Confirme su contraseña",
+            v => v === this.pass1 || "Las contraseñas no coinciden"
           ]},
     },
     async fetch() {
@@ -459,6 +519,12 @@ export default {
           }
         })
       },
+      async getPrivacyPDF() {
+        const res = await this.$axios.post(process.env.api + "/api/editions/get_privacy", data)
+      },
+      async getImagePDF() {
+        const res = await this.$axios.post(process.env.api + "/api/editions/get_image_rights", data)
+      },
       async validateAndPost() {
         if(this.$refs.form.validate())  {
           
@@ -477,14 +543,15 @@ export default {
             "lastname": this.person_last_name,
             "nif": this.person_nif,
             "email": this.person_mail,
+            "password": this.pass1,
             "phone": this.person_phone,
             "degree": this.selectedDegree,
             "is_upm_student": is_upm,
-            "year": "2022" // @TODO This is hardcoded and should be changed.
+            "year": "2023" // @TODO This is hardcoded and should be changed.
           }
           
           try {
-            const res = await this.$axios.post(process.env.api + "/api/editions/2022/create_ticket/", data)
+            const res = await this.$axios.post(process.env.api + "/api/editions/2023/create_ticket/", data)
           
             if (res.status == 200 ) {
               // Everything went fine with the request
@@ -502,8 +569,33 @@ export default {
           }
 
         }
-      }
-    },
+      },
+      validarIdentificacion(nif) {
+        nif = nif.toUpperCase().replace(/[_\W\s]+/g, '');
+        var esDni = /^(\d|[XYZ])\d{7}[A-Z]$/.test(nif);
+        var esNif = /^[ABCDEFGHJKLMNPQRSUVW]\d{7}[\dA-J]$/.test(nif)
+        if(esDni) {
+            var num = nif.match(/\d+/);
+            num = (nif[0]!='Z'? nif[0]!='Y'? 0: 1: 2)+num;
+            if(nif[8]=='TRWAGMYFPDXBNJZSQVHLCKE'[num%23]) {
+                return /^\d/.test(nif)? true: true;
+            }
+        }
+        else if(esNif) {
+            for(var sum=0,i=1;i<8;++i) {
+                var num = nif[i]<<i%2;
+                sum += int(num/10)+num%10
+            }
+            var c = (10-su)%10;
+            if( ((/[KLMNPQRSW]/.test(nif[0]) || (nif[1]+nif[2])=='00') && nif[8]=='JABCDEFGHI'[c]) ||
+                (/[ABEH]/.test(nif[0]) && nif[8]==c) ||
+                (/[CDFGJUV]/.test(nif[0]) && (nif[8]=='JABCDEFGHI'[c] || nif[8]==c)) ) {
+                return /^[KLM]/.test(nif)? true: true;
+            }
+        }
+        return "Tu DNI/NIF/NIE no es válido";
+        }
+},
     created() {
       this.$nuxt.$on("toggleTicketForm", () => {
         this.isVisible = !this.isVisible

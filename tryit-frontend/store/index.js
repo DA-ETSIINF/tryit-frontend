@@ -1,7 +1,9 @@
 export const state = () => ({
     isLogged: false,
     isAdmin: false,
-    userToken: ""
+    isScanner: false,
+    isStudent: false,
+    userToken: "",
 })
 
 export const mutations = {
@@ -18,11 +20,19 @@ export const mutations = {
     },
     revokeAdminAccess(state)    {
         state.isAdmin = false
+    },
+    giveScanAccess(state)  {
+        state.isScanner = true
+    },
+    revokeScanAccess(state)    {
+        state.isScanner = false
     }
 }
 
 export const getters =  {
     getLogged: state => state.isLogged,
+    getStudent: state => state.isStudent,
     getAdmin: state => state.isAdmin,
+    getScanner: state => state.isScanner,
     getToken: state => state.userToken
 }

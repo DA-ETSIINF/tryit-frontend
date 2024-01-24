@@ -59,7 +59,6 @@
                 <v-text-field
                   v-model="nif"
                   label="NIF*"
-                  :rules="nameRules"
                   required
                 ></v-text-field>
                 </v-form>
@@ -161,7 +160,7 @@ export default {
                 this.credits = "Te corresponden " + res.ects + " ECTS"
 
             } catch (error) {
-                console.log(error)
+                //console.log(error)
                 this.nif_404_alert = true
             }
         },
