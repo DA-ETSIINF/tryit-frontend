@@ -138,6 +138,12 @@
 		<Map></Map>
 	</v-card>
 	<v-container fluid>
+		<v-card>
+			<h2>Ediciones anteriores</h2>
+			<History />
+		</v-card>
+	</v-container>
+	<v-container fluid>
 	<v-layout justify-center align-center>
 		<v-flex shrink>
 		<v-img 
@@ -165,7 +171,11 @@ import {
 	QRReader,
 	ViewEcts,
 	PopupLottery,
+<<<<<<< HEAD
+	History
+=======
 	EventsViewer,
+>>>>>>> production
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -180,7 +190,11 @@ import {
 		Timeline,
 		QRReader,
 		PopupLottery,
+<<<<<<< HEAD
+		History
+=======
 		EventsViewer,
+>>>>>>> production
 	},
 })
 

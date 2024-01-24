@@ -1,0 +1,182 @@
+{
+  "tryits":
+      [
+          {
+            "year": "2016",
+            "active": false,
+            "displayLogo": false,
+            "topImage": "/img/historico/2016/qr.png",
+            "body": [
+              {
+                "subtitle": "Resumen",
+                "pgrph": "En la edición de 2016 se contó con múltiples charlas y actividades útiles para los alumnos. Desde modelos de riesgo en infraestructuras críticas, ciberseguridad, big-data e inteligencia artificial hasta microservicios... ¡Y mucho más!",
+                "img": "/img/historico/2016/events.jfif"
+              },
+              {
+                "subtitle": "¡Patrocinadores de la edición 2016!",
+                "pgrph": ""
+              },
+              {
+                "pgrph": "Deloitte",
+                "link": "https://www2.deloitte.com/es/es.html"
+              },
+              {
+                "pgrph": "Everis",
+                "link": "https://es.nttdata.com/"
+              },
+              {
+                "pgrph": "Accenture",
+                "link": "https://www.accenture.com/es-es"
+              },
+              {
+                "pgrph": "Stratio",
+                "link": "https://www.stratio.com/home"
+              },
+              {
+                "pgrph": "Paradigma",
+                "link": "https://www.paradigmadigital.com/"
+              }
+            ],
+            "image": "/img/historico/2016/febrero-irene.png"
+          },
+          {
+            "year": "2017",
+            "active": false,
+            "displayLogo": true,
+            "topImage": "/img/historico/2017/top.jfif",
+            "body": [
+              {
+                "subtitle": "¿Qué fue la V edición del TryIT!?:",
+                "pgrph": "El Congreso TryIT! de 2017 fue un evento enfocado en la tecnología y la innovación. Durante el congreso, se llevaron a cabo diversas actividades y conferencias que abarcaron temas como la inteligencia artificial, el Internet de las cosas y la realidad virtual."
+              },
+              {
+                "subtitle": null,
+                "pgrph": "Los asistentes al congreso pudieron participar en talleres y charlas impartidas por expertos en tecnología de renombre. Además, hubo una zona de exhibición donde se mostraron las últimas innovaciones en tecnología."
+              },
+              {
+                "subtitle": "¡Competiciones y actividades!",
+                "pgrph": "Uno de los aspectos más destacados del Congreso TryIT! de 2017 fue la competición de proyectos tecnológicos, donde estudiantes y profesionales presentaron sus ideas más innovadoras. También se entregaron premios a los mejores proyectos y se celebró una ceremonia de clausura en la que se destacaron los logros del evento."
+              },
+              {
+              "subtitle": "Conclusión:",
+              "pgrph": "En resumen, el Congreso TryIT! de 2017 fue un evento lleno de actividades interesantes y relevantes en el campo de la tecnología y la innovación, que reunió a expertos y entusiastas de todo el mundo para intercambiar ideas y aprender de las últimas tendencias en el mundo digital.",
+              "img":"/img/historico/2017/expo1.jfif"
+              }
+            ],
+            "image": "/img/historico/2017/expo3.jfif"
+          },
+          {
+            "year": "2018",
+            "active": false,
+            "displayLogo": false,
+            "topImage": "/img/historico/2018/sample.jfif",
+            "body": [
+              {
+                "subtitle": "¡¡¡TryIT! edición de 2018!!!",
+                "pgrph": "La VI edición del TryIT! fue un evento dedicado a la tecnología y la innovación que tuvo lugar en el mes de marzo. Durante el congreso se llevaron a cabo diversas actividades que incluyeron talleres, conferencias y demostraciones tecnológicas."
+              },
+              {
+                "subtitle":   "Actividades destacadas:",
+                "pgrph": "Uno de los aspectos más destacados del evento fue la celebración de un hackathon, una maratón de programación donde los participantes tuvieron que crear soluciones tecnológicas innovadoras en un tiempo limitado. Además, se presentaron ponencias y charlas sobre temas como la inteligencia artificial, la realidad virtual y aumentada al igual que sobre la ciberseguridad.",
+                "img":"/img/historico/2018/expo1.jfif"
+              },
+              {
+                "pgrph": "También se contó con una zona de exhibición donde empresas y organizaciones mostraron sus últimos avances tecnológicos. Los asistentes tuvieron la oportunidad de interactuar con robots, drones y otras tecnologías innovadoras."
+              },
+              {
+                "pgrph": "Otro aspecto destacado del evento fue la participación de estudiantes de la UPM, quienes presentaron sus proyectos y soluciones tecnológicas en una competición especial. También hubo una ceremonia de clausura donde se entregaron premios a los mejores proyectos y se destacaron los logros del congreso.",
+                "img": "/img/historico/2018/expo.png"
+              },
+              {
+                "subtitle": "¿Entonces qué fue el TryIT! de 2018?",
+                "pgrph": "Fue un evento lleno de actividades innovadoras y relevantes en el campo de la tecnología, que reunió a expertos, empresas y estudiantes para intercambiar ideas, mostrar los últimos avances en el mundo digital y ayudar a conectar a dichos estudiantes con el mundo empresarial y laboral.",
+                "img": "/img/historico/2018/banner.jfif"
+              }
+            ],
+            "image": "/img/historico/2018/TryIT2018.png"
+          },
+          {
+            "year": "2019",
+            "active": false,
+            "topImage": "/img/historico/2019/top(1).jfif",
+            "body": [
+              {
+                "subtitle": "VII edición del TryIT!:",
+                "pgrph": "Fue un evento dedicado a la tecnología y la innovación. Durante el congreso se llevaron a cabo diversas actividades que incluyeron talleres, conferencias y demostraciones tecnológicas."
+              },
+              {
+                "subtitle": "¡Eventos y más!",
+                "pgrph": "Una de las actividades más destacadas del evento fue la participación de reconocidos expertos en tecnología, quienes impartieron charlas y conferencias sobre temas como la inteligencia artificial, el Internet de las cosas, la ciberseguridad y la industria 4.0. Además, hubo talleres prácticos donde los asistentes pudieron aprender sobre el desarrollo de aplicaciones móviles, la programación en Python y otros temas relacionados con la tecnología.",
+                "img": "/img/historico/2019/expo.jfif"
+              },
+              {
+                "pgrph": "El Congreso TryIT! de 2019 también contó con una zona de exposición donde empresas y organizaciones presentaron sus últimos avances tecnológicos. Los asistentes tuvieron la oportunidad de interactuar con robots, drones y otras tecnologías innovadoras."
+              },
+              {
+                "pgrph": "Otro aspecto destacado del evento fue la celebración de una competición de proyectos tecnológicos, donde estudiantes y profesionales presentaron sus soluciones innovadoras en diferentes áreas, como la salud, el medio ambiente y la educación. También hubo una ceremonia de clausura donde se entregaron premios a los mejores proyectos y se destacaron los logros del congreso."
+              }
+            ],
+            "image": "/img/historico/2019/TryIT2019.jfif"
+          },
+          {
+            "year": "2021",
+            "active": false,
+            "topImage": "",
+            "body": [
+              {
+                "subtitle": "¡Ahora también con edición telemática!",
+                "pgrph": "El Congreso TryIT! de 2021 fue un evento dedicado a la tecnología y la innovación que se llevó a cabo de forma completamente virtual. A pesar de las limitaciones impuestas por la pandemia, el evento contó con una amplia variedad de actividades."
+              },
+              {
+                "subtitle": "Actividades:",
+                "pgrph": "Durante el congreso se llevaron a cabo diferentes tipos de actividades, como conferencias, talleres, presentaciones y mesas redondas, abarcando temas como la inteligencia artificial, la tecnología blockchain, la ciberseguridad y la sostenibilidad. Las actividades fueron impartidas por expertos de renombre en cada una de las áreas."
+              },
+              {
+                "pgrph": "Además, el Congreso TryIT! de la UPM de 2021 contó con una zona de exhibición virtual donde las empresas y organizaciones presentaron sus últimos avances tecnológicos.",
+                "img": "/img/historico/2021/expo.jfif"
+              }
+            ],
+            "image": "/img/historico/2021/programa.jfif"
+          },
+          {
+            "year": "2022",
+            "active": false,
+            "topImage": "/img/historico/2022/perrituuuBailando.jfif",
+            "body": [
+              {
+                "subtitle": "¡La X edición del congreso favorito de los alumnos de la UPM!",
+                "pgrph": "El Congreso TryIT! de 2022 fue un evento enfocado en la tecnología y la innovación. Durante el congreso, se llevaron a cabo diversas actividades, conferencias y talleres que abarcaron temas como la inteligencia artificial, la protección de datos, la ciberseguridad y muchos otros relacionados con la tecnología y el mundo laboral.",
+                "img": "/img/historico/2022/events.jfif"
+              },
+              {
+                "subtitle": "Actividades y eventos:",
+                "pgrph": "En esta edición del congreso se destacaron múltiples eventos y ponencias. Entre lo más relevante se encuentran las exposiciones de ponentes de lo más relevantes y con mucha experiencia en el ámbito de la informática y las tecnologías. ¡Además se pudo interactuar con uno de los \"invitados especiales\"!:",
+                "img": "/img/historico/2022/perrituuu.jfif"
+              },
+              {
+                "pgrph": "¡Conoce a SPoC!",
+                "link": "https://twitter.com/SPoCDog"
+              }
+            ],
+            "image": "/img/historico/2022/TryIT2022.jfif"
+          },
+          {
+            "year": "2023",
+            "active": false,
+            "topImage": "/img/historico/2023/ayudantes.jpg",
+            "body": [
+              {
+                "subtitle": "¡La mayor edición del TryIt! hasta entonces!",
+                "pgrph": "El Congreso TryIT! de 2023 fue un evento enfocado en la tecnología y la innovación, pero también en el futuro laboral de los alumnos de la UPM y lo que les espera en el futuro. El evento estuvo formado por una variedad de actividades, conferencias, charlas y talleres que abarcaron temas desde los nuevos desarollos de la inteligencia artificial hasta el mundo de la ciberseguridad y lo que le espera a los alumnos que se quieren dedicar a eso.",
+                "img": "/img/historico/2023/pres_innovacion.jpg"
+              },
+              {
+                "subtitle": "Actividades y eventos:",
+                "pgrph": "Los asistentes al TryIt! del 2023 pudieron formar parte de múltiples actividades y eventos, como por ejemplo un escape room organizado por los alumnos, dar una vuelta en globo por el campus o participar en el Hunt, nuestra propia versión de un Hackaton!",
+                "img": "/img/historico/2023/alumnos.jpg"
+              }
+            ],
+            "image": "/img/historico/2023/pres_inteum.jpg"
+          }
+        ]
+}
