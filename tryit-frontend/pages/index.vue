@@ -147,10 +147,7 @@
 	<v-layout justify-center align-center>
 		<v-flex shrink>
 		<v-img 
-		src= "/img/patrocinadores23.png"
-			max-height="1080"
-		max-width="1920"
-		></v-img>
+		src= "/img/patrocinadores24.png" max-height="1080" max-width="1920"></v-img>
 		</v-flex>
 	</v-layout>
 	</v-container>
@@ -171,11 +168,8 @@ import {
 	QRReader,
 	ViewEcts,
 	PopupLottery,
-<<<<<<< HEAD
-	History
-=======
+	History,
 	EventsViewer,
->>>>>>> production
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -190,11 +184,8 @@ import {
 		Timeline,
 		QRReader,
 		PopupLottery,
-<<<<<<< HEAD
-		History
-=======
+		History,
 		EventsViewer,
->>>>>>> production
 	},
 })
 

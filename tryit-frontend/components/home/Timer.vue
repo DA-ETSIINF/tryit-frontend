@@ -50,7 +50,7 @@
                             
                         </tr>
                         <td colspan="4">
-                        <h2>  13 a 17 de Marzo de 2024  </h2>
+                        <h2>  18 a 22 de Marzo de 2024  </h2>
                         </td>
                     </tfoot>
                 </table>
@@ -135,7 +135,7 @@ import Vue from "vue";
 export default  Vue.extend({
     data()  {
         return{
-            secondsLeft : (new Date("2024-03-13T10:00:00+01:00").getTime() - Date.now())/1000,
+            secondsLeft : (new Date("2024-03-18T10:00:00+01:00").getTime() - Date.now())/1000,
         }
     },
     computed:   {
