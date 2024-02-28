@@ -27,7 +27,7 @@
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
 		<p class="section-description">
-			Un congreso orientado a difundir las tendencias actuales tecnológicas.
+			El Try It! es el congreso tecnológico más grande de la UPM, con el objetivo de acercar las tendencias tecnológicas actuales a los participantes, así como ofrecer un contacto directo con las empresas más punteras.
 		</p>
 		<div class="properties">
 			<div
@@ -55,8 +55,7 @@
 				<h3>Temática diversa</h3>
 				<div class="description">
 					<p>
-						Podrás asistir a charlas y talleres de programación web, Big Data, Blockchain,
-						aplicaciones móviles, VR...
+						Podras asistir a ponencias y talleres de temas como las IAs generativas, el blockchain, la ciberseguridad, la ciencia de datos o las últimas innovaciones en computación.
 					</p>
 				</div>
 				<div class="icon">
@@ -75,8 +74,7 @@
 				<h3>Ponencias y talleres</h3>
 				<div class="description">
 					<p>
-						Podrás asistir a una amplia variedad de charlas y talleres donde podrás aumentar tus
-						conocimientos
+						Podrás asistir a una variedad de ponencias y talleres ofrecidos por expertos en su ámbito en los que aprender y renovar tu skillset.
 					</p>
 				</div>
 				<div class="icon">
@@ -86,14 +84,30 @@
 			</div>
 			<div
 				class="property"
+				:class="{ active: paragraphActive === 'competitions_n_tournaments' }"
+				@click="paragraphActive = 'competitions_n_tournaments'"
+			>
+				<h3>Competiciones</h3>
+				<div class="description">
+					<p>
+						Desde competiciones deportivas, hasta matemáticas y de programación, y pasando por competiciones de videojuegos, el Try IT! te permite poner a prueba tu conocimiento en distintas áreas contra otros competidores. !Atento a nuestras redes para más información!
+					</p>
+				</div>
+				<div class="icon">
+					<div class="bck"></div>
+					<i class="fas fa-trophy"></i>
+				</div>
+			</div>
+			<div
+				class="property"
 				:class="{ active: paragraphActive === 'free' }"
 				@click="paragraphActive = 'free'"
 			>
-				<h3>Acceso gratuito</h3>
+				<h3>Entradas gratuitas</h3>
 				<div class="description">
 					<p>
-						Try IT! lo organiza DA-ETSIINF en colaboración con ACM-UPM y la ETSI Informáticos. Está hecho por y para estudiantes.
-						Perseguimos la formación y no el lucro.
+						¡Es completamente gratis venir!
+						El Try It! se organiza en colaboración con la ETSI Informáticos, DA-ETSIINF y distintas asociaciones, que colaboran en garantizar el acceso a todos a las últimas novedades en el campo de la informática.
 					</p>
 				</div>
 				<div class="icon">
@@ -109,7 +123,7 @@
 				<h3>Reconocimiento de ECTS</h3>
 				<div class="description">
 					<p>
-						Try IT! se incluye en el Catálogo General de Reconocimiento de Créditos de la UPM.
+						El Try IT! se incluye en el Catálogo General de Reconocimiento de Créditos de la UPM.
 						Podrás obtener hasta 2 ECTS.
 					</p>
 				</div>
@@ -199,7 +213,7 @@ export default class extends Vue {
 		scrollOverflow: true
 	}
 	
-	paragraphActive: "talks_n_workshops" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
+	paragraphActive: "talks_n_workshops" | "topics" | "competitions_n_tournaments" | "companies" | "free" | "diverse_topics" | "ects" | "" = ""
 	goTo(path: string) {
 		window.location.href = path // TODO use router
 	}
