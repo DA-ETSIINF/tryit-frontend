@@ -187,7 +187,7 @@
         <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/" class="contact-button">
           <v-icon>mdi-github</v-icon>
         </v-btn>
-        <v-btn fab target="_blank" href="https://www.instagram.com/daetsiinf/" class="contact-button">
+        <v-btn fab target="_blank" href="https://www.instagram.com/tryit_upm/ class="contact-button">
           <v-icon>mdi-instagram</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
