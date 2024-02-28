@@ -178,14 +178,17 @@
       </v-footer>    
       <v-footer color="secondary">
         <v-spacer></v-spacer>
-        <v-btn fab target="_blank" href="https://twitter.com/tryit_upm">
+        <v-btn fab target="_blank" href="https://twitter.com/tryit_upm" class="contact-button">
           <v-icon>mdi-twitter</v-icon>
         </v-btn>
-        <v-btn fab target="_blank" href="mailto:tryit.da@fi.upm.es">
+        <v-btn fab target="_blank" href="mailto:tryit.da@fi.upm.es" class="contact-button">
           <v-icon>mdi-email</v-icon>
         </v-btn>
-        <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/">
+        <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/" class="contact-button">
           <v-icon>mdi-github</v-icon>
+        </v-btn>
+        <v-btn fab target="_blank" href="https://www.instagram.com/daetsiinf/" class="contact-button">
+          <v-icon>mdi-instagram</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
       </v-footer>    
@@ -257,6 +260,10 @@ export default class extends Vue {
 
 .v-toolbar__title {
   font-size: 100%!important;
+}
+
+.contact-button{
+  margin-right: 5px;
 }
 
 </style>
