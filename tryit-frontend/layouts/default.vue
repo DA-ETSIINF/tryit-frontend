@@ -173,7 +173,7 @@
       
       <v-footer color="secondary">
         <v-spacer></v-spacer>
-        <p class="white--text">&nbsp;&nbsp;Contacto&nbsp;&nbsp;</p>
+        <p padding-bottom="0px" style="margin-bottom:0px; padding-bottom:0px" class="white--text">&nbsp;&nbsp;Contacto&nbsp;&nbsp;</p>
         <v-spacer></v-spacer>
       </v-footer>    
       <v-footer color="secondary">
@@ -191,7 +191,7 @@
           <v-icon>mdi-instagram</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
-      </v-footer>    
+      </v-footer>
   </v-app>
 </template>
 <script lang="ts">
