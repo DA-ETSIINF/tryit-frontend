@@ -28,7 +28,7 @@
 
 
         <v-tooltip left :disabled="tooltips[1]" v-model="tooltips[1]" 
-            v-if="!(this.$auth.loggedIn && this.$auth.user.ticket_id)">
+            v-if="!hasTicket()">
             <v-btn
             slot="activator"
             fab
@@ -104,6 +104,9 @@ export default {
         },
         showLottery()   {
             this.$nuxt.$emit("toggleLottery")
+        },
+        hasTicket() { // @info Returns TRUE if user has a ticket
+            return this.$auth.loggedIn && this.$auth.user.ticket_id !== "undefined"
         }
     }
 }

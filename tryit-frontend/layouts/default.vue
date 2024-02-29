@@ -246,7 +246,7 @@ export default class extends Vue {
     return this.$auth.loggedIn && this.$auth.user.isscanner
   }
   hasTicket() { // @info Returns TRUE if user has a ticket
-    return this.$auth.loggedIn && this.$auth.user.ticket_id
+    return this.$auth.loggedIn && this.$auth.user.ticket_id !== "undefined"
   }
 }
 </script>

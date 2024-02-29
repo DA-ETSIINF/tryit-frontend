@@ -474,7 +474,7 @@ export default {
           }
           try {
             const res = await this.$axios.post(`${process.env.api}/api/editions/${process.env.edition}/create_ticket/`)
-            if (res.status == 200 ) {
+            if (res.status == 201 ) {
               // Everything went fine with the request
               this.good_alert = true
               this.$auth.fetchUser() // Fetch user to update the ticket
@@ -521,7 +521,7 @@ export default {
         this.$auth.loginWith("SIU")
       },
       hasTicket() {
-        return this.$auth.loggedIn && this.$auth.user.ticket_id
+        return this.$auth.loggedIn && this.$auth.user.ticket_id !== "undefined"
       }
 },
     created() {
