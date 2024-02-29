@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import * as fs from "fs";
+import * as path from "path";
 
 export default {
 	server: {
@@ -126,8 +128,8 @@ export default {
 		}
 	},
 	modules: ["@nuxtjs/axios",
-			  "@nuxtjs/auth-next",
-		],
+		"@nuxtjs/auth-next",
+	],
 	axios: {},
 	router: {
 		middleware: "routing-auth",
@@ -158,6 +160,13 @@ export default {
 				token: { // Sets the token for axios automatically
 					'property': 'key',
 					'type': 'Token'
+				},
+				cookie: { // Also sets cookie
+					name: 'sessionid',
+					options: {
+						path: '/',
+						secure: true
+					}
 				}
 			}
 		}
