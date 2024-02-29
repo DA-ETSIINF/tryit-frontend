@@ -31,10 +31,11 @@
             ¡Error al reenviar la entrada! Inténtalo de nuevo más tarde.
       </v-alert>
     <v-card >
-        <v-card-title class="text-h6 text-md-h5 text-lg-h4 justify-center"> De momento te corresponden {{ this.total_ects }} ECTS</v-card-title>
+        <v-card-title v-if="this.$auth.loggedIn" class="text-h6 text-md-h5 text-lg-h4 justify-center"> {{ this.$auth.user.name }}, de momento te corresponden {{ this.total_ects }} ECTS</v-card-title>
         <v-container>
             <template>
             <v-timeline 
+                v-if="this.items && this.items.length > 0"
                 density="compact"
                 side="end"
                 >
@@ -119,26 +120,20 @@ export default {
             this.$store.commit("revokeAdminAccess")
         },
         async get_events() {
-            const userToken = this.$store.getters.getToken
-            const config = {
-                headers: {
-                    Authorization: "Token " + userToken,
-                }
-            }
-            var res;
+            let res;
             try{
-                res = await axios.get(process.env.api + "/api/editions/2023/get_events/", config)
+                res = await this.$axios.get(`${process.env.api}/api/editions/${process.env.edition}/get_events/`)
             }
             catch(error){
                 console.log(error)
                 this.event_error = true
                 return
             };
+            this.total_ects = 0
             this.items = []
             let i = 0
             //console.log(res.data)
             for (event of res.data){
-                console.log(event)
                 i++
                 this.items.push({
                     id: i,
@@ -152,17 +147,12 @@ export default {
                 
         },
         async resendTicket() {
-            const userToken = this.$store.getters.getToken
-            const config = {
-                headers: {
-                    Authorization: "Token " + userToken,
-                }
-            }
             try{
-                const res = await axios.get(process.env.api + "/api/users/resend_ticket/", config)
+                const res = await this.$axios.get(process.env.api + "/api/users/resend_ticket/")
+                this.ticket_email_sent_ok = true
             }
             catch(error){
-                //console.log(error)
+                console.log(error)
                 this.erro = true
             };
         },
@@ -171,11 +161,11 @@ export default {
         }
     },
     created() {
-        this.$nuxt.$on("logged", () => {
-            this.get_events()
-        })
         this.$nuxt.$on("toggleEvViewer", () => {
             this.isVisible = !this.isVisible
+            if(this.isVisible){
+                this.get_events()
+            }
         })
     }
   }

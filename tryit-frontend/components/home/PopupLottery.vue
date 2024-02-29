@@ -5,9 +5,7 @@
       max-width="600px"
     >
     
-        <Login v-if="!$store.getters.getLogged"/>
-        <v-alert v-else-if="!$store.getters.getAdmin" type="error">Este usuario no posee permisos de administrador
-            <v-btn @click="launchLogout">Cerrar sesión</v-btn>      
+        <v-alert  v-if="!this.$auth.loggedIn || !this.$auth.user.isadmin" type="error">Este usuario no posee permisos de administrador
         </v-alert>
         <v-alert
             v-model="show_info_alert"
@@ -198,12 +196,9 @@
 </template>
 
 <script>
-import Login from "./Login"
+
 
 export default {
-    components: {
-        Login
-    },
     data()  {
         return{
           eventValue: [], // Event to be registered
@@ -227,9 +222,8 @@ export default {
     async fetch() {
         const d = new Date();
         let today = d.getFullYear() + "-0" + (d.getMonth()+1) + "-" + d.getDate()
-        //let today = "2022-03-16" //for testing
-        //console.log(today)
-        this.days = await this.$axios.$get(process.env.api + `/api/editions/2022/schedule`)
+        //today = "2024-03-19"; //for testing
+        this.days = await this.$axios.$get(`${process.env.api}/api/editions/${process.env.edition}/schedule`)
         for ( var post of this.days) {
             for(var ev of post.events){
                 if(post.day == today){
@@ -274,14 +268,14 @@ export default {
             }
 
             try {
-                const res = await this.$axios.$post(process.env.api + `/api/editions/2022/prizes/`, {
+                const res = await this.$axios.$post(`${process.env.api}/api/editions/${process.env.edition}/prizes/`, {
                     is_global: this.isGlobalRaffle,
                     awards: selectedIds,
                     event: this.eventValue,
                 })
                 //console.log(res)
                 this.winner = res.winner.name + " " +  res.winner.surname
-                this.winner_info = this.winner + " con NIF: " + res.winner.nif
+                this.winner_info = this.winner + " con " + res.winner.nif
                 //console.log(this.winner)
                 this.isWinner = true
 

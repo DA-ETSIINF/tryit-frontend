@@ -1,22 +1,10 @@
 <template>
   <div>
-    <div v-if="isTicketFormVisible">
+    <div v-if="isTicketFormVisible && !hasTicket()">
       <v-dialog
         v-model="isVisible"
         max-width="800px"
       >
-        <!-- <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            color="primary"
-            dark
-            block
-            height=30vh
-            v-bind="attrs"
-            v-on="on"
-          >
-          CONSIGUE TU ENTRADA PULSANDO AQUÍ
-          </v-btn>
-        </template> -->
         <v-alert
           v-model="good_alert"
           type="success"
@@ -24,7 +12,7 @@
           color="green"
           dismissible
         >
-          ¡Te has registrado correctamente! Mira tu email para confirmarlo.
+          ¡Te has registrado correctamente! En unos momentos recibirás un email con tu entrada.
         </v-alert>
         <v-alert
           v-model="user_already_exists_alert"
@@ -43,7 +31,7 @@
           color="red"
           dismissible
         >
-          Para poder registrarte, necesitas aceptar la política de privacidad y protección de datos, y la cesión de los derechos de imagen. Las puedes consultar 
+          Para poder obtener tu entrada, necesitas aceptar la política de privacidad y protección de datos, y la cesión de los derechos de imagen. Las puedes consultar 
           
           <v-btn
             depressed
@@ -64,7 +52,7 @@
           Error al registrarte. Habla con la Delegación de Alumnos de Centro.
         </v-alert> 
         <v-card color="primary">
-            <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Regístrate y obtén tu entrada!</v-card-title>
+            <v-card-title class="white--text primary text-h5">¿Quieres asistir al TryIT! ? ¡Obtén tu entrada!</v-card-title>
             <v-card class="pa-5">  
               <v-form
                 ref="form"
@@ -74,102 +62,33 @@
                     <v-text-field
                       v-model="person_name"
                       label="Nombre*"
-                      :rules="nameRules"
-                      required
+                      readonly=true
+                      disabled=true
                     ></v-text-field>
                   </v-col>
                   <v-col cols="7">
                     <v-text-field
                       v-model="person_last_name"
                       label="Apellidos*"
-                      :rules="surnameRules"
-                      required
+                      readonly=true
+                      disabled=true
                     ></v-text-field>
                   </v-col>
                   <v-col cols="5">
                     <v-text-field
                       v-model="person_nif"
                       label="NIF/DNI*"
-                      :rules="dniRules"
-                      required
-                    ></v-text-field>
+                      readonly=true
+                      disabled=true
+                    ></v-text-field>  
                   </v-col>
                   <v-col cols="7">
-                    <v-text-field
-                      v-model="person_phone"
-                      label="Teléfono de contacto*"
-                      :rules="phoneRules"
-                      required
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="5">
                     <v-text-field
                       v-model="person_mail"
                       label="Email*"
-                      required
-                      :rules="isStudent ? studentEmailRules : normalEmailRules"
+                      readonly=true
+                      disabled=true
                     ></v-text-field>
-                  </v-col>
-                  <v-col cols="7">
-                    <v-text-field
-                      v-model="person_mail2"
-                      label="Vuelve a escribir tu mail*"
-                      required
-                      :rules="confirmEmailRules"
-                    ></v-text-field>
-                  </v-col>
-                  
-                  <v-col cols="5">
-                    <v-text-field
-                      v-model="pass1"
-                      label="Contraseña*"
-                      :rules="passRules"
-                      input type="password"
-                      required
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="7">
-                    <v-text-field
-                      v-model="pass2"
-                      label="Repite tu contraseña*"
-                      :rules="confirmRules"
-                      input type="password"
-                      required
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-                <v-row>
-                  <v-col cols="12">
-                    <v-checkbox
-                      v-model="isStudent"
-                      label="Soy estudiante y mi universidad reconoce el TryIT! como actividad acreditable.">
-                    </v-checkbox>
-                    <v-autocomplete
-                      v-model="selectedUniv"
-                      v-if="isStudent"
-                      :items="universities"
-                      v-on:change="getSchools"
-                      label="Universidad"
-                      :rules="universityRules"
-                      required
-                    ></v-autocomplete>
-                    <v-autocomplete
-                      v-model="selectedSchool"
-                      v-if="isStudent"
-                      :items="schools"
-                      v-on:change="getDegrees"
-                      label="Centro"
-                      :rules="schoolRules"
-                      required
-                    ></v-autocomplete>
-                    <v-autocomplete
-                      v-model="selectedDegree"
-                      v-if="isStudent"
-                      :items="filteredDegrees"
-                      label="Titulación"
-                      :rules="degreeRules"
-                      required
-                    ></v-autocomplete>
                   </v-col>
                 </v-row>
       
@@ -323,7 +242,38 @@
       
         </v-dialog>
     </div>
-    <div v-else >
+    <div v-else-if="isTicketFormVisible && !this.$auth.loggedIn">
+      <v-dialog
+        v-model="isVisible"
+        max-width="610px"
+      >
+        <v-card>
+          <v-card-title>Para obtener tu entrada, necesitas iniciar sesión o registrarte.</v-card-title>
+          <v-card-text>¡Regístrate o inicia sesión para obtener tu entrada!</v-card-text>
+          <v-card-actions>
+            <v-btn
+              color="primary"
+              small
+              outlined
+              :style="{left: '50%', transform:'translateX(-50%)'}"
+              @click="loginSIU"
+            >
+              <v-icon 
+                dark
+                dense
+                color="primary"
+                left
+              >
+                <!-- mdi-information-outline -->
+                mdi-login
+              </v-icon>
+              Iniciar Sesión/Registro
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+    <div v-else-if="!isTicketFormVisible" >
     <template>  
       <v-dialog
         v-model="isVisible"
@@ -399,24 +349,13 @@ export default {
           acceptsPrivacyPolicy: false,
           must_accept_privacy_terms_alert: false, // Alert that pops up when a user tries to create a ticket without accepting the privacy terms
           isTicketFormVisible: false,
-          universities: [],
-          selectedUniv: "",
-          schools: [],
-          selectedSchool: "",
-          degrees: [],
-          filteredDegrees: [],
-          selectedDegree: "",
           person_name: "",
           person_last_name: "",
           person_mail: "",
-          person_mail2: "",
           person_nif: "",
-          person_phone: "",
           good_alert: false,
           error_alert: false,
           user_already_exists_alert: false, // Specific alert that occurs if user already has a ticket
-          pass1: "",
-          pass2: "",
         }
     },
     computed: {
@@ -528,34 +467,17 @@ export default {
       async validateAndPost() {
         if(this.$refs.form.validate())  {
           
-          var is_upm = false
           if (this.acceptsPrivacyPolicy != true) {
-
+            
             this.must_accept_privacy_terms_alert = true
             return
           }
-          if( this.selectedUniv == "Universidad Politécnica de Madrid" ) {
-            is_upm = true
-          }
-
-          var data = {
-            "name": this.person_name,
-            "lastname": this.person_last_name,
-            "nif": this.person_nif,
-            "email": this.person_mail,
-            "password": this.pass1,
-            "phone": this.person_phone,
-            "degree": this.selectedDegree,
-            "is_upm_student": is_upm,
-            "year": "2023" // @TODO This is hardcoded and should be changed.
-          }
-          
           try {
-            const res = await this.$axios.post(process.env.api + "/api/editions/2023/create_ticket/", data)
-          
+            const res = await this.$axios.post(`${process.env.api}/api/editions/${process.env.edition}/create_ticket/`)
             if (res.status == 200 ) {
               // Everything went fine with the request
               this.good_alert = true
+              this.$auth.fetchUser() // Fetch user to update the ticket
             }
             // Else
           } catch (error) {
@@ -594,11 +516,23 @@ export default {
             }
         }
         return "Tu DNI/NIF/NIE no es válido";
-        }
+        },
+      loginSIU() {
+        this.$auth.loginWith("SIU")
+      },
+      hasTicket() {
+        return this.$auth.loggedIn && this.$auth.user.ticket_id
+      }
 },
     created() {
       this.$nuxt.$on("toggleTicketForm", () => {
         this.isVisible = !this.isVisible
+        if(this.isVisible && this.$auth.loggedIn) {
+          this.person_name = this.$auth.user.name
+          this.person_last_name = this.$auth.user.surname
+          this.person_mail = this.$auth.user.email
+          this.person_nif = this.$auth.user.nif
+        }
       })
     }
   }

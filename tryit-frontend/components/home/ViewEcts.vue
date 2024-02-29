@@ -154,8 +154,7 @@ export default {
 
 
             try {
-                const res = await this.$axios.$post(process.env.api + `/api/editions/2022/ects_query/`, {
-                    nif: this.nif
+                const res = await this.$axios.$post(`${process.env.api}/api/editions/${process.env.edition}/ects_query/`, {
                 })
                 this.credits = "Te corresponden " + res.ects + " ECTS"
 

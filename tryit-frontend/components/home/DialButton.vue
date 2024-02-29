@@ -27,7 +27,8 @@
         </template>
 
 
-        <v-tooltip left :disabled="tooltips[1]" v-model="tooltips[1]">
+        <v-tooltip left :disabled="tooltips[1]" v-model="tooltips[1]" 
+            v-if="!(this.$auth.loggedIn && this.$auth.user.ticket_id)">
             <v-btn
             slot="activator"
             fab
@@ -54,7 +55,7 @@
             </v-btn>
             <span>INFORMACIÓN Y HORARIOS DE EVENTOS</span>
         </v-tooltip>
-        <v-tooltip left :disabled="tooltips[3]" v-model="tooltips[3]">
+        <v-tooltip left :disabled="tooltips[3]" v-model="tooltips[3]" v-if="this.$auth.loggedIn && this.$auth.user.isscanner">
             <v-btn
             slot="activator"
             fab
