@@ -9,7 +9,7 @@ export default {
 		dev: process.env.NODE_ENV !== "production",
 		//api: "https://api.congresotryit.es",
 		api: "http://127.0.0.1:8000",
-		edition: 2023
+		edition: 2024
 	},
 	
 	head: {
@@ -125,7 +125,8 @@ export default {
 		  }
 		}
 	},
-	modules: ["@nuxtjs/axios"
+	modules: ["@nuxtjs/axios",
+			  "@nuxtjs/auth-next",
 		],
 	axios: {},
 	router: {
@@ -138,5 +139,27 @@ export default {
 			})
 		}
 	},
-	transpileDependencies: ["vuex-module-decorators"]
+	transpileDependencies: ["vuex-module-decorators"],
+	auth: {
+		strategies: {
+			SIU: {
+				scheme: 'openIDConnect',
+				clientId: '862add94-02c9-4a55-bdc6-5973c10457b8',
+				endpoints: {
+					configuration: "https://siu.upm.es/realms/sso-upm/.well-known/openid-configuration",
+					token: "http://tryit.upm.es/api/SIULogin/",
+					userInfo: "http://tryit.upm.es/api/users/auth/",
+					logout: false
+				},
+				redirectUri: "https://tryit.upm.es/login",
+				responseType: "code",
+				grantType: "authorization_code",
+				scope: ["upm_oidc_default"], // Seems like SIU doesn't care what we put here
+				token: { // Sets the token for axios automatically
+					'property': 'key',
+					'type': 'Token'
+				}
+			}
+		}
+	}
 }
