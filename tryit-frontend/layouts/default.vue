@@ -97,6 +97,21 @@
               HORARIOS
             </v-tab>
             <v-tab
+              @click="launchTournaments()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-trophy
+              </v-icon>
+
+              TORNEOS
+            </v-tab>
+            
+            <v-tab
               v-if="checkAdmin() || checkScanner()"
               @click="launchQRReader()"
             >
@@ -187,7 +202,7 @@
         <v-btn fab target="_blank" href="https://github.com/DA-ETSIINF/" class="contact-button">
           <v-icon>mdi-github</v-icon>
         </v-btn>
-        <v-btn fab target="_blank" href="https://www.instagram.com/tryit_upm/ class="contact-button">
+        <v-btn fab target="_blank" href="https://www.instagram.com/tryit_upm/" class="contact-button">
           <v-icon>mdi-instagram</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
@@ -220,6 +235,9 @@ export default class extends Vue {
   }
   launchTimeline()    {
       this.$nuxt.$emit("toggleTimeline")
+  }
+  launchTournaments() {
+      this.$nuxt.$emit("toggleTournaments")
   }
   launchLogin()     {
       this.$nuxt.$emit("toggleLoginForm")

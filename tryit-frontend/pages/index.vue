@@ -20,6 +20,7 @@
 	<PopupTicket />
 	<PopupLogin />
 	<Timeline />
+	<Tournaments />
 	<QRReader />
 	<PopupLottery />
 	<EventsViewer />
@@ -202,6 +203,7 @@ import {
 	PopupLogin,
 	DialButton,
 	Timeline,
+	Tournaments,
 	QRReader,
 	ViewEcts,
 	PopupLottery,
@@ -219,6 +221,7 @@ import {
 		PopupLogin,
 		DialButton,
 		Timeline,
+		Tournaments,
 		QRReader,
 		PopupLottery,
 		History,
