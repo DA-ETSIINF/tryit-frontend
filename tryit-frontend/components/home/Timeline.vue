@@ -353,25 +353,33 @@
                                         </v-row>
                                         <v-row justify="center">
                                           <v-btn class="mx-4" dark icon v-bind="attrs" large color="secondary" v-on="on" 
-                                            @click="showInfo(index)">
+                                            v-if=speaker.github
+                                            :href= speaker.github
+                                            target="_blank" ><!--Open in new tab-->
                                             <v-icon left dark x-large color="grey" class="mx-3">
                                             mdi-github 
                                             </v-icon>
                                           </v-btn>
                                           <v-btn  class="mx-4" dark icon v-bind="attrs" large color="secondary" v-on="on" 
-                                            @click="showInfo(index)">
+                                            v-if=speaker.twitter
+                                            :href= speaker.twitter
+                                            target="_blank">
                                             <v-icon  left dark x-large color="grey" class="mx-3">
                                             mdi-twitter 
                                             </v-icon>
                                           </v-btn>
                                           <v-btn class="mx-4" dark icon v-bind="attrs" large color="secondary" v-on="on" 
-                                            @click="showInfo(index)">
+                                            v-if=speaker.linkedin
+                                            :href= speaker.linkedin
+                                            target="_blank">
                                             <v-icon left dark x-large color="grey" class="mx-3">
                                             mdi-linkedin
                                             </v-icon>
                                           </v-btn>
                                           <v-btn class="mx-4" dark icon v-bind="attrs" large color="secondary" v-on="on" 
-                                            @click="showInfo(index)">
+                                            v-if=speaker.website 
+                                            :href= speaker.website
+                                            target="_blank">
                                             <v-icon left dark x-large color="grey" class="mx-3">
                                             mdi-web 
                                             </v-icon>
@@ -437,7 +445,7 @@ export default {
       }
   },
   async fetch() {
-      this.posts = await this.$axios.$get(process.env.api + `/api/editions/2023/schedule`)
+      this.posts = await this.$axios.$get(process.env.api + `/api/editions/2023/schedule/`)
     // @info This is the modification of the obtained /schedule/ endpoint to include colors and icons
     //   https://materialdesignicons.com/
       const room_res = await this.$axios.get(process.env.api + `/api/rooms`)
