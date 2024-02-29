@@ -90,7 +90,7 @@
 				<h3>Competiciones</h3>
 				<div class="description">
 					<p>
-						Desde competiciones deportivas, hasta matemáticas y de programación, y pasando por competiciones de videojuegos, el Try IT! te permite poner a prueba tu conocimiento en distintas áreas contra otros competidores. !Atento a nuestras redes para más información!
+						Desde competiciones deportivas, hasta matemáticas y de programación, y pasando por competiciones de videojuegos, el Try IT! te permite poner a prueba tu conocimiento en distintas áreas contra otros competidores. Atento a nuestras redes para más información!
 					</p>
 				</div>
 				<div class="icon">
