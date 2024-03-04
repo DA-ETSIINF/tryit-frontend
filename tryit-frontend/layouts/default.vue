@@ -53,7 +53,7 @@
             </v-tab>
             -->
             <v-tab
-              v-if="checkLogin()"
+              v-if="hasTicket()"
               @click="launchEvViewer()"
             >
               <v-icon 
