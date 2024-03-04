@@ -151,25 +151,25 @@
 		<h2>¿Dónde estamos?</h2>
 		<Map></Map>
 	</v-card>
-	<v-container style="width:392px; height:392px; padding:0; margin-top:30px">
+	<v-container style="max-width:392px; max-height:392px; padding:0; margin-top:30px">
 		<v-carousel cycle hide-delimiters show-arrows>
 			<v-carousel-item>
-				<img src="img/map_slider/como_llegar_1.png" style="height:392px">
+				<img src="img/map_slider/como_llegar_1.png" style="max-height:100%; max-width:100% ; object-fit: contain;">
 			</v-carousel-item>
 			<v-carousel-item>
-				<img src="img/map_slider/como_llegar_2.png" style="height:392px">
+				<img src="img/map_slider/como_llegar_2.png" style="max-height:100%; max-width:100% ; object-fit: contain;">
 			</v-carousel-item>
 			<v-carousel-item>
-				<img src="img/map_slider/como_llegar_3.png" style="height:392px">
+				<img src="img/map_slider/como_llegar_3.png" style="max-height:100%; max-width:100% ; object-fit: contain;">
 			</v-carousel-item>
 			<v-carousel-item>
-				<img src="img/map_slider/como_llegar_4.png" style="height:392px">
+				<img src="img/map_slider/como_llegar_4.png" style="max-height:100%; max-width:100% ; object-fit: contain;">
 			</v-carousel-item>
 			<v-carousel-item>
-				<img src="img/map_slider/como_llegar_5.png" style="height:392px">
+				<img src="img/map_slider/como_llegar_5.png" style="max-height:100%; max-width:100% ; object-fit: contain;">
 			</v-carousel-item>
 			<v-carousel-item>
-				<img src="img/map_slider/como_llegar_6.png" style="height:392px">
+				<img src="img/map_slider/como_llegar_6.png" style="max-height:100%; max-width:100% ; object-fit: contain;">
 			</v-carousel-item>
 		</v-carousel>
 	</v-container>
