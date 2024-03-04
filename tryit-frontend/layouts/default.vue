@@ -68,7 +68,7 @@
               Mis charlas
             </v-tab>
             <v-tab
-              v-if="!checkLogin()"
+                v-if="!hasTicket()"
               @click="launchTicket()"
             >
               <v-icon 
@@ -194,7 +194,7 @@
       </v-footer>
   </v-app>
 </template>
-<script lang="ts">
+<script lang="js">
 import { Component, Vue } from "nuxt-property-decorator";
 import * as Components from "../components";
 
@@ -222,7 +222,7 @@ export default class extends Vue {
       this.$nuxt.$emit("toggleTimeline")
   }
   launchLogin()     {
-      this.$nuxt.$emit("toggleLoginForm")
+      this.$auth.loginWith("SIU")
   }
   launchQRReader()    {
       this.$nuxt.$emit("toggleQRReader")
@@ -234,16 +234,19 @@ export default class extends Vue {
       this.$nuxt.$emit("toggleEvViewer")
   }
   launchLogout() {
-    this.$store.commit("logout")
-    this.$store.commit("revokeAdminAccess")
+    this.$auth.logout()
   }
   checkLogin() { // @info Returns TRUE iff user is currently logged in
-    return this.$store.getters.getLogged}
+    return this.$auth.loggedIn
+  }
   checkAdmin() { // @info Returns TRUE iff user is currently logged in and is admin
-    return this.$store.getters.getLogged && this.$store.getters.getAdmin
+    return this.$auth.loggedIn && this.$auth.user.isadmin
   }
   checkScanner() { // @info Returns TRUE iff user is currently logged in and is scanner
-    return this.$store.getters.getLogged && this.$store.getters.getScanner
+    return this.$auth.loggedIn && this.$auth.user.isscanner
+  }
+  hasTicket() { // @info Returns TRUE if user has a ticket
+    return this.$auth.loggedIn && this.$auth.user.ticket_id !== "undefined"
   }
 }
 </script>
