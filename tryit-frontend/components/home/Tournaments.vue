@@ -72,11 +72,6 @@
     async fetch() {
       const response = await this.$axios.$get(process.env.api + `/api/editions/2024/tournaments`)
       this.tournaments = response
-      console.log('AAAAAAAAAAAAAAAAa')
-      console.log(response)
-      for(const tournament of this.tournaments){
-        console.log(tournament)
-      }
     },
     methods: {
       hideDialog() {
