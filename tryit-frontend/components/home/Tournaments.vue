@@ -41,7 +41,7 @@
             <v-sheet 
             color="secondary" style="padding:10px; color:white; border-radius: 5px">
               <h3 style="color:white">{{ tournament.name }}</h3>
-              <p style="color:white; padding-bottom: 5px">  {{  tournament.description }}</p>
+              <p style="color:white; padding-bottom: 5px; white-space:pre-line ;">  {{  tournament.description }}</p>
               <p style="color:white; padding-bottom: 5px"> Fecha inicio: {{ tournament.startDate }} <v-spacer></v-spacer> Fecha fin: {{ tournament.endDate }}</p>
               <p style="color:white; padding-bottom: 5px"> <a style="color:white" :href="tournament.inscription_url">Apuntate Aquí!</a></p>
             </v-sheet>
