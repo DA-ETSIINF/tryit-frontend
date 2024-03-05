@@ -97,6 +97,21 @@
               HORARIOS
             </v-tab>
             <v-tab
+              @click="launchTournaments()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-trophy
+              </v-icon>
+
+              TORNEOS
+            </v-tab>
+            
+            <v-tab
               v-if="checkAdmin() || checkScanner()"
               @click="launchQRReader()"
             >
@@ -220,6 +235,9 @@ export default class extends Vue {
   }
   launchTimeline()    {
       this.$nuxt.$emit("toggleTimeline")
+  }
+  launchTournaments() {
+      this.$nuxt.$emit("toggleTournaments")
   }
   launchLogin()     {
       this.$auth.loginWith("SIU")
