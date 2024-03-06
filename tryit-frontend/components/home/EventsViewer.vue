@@ -69,16 +69,30 @@
                         @click="resendTicket"
                         target="_blank"
                     >
-                        <v-icon 
-                            dark
-                            dense
-                            color="primary"
-                            left
-                        >
-                            <!-- mdi-information-outline -->
-                            mdi-email-fast
-                        </v-icon>
-                        ¿Necesitas que te volvamos a enviar tu entrada?
+                        <div v-if="windowWidth > 475">
+                            <v-icon 
+                                dark
+                                dense
+                                color="primary"
+                                left
+                            >
+                                <!-- mdi-information-outline -->
+                                mdi-email-fast
+                            </v-icon>
+                            ¿Necesitas que te volvamos a enviar tu entrada?
+                        </div>
+                        <div v-else> 
+                            <v-icon 
+                                dark
+                                dense
+                                color="primary"
+                                left
+                            >
+                                <!-- mdi-information-outline -->
+                                mdi-email-fast
+                            </v-icon>
+                            Reenviar Entrada
+                        </div>
                     </v-btn>
                     </v-col>           
             </v-row>
@@ -104,7 +118,14 @@ export default {
           event_error: false,
           items: [],
           total_ects: 0,
+          windowWidth:  process.client ? window.innerWidth : 0,
         }
+    },
+    mounted(){
+            window.onresize = () => {
+                if(process.client){
+                    this.windowWidth =  window.innerWidth}
+            }
     },
     watch: {
 
