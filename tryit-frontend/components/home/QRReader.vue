@@ -217,9 +217,12 @@ export default {
     },
 
     async onInit (promise) {
-      const d = new Date();
-      let today = d.getFullYear() + "-0" + (d.getMonth()+1) + "-" + d.getDate()
-      
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+
+      const today = `${year}-${month}-${day}`;
       //today = "2024-03-19"; //for testing
       this.days = await this.$axios.$get(`${process.env.api}/api/editions/${process.env.edition}/schedule`)
       for (var post of this.days) {
