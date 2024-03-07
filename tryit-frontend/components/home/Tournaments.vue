@@ -49,11 +49,6 @@
         </ul>
 
         </v-card>
-        <v-card>
-            <v-card-actions>
-            <v-spacer></v-spacer>
-            </v-card-actions>
-        </v-card>
       </v-dialog>
     </div>
   </template>
