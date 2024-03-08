@@ -1,6 +1,37 @@
 <template>
   <div>
-    <div v-if="isTicketFormVisible && !hasTicket()">
+    <div v-if="isTicketFormVisible && !this.$auth.loggedIn">
+      <v-dialog
+        v-model="isVisible"
+        max-width="610px"
+      >
+        <v-card>
+          <v-card-title>Para obtener tu entrada, necesitas iniciar sesión o registrarte.</v-card-title>
+          <v-card-text>¡Regístrate o inicia sesión para obtener tu entrada!</v-card-text>
+          <v-card-actions>
+            <v-btn
+              color="primary"
+              small
+              outlined
+              :style="{left: '50%', transform:'translateX(-50%)'}"
+              @click="loginSIU"
+            >
+              <v-icon 
+                dark
+                dense
+                color="primary"
+                left
+              >
+                <!-- mdi-information-outline -->
+                mdi-login
+              </v-icon>
+              Iniciar Sesión/Registro
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+    <div v-else-if="isTicketFormVisible && this.$auth.loggedIn">
       <v-dialog
         v-model="isVisible"
         max-width="800px"
@@ -179,7 +210,7 @@
                   <v-btn
                   depressed
                   color="primary"
-                  href="${process.env.api}/api/editions/get_privacy"
+                  href="http://api.congresotryit.es/api/editions/get_privacy"
                   target="_blank"
                   plain
                   >Politica de protección de datos 
@@ -188,7 +219,7 @@
                   <v-btn
                   depressed
                   color="primary"
-                  href="${process.env.api}/api/editions/get_image_rights"
+                  href="http://api.congresotryit.es/api/editions/get_image_rights"
                   target="_blank"
                   plain
                   >Cesión de derechos de imágen.
@@ -241,37 +272,6 @@
         </template>
       
         </v-dialog>
-    </div>
-    <div v-else-if="isTicketFormVisible && !this.$auth.loggedIn">
-      <v-dialog
-        v-model="isVisible"
-        max-width="610px"
-      >
-        <v-card>
-          <v-card-title>Para obtener tu entrada, necesitas iniciar sesión o registrarte.</v-card-title>
-          <v-card-text>¡Regístrate o inicia sesión para obtener tu entrada!</v-card-text>
-          <v-card-actions>
-            <v-btn
-              color="primary"
-              small
-              outlined
-              :style="{left: '50%', transform:'translateX(-50%)'}"
-              @click="loginSIU"
-            >
-              <v-icon 
-                dark
-                dense
-                color="primary"
-                left
-              >
-                <!-- mdi-information-outline -->
-                mdi-login
-              </v-icon>
-              Iniciar Sesión/Registro
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
     </div>
     <div v-else-if="!isTicketFormVisible" >
     <template>  
