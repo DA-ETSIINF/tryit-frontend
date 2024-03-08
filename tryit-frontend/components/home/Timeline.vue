@@ -317,6 +317,10 @@
                                       v-for="speaker in event.speakers"
                                       :key="speaker.id"
                                     >
+                                    <v-divider>
+
+                                      
+                                    </v-divider>
                                       <v-card
                                         class="mx-auto"
                                       > 
