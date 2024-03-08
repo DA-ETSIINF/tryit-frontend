@@ -348,7 +348,7 @@ export default {
           isPrivacyPolicyVisible: false,
           acceptsPrivacyPolicy: false,
           must_accept_privacy_terms_alert: false, // Alert that pops up when a user tries to create a ticket without accepting the privacy terms
-          isTicketFormVisible: false,
+          isTicketFormVisible: true,
           person_name: "",
           person_last_name: "",
           person_mail: "",
