@@ -54,6 +54,11 @@ export const routes: RouteConfig[] = [
 		name: "activation-success",
 		path: "/activated",
 		can_be_shown: true
+	},
+	{
+		name: "login",
+		path: "/login",
+		can_be_shown: true
 	}
 
 ]

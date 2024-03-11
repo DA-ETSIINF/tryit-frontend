@@ -6,11 +6,15 @@ export default {
 	server: {
 		port: 8050
 	},
-	target: "server",
+	//target: "server",
+	//TEST STATIC SITE
+	target: "static",
+	ssr: false,
+	mode: "spa",
 	env: {
 		dev: process.env.NODE_ENV !== "production",
 		//api: "https://api.congresotryit.es",
-		api: "http://127.0.0.1:8000",
+		api: "https://tryit.upm.es",
 		edition: 2024
 	},
 	
@@ -149,8 +153,8 @@ export default {
 				clientId: '862add94-02c9-4a55-bdc6-5973c10457b8',
 				endpoints: {
 					configuration: "https://siu.upm.es/realms/sso-upm/.well-known/openid-configuration",
-					token: "http://tryit.upm.es/api/SIULogin/",
-					userInfo: "http://tryit.upm.es/api/users/auth/",
+					token: "https://tryit.upm.es/api/SIULogin/",
+					userInfo: "https://tryit.upm.es/api/users/auth/",
 					logout: false
 				},
 				redirectUri: "https://tryit.upm.es/login",

@@ -9,7 +9,7 @@
 export default {
     data() {
         return {
-            snackbar: true,
+            snackbar: false,
             snackbarMessage: 'Has iniciado sesión pero todavía no has sacado entrada. ¡Saca tu entrada en la sección de entradas para acreditar las charlas!',
             snackbarColor: 'warning', // or 'error', 'warning', 'info'
             tickets: [],
@@ -17,26 +17,8 @@ export default {
     },
     async fetch() {
         const response = this.$axios.$get(process.env.api + '/api/tickets')
-        if (process.client) {
-            console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAa')
-            console.log(process.env.api)
-            console.log(response)
-            this.tickets = response
-            for (const ticket in response) {
-                console.log(ticket)
-            }
-            console.log('bBBBBBBBBBBBBBBB')
-        }
-        response = this.$axios.$get(process.env.api + '/api/users/auth')
-        if (process.client) {
-            console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAa')
-            console.log(process.env.api)
-            console.log(response)
-            this.tickets = response
-            for (const ticket in response) {
-                console.log(ticket)
-            }
-            console.log('bBBBBBBBBBBBBBBB')
+        if(this.$nuxt.$auth.loggedIn && !this.$nuxt.$auth.user.ticket_id){
+            snackbar = true
         }
     },
 };
