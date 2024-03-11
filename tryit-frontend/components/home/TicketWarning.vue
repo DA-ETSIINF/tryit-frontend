@@ -27,7 +27,7 @@ export default {
             }
             console.log('bBBBBBBBBBBBBBBB')
         }
-        response = this.$axios.$get(process.env.api + '/api/auth')
+        response = this.$axios.$get(process.env.api + '/api/users/auth')
         if (process.client) {
             console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAa')
             console.log(process.env.api)
