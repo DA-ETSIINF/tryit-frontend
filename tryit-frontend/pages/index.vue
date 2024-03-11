@@ -24,6 +24,7 @@
 	<QRReader />
 	<PopupLottery />
 	<EventsViewer />
+	<TicketWarning />
 
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
@@ -209,6 +210,7 @@ import {
 	PopupLottery,
 	History,
 	EventsViewer,
+	TicketWarning,
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -226,6 +228,7 @@ import {
 		PopupLottery,
 		History,
 		EventsViewer,
+		TicketWarning,
 	},
 })
 

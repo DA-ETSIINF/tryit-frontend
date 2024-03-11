@@ -10,4 +10,5 @@ export { default as QRReader } from "./home/QRReader.vue"
 export { default as PopupLottery } from "./home/PopupLottery.vue"
 export { default as History } from "./home/History.vue"
 export { default as EventsViewer } from "./home/EventsViewer.vue"
+export { default as TicketWarning } from "./home/TicketWarning.vue"
 
