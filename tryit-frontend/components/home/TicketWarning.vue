@@ -16,7 +16,7 @@ export default {
         };
     },
     async fetch() {
-        const response = this.$axios.$get(process.env.api + '/api/events')
+        const response = this.$axios.$get(process.env.api + '/api/tickets')
         
         if (process.client) {
             console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAa')
