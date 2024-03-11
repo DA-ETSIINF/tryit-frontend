@@ -38,14 +38,25 @@
         
         <ul>
           <li v-for="tournament in tournaments" :key="tournament.id" style="list-style: none; margin: 20px;">
-            <v-sheet 
+            <!--<v-sheet 
             color="secondary" style="padding:10px; color:white; border-radius: 5px">
               <h3 style="color:white">{{ tournament.name }}</h3>
               <p style="color:white; padding-bottom: 5px; white-space:pre-line ;">  {{  tournament.description }}</p>
               <p style="color:white; padding-bottom: 5px"> Fecha inicio: {{ tournament.startDate }} <v-spacer></v-spacer> Fecha fin: {{ tournament.endDate }}</p>
               <p style="color:white; padding-bottom: 5px"> <a style="color:white" :href="tournament.inscription_url">Apuntate Aquí!</a></p>
+            </v-sheet> -->
+
+            <v-sheet class="toggleTournament"
+            @click="logClick"
+            color="secondary" style="padding:10px; color:white; border-radius: 5px">
+              <h3 class="title" style="color:white">{{ tournament.name }} <v-icon class="menu-icon" style="color:white">mdi-menu-right</v-icon></h3>
+              <p class="description" style="color:white; padding-bottom: 5px; white-space:pre-line; display:none">  {{  tournament.description }}</p>
+              <p class="date" style="color:white; padding-bottom: 5px"> Fecha inicio: {{ tournament.startDate }} <v-spacer></v-spacer> Fecha fin: {{ tournament.endDate }}</p>
+              <p class="url" style="color:white; padding-bottom: 5px"> <a style="color:white" :href="tournament.inscription_url">Apuntate Aquí!</a></p>
             </v-sheet>
           </li>
+
+         
         </ul>
 
         </v-card>
@@ -71,17 +82,39 @@
     methods: {
       hideDialog() {
         this.isTournamentsVisible = false;
-      }
+      },
+      logClick(event) {
+        let clickedElement = event.target;
+        if(!clickedElement.classList.contains("toggleTournament")){
+          clickedElement = clickedElement.parentNode
+        }
+        if (clickedElement.classList.contains('toggleTournament')) {
+          console.log('aertj')
+          let hideElements = clickedElement.querySelector('.description')
+          if(hideElements.style.display == 'none'){
+            hideElements.style.display = 'block'
+            console.log(clickedElement.querySelector('.title'))
+            console.log(clickedElement.querySelector('.title').querySelector('.menu-icon'))
+            clickedElement.querySelector('.title').querySelector('.menu-icon').className = "v-icon notranslate menu-icon mdi mdi-menu-down theme--light"
+          }
+          else{
+            hideElements.style.display = 'none'
+            clickedElement.querySelector('.title').querySelector('.menu-icon').className = "v-icon notranslate menu-icon mdi mdi-menu-right theme--light"
+          }
+          
+        }
+      },
     },
     created() {
         this.$nuxt.$on("toggleTournaments", () => {
             this.isTournamentsVisible = !this.isTournamentsVisible
         })
     },
+
   };
+
+  
   </script>
-  
-  <style scoped>
-  /* Your component-specific styles go here */
-  </style>
-  
+
+<style>
+</style>
