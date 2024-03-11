@@ -17,7 +17,7 @@ export default {
     },
     async fetch() {
         const response = this.$axios.$get(process.env.api + '/api/tickets')
-        if(this.$nuxt.$auth.loggedIn && !this.$nuxt.$auth.user.ticket_id){
+        if(this.$nuxt.$auth.loggedIn && this.$nuxt.$auth.user.ticket_id === "undefined"){
             snackbar = true
         }
     },
