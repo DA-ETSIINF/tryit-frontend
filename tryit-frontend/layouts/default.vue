@@ -110,6 +110,21 @@
 
               TORNEOS
             </v-tab>
+
+            <v-tab
+              @click="launchFAQ()"
+            >
+              <v-icon 
+                left
+                dark
+                color="white"
+                class="mx-3"
+              >
+                mdi-frequently-asked-questions
+              </v-icon>
+
+              FAQ
+            </v-tab>
             
             <v-tab
               v-if="checkAdmin() || checkScanner()"
@@ -221,6 +236,7 @@ import * as Components from "../components";
     Timeline: Components.Timeline,
 		QRReader: Components.QRReader,
     EventsViwer: Components.EventsViewer,
+    FAQ: Components.FAQ,
   }
 })
 
@@ -238,6 +254,9 @@ export default class extends Vue {
   }
   launchTournaments() {
       this.$nuxt.$emit("toggleTournaments")
+  }
+  launchFAQ() {
+      this.$nuxt.$emit("toggleFAQ")
   }
   launchLogin()     {
       this.$auth.loginWith("SIU")

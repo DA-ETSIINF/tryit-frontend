@@ -25,6 +25,7 @@
 	<PopupLottery />
 	<EventsViewer />
 	<TicketWarning />
+	<FAQ />
 
 	<v-card>
 		<h2 align="center">¿Qué ofrecemos?</h2>
@@ -211,6 +212,7 @@ import {
 	History,
 	EventsViewer,
 	TicketWarning,
+	FAQ,
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -229,6 +231,7 @@ import {
 		History,
 		EventsViewer,
 		TicketWarning,
+		FAQ,
 	},
 })
 

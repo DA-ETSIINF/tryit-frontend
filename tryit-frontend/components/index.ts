@@ -11,4 +11,6 @@ export { default as PopupLottery } from "./home/PopupLottery.vue"
 export { default as History } from "./home/History.vue"
 export { default as EventsViewer } from "./home/EventsViewer.vue"
 export { default as TicketWarning } from "./home/TicketWarning.vue"
+export { default as FAQ } from "./home/FAQ.vue"
+
 
