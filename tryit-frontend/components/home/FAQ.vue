@@ -18,7 +18,7 @@
           </v-avatar>
           <v-spacer></v-spacer>
           <v-toolbar-title>
-            Torneos
+            FAQ
           </v-toolbar-title>
           <v-spacer></v-spacer>
 
