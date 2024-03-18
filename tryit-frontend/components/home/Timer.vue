@@ -135,7 +135,7 @@ import Vue from "vue";
 export default  Vue.extend({
     data()  {
         return{
-            secondsLeft : (new Date("2024-03-18T10:00:00+01:00").getTime() - Date.now())/1000,
+            secondsLeft : (new Date("2024-03-18T12:00:00+01:00").getTime() - Date.now())/1000,
         }
     },
     computed:   {
