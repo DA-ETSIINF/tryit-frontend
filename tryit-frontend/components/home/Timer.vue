@@ -13,11 +13,11 @@
 
                         <tr>
                             <td colspan="4">
-                                <h2>  ¿Cuánto queda para el TryIT 2024?  </h2>
+                                <h2>  Ya ha empezado el TryIT! 2024  </h2>
                             </td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <!-- <tbody>
                         <tr>
                             <td>
                                 <div class="time">{{timer.days}}</div>
@@ -32,9 +32,9 @@
                                 <div class="time">{{timer.seconds}}</div>
                             </td>
                         </tr>
-                    </tbody>
+                    </tbody> -->
                     <tfoot>
-                        <tr>
+                        <!-- <tr>
                             <td>
                                 <p>Días</p>
                             </td>
@@ -48,7 +48,7 @@
                                 <p>Segundos</p>
                             </td>
                             
-                        </tr>
+                        </tr> -->
                         <td colspan="4">
                         <h2>  18 a 22 de Marzo de 2024  </h2>
                         </td>
