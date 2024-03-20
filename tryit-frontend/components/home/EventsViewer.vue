@@ -165,7 +165,7 @@ export default {
                 })
                 this.total_ects += event.event_ects
             }
-            this.total_ects = this.total_ects.toFixed(4)
+            this.total_ects = parseFloat(this.total_ects.toFixed(4)); 
                 
         },
         async resendTicket() {
