@@ -701,6 +701,9 @@ h2 {
 	background-color: #035b9e;
 	height: 30px;
 	width: 30px;
+	min-width: 30px;
+	min-height: 30px;
+	aspect-ratio: 1/1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
