@@ -180,7 +180,7 @@
 	</v-layout>
 		</v-container> -->
 		<hr>
-		<v-card>
+		<v-card style="padding: 20px;">
 			<h2>¿Dónde estamos?</h2>
 			<Map></Map>
 		</v-card>
