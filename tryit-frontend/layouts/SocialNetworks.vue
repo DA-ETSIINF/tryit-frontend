@@ -20,7 +20,7 @@ export default {
   props: {
     variant: {
       type: String,
-      default: "header" // Puede ser "header" o "footer"
+      default: "header" // Puede ser "header" o "footer" para cambiar el estilo
     }
   },
   data() {
@@ -53,7 +53,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped> 
 .social-container-header {
  
 }
