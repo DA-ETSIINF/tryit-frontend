@@ -54,12 +54,6 @@
 
 		<section>
 			<h2 align="center">¿Qué ofrecemos?</h2>
-			<p class="section-description">
-				El Try It! es el congreso tecnológico más grande de la UPM.
-				Su objetivo de acercar las tendencias tecnológicas actuales
-				a los participantes, así como ofrecer un contacto directo con las empresas más
-				punteras del sector.
-			</p>
 
 			<template>
 				<v-container fluid class="video-container">
@@ -76,6 +70,12 @@
 				</v-container>
 			</template>
 
+			<p class="section-description">
+				El Try It! es el congreso tecnológico más grande de la UPM.
+				Su objetivo de acercar las tendencias tecnológicas actuales
+				a los participantes, así como ofrecer un contacto directo con las empresas más
+				punteras del sector.
+			</p>
 
 			<div class="properties">
 				<div class="property" :class="{ active: paragraphActive === 'companies' }"
@@ -180,7 +180,7 @@
 	</v-layout>
 		</v-container> -->
 		<hr>
-		<v-card style="padding: 20px;">
+		<v-card>
 			<h2>¿Dónde estamos?</h2>
 			<Map></Map>
 		</v-card>
@@ -216,26 +216,26 @@
 
 		<hr>
 
-		<v-container fluid>
-			<v-card>
-				<h2>Ediciones anteriores</h2>
-				<template>
-					<v-container fluid class="video-container">
-						<v-row justify="center">
-							<v-col cols="12" md="10" lg="8" xl="6">
-								<v-responsive aspect-ratio="16/9">
-									<video class="video-player" controls>
-										<source src="/RecopilatorioTryIt.mp4" type="video/mp4">
-										Tu navegador no soporta videos HTML5.
-									</video>
-								</v-responsive>
-							</v-col>
-						</v-row>
-					</v-container>
-				</template>
-				<History />
-			</v-card>
-		</v-container>
+
+		<v-card>
+			<h2>Ediciones anteriores</h2>
+			<template>
+				<v-container fluid class="video-container">
+					<v-row justify="center">
+						<v-col cols="12" md="10" lg="8" xl="6">
+							<v-responsive aspect-ratio="16/9">
+								<video class="video-player" controls>
+									<source src="/RecopilatorioTryIt.mp4" type="video/mp4">
+									Tu navegador no soporta videos HTML5.
+								</video>
+							</v-responsive>
+						</v-col>
+					</v-row>
+				</v-container>
+			</template>
+			<History />
+		</v-card>
+
 		<!-- <v-container fluid>
 	<v-layout justify-center align-center>
 		<v-flex shrink>
@@ -465,7 +465,6 @@ button:hover {
 }
 
 h2 {
-	margin: 10px;
 	text-align: center;
 	margin-top: var(--space-l);
 }
