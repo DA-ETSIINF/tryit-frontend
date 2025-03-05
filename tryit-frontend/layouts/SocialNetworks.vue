@@ -27,7 +27,7 @@ export default {
     return {
       socialLinks: [
         { icon: "mdi-twitter", href: "https://twitter.com/tryit_upm", target: "_blank" },
-        { icon: "mdi-email", href: "mailto:tryit.da@fi.upm.es", target: "_blank" },
+        { icon: "mdi-email", href: "mailto:tryit@upm.es", target: "_blank" },
         { icon: "mdi-github", href: "https://github.com/DA-ETSIINF/", target: "_blank" },
         { icon: "mdi-instagram", href: "https://www.instagram.com/tryit_upm/", target: "_blank" },
         { icon: "mdi-linkedin", href: "https://www.linkedin.com/company/tryit-upm/", target: "_blank" }
@@ -55,7 +55,7 @@ export default {
 
 <style scoped> 
 .social-container-header {
- 
+  
 }
 .social-button-header {
   
