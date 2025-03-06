@@ -5,8 +5,8 @@
         <v-card-text>
           <p>Selecciona tu tipo de usuario:</p>
           <v-btn color="primary" block class="mb-3" @click="loginUPM">Usuario UPM</v-btn>
-          <!-- <v-btn color="secondary" block @click="loginNoUPM">Usuario NO UPM</v-btn> --> <!-- quitar comentario cuando este hecho -->
-          <v-btn color="secondary" block>Usuario NO UPM (Próximamente)</v-btn>
+          <v-btn color="secondary" block @click="loginNoUPM">Usuario NO UPM</v-btn>
+          <!-- <v-btn color="secondary" block>Usuario NO UPM (Próximamente)</v-btn> -->
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>

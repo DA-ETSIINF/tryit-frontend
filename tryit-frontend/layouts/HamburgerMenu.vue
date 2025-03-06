@@ -204,7 +204,7 @@ export default class HamburgerMenu extends Vue {
 }
 
 ::v-deep .menu-title {
-  font-size: 17px !important;
+  font-size: 16px !important;
   color: white;
   font-family: var(--lovelo-font);
 }
