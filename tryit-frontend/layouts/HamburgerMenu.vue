@@ -42,7 +42,7 @@
             <v-icon color="white" size="30px">mdi-ticket-confirmation</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="menu-title">ENTRADAS</v-list-item-title>
+            <v-list-item-title class="menu-title">Entradas</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -51,7 +51,7 @@
             <v-icon color="white" size="30px">mdi-calendar</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="menu-title">HORARIOS</v-list-item-title>
+            <v-list-item-title class="menu-title">Horarios</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -60,7 +60,7 @@
             <v-icon color="white" size="30px">mdi-trophy</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="menu-title">TORNEOS</v-list-item-title>
+            <v-list-item-title class="menu-title">Torneos</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -105,7 +105,7 @@
             <v-icon color="white" size="30px">mdi-logout</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="menu-title">LOGOUT</v-list-item-title>
+            <v-list-item-title class="menu-title">Logout</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -204,7 +204,7 @@ export default class HamburgerMenu extends Vue {
 }
 
 ::v-deep .menu-title {
-  font-size: 20px !important;
+  font-size: 17px !important;
   color: white;
   font-family: var(--lovelo-font);
 }
