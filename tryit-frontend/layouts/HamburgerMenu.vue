@@ -11,11 +11,11 @@
       <template v-slot:img="{ props }">
         <v-img v-bind="props" contain></v-img>
       </template>
-      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>      
     </v-app-bar>
 
     <!-- Sidebar de navegación (drawer) -->
-    <v-navigation-drawer v-model="drawer" temporary left absolute :width="drawerWidth" attach="body" class="primary"
+    <v-navigation-drawer v-model="drawer" temporary left fixed :width="drawerWidth" attach="body" class="primary"
       style="overflow-y: auto; z-index: 3000;" transition="navigation-drawer-transition">
       <!-- Encabezado del drawer: botón de cerrar y logo -->
       <v-list-item>
@@ -206,6 +206,7 @@ export default class HamburgerMenu extends Vue {
 ::v-deep .menu-title {
   font-size: 20px !important;
   color: white;
+  font-family: var(--lovelo-font);
 }
 
 .social-container {

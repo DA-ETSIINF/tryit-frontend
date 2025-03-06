@@ -1,214 +1,63 @@
 <template>
-    <v-dialog
-      v-model="isLOGINVisible"
-      max-width="600px"
-    > 
-      <v-alert v-if="$store.getters.getAdmin" type="success">Este usuario es administrador</v-alert>
-      <v-alert v-else-if="$store.getters.getLogged && $store.getters.getScanner" type="success">Te has identificado correctamente. Puedes escanear.</v-alert>
-      <v-alert v-else-if="$store.getters.getLogged" type="success">¡Te has identificado correctamente!</v-alert>
-      <v-alert
-        v-else-if="not_activated"
-        type="error"
-        close-text="Cerrar"
-        color="error"
-        dismissible
-        >
-        ¡No has activado tu email! Si quieres que te enviemos otro correo, pulsa 
-        <v-btn
-        depressed
-        color="primary"
-        @click="sendActivationEmail()"
-        plain
-        >
-        aquí. 
-        </v-btn>
-      </v-alert>
-      <v-alert
-        v-else-if="confirmation_email_sent_ok"
-        type="success"
-        close-text="Cerrar"
-        color="green"
-        dismissible
-        >
-            ¡Correo de activación enviado! Revisa tu bandeja de entrada.
-      </v-alert>
-      <v-alert
-        v-else-if="confirmation_email_sent_error"
-        type="error"
-        close-text="Cerrar"
-        color="red"
-        dismissible
-        >
-            ¡Error al enviar el correo de activación! Inténtalo de nuevo más tarde.
-      </v-alert>
-      
-      <v-card v-else>
-       <v-alert
-        v-model="login_error"
-        type="error"
-        close-text="Cerrar"
-        color="red"
-        dismissible
-        >
-        Error al iniciar sesión. Asegúrate de que has escrito tu correo y tu contraseña correctamente.
-      </v-alert>
-        <v-card-title class="text-h5 white--text primary">
-            Iniciar sesión
-        </v-card-title>
-        <v-card-text>
-            <v-container>
-                <v-row>
-                <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                >
-                    <v-text-field
-                        v-model="loginInfo.username"
-                        label="Correo*"
-                        required
-                    ></v-text-field>
-                </v-col>
-                <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                >
-                    <v-text-field
-                        v-model="loginInfo.password"
-                        label="Contraseña*"
-                        input type="password"
-                        required
-                    ></v-text-field>
-                </v-col>
-                </v-row>
-            </v-container>
-            <small>*indicates required field</small>
-        </v-card-text>
-        <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-                color="accept"
-                rounded
-                x-large
-                dark
-                @click="doLogin"
-            >
-                Iniciar sesión
-            </v-btn>
-        </v-card-actions>
-      </v-card>
-      </v-dialog>
+  <v-dialog v-model="dialog" max-width="400px">
+    <v-card>
+      <v-card-title class="headline">Introduce tu correo</v-card-title>
+      <v-card-text>
+        <v-form ref="form">
+          <v-text-field
+            v-model="externalMail"
+            label="Correo electrónico"
+            :rules="emailRules"
+            required
+          />
+        </v-form>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" @click="sendEmail">Enviar correo</v-btn>
+        <v-btn text @click="dialog = false">Cancelar</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
-
-import axios from "axios"
-
 export default {
-
-    data()  {
-        return{
-            not_activated: false,
-            isLOGINVisible: false,
-            confirmation_email_sent_ok: false,
-            confirmation_email_sent_error: false,
-            login_error: false,
-            loginInfo: {
-            username: '',
-            password: ''
-            }
+  data() {
+    return {
+      dialog: false,
+      externalMail: "",
+      emailRules: [
+        v => !!v || "El correo es obligatorio",
+        v => /.+@.+\..+/.test(v) || "Introduce un correo válido"
+      ]
+    };
+  },
+  created() {
+    // Escucha el evento "toggleLogin" que emite LoginOverlay
+    this.$nuxt.$on("toggleLogin", () => {
+      this.dialog = true;
+    });
+  },
+  methods: {
+    async sendEmail() {
+      if (!this.$refs.form.validate()) return;
+      try {
+        const payload = { external_mail: this.externalMail };
+        const res = await this.$axios.post(
+          "https://tryit.upm.es/api/editions/2025/send_verification_email/",
+          payload
+        );
+        if (res.status === 200 || res.status === 201) {
+          // Puedes mostrar una alerta de éxito o resetear el formulario
+          this.$emit("emailSent");
+          this.dialog = false;
         }
-    },
-    methods: {
-        async sendActivationEmail() {
-            var username = this.loginInfo["username"];
-            var data = {
-                "username": username
-            };
-            try{
-                const res = await axios.post(process.env.api + "/api/users/resend_activation_email/", data)
-                this.not_activated = false
-                this.confirmation_email_sent_ok = true
-            }
-            catch(error){
-                this.not_activated = false
-                this.confirmation_email_sent_error = true
-            };
-        },
-        async doLogin() {
-            var data = this.loginInfo
-            var error1 = false
-            var error2 = false
-            //const xd = this
-            console.log("Data0")
-            console.log(data)
-            const res = await axios.post(process.env.api + "/api/users/login/", data).catch(function (error){
-                if (error.response && error.response.status == 406) {
-                    error2 = true
-                    return;
-                }
-                error1 = true
-            });
-            console.log("Data 1")
-            console.log(data)
-            if(error2){
-                this.not_activated = true
-                return;
-            }
-            if(error1){
-                this.login_error = true
-                this.$store.commit("logout"); // if the request fails, remove any possible user token if possible
-                return;
-            }
-            var token = res.data.access_token
-            this.$store.commit("login", token)
-            this.$nuxt.$emit("logged")
-
-            console.log("peticion con auth local")
-            console.log(this.loginInfo)
-            var data = {"username":this.loginInfo["username"], "password":this.loginInfo["password"]}
-            console.log(data)
-            console.log(data.username)
-            console.log(data.password)
-            await this.$auth.loginWith("local", data)
-            
-            console.log(res)
-            console.log(res.data)
-            console.log(res.data.user)
-            console.log(res.data.access_token)
-
-            this.$auth.setUser(res.data.user);
-            console.log("AUTH")
-            console.log(this.$auth.strategies)
-            this.$auth.setToken("local", `Bearer ${res.data.access_token}`);
-
-
-            console.log("STATUS: ")
-            console.log(data);
-            
-            const userToken = this.$store.getters.getToken
-            var config = {
-                headers: {
-                Authorization: "Token " + userToken,
-                },
-                auth: userToken,
-                user: this.loginInfo["username"],
-            }
-
-            console.log("AUTH B")
-            //since res is const(ant) we can't modify it, so we need to create a new variable
-            const res2 = await axios.get(process.env.api + "/api/users/auth/", config)
-            let isAdmin = res2.data.isadmin == "True"
-                isAdmin ? this.$store.commit("giveAdminAccess") : this.$store.commit("revokeAdminAccess")
-            let isScanner = res2.data.isscanner == "True"
-                isScanner ? this.$store.commit("giveScanAccess") : this.$store.commit("revokeScanAccess")
-        },
-    },
-    created() {
-      this.$nuxt.$on("toggleLogin", () => {
-        this.isLOGINVisible = !this.isLOGINVisible
-      })
+      } catch (err) {
+        // Manejo del error, por ejemplo, mostrar una alerta
+        console.error("Error al enviar el correo", err);
+      }
     }
-}
+  }
+};
 </script>
