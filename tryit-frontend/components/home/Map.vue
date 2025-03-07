@@ -6,7 +6,7 @@
 			height="100%"
 			frameborder="0"
 			style="border:0;"
-			allowfullscreen=""
+			allowfullscreen="true"
 		></iframe>
 	</div>
 </template>
@@ -20,19 +20,58 @@ export default class Map extends Vue {}
 
 <style scoped>
 .map {
-	/*margin-top: var(--space-l);
-	height: 65%;*/
-    overflow:hidden;
-    padding-bottom:50%;
-    position:relative;
-    height:0;
-	margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%; /* Reduce el tamaño general */
+  max-width: 700px; /* No se hace demasiado grande */
+  margin: 0 auto; /* Separa del texto "¿DÓNDE ESTAMOS?" */
+  padding: 40px 0; /* Margen interno suave */
+  position: relative;
 }
-.map iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+
+.map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Margen estándar en pantallas grandes */
+  max-width: 800px; /* No se hace demasiado grande */
+  margin: 0 auto; /* Más separación del texto */
+  padding: 40px 0; /* Pequeño margen interno */
+  position: relative;
 }
+
+.map iframe {
+  width: 100%;
+  height: 250px; /* Tamaño ajustado */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Asegurar más margen en dispositivos móviles */
+@media (max-width: 768px) {
+  .map {
+    width: 85%; /* Reduce el ancho para más margen lateral */
+    margin: 40px auto; /* Aumenta el margen superior e inferior */
+    padding: 40px 0; /* Más espacio interno */
+  }
+  
+  .map iframe {
+    height: 200px; /* Reduce altura en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .map {
+    width: 80%; /* Más espacio en móviles pequeños */
+    margin: 0 auto; /* Mayor separación */
+  }
+
+  .map iframe {
+    height: 180px; /* Ajuste final para móviles */
+  }
+}
+
+
+
 </style>
