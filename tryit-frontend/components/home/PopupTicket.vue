@@ -7,7 +7,7 @@
           <v-card-text>¡Regístrate o inicia sesión para obtener tu entrada!</v-card-text>
           <v-card-actions>
             <v-btn color="primary" small outlined :style="{ left: '50%', transform: 'translateX(-50%)' }"
-              @click="loginSIU">
+            @click="openLoginOverlay">
               <v-icon dark dense color="primary" left>
                 <!-- mdi-information-outline -->
                 mdi-login
@@ -17,6 +17,8 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
+      <!-- Se inserta el componente LoginOverlay y se le asigna una referencia -->
+      <LoginOverlay ref="loginOverlay" />
     </div>
     <div v-else-if="isTicketFormVisible && this.$auth.loggedIn">
       <v-dialog v-model="isVisible" max-width="800px">
@@ -184,8 +186,12 @@
 </template>
 
 <script>
+import LoginOverlay from "@/layouts/LoginOverlay.vue";
 
 export default {
+  components: {
+    LoginOverlay
+  },
   data() {
     return {
       isVisible: false,
@@ -373,6 +379,11 @@ export default {
         }
       }
       return "Tu DNI/NIF/NIE no es válido";
+    },
+
+    openLoginOverlay() {
+      // Llama al método open() del componente LoginOverlay mediante su ref
+      this.$refs.loginOverlay.open();
     },
     loginSIU() {
       this.$auth.loginWith("SIU")
