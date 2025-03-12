@@ -6,7 +6,7 @@ export default {
 	},
 	//target: "server",
 	//TEST STATIC SITE
-	target: "server",
+	target: "static",
 	ssr: false,
 	mode: "spa",
 	env: {
@@ -136,11 +136,11 @@ export default {
 	router: {
 		extendRoutes(routes: any, resolve: any) {
 		  // Define la ruta específica para email-verification
-		  routes.push({
+		  /* routes.push({
 			name: "email-verification",
 			path: "/email-verification",
 			component: resolve(__dirname, "pages/email-verification.vue")
-		  });
+		  }); */
 		  
 		  // Luego, define la ruta catch-all para not-found
 		  routes.push({
