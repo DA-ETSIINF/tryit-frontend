@@ -12,7 +12,7 @@
     <FAQ />
     <LoginNoSIU />
     <Login />
-    <Hackaton /> -->
+    <Hackaton />-->
 
     <!-- Muestra el Header en pantallas grandes -->
     <HeaderComponent v-if="$vuetify.breakpoint.width >= 900" />
@@ -38,6 +38,7 @@ import HamburgerMenu from "@/layouts/HamburgerMenu.vue";
 import {
   Map,
   Timer,
+  Voluntarios,
   PopupTicket,
   PopupLogin,
   DialButton,
@@ -70,6 +71,7 @@ import {
     FAQ: Components.FAQ, */
     Map,
     Timer,
+    Voluntarios,
     ViewEcts,
     PopupTicket,
     PopupLogin,
