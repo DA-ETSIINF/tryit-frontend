@@ -28,7 +28,7 @@
         </v-tab>
         <v-tab @click="launchTournaments">
           <v-icon left dark color="white" class="mx-3">mdi-trophy</v-icon>
-          TORNEOS
+          ENTRADAS
         </v-tab>
         <v-tab @click="launchFAQ">
           <v-icon left dark color="white" class="mx-3">mdi-frequently-asked-questions</v-icon>

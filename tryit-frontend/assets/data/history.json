@@ -177,6 +177,24 @@
               }
             ],
             "image": "/img/historico/2023/alumnos.jpg"
+          },
+          {
+            "year": "2024",
+            "active": false,
+            "topImage": "/img/historico/2024/gafas-acciona.jpeg",
+            "body": [
+              {
+                "subtitle": "Desafíos, diversión y tecnología: así fue el TryIT! 2024",
+                "pgrph": "El Congreso TryIT! 2024 fue una experiencia inolvidable, reuniendo a estudiantes, profesionales y entusiastas de la tecnología en un evento lleno de aprendizaje, innovación y entreteniminto. Durante esta edición, los asistentes participaron en una gran variedad de actividades diseñadas para conectar con el mundo tecnológico de una manera dinámica y divertida."
+              },
+              {
+                "subtitle": "Actividades y eventos",
+                "pgrph": "Los asistentes disfrutaron de emocionantes torneos deportivos y de videojuegos que fomentaron la integración y el espíritu competitivo. Empresas destacadas como Inetum, Amazon, metro de Madrid e Innova compartieron sus conocimientos en charlas sobre las últimas tendencias tecnológicas. Los participantes también enfrentaron desafíos en el escape room y otras actividades que pusieron a prueba sus habilidades. Como broche de oro, un globo aerostático brindó una experiencia aérea única, permitiendo apreciar la magnitud del evento y nuestro querido campus desde las alturas.",
+                "img": "/img/historico/2024/charlas-empresas.jpeg"
+              }
+            ],
+            "image": "/img/historico/2024/globo-nttdata.jpeg"
           }
+
         ]
 }
