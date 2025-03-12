@@ -9,7 +9,7 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 @Component({})
-export default class NotFound extends Vue {}
+export default class EmailVerification extends Vue {}
 </script>
 
 <style scoped>

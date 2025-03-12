@@ -136,19 +136,22 @@ export default {
 	router: {
 		middleware: "routing-auth",
 		extendRoutes(routes: any, resolve: any) {
-			routes.push({
-				name: "custom",
-				path: "*",
-				component: resolve(__dirname, "pages/not-found.vue")
-			})
-
-			routes.push({
-				name: "email-verification",
-				path: "pages/email-verification.vue",
-				component: resolve(__dirname, "pages/email-verification.vue")
-			})
+		  // Añade la ruta específica para email-verification
+		  routes.push({
+			name: "email-verification",
+			path: "/email-verification",
+			component: resolve(__dirname, "pages/email-verification.vue")
+		  });
+	  
+		  // Ruta catch-all para not-found, que debe ir al final
+		  routes.push({
+			name: "custom",
+			path: "*",
+			component: resolve(__dirname, "pages/not-found.vue")
+		  });
 		}
-	},
+	  },
+	  
 	transpileDependencies: ["vuex-module-decorators"],
 	auth: {
 		strategies: {
