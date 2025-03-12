@@ -12,7 +12,7 @@ export const routes: RouteConfig[] = [
 	},
 
 	{
-		name: "not-found",
+		name: "email-verification",
 		path: "/email-verification.vue",
 		can_be_shown: true
 	},
