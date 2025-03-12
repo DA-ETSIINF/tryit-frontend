@@ -28,6 +28,7 @@
 		<FAQ />
 		<LoginNoSIU />
 		<Login />
+		<Hackaton />
 
 		<hr>
 		<section>
@@ -268,6 +269,7 @@ import {
 	FAQ,
 	LoginNoSIU,
 	Login,
+	Hackaton
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -289,6 +291,7 @@ import {
 		FAQ,
 		LoginNoSIU,
 		Login,
+		Hackaton
 	},
 })
 

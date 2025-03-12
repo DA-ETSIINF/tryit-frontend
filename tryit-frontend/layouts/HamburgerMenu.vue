@@ -1,17 +1,31 @@
 <template>
   <div>
     <!-- Header del menú hamburguesa similar al HeaderComponent -->
-    <v-app-bar app elevate-on-scroll fixed src="/img/Imagotipo_PNG_Blanco_2.png" color="primary" height="90px">
-      <!-- Botón para abrir/cerrar el menú (visible solo en móvil) -->
-      <v-btn icon @click="toggleDrawer" class="d-md-none" id="icon-adjust">
-        <v-icon color="white" size="35px" >
-          mdi-menu
-        </v-icon>
-      </v-btn>
-      <template v-slot:img="{ props }">
-        <v-img v-bind="props" contain></v-img>
-      </template>
-      <v-spacer></v-spacer>      
+    <v-app-bar app elevate-on-scroll fixed color="primary" height="90px">
+      <!-- Contenedor principal con flexbox -->
+      <div class="d-flex align-center justify-space-between" style="width: 100%;">
+        <!-- Sección izquierda: Botón del menú -->
+        <div class="d-flex align-center">
+          <!-- Botón para abrir/cerrar el menú (visible solo en móvil) -->
+          <v-btn icon @click="toggleDrawer" class="d-md-none" id="icon-adjust">
+            <v-icon color="white" size="35px">
+              mdi-menu
+            </v-icon>
+          </v-btn>
+        </div>
+
+        <!-- Sección central: Logotipo -->
+        <div class="d-flex justify-center align-center flex-grow-1">
+          <a href="">
+            <v-img class="logo" src="/img/Imagotipo_PNG_Blanco_2.png"></v-img>
+          </a>
+        </div>
+
+        <!-- Sección derecha: Espaciador para mantener el logotipo centrado -->
+        <div class="d-flex align-center" style="width: 35px;">
+          <!-- Este div ocupa el mismo espacio que el botón del menú para centrar el logotipo -->
+        </div>
+      </div>    
     </v-app-bar>
 
     <!-- Sidebar de navegación (drawer) -->
@@ -55,12 +69,12 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item @click="handleClick(launchTournaments)">
+        <v-list-item @click="handleClick(launchHackaton)">
           <v-list-item-action>
             <v-icon color="white" size="30px">mdi-trophy</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="menu-title">Torneos</v-list-item-title>
+            <v-list-item-title class="menu-title">HACK IT!</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -160,6 +174,9 @@ export default class HamburgerMenu extends Vue {
   launchTournaments() {
     this.$nuxt.$emit("toggleTournaments");
   }
+  launchHackaton() {
+    this.$nuxt.$emit("toggleHackaton");
+  }
   launchFAQ() {
     this.$nuxt.$emit("toggleFAQ");
   }
@@ -194,6 +211,19 @@ export default class HamburgerMenu extends Vue {
 </script>
 
 <style scoped>
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  height: 50px;
+}
+
+.logo{
+  height: auto;
+  width: 200px;
+}
+
 .v-navigation-drawer.primary {
   background-color: #1976D2;
   color: white;

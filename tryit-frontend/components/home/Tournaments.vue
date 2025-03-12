@@ -65,13 +65,16 @@
 
 <script>
 
+
 export default {
+  
 
 
   data() {
     return {
       isTournamentsVisible: false,
       tournaments: [],
+      
     };
   },
   async fetch() {
@@ -115,4 +118,6 @@ export default {
 
 </script>
 
-<style></style>
+<style scoped>
+
+</style>

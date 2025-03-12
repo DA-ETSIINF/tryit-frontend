@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app elevate-on-scroll fixed src="/img/Imagotipo_PNG_Blanco_2.png" color="primary" style="margin-bottom: 600px;">
+  <v-app-bar app elevate-on-scroll fixed src="/img/Imagotipo_PNG_Blanco_2.png" color="primary">
     <template v-slot:img="{ props }" >
       <v-img v-bind="props" contain></v-img>
     </template>
@@ -26,9 +26,9 @@
           <v-icon left dark color="white" class="mx-3">mdi-calendar</v-icon>
           HORARIOS
         </v-tab>
-        <v-tab @click="launchTournaments">
+        <v-tab @click="launchHackaton">
           <v-icon left dark color="white" class="mx-3">mdi-trophy</v-icon>
-          TORNEOS
+          HACK IT!
         </v-tab>
         <v-tab @click="launchFAQ">
           <v-icon left dark color="white" class="mx-3">mdi-frequently-asked-questions</v-icon>
@@ -61,13 +61,11 @@
 import { Component, Vue } from "nuxt-property-decorator";
 import SocialNetworks from "@/layouts/SocialNetworks.vue";
 import LoginOverlay from "@/layouts/LoginOverlay.vue";
-import HamburgerMenu from "@/layouts/HamburgerMenu.vue";
 
 @Component({
   components: {
     SocialNetworks,
     LoginOverlay,
-    HamburgerMenu
   }
 })
 export default class HeaderComponent extends Vue {
@@ -84,6 +82,9 @@ export default class HeaderComponent extends Vue {
   }
   launchTimeline() {
     this.$nuxt.$emit("toggleTimeline");
+  }
+  launchHackaton() {
+    this.$nuxt.$emit("toggleHackaton");
   }
   launchTournaments() {
     this.$nuxt.$emit("toggleTournaments");
