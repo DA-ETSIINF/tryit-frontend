@@ -3,5 +3,5 @@
 // Component.registerHooks(['computed'])
 export { default as Home } from "./index.vue"
 export { default as NotFound } from "./not-found.vue"
-
+export { default as EmailVerification } from "./email-verification.vue"
 
