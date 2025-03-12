@@ -134,23 +134,22 @@ export default {
 	],
 	axios: {},
 	router: {
-		middleware: "routing-auth",
 		extendRoutes(routes: any, resolve: any) {
-		  // Añade la ruta específica para email-verification
+		  // Define la ruta específica para email-verification
 		  routes.push({
 			name: "email-verification",
 			path: "/email-verification",
 			component: resolve(__dirname, "pages/email-verification.vue")
 		  });
-	  
-		  // Ruta catch-all para not-found, que debe ir al final
+		  
+		  // Luego, define la ruta catch-all para not-found
 		  routes.push({
-			name: "custom",
+			name: "not-found",
 			path: "*",
 			component: resolve(__dirname, "pages/not-found.vue")
 		  });
 		}
-	  },
+	  },	  
 	  
 	transpileDependencies: ["vuex-module-decorators"],
 	auth: {
