@@ -6,7 +6,7 @@ export default {
 	},
 	//target: "server",
 	//TEST STATIC SITE
-	target: "static",
+	target: "server",
 	ssr: false,
 	mode: "spa",
 	env: {
