@@ -141,6 +141,12 @@ export default {
 				path: "*",
 				component: resolve(__dirname, "pages/not-found.vue")
 			})
+
+			routes.push({
+				name: "email_verification",
+				path: "*",
+				component: resolve(__dirname, "pages/email_verification.vue")
+			})
 		}
 	},
 	transpileDependencies: ["vuex-module-decorators"],
