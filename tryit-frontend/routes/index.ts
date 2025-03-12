@@ -10,6 +10,13 @@ export const routes: RouteConfig[] = [
 		path: "/",
 		can_be_shown: true
 	},
+
+	{
+		name: "email-verification",
+		path: "/email-verification.vue",
+		can_be_shown: true
+	},
+	
 	{
 		name: "ticket",
 		path: "/ticket",

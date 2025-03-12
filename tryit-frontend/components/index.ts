@@ -14,5 +14,6 @@ export { default as TicketWarning } from "./home/TicketWarning.vue"
 export { default as FAQ } from "./home/FAQ.vue"
 export { default as LoginNoSIU} from "./home/LoginNoSIU.vue"
 export { default as Login} from "./home/Login.vue"
-
-
+export { default as Hackaton} from "./home/Hackaton.vue"
+export { default as Voluntarios} from "./home/Voluntarios.vue"
+export { default as BusSlider} from "./home/BusSlider.vue"

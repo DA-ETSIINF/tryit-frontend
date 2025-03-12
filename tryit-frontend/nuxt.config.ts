@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/src/util/colors'
 
 export default {
 	server: {
@@ -134,15 +134,23 @@ export default {
 	],
 	axios: {},
 	router: {
-		middleware: "routing-auth",
 		extendRoutes(routes: any, resolve: any) {
-			routes.push({
-				name: "custom",
-				path: "*",
-				component: resolve(__dirname, "pages/not-found.vue")
-			})
+		  // Define la ruta específica para email-verification
+		  /* routes.push({
+			name: "email-verification",
+			path: "/email-verification",
+			component: resolve(__dirname, "pages/email-verification.vue")
+		  }); */
+		  
+		  // Luego, define la ruta catch-all para not-found
+		  routes.push({
+			name: "not-found",
+			path: "*",
+			component: resolve(__dirname, "pages/not-found.vue")
+		  });
 		}
-	},
+	  },	  
+	  
 	transpileDependencies: ["vuex-module-decorators"],
 	auth: {
 		strategies: {

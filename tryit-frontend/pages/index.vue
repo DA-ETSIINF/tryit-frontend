@@ -28,29 +28,14 @@
 		<FAQ />
 		<LoginNoSIU />
 		<Login />
+		<Hackaton />
 
-		<hr>
-		<section>
-			<h2 align="center">¡Buscamos voluntarios!</h2>
-
-			<div class="voluntier-description">
-				<p class="section-description">
-					Si eres alumno de la ETSIINF de la UPM, te concedemos 1 ECTS por venir a ayudar 27 horas
-					a lo largo de la semana del Congreso. <br><br>
-					<a class="voluntier-link"
-						href="https://docs.google.com/forms/d/e/1FAIpQLSfTisQjVRJ1p_J7BQzwgf9buO4Eyu9Mjifos1wc8SnC2O77gw/viewform"
-						target="_blank" rel="noopener noreferrer">
-						<span class="link-text">¡Apúntate rellenando este cuestionario!</span>
-						<span class="cadena">
-							<img src="img/cadena.png" alt="Icono de cadena">
-						</span>
-					</a>
-				</p>
-				<img src="img/personaje-señalando.png" alt="No se ha podeido cargar la imagen" id="personaje_señalando">
-			</div>
-		</section>
-
-		<hr>
+    <hr>
+		<v-card>
+      <h2 align="center">¡Buscamos voluntarios!</h2>
+      <Voluntarios></Voluntarios>
+		</v-card>
+    <hr>
 
 		<section>
 			<h2 align="center">¿Qué ofrecemos?</h2>
@@ -185,38 +170,10 @@
 			<Map></Map>
 		</v-card>
 		<hr>
-		<v-container style="max-width:392px; max-height:392px; padding:0; margin-top:30px">
-			<v-carousel cycle hide-delimiters show-arrows>
-				<v-carousel-item>
-					<img src="img/map_slider/como_llegar_1.png"
-						style="max-height:100%; max-width:100% ; object-fit: contain;">
-				</v-carousel-item>
-				<v-carousel-item>
-					<img src="img/map_slider/como_llegar_2.png"
-						style="max-height:100%; max-width:100% ; object-fit: contain;">
-				</v-carousel-item>
-				<v-carousel-item>
-					<img src="img/map_slider/como_llegar_3.png"
-						style="max-height:100%; max-width:100% ; object-fit: contain;">
-				</v-carousel-item>
-				<v-carousel-item>
-					<img src="img/map_slider/como_llegar_4.png"
-						style="max-height:100%; max-width:100% ; object-fit: contain;">
-				</v-carousel-item>
-				<v-carousel-item>
-					<img src="img/map_slider/como_llegar_5.png"
-						style="max-height:100%; max-width:100% ; object-fit: contain;">
-				</v-carousel-item>
-				<v-carousel-item>
-					<img src="img/map_slider/como_llegar_6.png"
-						style="max-height:100%; max-width:100% ; object-fit: contain;">
-				</v-carousel-item>
-			</v-carousel>
-		</v-container>
-
+    <v-card>
+      <BusSlider></BusSlider>
+    </v-card>
 		<hr>
-
-
 		<v-card>
 			<h2>Ediciones anteriores</h2>
 			<template>
@@ -254,6 +211,8 @@ import { Component, Vue } from "nuxt-property-decorator"
 import {
 	Map,
 	Timer,
+  Voluntarios,
+  BusSlider,
 	PopupTicket,
 	PopupLogin,
 	DialButton,
@@ -268,6 +227,7 @@ import {
 	FAQ,
 	LoginNoSIU,
 	Login,
+	Hackaton
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -275,6 +235,8 @@ import {
 	components: {
 		Map,
 		Timer,
+    Voluntarios,
+    BusSlider,
 		ViewEcts,
 		PopupTicket,
 		PopupLogin,
@@ -289,6 +251,7 @@ import {
 		FAQ,
 		LoginNoSIU,
 		Login,
+		Hackaton
 	},
 })
 
@@ -626,8 +589,6 @@ h2 {
 		}
 	}
 
-
-
 	.property {
 		display: flex;
 		flex-direction: column;
@@ -667,57 +628,10 @@ h2 {
 	}
 }
 
-.voluntier-description {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 20px 0 20px 0;
-}
-
 @media screen and (max-width: 700px) {
 	.voluntier-description {
 		flex-direction: column;
 	}
-}
-
-.voluntier-link {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	margin: 10px;
-}
-
-.link-text {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	font-size: 20px;
-}
-
-.cadena {
-	background-color: #035b9e;
-	height: 30px;
-	width: 30px;
-	min-width: 30px;
-	min-height: 30px;
-	aspect-ratio: 1/1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-}
-
-.cadena img {
-	height: 60%;
-	width: auto;
-	filter: invert(1);
-}
-
-#personaje_señalando {
-	height: 200px;
-	width: auto;
 }
 
 .video-container {
