@@ -144,7 +144,7 @@ export default {
 
 			routes.push({
 				name: "email_verification",
-				path: "/email_verification",
+				path: "pages/email_verification.vue",
 				component: resolve(__dirname, "pages/email_verification.vue")
 			})
 		}
