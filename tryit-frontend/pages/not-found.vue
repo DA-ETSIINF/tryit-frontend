@@ -1,6 +1,7 @@
 <template>
   <v-card class="not-found">
     <h1>Nada por aquí...</h1>
+    <p>Si tienes problemas con el login, borra las cookes y vuelva a intentarlo</p>
   </v-card>
 
 </template>
