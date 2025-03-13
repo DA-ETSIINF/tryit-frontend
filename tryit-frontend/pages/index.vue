@@ -648,6 +648,10 @@ h2 {
 	display: block;
 }
 
+.question {
+	text-align: left !important;
+  }
+
 /* 🔹 Ajuste para ESCRITORIO (PC) */
 @media screen and (min-width: 1024px) {
 

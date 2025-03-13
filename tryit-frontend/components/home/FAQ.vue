@@ -294,4 +294,9 @@ export default {
 
 </script>
 
-<style></style>
+<style scoped>
+.question {
+  text-align: left; 
+  line-height: 1; 
+}
+</style>
