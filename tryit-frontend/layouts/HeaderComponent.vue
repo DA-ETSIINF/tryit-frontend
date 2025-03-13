@@ -28,7 +28,11 @@
         </v-tab>
         <v-tab @click="launchHackaton">
           <v-icon left dark color="white" class="mx-3">mdi-trophy</v-icon>
+<<<<<<< HEAD
+          ENTRADAS
+=======
           HACK IT!
+>>>>>>> 9480f645f41d6bcf29aeb1133788a684ab7d599f
         </v-tab>
         <v-tab @click="launchFAQ">
           <v-icon left dark color="white" class="mx-3">mdi-frequently-asked-questions</v-icon>
