@@ -15,6 +15,11 @@ export default {
 		api: "https://tryit.upm.es",
 		edition: 2025
 	},
+
+	generate: {
+		fallback: true,  // Ensures correct handling of 404 pages
+		subFolders: false // Forces Nuxt to generate /not-found.html instead of /not-found/index.html
+	},
 	
 	head: {
 		title: "Try IT!",
