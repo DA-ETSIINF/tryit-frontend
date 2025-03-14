@@ -16,7 +16,7 @@
 
         <!-- Sección central: Logotipo -->
         <div class="d-flex justify-center align-center flex-grow-1">
-          <a href="">
+          <a href="https://tryit.upm.es/">
             <v-img class="logo" src="/img/Imagotipo_PNG_Blanco_2.png"></v-img>
           </a>
         </div>
