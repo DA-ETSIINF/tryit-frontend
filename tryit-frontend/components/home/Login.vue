@@ -84,6 +84,10 @@ export default {
         console.error("Error al enviar el correo", err);
         if (err.response && err.response.data && err.response.data.message) {
           this.errorMessage = err.response.data.message;
+        }
+        else if(err.response.data == "Ya existe el usuario"){
+          this.errorMessage =
+            "Ya existe un usuario con este correo. Si has perdido tu entrada por favor contacta con incidencias.tryit@upm.es .";
         } else {
           this.errorMessage =
             "Los correos @upm.es no pueden ser enviados desde esta plataforma. Por favor, introduce un correo personal o pruebe con Usuario UPM.";
