@@ -1,6 +1,6 @@
 <template>
   <v-app light class="app" :style="{ background: $vuetify.theme.themes.light.background }">
-    <!-- <ViewEcts />
+    <ViewEcts />
     <PopupTicket />
     <PopupLogin />
     <Timeline />
@@ -12,7 +12,8 @@
     <FAQ />
     <LoginNoSIU />
     <Login />
-    <Hackaton />-->
+    <Hackaton />
+    <MesasRedondas />
 
     <!-- Muestra el Header en pantallas grandes -->
     <HeaderComponent v-if="$vuetify.breakpoint.width >= 900" />
@@ -54,7 +55,8 @@ import {
   FAQ,
   LoginNoSIU,
   Login,
-  Hackaton
+  Hackaton,
+  MesasRedondas
 } from "../components"
 //import { Context } from '@nuxt/types'
 
@@ -63,13 +65,6 @@ import {
     HeaderComponent,
     FooterComponent,
     HamburgerMenu,
-    /* DialButton: Components.DialButton,
-    PopupTicket: Components.PopupTicket,
-    PopupLogin: Components.PopupLogin,
-    Timeline: Components.Timeline,
-    QRReader: Components.QRReader,
-    EventsViwer: Components.EventsViewer,
-    FAQ: Components.FAQ, */
     Map,
     Timer,
     Voluntarios,
@@ -88,7 +83,8 @@ import {
     FAQ,
     LoginNoSIU,
     Login,
-    Hackaton
+    Hackaton,
+    MesasRedondas
   },
 
   computed: {

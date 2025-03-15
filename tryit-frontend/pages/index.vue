@@ -16,7 +16,7 @@
 
 		<!-- Menú de acciones posibles -->
 		<!-- Si no ponemos esto luego no se pueden abrir -->
-		<ViewEcts />
+		<!-- <ViewEcts />
 		<PopupTicket />
 		<PopupLogin />
 		<Timeline />
@@ -29,13 +29,16 @@
 		<LoginNoSIU />
 		<Login />
 		<Hackaton />
+		<MesasRedondas /> -->
 
-    <hr>
-		<v-card>
-      <h2 align="center">¡Buscamos voluntarios!</h2>
-      <Voluntarios></Voluntarios>
-		</v-card>
-    <hr>
+		<hr>
+
+		<!-- PONER DE VUELTA EL AÑO QUE VIENE SI SE BUSACAN VOLUNTARIOS -->
+		<!-- <v-card>
+			<h2 align="center">¡Buscamos voluntarios!</h2>
+			<Voluntarios></Voluntarios>
+		</v-card> 
+		<hr>-->
 
 		<section>
 			<h2 align="center">¿Qué ofrecemos?</h2>
@@ -170,9 +173,9 @@
 			<Map></Map>
 		</v-card>
 		<hr>
-    <v-card>
-      <BusSlider></BusSlider>
-    </v-card>
+		<v-card>
+			<BusSlider></BusSlider>
+		</v-card>
 		<hr>
 		<v-card>
 			<h2>Ediciones anteriores</h2>
@@ -211,8 +214,8 @@ import { Component, Vue } from "nuxt-property-decorator"
 import {
 	Map,
 	Timer,
-  Voluntarios,
-  BusSlider,
+	Voluntarios,
+	BusSlider,
 	PopupTicket,
 	PopupLogin,
 	DialButton,
@@ -227,16 +230,18 @@ import {
 	FAQ,
 	LoginNoSIU,
 	Login,
-	Hackaton
+	Hackaton,
+	MesasRedondas
 } from "../components"
+
 //import { Context } from '@nuxt/types'
 
 @Component({
 	components: {
 		Map,
 		Timer,
-    Voluntarios,
-    BusSlider,
+		Voluntarios,
+		BusSlider,
 		ViewEcts,
 		PopupTicket,
 		PopupLogin,
@@ -251,7 +256,8 @@ import {
 		FAQ,
 		LoginNoSIU,
 		Login,
-		Hackaton
+		Hackaton,
+		MesasRedondas
 	},
 })
 
@@ -650,7 +656,7 @@ h2 {
 
 .question {
 	text-align: left !important;
-  }
+}
 
 /* 🔹 Ajuste para ESCRITORIO (PC) */
 @media screen and (min-width: 1024px) {

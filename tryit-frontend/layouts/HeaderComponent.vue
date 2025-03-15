@@ -5,7 +5,6 @@
     </template>
 
     <!-- Si no es mobile, mostramos el spacer y las redes sociales -->
-   
     <v-row class="d-none d-md-flex justify-center justify-md-end ">
       <SocialNetworks variant="header" />
     </v-row>
@@ -33,6 +32,11 @@
         <v-tab @click="launchFAQ">
           <v-icon left dark color="white" class="mx-3">mdi-frequently-asked-questions</v-icon>
           FAQ
+        </v-tab>
+        <!-- Nueva sección: Mesas Redondas -->
+        <v-tab @click="launchMesasRedondas">
+          <v-icon left dark color="white" class="mx-3">mdi-table</v-icon>
+          Mesas Redondas
         </v-tab>
         <v-tab v-if="checkAdmin() || checkScanner()" @click="launchQRReader">
           <v-icon left dark color="white" class="mx-3">mdi-qrcode-scan</v-icon>
@@ -110,6 +114,9 @@ export default class HeaderComponent extends Vue {
   launchLogout() {
     this.$auth.logout();
   }
+  hasTicket() {
+    return this.$auth.loggedIn && this.$auth.user.ticket_id !== "undefined";
+  }
   checkLogin() {
     return this.$auth.loggedIn;
   }
@@ -119,8 +126,9 @@ export default class HeaderComponent extends Vue {
   checkScanner() {
     return this.$auth.loggedIn && this.$auth.user.isscanner;
   }
-  hasTicket() {
-    return this.$auth.loggedIn && this.$auth.user.ticket_id !== "undefined";
+  // Método para activar la sección de Mesas Redondas
+  launchMesasRedondas() {
+    this.$nuxt.$emit("toggleMesasRedondas");
   }
 }
 </script>

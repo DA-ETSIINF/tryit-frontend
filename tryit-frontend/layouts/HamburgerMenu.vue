@@ -87,6 +87,16 @@
           </v-list-item-content>
         </v-list-item>
 
+        <!-- Nueva sección: Mesas Redondas -->
+        <v-list-item @click="handleClick(launchMesasRedondas)">
+          <v-list-item-action>
+            <v-icon color="white" size="30px">mdi-table</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title class="menu-title">Mesas Redondas</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-item v-if="checkAdmin() || checkScanner()" @click="handleClick(launchQRReader)">
           <v-list-item-action>
             <v-icon color="white" size="30px">mdi-qrcode-scan</v-icon>
@@ -125,20 +135,16 @@
       </v-list>
 
       <!-- Redes Sociales en la parte inferior centrado -->
-
       <hr color="#0071bc" />
-
       <div class="social-container">
         <SocialNetworks variant="header" />
       </div>
-
     </v-navigation-drawer>
 
     <!-- Componente LoginOverlay para iniciar sesión -->
     <LoginOverlay ref="loginOverlay" />
   </div>
 </template>
-
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
@@ -192,6 +198,9 @@ export default class HamburgerMenu extends Vue {
   launchLogout() {
     this.$auth.logout();
   }
+  launchMesasRedondas() {
+    this.$nuxt.$emit("toggleMesasRedondas");
+  }
   checkLogin() {
     return this.$auth.loggedIn;
   }
@@ -219,7 +228,7 @@ export default class HamburgerMenu extends Vue {
   height: 50px;
 }
 
-.logo{
+.logo {
   height: auto;
   width: 200px;
 }
@@ -250,5 +259,4 @@ export default class HamburgerMenu extends Vue {
 #icon-adjust {
   margin-left: 0px; /* sin esto se ve raro, no entiendo nada */
 }
-
 </style>
