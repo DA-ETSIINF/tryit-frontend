@@ -11,14 +11,15 @@
               </tr>
               <tr>
                 <td colspan="7">
-                  <h2>¡Ya ha empezado la cuenta atrás!</h2>
+                  <!-- <h2>¡Ya ha empezado la cuenta atrás!</h2> -->
+                   <h2>¡Ya ha empezado el Tryit!</h2>
                 </td>
               </tr>
             </thead>
             <tbody>
-              <!-- Mientras el tryit no haya finalizado -->
-              <template v-if="!tryitEnded">
-                <!-- Si aún falta tiempo en el ciclo actual se muestra el countdown -->
+              
+             <!--  <template v-if="!tryitEnded">
+                
                 <tr v-if="secondsLeft > 0">
                   <td>
                     <div class="time">{{ timer.days }}</div>
@@ -36,14 +37,14 @@
                     <div class="time">{{ timer.seconds }}</div>
                   </td>
                 </tr>
-                <!-- Si se acabó el ciclo del día, se muestra el mensaje del día -->
+                
                 <tr v-else>
                   <td colspan="7">
                     <h2>{{ message }}</h2>
                   </td>
                 </tr>
               </template>
-              <!-- Cuando ya terminó el tryit -->
+              
               <template v-else>
                 <tr>
                   <td colspan="7">
@@ -55,7 +56,7 @@
                     <div class="time">próximamente</div>
                   </td>
                 </tr>
-              </template>
+              </template> -->
             </tbody>
             <tfoot>
               <tr>
