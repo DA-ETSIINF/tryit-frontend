@@ -180,7 +180,7 @@
       return {
         // Calcula la diferencia en segundos entre la fecha de inicio (17 de marzo de 2025 a las 11:00)
         // y el momento actual.
-        secondsLeft: (new Date("2025-03-17T11:00:00+01:00").getTime() - Date.now()) / 1000,
+        secondsLeft: (new Date("2026-03-16T11:00:00+01:00").getTime() - Date.now()) / 1000,
         currentDay: 1, // Día actual (del 1 al 6)
         message: "",
         tryitEnded: false // Flag para indicar que ya finalizó el tryit
