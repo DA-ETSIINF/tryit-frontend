@@ -22,8 +22,7 @@
 		"vuex-module-decorators": "1.2.0"
 	},
 	"scripts": {
-		"dev": "nuxt --hostname localhost",
-		"dev-with-domain": "nuxt --hostname 0.0.0.0",
+		"dev": "cross-env NUXT_MODE=server nuxt --hostname 0.0.0.0",
 		"build": "nuxt build",
 		"start": "nuxt start",
 		"generate": "nuxt generate"
@@ -31,6 +30,7 @@
 	"devDependencies": {
 		"@nuxt/typescript-build": "^2.1.0",
 		"@nuxtjs/vuetify": "^1.12.3",
+		"cross-env": "^10.1.0",
 		"webpack-node-externals": "^3.0.0"
 	}
 }

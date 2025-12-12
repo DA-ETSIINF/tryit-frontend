@@ -6,7 +6,7 @@ export default {
 	},
 	//target: "server",
 	//TEST STATIC SITE
-	target: "static",
+	target: process.env.NUXT_MODE === "server" ? "server" : "static",
 	ssr: false,
 	mode: "spa",
 	env: {
