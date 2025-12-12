@@ -194,17 +194,6 @@
                             <v-card
                               class="mx-auto"
                             > 
-                              <!-- @info Poster del evento: puede ser tanto una imagen propia (prioritario) como un enlace -->
-                              <v-img
-                                v-if="event.poster_img"
-                                :src="event.poster_img"
-                                id="event-img"
-                              />
-                              <v-img
-                                v-else
-                                :src="event.poster_link"
-                                id="event-img"
-                              />
                               <v-card-title>
                                 {{ event.name }}
                               </v-card-title>
@@ -336,28 +325,6 @@
                                         class="mx-auto"
                                       > 
                                         <v-row justify="center">
-                                          <v-avatar
-                                            v-if="speaker.pic_img"
-                                            height="50%"
-                                            width=auto
-                                            rounded
-                                          >
-                                            <img
-                                              :src="speaker.pic_img"
-                                              alt="Speaker"
-                                            >
-                                          </v-avatar>
-                                          <v-avatar
-                                            v-else
-                                            height="50%"
-                                            width=auto
-                                            rounded
-                                          >
-                                            <img
-                                              :src="speaker.pic_link"
-                                              alt="Speaker"
-                                            >
-                                          </v-avatar>
                                         </v-row>
                                         <v-row justify="space-around">
                                           <v-card-title
