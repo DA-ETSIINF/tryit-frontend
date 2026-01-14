@@ -48,15 +48,14 @@
           <v-icon medium>mdi-close</v-icon>
         </v-btn>
 
-        <template v-slot:extension>
+        <!-- <template v-slot:extension>
           <v-tabs v-model="tab" grow align-with-title next-icon="mdi-arrow-right-bold-box-outline"
             prev-icon="mdi-arrow-left-bold-box-outline" show-arrows center-active centered slider-color="yellow" dark>
-            <!-- @TODO change so that color isn't hardcoded -->
             <v-tab v-for="post in posts" :key="post.day" @click="deleteShow()">
               {{ post.day }}
             </v-tab>
           </v-tabs>
-        </template>
+        </template> -->
       </v-toolbar>
 
       <div style="
