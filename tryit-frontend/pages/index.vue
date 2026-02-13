@@ -33,12 +33,12 @@
 
 		<hr>
 
-		<!-- PONER DE VUELTA EL AÑO QUE VIENE SI SE BUSACAN VOLUNTARIOS -->
-		<!-- <v-card>
+		
+		<v-card>
 			<h2 align="center">¡Buscamos voluntarios!</h2>
 			<Voluntarios></Voluntarios>
 		</v-card> 
-		<hr>-->
+		<hr>
 
 		<section>
 			<h2 align="center">¿Qué ofrecemos?</h2>
@@ -49,7 +49,7 @@
 						<v-col cols="12" md="10" lg="8" xl="6">
 							<v-responsive aspect-ratio="16/9">
 								<video class="video-player" controls>
-									<source src="/Trailer2025.mp4" type="video/mp4">
+									<source src="/TrailerTryit2026.mp4" type="video/mp4">
 									Tu navegador no soporta videos HTML5.
 								</video>
 							</v-responsive>
