@@ -47,7 +47,7 @@
         <v-btn fab color="close" small @click="hideDialog">
           <v-icon medium>mdi-close</v-icon>
         </v-btn>
-
+        <!-- quitar este comentario cuando se sepan los horarios -->
         <!-- <template v-slot:extension>
           <v-tabs v-model="tab" grow align-with-title next-icon="mdi-arrow-right-bold-box-outline"
             prev-icon="mdi-arrow-left-bold-box-outline" show-arrows center-active centered slider-color="yellow" dark>

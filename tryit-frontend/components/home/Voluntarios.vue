@@ -4,7 +4,7 @@
 			Si eres alumno de la ETSIINF de la UPM, te concedemos 1 ECTS por venir a ayudar 27 horas
 			a lo largo de la semana del Congreso. <br><br>
 			<a class="voluntier-link"
-				href="https://docs.google.com/forms/d/e/1FAIpQLSfTisQjVRJ1p_J7BQzwgf9buO4Eyu9Mjifos1wc8SnC2O77gw/viewform"
+				href="https://forms.gle/WaVjLJqDUM5mPUz4A"
 				target="_blank" rel="noopener noreferrer">
 				<span class="link-text">¡Apúntate rellenando este cuestionario!</span>
 				<span class="cadena">
