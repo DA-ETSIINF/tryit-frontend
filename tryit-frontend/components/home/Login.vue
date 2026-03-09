@@ -73,7 +73,7 @@ export default {
       try {
         const payload = { external_mail: this.externalMail };
         const res = await this.$axios.post(
-          "https://tryit.upm.es/api/editions/2025/send_verification_email/",
+          `ttps://tryit.upm.es/api/editions/${process.env.edition}/send_verification_email/`,
           payload
         );
         if (res.status === 200 || res.status === 201) {
