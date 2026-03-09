@@ -225,7 +225,7 @@ export default {
       isPrivacyPolicyVisible: false,
       acceptsPrivacyPolicy: false,
       must_accept_privacy_terms_alert: false, // Alert that pops up when a user tries to create a ticket without accepting the privacy terms
-      isTicketFormVisible: false,
+      isTicketFormVisible: true,
       person_name: "",
       person_last_name: "",
       person_mail: "",
@@ -330,7 +330,7 @@ export default {
     const result = await this.$axios.$get(
       `${process.env.api}/api/degrees/?search=${encodeURIComponent(school)}`
     )
-    this.filteredDegrees = [...new Set(result.map(d => ({text: d.degree, value: d.id})))].sort()
+    this.filteredDegrees = [...new Set(result.map(d => ({text: d.degree, value: d.degree_code})))].sort()
   } catch (e) {
     console.error('Error cargando grados:', e)
   } finally {
