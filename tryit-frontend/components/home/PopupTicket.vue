@@ -174,7 +174,7 @@
       <template>
         <v-dialog v-model="isVisible" max-width="610px">
           <v-card>
-            <v-card-title>Las entradas estarán disponibles unas semanas antes del evento.</v-card-title>
+            <v-card-title>Las entradas estarán disponibles unos dias antes del evento.</v-card-title>
             <v-card-text>¡Síguenos en nuestras redes sociales para enterarte de cuándo estarán
               disponibles!</v-card-text>
             <v-container>
@@ -225,7 +225,7 @@ export default {
       isPrivacyPolicyVisible: false,
       acceptsPrivacyPolicy: false,
       must_accept_privacy_terms_alert: false, // Alert that pops up when a user tries to create a ticket without accepting the privacy terms
-      isTicketFormVisible: true,
+      isTicketFormVisible: false,
       person_name: "",
       person_last_name: "",
       person_mail: "",
