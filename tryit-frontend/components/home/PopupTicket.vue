@@ -48,43 +48,43 @@
             <v-form ref="form">
               <v-row>
                 <v-col cols="5">
-                  <v-text-field v-model="person_name" label="Nombre*" readonly=true disabled=true></v-text-field>
+                  <v-text-field v-model="person_name" label="Nombre*" readonly disabled></v-text-field>
                 </v-col>
                 <v-col cols="7">
-                  <v-text-field v-model="person_last_name" label="Apellidos*" readonly=true
-                    disabled=true></v-text-field>
+                  <v-text-field v-model="person_last_name" label="Apellidos*" readonly
+                    disabled></v-text-field>
                 </v-col>
                 <v-col cols="5">
-                  <v-text-field v-model="person_nif" label="NIF/DNI*" readonly=true disabled=true></v-text-field>
+                  <v-text-field v-model="person_nif" label="NIF/DNI*" readonly disabled></v-text-field>
                 </v-col>
                 <v-col cols="7">
-                  <v-text-field v-model="person_mail" label="Email*" readonly=true disabled=true></v-text-field>
+                  <v-text-field v-model="person_mail" label="Email*" readonly disabled></v-text-field>
                 </v-col>
                 <!-- Escuela (readonly) -->
-<v-col cols="12">
-  <v-text-field
-    v-model="person_school"
-    label="Escuela"
-    readonly
-    disabled
-    hint="Escuela asociada a tu cuenta UPM"
-    persistent-hint
-  ></v-text-field>
-</v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="person_school"
+                  label="Escuela"
+                  readonly
+                  disabled
+                  hint="Escuela asociada a tu cuenta UPM"
+                  persistent-hint
+                ></v-text-field>
+              </v-col>
 
-<!-- Grado -->
-<v-col cols="12">
-  <v-select
-    v-model="selectedDegree"
-    :items="filteredDegrees"
-    label="Grado*"
-    :rules="degreeRules"
-    :loading="loadingDegrees"
-    :disabled="loadingDegrees"
-    no-data-text="No se encontraron grados para tu escuela"
-    required
-  ></v-select>
-</v-col>
+              <!-- Grado -->
+              <v-col cols="12">
+                <v-select
+                  v-model="selectedDegree"
+                  :items="filteredDegrees"
+                  label="Grado*"
+                  :rules="degreeRules"
+                  :loading="loadingDegrees"
+                  :disabled="loadingDegrees"
+                  no-data-text="No se encontraron grados para tu escuela"
+                  required
+                ></v-select>
+              </v-col>
 
               </v-row>
 
@@ -235,6 +235,7 @@ export default {
       user_already_exists_alert: false, // Specific alert that occurs if user already has a ticket
       person_school: "",
       filteredDegrees: [],
+      filteredDegreeData: [],
       selectedDegree: null,
       loadingDegrees: false,
     }
@@ -329,7 +330,7 @@ export default {
     const result = await this.$axios.$get(
       `${process.env.api}/api/degrees/?search=${encodeURIComponent(school)}`
     )
-    this.filteredDegrees = [...new Set(result.map(d => d.degree))].sort()
+    this.filteredDegrees = [...new Set(result.map(d => ({text: d.degree, value: d.id})))].sort()
   } catch (e) {
     console.error('Error cargando grados:', e)
   } finally {
@@ -380,7 +381,10 @@ export default {
           return
         }
         try {
-          const res = await this.$axios.post(`${process.env.api}/api/editions/${process.env.edition}/create_ticket/`)
+          const res = await this.$axios.post(`${process.env.api}/api/editions/${process.env.edition}/create_ticket/`, 
+          {
+            degree: this.selectedDegree
+          })
           if (res.status == 201) {
             // Everything went fine with the request
             this.good_alert = true
