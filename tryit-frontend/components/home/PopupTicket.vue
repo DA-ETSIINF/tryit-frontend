@@ -60,6 +60,32 @@
                 <v-col cols="7">
                   <v-text-field v-model="person_mail" label="Email*" readonly=true disabled=true></v-text-field>
                 </v-col>
+                <!-- Escuela (readonly) -->
+<v-col cols="12">
+  <v-text-field
+    v-model="person_school"
+    label="Escuela"
+    readonly
+    disabled
+    hint="Escuela asociada a tu cuenta UPM"
+    persistent-hint
+  ></v-text-field>
+</v-col>
+
+<!-- Grado -->
+<v-col cols="12">
+  <v-select
+    v-model="selectedDegree"
+    :items="filteredDegrees"
+    label="Grado*"
+    :rules="degreeRules"
+    :loading="loadingDegrees"
+    :disabled="loadingDegrees"
+    no-data-text="No se encontraron grados para tu escuela"
+    required
+  ></v-select>
+</v-col>
+
               </v-row>
 
               <!-- LOPD -->
@@ -148,7 +174,7 @@
       <template>
         <v-dialog v-model="isVisible" max-width="610px">
           <v-card>
-            <v-card-title>Las entradas estarán disponibles unas semanas antes del evento.</v-card-title>
+            <v-card-title>Las entradas estarán disponibles unos dias antes del evento.</v-card-title>
             <v-card-text>¡Síguenos en nuestras redes sociales para enterarte de cuándo estarán
               disponibles!</v-card-text>
             <v-container>
@@ -199,7 +225,7 @@ export default {
       isPrivacyPolicyVisible: false,
       acceptsPrivacyPolicy: false,
       must_accept_privacy_terms_alert: false, // Alert that pops up when a user tries to create a ticket without accepting the privacy terms
-      isTicketFormVisible: true,
+      isTicketFormVisible: false,
       person_name: "",
       person_last_name: "",
       person_mail: "",
@@ -207,6 +233,10 @@ export default {
       good_alert: false,
       error_alert: false,
       user_already_exists_alert: false, // Specific alert that occurs if user already has a ticket
+      person_school: "",
+      filteredDegrees: [],
+      selectedDegree: null,
+      loadingDegrees: false,
     }
   },
   computed: {
@@ -293,6 +323,20 @@ export default {
     }
   },*/
   methods: {
+    async loadDegreesBySchool(school) {
+  this.loadingDegrees = true
+  try {
+    const result = await this.$axios.$get(
+      `${process.env.api}/api/degrees/?search=${encodeURIComponent(school)}`
+    )
+    this.filteredDegrees = [...new Set(result.map(d => d.degree))].sort()
+  } catch (e) {
+    console.error('Error cargando grados:', e)
+  } finally {
+    this.loadingDegrees = false
+  }
+},
+
     hideDialog() {
       this.isVisible = false
     },
@@ -393,15 +437,19 @@ export default {
     }
   },
   created() {
-    this.$nuxt.$on("toggleTicketForm", () => {
-      this.isVisible = !this.isVisible
-      if (this.isVisible && this.$auth.loggedIn) {
-        this.person_name = this.$auth.user.name
-        this.person_last_name = this.$auth.user.surname
-        this.person_mail = this.$auth.user.email
-        this.person_nif = this.$auth.user.nif
-      }
-    })
-  }
+  this.$nuxt.$on("toggleTicketForm", async () => {
+    this.isVisible = !this.isVisible
+    if (this.isVisible && this.$auth.loggedIn) {
+      this.person_name = this.$auth.user.name
+      this.person_last_name = this.$auth.user.surname
+      this.person_mail = this.$auth.user.email
+      this.person_nif = this.$auth.user.nif
+      this.person_school = this.$auth.user.school || ""
+      if (this.person_school) await this.loadDegreesBySchool(this.person_school)  // ← nombre largo
+    }
+  })
+}
+
+
 }
 </script>

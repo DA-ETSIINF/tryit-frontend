@@ -2,7 +2,7 @@
   <div v-if="isMesasRedondasVisible">
     <h2>Mesas Redondas</h2>
     <v-dialog v-model="isMesasRedondasVisible" max-width="600px" fullscreen>
-      <v-card style="margin:100px;">
+        <v-card style="margin:100px;">
         <v-toolbar color="primary" dark flat>
           <v-avatar>
             <v-img src="/img/Logotipo_PNG_Blanco_2.png"></v-img>
@@ -20,7 +20,8 @@
         </v-toolbar>
 
         <section class="contenido_mesas">
-          <hr>
+          <h3>Proximamente</h3>
+          <!-- <hr>
           <div class="mesas_texto">
             <h3>Mesas Redondas</h3>
             <p>
@@ -30,7 +31,7 @@
               y escuchar a expertos debatir sobre temas de interés. ¡No te lo pierdas! 🚀👏
             </p>
           </div>
-          <hr>
+          <hr> 
 
           <section class="imagenes_mesas">
             <div v-for="(n, index) in 5" :key="index">
@@ -41,7 +42,7 @@
               ></v-img>
               <hr v-if="index < 4" />
             </div>
-          </section>
+          </section> -->
           
         </section>
       </v-card>
