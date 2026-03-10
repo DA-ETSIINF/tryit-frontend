@@ -63,7 +63,7 @@
                 <!-- Escuela (readonly) -->
               <v-col cols="12">
                 <v-text-field
-                  v-model="person_school"
+                  v-model="person_schools_string"
                   label="Escuela"
                   readonly
                   disabled
@@ -233,9 +233,9 @@ export default {
       good_alert: false,
       error_alert: false,
       user_already_exists_alert: false, // Specific alert that occurs if user already has a ticket
-      person_school: "",
+      person_schools: [],
+      person_schools_string: "",
       filteredDegrees: [],
-      filteredDegreeData: [],
       selectedDegree: null,
       loadingDegrees: false,
     }
@@ -325,18 +325,31 @@ export default {
   },*/
   methods: {
     async loadDegreesBySchool(school) {
-  this.loadingDegrees = true
-  try {
-    const result = await this.$axios.$get(
-      `${process.env.api}/api/degrees/?search=${encodeURIComponent(school)}`
-    )
-    this.filteredDegrees = [...new Set(result.map(d => ({text: d.degree, value: d.degree_code})))].sort()
-  } catch (e) {
-    console.error('Error cargando grados:', e)
-  } finally {
-    this.loadingDegrees = false
-  }
-},
+      this.loadingDegrees = true
+      try {
+        const result = await this.$axios.$get(
+          `${process.env.api}/api/degrees/?search=${encodeURIComponent(school.name)}`
+        )
+
+        const newDegrees = result.map(d => ({text: d.degree, value: d.degree_code}))
+        const combinedDegrees = [...this.filteredDegrees, ...newDegrees];
+
+        // Remove duplicates based on the 'value' key
+        const uniqueDegreesMap = {};
+        combinedDegrees.forEach(d => {
+          uniqueDegreesMap[d.value] = d; // If the value exists, it overwrites (keeps last)
+        });
+
+        // Convert back to array and sort by text (so all "Grado en..." appear together)
+        this.filteredDegrees = Object.values(uniqueDegreesMap).sort((a, b) =>
+          a.text.localeCompare(b.text)
+        );
+      } catch (e) {
+        console.error('Error cargando grados:', e)
+      } finally {
+        this.loadingDegrees = false
+      }
+    },
 
     hideDialog() {
       this.isVisible = false
@@ -448,8 +461,13 @@ export default {
       this.person_last_name = this.$auth.user.surname
       this.person_mail = this.$auth.user.email
       this.person_nif = this.$auth.user.nif
-      this.person_school = this.$auth.user.school || ""
-      if (this.person_school) await this.loadDegreesBySchool(this.person_school)  // ← nombre largo
+      this.person_schools = this.$auth.user.school || []
+      this.person_schools_string = this.person_schools.map(s => s.name).join(', ');
+      if (this.person_schools && this.person_schools.length) {
+        for (const school of this.person_schools) {
+          await this.loadDegreesBySchool(school); // Load degrees for each school of the user
+        }
+      }
     }
   })
 }
