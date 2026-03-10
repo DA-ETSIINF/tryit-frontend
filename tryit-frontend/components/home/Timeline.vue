@@ -48,17 +48,17 @@
           <v-icon medium>mdi-close</v-icon>
         </v-btn>
         <!-- quitar este comentario cuando se sepan los horarios -->
-        <!-- <template v-slot:extension>
+        <template v-slot:extension>
           <v-tabs v-model="tab" grow align-with-title next-icon="mdi-arrow-right-bold-box-outline"
             prev-icon="mdi-arrow-left-bold-box-outline" show-arrows center-active centered slider-color="yellow" dark>
             <v-tab v-for="post in posts" :key="post.day" @click="deleteShow()">
               {{ post.day }}
             </v-tab>
           </v-tabs>
-        </template> -->
+        </template>
       </v-toolbar>
 
-      <div style="
+      <!-- <div style="
             display: flex;
             align-items: center;
             justify-content: center;
@@ -66,10 +66,10 @@
             margin: 20px;
             text-align: center;">
         <p style="font-size: 20px;">Próximamente</p>
-      </div><!-- Quitar cuando sepamos los horarios en general -->
+      </div> --> <!-- Añadir cuando no sepamos los horarios -->
 
-<!--Volver a poner lo de abajo cuando se sepan -->
-     <!-- <v-tabs-items v-model="tab">
+<!--comentar cuando no se sepan -->
+     <v-tabs-items v-model="tab">
         <v-tab-item v-for="(post) in posts" :key="post.day">
 
           <v-timeline>
@@ -251,7 +251,7 @@
             </v-slide-x-reverse-transition>
           </v-timeline>
         </v-tab-item>
-      </v-tabs-items>-->
+      </v-tabs-items>
     </v-card>
 
   </v-dialog>
