@@ -137,11 +137,11 @@
               </v-card-subtitle>
               <v-card-text>
                 Al registrarse para este evento, acepta la
-                <v-btn depressed color="primary" href="http://api.congresotryit.es/api/editions/get_privacy"
+                <v-btn depressed color="primary" href="http://tryit.upm.es/api/editions/get_privacy"
                   target="_blank" plain>Politica de protección de datos
                 </v-btn>
                 y la
-                <v-btn depressed color="primary" href="http://api.congresotryit.es/api/editions/get_image_rights"
+                <v-btn depressed color="primary" href="http://tryit.upm.es/api/editions/get_image_rights"
                   target="_blank" plain>Cesión de derechos de imágen.
                 </v-btn>
               </v-card-text>
