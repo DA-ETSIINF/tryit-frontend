@@ -161,7 +161,7 @@ los lenguajes permitidos.</li>
               en la web del congreso <strong>Try IT!</strong>:
             </p>
             <p>
-              <a href="https://forms.gle/gzC8VftHZPpC3sWu6" target="_blank">https://forms.gle/gzC8VftHZPpC3sWu6</a>
+              <a href="https://forms.gle/joHqZKqrxSiy8uTVA" target="_blank">https://forms.gle/joHqZKqrxSiy8uTVA</a>
             </p>
             <p>Todos los integrantes de un equipo deberán completar el formulario de
             inscripción, además de tener la entrada del Try-IT!
