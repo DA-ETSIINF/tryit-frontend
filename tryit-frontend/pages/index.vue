@@ -31,14 +31,13 @@
 		<Hackaton />
 		<MesasRedondas /> -->
 
-		<hr>
+		<!-- <hr>
 
-		<!-- PONER DE VUELTA EL AÑO QUE VIENE SI SE BUSACAN VOLUNTARIOS -->
 		<v-card>
 			<h2 align="center">¡Buscamos voluntarios!</h2>
 			<Voluntarios></Voluntarios>
 		</v-card> 
-		<hr>
+		<hr> -->
 
 		<section>
 			<h2 align="center">¿Qué ofrecemos?</h2>
