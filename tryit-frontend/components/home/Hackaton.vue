@@ -43,121 +43,151 @@
               </ol>
             </nav>
 
-            <h2 id="objetivo">1. Objetivo del Concurso</h2>
-            <p>El Hack IT! es un Hackathon que va a tener lugar en el Congreso Try IT! de 2025. Se trata de una
-              competición de
-              programación competitiva orientada a resolver problemas complejos dentro de un marco temático determinado.
-              Los
-              participantes deberán desarrollar soluciones eficientes en un tiempo limitado, evaluadas mediante un
-              sistema de
-              jueces automáticos.</p>
-
-            <h2 id="requisitos">2. Requisitos de Participación</h2>
+            <h2 id="objetivo">Objetivo del Concurso</h2>
+            <p>El <strong>Hack-IT!</strong> es una competición de programación competitiva que se celebra
+            dentro del congreso <strong>Try-IT!</strong> en la Escuela Técnica Superior de Ingenieros
+            Informáticos de la Universidad Politécnica de Madrid (UPM).
+            </p><p>
+            
+            El objetivo del evento es que los participantes resuelvan problemas
+            algorítmicos y computacionales en un tiempo limitado, desarrollando
+            soluciones eficientes que serán evaluadas mediante un sistema
+            automático de jueces.
+            </p><p>
+              La competición busca fomentar:
+            </p>
             <ul>
-              <li>Podrán participar estudiantes de Grado o Máster de cualquier escuela de la Universidad Politécnica de
-                Madrid
-                (UPM) en equipos de 3 a 5 integrantes.</li>
-              <li>Se recomienda que los equipos sean multidisciplinarios, aunque no es obligatorio.</li>
+              <li>el pensamiento algorítmico</li>
+              <li>la resolución eficiente de problemas</li>
+              <li>el trabajo en equipo</li>
+              <li>la aplicación práctica de conocimientos de informática</li>
+            </ul>
+            <p>Los problemas podrán estar inspirados en casos reales de la industria
+            tecnológica o en áreas de ciencias de la computación.</p>
+            
+            <h2 id="requisitos">Requisitos de Participación</h2>
+            <p>Podrán participar estudiantes de Grado o Máster de la Universidad
+            Politécnica de Madrid (UPM).
+            </p><p>
+              Los equipos deberán cumplir las siguientes condiciones:
+            </p>
+            <ul>
+              <li>Cada equipo estará formado por <strong>2 o 3 integrantes.</strong></li>
+              <li>Los participantes competirán <strong>de forma presencial</strong> en las aulas de
+              informática habilitadas para el evento.</li>
+              <li>Cada equipo dispondrá de <strong>un único ordenador y monitor </strong> durante
+              la competición.</li>
             </ul>
 
-            <h2 id="formato">3. Formato y Dinámica del Concurso</h2>
+            <h2 id="formato">Formato y Dinámica del Concurso</h2>
+            <p>La competición consistirá en la resolución de 5 problemas de
+            programación con distintos niveles de dificultad:</p>
             <ul>
-              <li>Se propondrá un conjunto de problemas alineados con temáticas de ciencias de la computación,
-                ingeniería,
-                salud, fintech, movilidad, entre otras.</li>
-              <li>Cada equipo deberá programar soluciones en el lenguaje de programación permitido por la organización.
-              </li>
-              <li>
-                Se contará con un sistema de jueces automáticos que evaluará las soluciones enviadas en función de:
-                <ul>
-                  <li>Correctitud de la solución (si pasa todas las pruebas proporcionadas por el juez automático).</li>
-                  <li>Complejidad temporal (tiempo de ejecución de la solución).</li>
-                  <li>Tiempo total de envío (en caso de empate en número de pruebas superadas, se priorizará la rapidez
-                    de
-                    entrega).</li>
-                </ul>
-              </li>
+              <li>1 problema fácil</li>
+              <li>2 problemas intermedios</li>
+              <li>2 problemas difíciles</li>
+            </ul>
+            <p>Al inicio del concurso, cada equipo recibirá un cuadernillo con los
+            enunciados, que incluirá una portada con el nombre del equipo.</p>
+          
+            <p>Las soluciones deberán enviarse a través del sistema DOMjudge, que
+            evaluará automáticamente cada programa ejecutándolo sobre una
+            batería de casos de prueba. </p>
+          
+            <p>Las soluciones se evaluarán según:</p>
+            <ul>
+              <li>Correctitud de la solución (superar los casos de prueba).</li>
+              <li>Eficiencia computacional.</li>
+              <li>Tiempo de envío de la solución.</li>
+            </ul>
+          
+            <p>Durante la competición solo se permitirá acceder a:</p>
+            <ul>
+              <li>la plataforma DOMjudge</li>
+              <li>la documentación oficial de los lenguajes permitidos.</li>
             </ul>
 
-            <h2 id="criterios">4. Criterios de Evaluación y Puntuación</h2>
+            <p>Los lenguajes de programación permitidos serán:</p>
             <ul>
-              <li>Cada problema tendrá un puntaje basado en su dificultad y el número de casos de prueba superados.</li>
-              <li>
-                La puntuación total se calculará según el multiplicador de nivel académico del equipo:
-                <ul>
-                  <li>Primer curso: x1.5</li>
-                  <li>Segundo curso: x1.4</li>
-                  <li>Tercer curso: x1.2</li>
-                  <li>Cuarto, quinto curso o máster: x1.0</li>
-                </ul>
-              </li>
-              <li>El curso del equipo se define por el nivel más alto de sus integrantes.</li>
+              <li>Java</li>
+              <li>Python</li>
+              <li>C++</li>
+              <li>C</li>
             </ul>
 
-            <h2 id="reglas">5. Reglas Generales</h2>
-            <ul>
-              <li>No se permitirá la comunicación entre equipos.</li>
-              <li>Cualquier intento de plagio o fraude resultará en la descalificación inmediata del equipo.</li>
-              <li>El evento contará con un comité de supervisión encargado de resolver cualquier disputa o problema que
-                pueda
-                surgir.</li>
-              <li>La participación se llevará a cabo de manera presencial. No se tendrán en cuenta las pruebas
-                entregadas de
-                equipos que no asistan al congreso.</li>
-            </ul>
 
-            <h2 id="premios">6. Premios y Reconocimientos</h2>
+            <h2 id="criterios">Evaluación</h2>
+            <p>La clasificación seguirá el sistema habitual de programación competitiva.
+            Se tendrá en cuenta:</p>
             <ul>
-              <li>Se otorgarán premios a los tres primeros equipos con mayor puntuación.</li>
-              <li>Ganarás 0,5 ECTS y un diploma solo por participar.</li>
-              <li>Los ganadores recibirán reconocimientos y posibles incentivos proporcionados por las empresas
-                colaboradoras.
-              </li>
-              <li>Además, se crearán distintos ránkings por prueba, permitiéndole a los equipos ganadores ser
-                contactados
-                directamente por las empresas organizadoras de dicha prueba.</li>
+              <li><strong>Número de problemas resueltos correctamente.</strong></li>
+              <li><strong>Tiempo total de resolución</strong>, incluyendo penalizaciones por envíos
+              incorrectos.</li>
             </ul>
-
-            <h2 id="fecha">7. Fecha y Lugar del Evento</h2>
+            <p>Con el objetivo de fomentar la participación de estudiantes de distintos
+            cursos, se aplicará <strong>un multiplicador según el nivel académico del
+            equipo</strong>:</p>
             <ul>
-              <li>El Hack IT! se llevará a cabo durante el congreso Try IT! en la ETSI Informáticos de la UPM, en la
-                Edición
-                XIII (2025).</li>
-              <li>
-                La organización de las pruebas será la siguiente:
-                <ul>
-                  <li>Prueba 1. Jueves 20 de 10:00 a 12:00</li>
-                  <li>Prueba 2. Jueves 20 de 17:00 a 19:00</li>
-                  <li>Prueba 3. Viernes 21 de 10:00 a 12:00</li>
-                  <li>Final. Sábado 22 de 11:00 a 13:00</li>
-                </ul>
-              </li>
-              <li>Solo tendrán que asistir a la final los 5 primeros equipos.</li>
+              <li>Primer curso → x1.5</li>
+              <li>Segundo curso → x1.4</li>
+              <li>Tercer curso → x1.2</li>
+              <li>Cuarto curso o máster → x1.0</li>
             </ul>
+            <p>El curso del equipo se definirá como el curso más alto entre sus integrantes.</p>
 
-            <h2 id="inscripcion">8. Inscripción</h2>
+            <h2 id="reglas">Reglas Generales</h2>
+            <p>Durante la competición se deberán respetar las siguientes normas:</p>
             <ul>
-              <li>
-                La inscripción será gratuita y se realizará a través del siguiente formulario en línea, publicado además
-                en la
-                web del congreso:
-                <a href="https://tryit.upm.es/" target="_blank">https://tryit.upm.es/</a>
-              </li>
-              <li>
-                <a href="https://forms.gle/gzC8VftHZPpC3sWu6" target="_blank">https://forms.gle/gzC8VftHZPpC3sWu6</a>
-              </li>
-              <li>Todos los miembros de un equipo deberán rellenar el formulario por separado.</li>
-              <li>La fecha límite para inscribirse será el 18 de marzo de 2025.</li>
+              <li>No se permitirá la <strong>comunicación entre equipos</strong>.</li>
+              <li>Los <strong>teléfonos móviles deberán permanecer apagados</strong> y colocados en un rincón de la mesa.</li>
+              <li>Cada equipo utilizará <strong>un único ordenador</strong>.</li>
+              <li>El acceso a internet estará <strong>restringido</strong> a la red habilitada en las aulas de informática.</li>
+              <li>Solo se podrá acceder a <strong>DOMjudge</strong> y a la documentación oficial de
+los lenguajes permitidos.</li>
             </ul>
-
-            <h2 id="consideraciones">9. Consideraciones Finales</h2>
+            <p>Cualquier intento de:</p>
             <ul>
-              <li>La organización se reserva el derecho de modificar las bases del concurso en caso de ser necesario,
-                notificándolo con suficiente antelación.</li>
-              <li>La participación en el evento implica la aceptación de estas bases y normas.</li>
-              <li>
-                <a href="https://forms.gle/gzC8VftHZPpC3sWu6" target="_blank">https://forms.gle/gzC8VftHZPpC3sWu6</a>
-              </li>
+              <li>plagio</li>
+              <li>fraude</li>
+              <li>acceso a recursos no autorizados</li>
+            </ul>
+            <p>supondrá la <strong>descalificación inmediata</strong> del equipo.</p>
+            <p>La organización contará con <strong>un comité de supervisión</strong> encargado de
+            resolver cualquier incidencia o disputa.</p>
+            
+            <h2 id="inscripcion">Inscripción</h2>
+            <p>
+              La inscripción será <strong>gratuita</strong> y se realizará a través del formulariopublicado
+              en la web del congreso <strong>Try IT!</strong>:
+            </p>
+            <p>
+              <a href="https://forms.gle/gzC8VftHZPpC3sWu6" target="_blank">https://forms.gle/gzC8VftHZPpC3sWu6</a>
+            </p>
+            <p>Todos los integrantes de un equipo deberán completar el formulario de
+            inscripción, además de tener la entrada del Try-IT!
+            </p>
+            
+            <h2 id="fecha">Horario</h2>
+            <p>La competición se dividirá en dos sesiones:</p>
+            <p>Primera sesión</p>
+            <ul>
+              <li>10:00 – 12:00</li>
+            </ul>
+            <p>Segunda sesión</p>
+            <ul>
+              <li>17:00 – 18:00</li>
+            </ul>
+            <p>Al finalizar la primera sesión se recogerán <strong>los cuadernillos de problemas</strong>.</p>
+            <p>Al inicio de la segunda sesión <strong>se volverán a repartir los cuadernillos</strong> y la
+            competición continuará hasta su finalización.</p>
+
+            <h2 id="premios">Premios y Reconocimientos</h2>
+            <p>Se otorgarán premios a los<strong> tres equipos </strong>con mayor puntuación.</p>
+            <p>Los equipos ganadores podrán recibir:</p>  
+            <ul>
+              <li>premios proporcionados por las <strong>empresas colaboradoras</strong></li>
+              <li>diplomas de participación</li>
+              <li>posibles oportunidades de contacto con empresas participantes en el evento</li>
             </ul>
 
 
