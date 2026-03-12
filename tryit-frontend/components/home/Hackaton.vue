@@ -160,9 +160,9 @@ los lenguajes permitidos.</li>
               La inscripción será <strong>gratuita</strong> y se realizará a través del formulario publicado
               en la web del congreso <strong>Try IT!</strong>:
             </p>
-            <!-- <p>
+            <p>
               <a href="https://forms.gle/joHqZKqrxSiy8uTVA" target="_blank">https://forms.gle/joHqZKqrxSiy8uTVA</a>
-            </p> -->
+            </p>
             <p>Todos los integrantes de un equipo deberán completar el formulario de
             inscripción, además de tener la entrada del Try-IT!
             </p>
