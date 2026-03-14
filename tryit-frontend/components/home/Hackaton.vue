@@ -157,7 +157,7 @@ los lenguajes permitidos.</li>
             
             <h2 id="inscripcion">Inscripción</h2>
             <p>
-              La inscripción será <strong>gratuita</strong> y se realizará a través del formulariopublicado
+              La inscripción será <strong>gratuita</strong> y se realizará a través del formulario publicado
               en la web del congreso <strong>Try IT!</strong>:
             </p>
             <p>
