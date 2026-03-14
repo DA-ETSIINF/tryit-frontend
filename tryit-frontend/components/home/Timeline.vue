@@ -325,6 +325,12 @@ export default {
             ev['color'] = 'purple'
             ev['icon'] = 'mdi-bullseye-arrow'
             break;
+          case "FE": 
+            // Feria de empleo
+            ev['brief'] = 'Feria de Empleo'
+            ev['color'] = 'brown'
+            ev['icon'] = 'mdi-briefcase'
+            break;
           default:
             // Unknown Type
             // @info Easter Eggs de Halo por si alguien en un futuro está mirando esto y lo está pasando mal
