@@ -334,7 +334,9 @@ export default {
         this.no_event_alert = true
         return
       }
-      const payload = { id, event: this.eventValue }
+      const eventId = this.eventIds[this.eventNames.indexOf(this.eventValue)]
+
+      const payload = { id, event: eventId };
       try {
         const response = await this.$axios.post(
           `${process.env.api}/api/editions/${process.env.edition}/validate_ticket/`,
