@@ -20,12 +20,12 @@
         </v-toolbar>
 
         <section class="contenido_mesas">
-          <h3>Proximamente</h3>
-          <!-- <hr>
+          
+          <hr>
           <div class="mesas_texto">
             <h3>Mesas Redondas</h3>
             <p>
-              Durante toda la semana, de 15:30 a 17:00, tendrán lugar mesas redondas entre
+              Durante toda la semana tendrán lugar mesas redondas entre
               profesionales de empresa 👔💼 y profesores de nuestra universidad 🎓📚. <br><br>
               Una oportunidad única para intercambiar ideas, conocer experiencias del mundo laboral
               y escuchar a expertos debatir sobre temas de interés. ¡No te lo pierdas! 🚀👏
@@ -36,13 +36,13 @@
           <section class="imagenes_mesas">
             <div v-for="(n, index) in 5" :key="index">
               <v-img 
-                :src="`/img/mesas-redondas-imagenes/mesa-redonda${n}.jpg`" 
+                :src="`/img/mesas-redondas-imagenes/mesa-redonda${n}.jpeg`" 
                 class="responsive-img" 
                 contain
               ></v-img>
               <hr v-if="index < 4" />
             </div>
-          </section> -->
+          </section>
           
         </section>
       </v-card>
