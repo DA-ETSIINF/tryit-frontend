@@ -11,8 +11,8 @@
               </tr>
               <tr>
                 <td colspan="7">
-                  <h2>¡Ya ha empezado la cuenta atrás!</h2>
-                   <!-- <h2>¡Ya ha empezado el Tryit!</h2> -->
+                  <!-- <h2>¡Ya ha empezado la cuenta atrás!</h2> -->
+                   <h2>¡Ya ha empezado el Tryit!</h2>
                    <!--<h1>Dia viernes 21 cancelado por riesgo de lluvias</h1>
                    <h5>Por la situación meteorológica, no se realizarán las actividades programadas para el dia 21 de marzo. Sentimos mucho las molestias que esto haya podido causar. - Comité Organizador del XIII TryIT!</h5>-->
                 </td>
@@ -20,7 +20,7 @@
             </thead>
             <tbody>
               
-            <template v-if="!tryitEnded">
+            <!-- <template v-if="!tryitEnded">
                 
                 <tr v-if="secondsLeft > 0">
                   <td>
@@ -58,12 +58,12 @@
                     <div class="time">próximamente</div>
                   </td>
                 </tr>
-              </template>
+              </template> -->
             </tbody>
             <tfoot>
               <tr>
                 <td colspan="7">
-                  <h2>16 al 20 de Marzo de 2026</h2>
+                  <h2>del 16 al 20 de Marzo de 2026</h2>
                 </td>
               </tr>
             </tfoot>
