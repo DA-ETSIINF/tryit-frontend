@@ -142,8 +142,10 @@ export default {
         },
         async get_events() {
             let res;
+            let res2;
             try{
                 res = await this.$axios.get(`${process.env.api}/api/editions/${process.env.edition}/get_events/`)
+                res2 = await this.$axios.get(`${process.env.api}/api/editions/${process.env.edition}/get_timed_events`)
             }
             catch(error){
                 console.log(error)
@@ -166,6 +168,21 @@ export default {
                 this.total_ects += event.event_ects
             }
             this.total_ects = parseFloat(this.total_ects.toFixed(4)); 
+            let timedAtt;
+            for (timedAtt of res2.data){
+                i++
+                let timeAttended = new Date(timedAtt.end) - new Date(timedAtt.start)
+                let totalTime = new Date(timedAtt.event.end_date) - new Date(timedAtt.event.start_date)
+                this.items.push({
+                    id: i,
+                    time: timedAtt.start,
+                    title: timedAtt.event.name,
+                    color: 'red',
+                    ects: (timeAttended/totalTime).toFixed(3)
+                })
+                this.total_ects += Number((timeAttended/totalTime).toFixed(3))
+            }
+            this.items.sort((a, b) => new Date(a.time) - new Date(b.time))
                 
         },
         async resendTicket() {
