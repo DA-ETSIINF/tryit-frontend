@@ -204,6 +204,7 @@ export default {
       isHidden: true,
       isValid: undefined,
       camera: 'auto',
+      previousCamera: 'auto',
       result: null,
       noRearCamera: false,
       noFrontCamera: false,
@@ -304,7 +305,7 @@ export default {
 
     async onDecode(content) {
       this.result = content
-      //this.turnCameraOff()
+      this.turnCameraOff()
       await this.timeout(500)
 
       let id
@@ -324,7 +325,7 @@ export default {
       }
 
       await this.timeout(300)
-      //this.turnCameraOn()
+      this.turnCameraOn()
       await this.timeout(1500)
       this.clearAllAlerts()
     },
@@ -388,8 +389,15 @@ export default {
       }
     },
 
-    turnCameraOn() { this.camera = 'auto' },
-    turnCameraOff() { this.camera = 'off' },
+    turnCameraOn() {
+      this.camera = this.previousCamera || 'auto'
+    },
+    turnCameraOff() {
+      if (this.camera !== 'off') {
+        this.previousCamera = this.camera
+      }
+      this.camera = 'off'
+    },
     timeout(ms) {
       return new Promise(resolve => window.setTimeout(resolve, ms))
     },
