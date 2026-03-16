@@ -304,8 +304,8 @@ export default {
 
     async onDecode(content) {
       this.result = content
-      this.turnCameraOff()
-      await this.timeout(500)
+      //this.turnCameraOff()
+      //await this.timeout(500)
 
       let id
       try {
@@ -323,8 +323,8 @@ export default {
         }
       }
 
-      await this.timeout(300)
-      this.turnCameraOn()
+      //await this.timeout(300)
+      //this.turnCameraOn()
       await this.timeout(1500)
       this.clearAllAlerts()
     },
