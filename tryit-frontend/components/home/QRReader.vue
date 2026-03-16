@@ -290,6 +290,9 @@ export default {
         const cameraMissingError = error.name === 'OverconstrainedError'
         if (triedRearCamera && cameraMissingError) this.noRearCamera = true
         if (triedFrontCamera && cameraMissingError) this.noFrontCamera = true
+        if (cameraMissingError) {
+            this.camera = "auto";
+        }
         console.error('[DEBUG] Camera error:', error)
       }
       this.resetValidationState()
