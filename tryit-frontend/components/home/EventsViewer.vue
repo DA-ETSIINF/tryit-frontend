@@ -31,7 +31,7 @@
             ¡Error al reenviar la entrada! Inténtalo de nuevo más tarde.
       </v-alert>
     <v-card >
-        <v-card-title v-if="this.$auth.loggedIn" class="text-h6 text-md-h5 text-lg-h4 justify-center"> {{ this.$auth.user.name }}, de momento te corresponden {{ this.total_ects }} ECTS</v-card-title>
+        <v-card-title v-if="this.$auth.loggedIn" class="text-h6 text-md-h5 text-lg-h4 justify-center"> {{ this.$auth.user.name }}, de momento te corresponden {{ this.total_ects.toFixed(3) }} ECTS</v-card-title>
         <v-container>
             <template>
             <v-timeline 
