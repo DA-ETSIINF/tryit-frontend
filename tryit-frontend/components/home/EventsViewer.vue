@@ -178,9 +178,9 @@ export default {
                     time: timedAtt.start,
                     title: timedAtt.event.name,
                     color: 'red',
-                    ects: (timeAttended/totalTime).toFixed(3)
+                    ects: ((timeAttended/totalTime) * timedAtt.event.event_ects).toFixed(3)
                 })
-                this.total_ects += Number((timeAttended/totalTime).toFixed(3))
+                this.total_ects += Number(((timeAttended/totalTime) * timedAtt.event.event_ects).toFixed(3))
             }
             this.items.sort((a, b) => new Date(a.time) - new Date(b.time))
                 
